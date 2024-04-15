@@ -1,0 +1,11 @@
+
+## Keyremappings 
+## caps to crtl and schif+caps to caps
+exec --no-startup-id xmodmap -e "clear lock"
+exec --no-startup-id xmodmap -e "clear control"
+exec --no-startup-id xmodmap -e "add control = Caps_Lock Control_L Control_R"
+exec --no-startup-id xmodmap -e "keycode 66 = Control_L Caps_Lock NoSymbol NoSymbol"
+
+
+## reverse mouse scroll
+exec --no-startup-id xmodmap -e "pointer = 1 2 3 4 5 6 7 8 9 10 11 12"

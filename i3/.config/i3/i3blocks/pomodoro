@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+# Pomodoro timer
+echo "$(pomodoro status | awk 'NR==2'): $(pomodoro status | awk 'NR==1{print $1}')"

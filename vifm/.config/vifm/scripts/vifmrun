@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+export FIFO_UEBERZUG="/tmp/vifm-ueberzug-${PPID}"
+
+function cleanup {
+    rm "$FIFO_UEBERZUG" 2>/dev/null
+    pkill -P $$ 2>/dev/null
+}
+
+function start {
+	local dst="$(command vifm --choose-dir - "$@")"
+	if [ -z "$dst" ]; then
+		echo 'Directory picking cancelled/failed'
+		return 1
+	fi
+	cd "$dst"
+}
+
+rm "$FIFO_UEBERZUG" 2>/dev/null
+mkfifo "$FIFO_UEBERZUG"
+trap cleanup EXIT
+tail --follow "$FIFO_UEBERZUG" | ueberzug layer --silent --parser bash &
+
+start
+cleanup

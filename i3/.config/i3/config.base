@@ -1,0 +1,624 @@
+#####################################################################################################################
+#####################################################################################################################
+#################                          Start of all the settings                                #################
+#####################################################################################################################
+#####################################################################################################################
+
+# KEY DEFINITIONS TO REMEMBER
+
+# $Mod = WINDOWS key or Super key or Mod4
+# Mod1 = ALT key
+# Control = CTRL key
+# Shift = SHIFT key
+# Escape = ESCAPE key
+# Return = ENTER or RETURN key
+# KP_Enter = Keypad Enter
+# Pause = PAUSE key
+# Print = PRINT key
+# Tab = TAB key
+
+#####################################################################################################################
+#################                          Keyboard Layout                                         #################
+#####################################################################################################################
+
+
+#####################################################################################################################
+#################                          Define the $mod variable/key                             #################
+#####################################################################################################################
+
+# Key to rule them all : Super(Windows) or Alt key?
+
+# Mod4 = Windows or Super key on keyboard
+# Mod1 = Alt key on keyboard
+
+#Set Alt key
+#set $mod Mod1
+
+#set Super key
+set $mod Mod4
+
+
+
+#####################################################################################################################
+#################                          Define the movements keys - variables                    #################
+#####################################################################################################################
+
+
+#This is setup for qwerty
+set $up k
+set $down j
+set $left h
+set $right l
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+bindsym $mod+Shift+1 workspace Music
+bindsym $mod+Shift+2 workspace Com
+bindsym $mod+Shift+3 workspace Debug
+bindsym $mod+Shift+4 workspace Paint
+bindsym $mod+Shift+5 workspace VM
+bindsym $mod+Shift+6 workspace Tablet
+
+# move focused container to workspace
+bindsym mod1+1 move container to workspace 1; workspace 1
+bindsym mod1+2 move container to workspace 2; workspace 2
+bindsym mod1+3 move container to workspace 3; workspace 3
+bindsym mod1+4 move container to workspace 4; workspace 4
+bindsym mod1+5 move container to workspace 5; workspace 5
+bindsym mod1+6 move container to workspace 6; workspace 6
+bindsym mod1+7 move container to workspace 7; workspace 7
+bindsym mod1+8 move container to workspace 8; workspace 8
+bindsym mod1+9 move container to workspace 9; workspace 9
+bindsym mod1+0 move container to workspace 10; workspace 10
+bindsym mod1+Shift+1 move container to workspace Music; workspace Music
+bindsym mod1+Shift+2 move container to workspace Com; workspace Com
+bindsym mod1+Shift+3 move container to workspace Debug; workspace Debug
+bindsym mod1+Shift+4 move container to workspace Paint; workspace Paint
+bindsym mod1+Shift+5 move container to workspace VM; workspace VM
+bindsym mod1+Shift+6 move container to workspace Tablet; workspace Tablet
+
+# move workspace between monitors
+bindsym $mod+i move workspace to output right
+bindsym $mod+Shift+i move workspace to output up
+
+
+#####################################################################################################################
+#################                          3 menu's in arcolinux                                     #################
+#####################################################################################################################
+
+# start rofi small
+bindsym $mod+Shift+d exec --no-startup-id rofi -show drun -font "Noto Sans 13"
+
+#####################################################################################################################
+#################                          how to exit, logoff, suspend, ...                        #################
+#####################################################################################################################
+
+#Backup exit
+#Press ctrl+alt+x - check toolbar for next choices
+bindsym $mod+Shift+e mode "$mode_system"
+
+set $mode_system System (k) lock, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
+mode "$mode_system" {
+    bindsym k exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock, mode "default"
+    bindsym l exec --no-startup-id ~/.config/i3/scripts/i3exit.sh logout, mode "default"
+    bindsym u exec --no-startup-id ~/.config/i3/scripts/i3exit.sh suspend, mode "default"
+    bindsym h exec --no-startup-id ~/.config/i3/scripts/i3exit.sh hibernate, mode "default"
+    bindsym r exec --no-startup-id ~/.config/i3/scripts/i3exit.sh reboot, mode "default"
+    bindsym s exec --no-startup-id ~/.config/i3/scripts/i3exit.sh shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+
+#####################################################################################################################
+#################                          reload changed configuration                             #################
+#####################################################################################################################
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+#####################################################################################################################
+#################                          Stopping an application                                  #################
+#####################################################################################################################
+
+# kill focused window
+bindsym $mod+Shift+q kill
+bindsym $mod+q kill
+
+#####################################################################################################################
+#################                          Moving around in i3                                      #################
+#####################################################################################################################
+
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+
+exec gsettings set org.gnome.desktop.interface gtk-theme 'Ultimate-PUNK-GTK'
+exec gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
+exec gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
+
+#####################################################################################################################
+#################                          moving around workspaces                                 #################
+#####################################################################################################################
+
+# Automatic back-and-forth when switching to current workspace
+workspace_auto_back_and_forth yes
+
+#####################################################################################################################
+#################                          Tiling parameters                                        #################
+#####################################################################################################################
+
+# default workspace layout
+workspace_layout stacking
+
+# orientation for new workspaces
+default_orientation horizontal
+
+# split in horizontal orientation
+bindsym $mod+c split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+# Super + F in arcolinux is execute thunar
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+# qwerty/azerty issue for letter z
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
+
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+#####################################################################################################################
+#################                          resize                                                   #################
+#####################################################################################################################
+
+# Resizing by 1
+bindsym $mod+Left resize shrink width 10 px or 10 ppt
+bindsym $mod+Up resize grow height 10 px or 10 ppt
+bindsym $mod+Right resize grow width 10 px or 10 ppt
+bindsym $mod+Down resize shrink height 10 px or 10 ppt
+
+# Resizing by 10
+bindsym $mod+Shift+Left resize shrink width 1 px or 1 ppt
+bindsym $mod+Shift+Up resize grow height 1 px or 1 ppt
+bindsym $mod+Shift+Right resize grow width 1 px or 1 ppt
+bindsym $mod+Shift+Down resize shrink height 1 px or 1 ppt
+
+
+#####################################################################################################################
+#################                          choose the font                                          #################
+#####################################################################################################################
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+# choose your font
+font pango:Fira Code Bold 10
+#font pango:IBM 3161 bitmap Regular 13
+#font pango:Anonymous Pro Regular 13
+
+
+#####################################################################################################################
+#################                          assign applications to workspaces                       #################
+#####################################################################################################################
+
+# Assign application to start on a specific workspace
+# you can find the class with the program xprop
+#
+
+
+# Workspace Com mail/discord
+assign [class="discord"]		  				    → Com
+assign [class="Evolution"]						    → Com
+assign [class="Signal"]						        → Com
+
+# Workspace 9 steam
+assign [class="steam"]						        → 9
+
+# Workspace 10 
+assign [class="obsidian"]						      → 10
+assign [class="Anki"]						      → 10
+
+# Workspace VM Virtual Machine Manager
+assign [class="Virt-manager"]						  → VM
+
+assign [class="mpv"] 						          → Music
+
+
+# Workspace Debug
+
+
+#####################################################################################################################
+#################           autostart   -    execute applications at boot time                      #################
+#####################################################################################################################
+
+# USER APPLICATIONS TO START AT BOOT
+
+# Udiskie
+exec --no-startup-id udiskie --tray
+
+#Brave
+exec --no-startup-id sleep 1 && i3-msg 'workspace 9; exec brave' && sleep 2 && i3-msg 'workspace 7; exec brave'
+
+# ChatGpt
+exec --no-startup-id sleep 13 && i3-msg 'workspace Debug; exec google-chrome-stable https://chat.openai.com/'
+
+#Anki
+exec --no-startup-id anki
+
+#Urxvt
+exec --no-startup-id i3-msg 'workspace 1; exec urxvt, workspace 2; exec urxvt,workspace 3; exec urxvt, workspace 4; exec urxvt, workspace 5; exec urxvt, workspace 6; exec urxvt'
+
+# tablet
+exec --no-startup-id i3-msg 'workspace Tablet;layout splitv; exec urxvt -e userspace_tablet_driver_daemon,'
+exec --no-startup-id sleep 5 && xinput map-to-output "UGTABLET 21.5 inch PenDisplay Stylus Pen (0)" "DisplayPort-5"
+
+#Keepassxc
+exec --no-startup-id sleep 5 && i3-msg 'workspace Com; exec keepassxc'
+
+#Signal
+exec --no-startup-id sleep 6 && i3-msg 'workspace Com; exec signal-desktop'
+
+#Music
+exec --no-startup-id sleep 9 && i3-msg 'workspace Music; exec urxvt -e "ncspot"'
+
+#Mail clients
+exec --no-startup-id sleep 11 && i3-msg 'workspace Com; exec evolution'
+
+#feh sets wallpaper
+exec --no-startup-id feh --bg-fill ~/black.jpg
+
+# TRAY APPLICATIONS
+
+# dropbox
+exec --no-startup-id dropbox start
+
+#####################################################################################################################
+#################                                 system applications                               #################
+#####################################################################################################################
+
+
+#####################################################################################################################
+#################                          applications keyboard shortcuts                          #################
+#####################################################################################################################
+
+#search highlighted text in google
+bindsym $mod+g exec --no-startup-id sh -c 'brave "https://www.google.com/search?q=$(xclip -o)"'
+
+#not workspace related
+bindsym $mod+b exec --no-startup-id brave
+
+# terminal
+bindsym $mod+Return exec --no-startup-id urxvt;focus
+bindsym $mod+KP_Enter exec --no-startup-id urxvt;focus
+bindsym control+mod1+Return exec --no-startup-id urxvt; focus
+bindsym control+mod1+KP_Enter exec --no-startup-id urxvt; focus
+
+#speedcrunch
+bindsym $mod+o exec --no-startup-id speedcrunch
+
+#htop
+bindsym mod1+Shift+h exec --no-startup-id urxvt -e htop; focus
+
+# ncpamixer
+bindsym mod1+v exec --no-startup-id urxvt -e ncpamixer; focus
+
+#bluetuith
+bindsym mod1+b exec --no-startup-id urxvt -e bluetuith
+bindsym mod1+Shift+b exec --no-startup-id pavucontrol
+
+
+#####################################################################################################################
+#################                          screenshots                                              #################
+#####################################################################################################################
+
+#screenshots
+bindsym $mod+shift+s exec --no-startup-id  gnome-screenshot -ac
+
+#####################################################################################################################
+#################                          floating or tiled                                        #################
+#####################################################################################################################
+
+
+#floating enabled from some programs - find with xprop
+
+
+for_window [title="bluetuith"] floating enable
+for_window [title="bluetuith"] move position center
+
+for_window [class="SpeedCrunch"] floating enable
+for_window [class="SpeedCrunch"] resize set 400 800
+for_window [class="SpeedCrunch"] move position center
+
+for_window [title="ncpamixer"] floating enable
+
+for_window [title="htop"] floating enable
+for_window [title="htop"] resize set 1000 1000
+for_window [title="htop"] move position center
+
+for_window [class="Blender Animation Player"] floating enable
+for_window [class="Blender Animation Player"] move position center
+
+
+for_window [title="Copying"] floating enable
+for_window [title="Deleting"] floating enable
+for_window [title="Moving"] floating enable
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="^Preferences$"] floating enable
+for_window [window_role="setup"] floating enable
+
+#####################################################################################################################
+#################                          give focus to applications                               #################
+#####################################################################################################################
+
+for_window [class="Urxvt"] focus
+no_focus [title="^Peek preview$"]
+
+#####################################################################################################################
+#################                          audio settings                                           #################
+#####################################################################################################################
+
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pamixer -i 5"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pamixer -d 5"
+bindsym XF86AudioMute exec --no-startup-id "pamixer -t"
+
+bindsym mod1+p exec --no-startup-id playerctl play-pause
+bindsym mod1+n exec --no-startup-id playerctl next
+bindsym mod1+Shift+n exec --no-startup-id playerctl previous
+
+#####################################################################################################################
+#################                          xbacklight                                               #################
+#####################################################################################################################
+
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
+
+
+#####################################################################################################################
+#################                          border control                                           #################
+#####################################################################################################################
+
+
+#new_window pixel 1
+default_border normal
+#new_window none
+
+#new_float pixel 1
+default_floating_border normal
+#new_float none
+
+
+#####################################################################################################################
+#################                          Popups  control                                          #################
+#####################################################################################################################
+
+#Popups during fullscreen mode
+popup_during_fullscreen smart
+
+
+#####################################################################################################################
+#################                          i3 gaps next                                             #################
+#####################################################################################################################
+
+# Settings for I3 next gap git
+# https://github.com/Airblader/i3/tree/gaps-next
+# delete or uncomment the following lines if you do not have it or do not
+# want it
+
+
+for_window [class="^.*"] border pixel 2
+gaps outer 1
+#smart_gaps on
+#smart_borders on
+
+
+#####################################################################################################################
+#################                          i3 gaps change                                           #################
+#####################################################################################################################
+
+
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+
+#####################################################################################################################
+#################                          picom of i3wm                                          #################
+#####################################################################################################################
+
+#if you want transparency on non-focused windows, ...
+exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
+
+bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
+
+#####################################################################################################################
+#####################################################################################################################
+#####################################################################################################################
+#################                          bar appearance                                           #################
+#####################################################################################################################
+#####################################################################################################################
+#####################################################################################################################
+
+bar {
+
+    height 20
+    workspace_buttons yes
+    font pango:Roboto Sans 11
+
+    position top
+
+    # https://github.com/vivien/i3blocks
+		status_command i3blocks -c ~/.config/i3/i3blocks.conf
+
+    colors {
+        background #14001E
+        statusline #F500FF
+        separator  #098610
+
+        # colorclass           border  backgr. text
+        focused_workspace     #14001E #14001E #00FF55
+        active_workspace      #14001E #14001E #05D1B5
+        inactive_workspace    #14001E #14001E #a9a9a9
+        urgent_workspace      #D19E8C #D19E8C #0F0000
+        }
+
+    }
+    ##STOP THEMING BAR
+
+    ##START THEMING WM
+    #Theme name : ArcoLinux Archive
+
+    # Window color settings
+    # class                 border  backgr. text    indicator
+    client.focused          #9500FF #9500FF #FF00Bc #004050
+    client.unfocused        #14001E #14001E #cccccc #004050
+    client.focused_inactive #14001E #14001E #cccccc #004050
+    client.placeholder      #14001E #14001E #cccccc #004050
+    client.urgent           #900000 #900000 #ffffff #900000
+
+    client.background       #242424
+
+    ##STOP THEMING WM
+
+#####################################################################################################################
+#####################################################################################################################
+#####################################################################################################################
+#####################################################################################################################
+########################################               THE   END          ###########################################
+#####################################################################################################################
+#####################################################################################################################
+#####################################################################################################################
+#####################################################################################################################
+#####################################################################################################################
+
+
+#####################################################################################################################
+#################                          Themes                                               #################
+#####################################################################################################################
+
+bindsym Mod1+t exec --no-startup-id lxappearance
+
+
+#####################################################################################################################
+#################                          Scratchpad                                               #################
+#####################################################################################################################
+
+for_window [class="Google-chrome"] move scratchpad
+for_window [class="Google-chrome"] resize set 1000 1150
+bindsym $mod+u scratchpad show 
+
+#####################################################################################################################
+#################                          mouse settings in i3                                     #################
+#####################################################################################################################
+
+# NOT USED
+
+# mouse settings
+# The middle button over a titlebar kills the window
+bindsym --release button2 kill
+
+# The middle button and a modifer over any part of the window kills the window
+# bindsym --whole-window $mod+button2 kill
+
+# The right button toggles floating
+# bindsym button3 floating toggle
+# bindsym $mod+button3 floating toggle
+
+# The side buttons move the window around
+ #bindsym button9 move left
+ #bindsym button8 move right
+
+
+#####################################################################################################################
+#################                          keyboard control                                         #################
+#####################################################################################################################
+
+# NOT USED
+
+# Settings of arcolinux will be applied
+exec --no-startup-id setxkbmap eu
+
+
+#####################################################################################################################
+#################                          unclutter                                                #################
+#####################################################################################################################
+
+# NOT USED
+
+# get the mouse out of the way with unclutter
+
+exec --no-startup-id unclutter
+

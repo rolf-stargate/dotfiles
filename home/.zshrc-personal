@@ -1,0 +1,77 @@
+# Use ESC to edit the current command line:
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\033' edit-command-line
+export KEYTIMEOUT=1
+
+# Go to last dir vifm
+alias fmcd="cd $(cat ~/.config/vifm/lastdir)"
+
+# Paint on Screen
+alias paint="gromit-mpx -a"
+
+# QMK edit --> compile --> flash
+alias qmk="nvim ~/qmk_firmware/keyboards/splitkb/kyria/keymaps/rolfstargate && /bin/qmk compile -kb kyria -e AVR_CFLAGS='-Wno-array-bounds' && /bin/qmk flash -kb kyria -e AVR_CFLAGS='-Wno-array-bounds'"
+
+# printlog files
+alias plog="multitail -cS MyLogs"
+
+# load completion stuff ??
+autoload -Uz compinit && compinit
+## My Aliases #################################################################
+
+## Ezentials ##################################################################
+alias dropboxignore="di" # Dropbox ignore npm i dropbox-recursive-ignore-node_modules -g
+alias rgif="byzanz-record -c -x 0 -y 1960 -w 1920 -h 1080 " # Record gif 
+alias duroot='sudo duc index / && sudo duc ui /'
+alias du='duc index ~ && duc ui ~'
+alias ls="ls -lA --color=auto --group-directories-first"
+
+## Remaps #####################################################################
+alias v="nvim"
+alias vim="nvim"
+alias cat="bat"
+alias less="moar"
+alias y="yay -Slq | fzf -m --preview-window=top --preview 'yay -Si {1}' | xargs -ro yay -S"
+
+## vm ########################################################################
+alias win11="sudo virsh start win11 && ~/looking-glass-B6/client/build/looking-glass-client -m KEY_F10"
+
+## ytfz youtoube fuzzy search #################################################
+alias yt="ytfzf -tsl --pages=5"
+alias ytc="ytfzf -tsl --pages=5 --multi-search --type=channel --thumbnails"
+
+
+# Zathura
+alias zt="zathura"
+
+# Obsidian
+alias vo="nvim ~/Dropbox/Obsidian/Rolf/"
+alias oc="nvim ~/Dropbox/Obsidian/Rolf/Work/Websites/Coswig/CoswigColaberation/Lissi/Obsidian\ Vault/Havenburg\ Media\ UG"
+
+# Configs
+alias zc='nvim ~/.zshrc'
+alias zcp='nvim ~/.zshrc-personal'
+alias vc='nvim ~/.vimrc'
+alias nvc='nvim ~/.config/nvim/'
+alias ic='nvim ~/.config/i3/config'
+alias ibc='nvim ~/.config/i3/i3blocks.conf'
+alias fmc='nvim ~/.config/vifm/vifmrc'
+
+# script so vifm exit cd in the last selected directory
+function fm() {
+  if [ -z "$1" ]; then
+    ~/.config/vifm/scripts/vifmrun && cd "$(cat ~/.config/vifm/lastdir)"
+  else
+    cd "$1" && ~/.config/vifm/scripts/vifmrun 
+  fi
+}
+
+# Path
+export PATH="/home/rolf/scripts:$PATH"
+
+# Export
+export HARSHPATH="$HOME/.config/harsh"
+
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#00ccff,bg:#130018,hl:#ff66e0 --color=fg+:#fabbfc,bg+:#130018,hl+:#c9ff00 --color=info:#ad8484,prompt:#0f8bff,pointer:#af5fff --color=marker:#87ff00,spinner:#997db5,header:#4e5975'
+
