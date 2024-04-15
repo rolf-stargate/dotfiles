@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# Check if two arguments are provided
+if [ "$#" -ne 2 ]; then
+    echo "Usage: [original file path] [new file path]"
+    exit 1
+fi
+
+# Assign arguments to variables
+original="$1"
+newlocation="$2"
+newBasename="$newlocation/$(basename "$original")"
+echo "$newBasename"
+
+# Move the file
+if mv "$original" "$newlocation"; then
+    echo "File moved successfully from $original to $newlocation."
+
+    # Create a symbolic link in the original location pointing to the new location
+    if ln -s "$newBasename" "$original"; then
+        echo "Symbolic link created at $original pointing to $newBasename."
+    else
+        echo "Failed to create symbolic link."
+        exit 1
+    fi
+else
+    echo "Failed to move file."
+    exit 1
+fi

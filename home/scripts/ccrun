@@ -1,0 +1,7 @@
+#!/bin/bash
+
+ccbuild
+
+pushd ~/Learning/C/Course/build > /dev/null
+./main
+popd > /dev/null

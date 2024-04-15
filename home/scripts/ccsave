@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if [ -z "$1" ] 
+then echo "Name required"
+else cp ~/Learning/C/Course/src/main.c ~/Learning/C/Course/src/$1.c
+fi

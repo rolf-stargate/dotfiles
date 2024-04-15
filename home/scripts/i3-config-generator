@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Path to your custom i3 config parts
+single_monitor_config="$HOME/.config/i3/config.1-monitor"
+dual_monitor_config="$HOME/.config/i3/config.6-monitor"
+base_config="$HOME/.config/i3/config.base"
+output_config="$HOME/.config/i3/config"
+
+# Count the number of connected monitors
+monitor_count=$(xrandr --query | grep " connected" | wc -l)
+
+# Start with the base config
+cat $base_config > $output_config
+
+# Append specific configuration based on the number of monitors
+if [ "$monitor_count" -eq 1 ]; then
+    cat $single_monitor_config >> $output_config
+elif [ "$monitor_count" -ge 2 ]; then
+    cat $dual_monitor_config >> $output_config
+fi
+
+# # Reload i3
+# i3-msg reload

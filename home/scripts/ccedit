@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd ~/Learning/C/Course/
+nvim ./src/main.c

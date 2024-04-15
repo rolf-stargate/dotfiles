@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pushd ~/Learning/C/Course > /dev/null
+gcc ./src/main.c -o ./build/main
+popd > /dev/null

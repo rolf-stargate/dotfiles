@@ -1,0 +1,5 @@
+#!/bin/bash
+
+touch ~/scripts/$1
+chmod u+x ~/scripts/$1
+nvim ~/scripts/$1
