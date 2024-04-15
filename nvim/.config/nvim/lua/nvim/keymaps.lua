@@ -1,5 +1,4 @@
 -- Setup
-local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 
 local keymap = vim.api.nvim_set_keymap
@@ -61,123 +60,355 @@ vim.g.mapleader = ";"
 vim.g.maplocalleader = " "
 
 -- Esc
-keymap("n", "<Leader>j", "<Esc>", opts)
-keymap("i", "<Leader>j", "<Esc>", opts)
-keymap("v", "<Leader>j", "<Esc>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>j", "<Esc>", {
+	noremap = true,
+	silent = true,
+	desc = "Esc",
+})
+vim.api.nvim_set_keymap("i", "<Leader>j", "<Esc>", {
+	noremap = true,
+	silent = true,
+	desc = "Esc",
+})
+vim.api.nvim_set_keymap("v", "<Leader>j", "<Esc>", {
+	noremap = true,
+	silent = true,
+	desc = "Esc",
+})
 
-keymap("n", "<Leader>J", "<Esc>", opts)
-keymap("i", "<Leader>J", "<Esc>", opts)
-keymap("v", "<Leader>J", "<Esc>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>J", "<Esc>", {
+	noremap = true,
+	silent = true,
+	desc = "Esc",
+})
+vim.api.nvim_set_keymap("i", "<Leader>J", "<Esc>", {
+	noremap = true,
+	silent = true,
+	desc = "Esc",
+})
+vim.api.nvim_set_keymap("v", "<Leader>J", "<Esc>", {
+	noremap = true,
+	silent = true,
+	desc = "Esc",
+})
 
-keymap("n", "Q", ":wq<CR>", opts) -- Quit
+-- Save & Quit
+vim.api.nvim_set_keymap("n", "Q", ":wq<CR>", {
+	noremap = true,
+	silent = true,
+	desc = "Save & Quit",
+})
 
-keymap("n", "<Leader>b", "<C-^>", opts) -- Switch To Last Buffer
+-- Last Buffer
+vim.api.nvim_set_keymap("n", "<Leader>b", "<C-^>", {
+	noremap = true,
+	silent = true,
+	desc = "Last Buffer",
+})
 
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", {
+	noremap = true,
+	silent = true,
+	desc = "Window/Split Left",
+})
+vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", {
+	noremap = true,
+	silent = true,
+	desc = "Window/Split Down",
+})
+vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", {
+	noremap = true,
+	silent = true,
+	desc = "Window/Split UP",
+})
+vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", {
+	noremap = true,
+	silent = true,
+	desc = "Window/Split Right",
+})
 
-keymap("n", "<C-bs>", "<C-w>", opts) -- Crtl Backspaced
+-- Crtl Backspace
+vim.api.nvim_set_keymap("i", "<C-bs>", "<C-w>", {
+	noremap = true,
+	silent = true,
+	desc = "Crtl Backspace",
+})
 
 -- switch ; and , for f command
-keymap("n", "<S-l>", ";", opts)
-keymap("n", "<S-h>", ",", opts)
+vim.api.nvim_set_keymap("n", "<S-l>", ";", {
+	noremap = true,
+	silent = true,
+	desc = ";",
+})
+vim.api.nvim_set_keymap("n", "<S-h>", ",", {
+	noremap = true,
+	silent = true,
+	desc = ",",
+})
 
 -- Keep visual selection for indentation
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+vim.api.nvim_set_keymap("v", "<", "<gv", {
+	noremap = true,
+	silent = true,
+	desc = "Keep Visual Selection for Indentation",
+})
+vim.api.nvim_set_keymap("v", ">", ">gv", {
+	noremap = true,
+	silent = true,
+	desc = "Keep Visual Selection for Indentation",
+})
 
-keymap("n", "Y", "y$", opts) -- Copy to EOL
+-- Copy to EOL
+vim.api.nvim_set_keymap("n", "Y", "y$", {
+	noremap = true,
+	silent = true,
+	desc = "Copy to EOL",
+})
 
-keymap("n", "<Space><Space>", "@=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>", opts) -- fold
+-- Toggle Fold
+vim.api.nvim_set_keymap("n", "<Space><Space>", "@=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>", {
+	noremap = true,
+	silent = true,
+	desc = "Toggle Fold",
+})
 
--- Behavior
-keymap("n", "<C-UP>", "<C-U>", opts)
-keymap("n", "<C-DOWN>", "<C-D>", opts)
+-- Scroll Half Page
+vim.api.nvim_set_keymap("n", "<C-UP>", "<C-U>", {
+	noremap = true,
+	silent = true,
+	desc = "Scroll Half Page UP",
+})
+vim.api.nvim_set_keymap("n", "<C-DOWN>", "<C-D>", {
+	noremap = true,
+	silent = true,
+	desc = "Scroll Half Page DOWN",
+})
 
 -- Undo break points
-keymap("i", ",", ",<c-g>u", opts)
-keymap("i", ".", ".<c-g>u", opts)
-keymap("i", "?", "?<c-g>u", opts)
-keymap("i", "!", "!<c-g>u", opts)
-keymap("i", "<", "<<c-g>u", opts)
-keymap("i", ">", "><c-g>u", opts)
-keymap("i", ":", ":<c-g>u", opts)
+vim.api.nvim_set_keymap("i", ",", ",<c-g>u", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", ".", ".<c-g>u", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "?", "?<c-g>u", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "!", "!<c-g>u", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<", "<<c-g>u", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", ">", "><c-g>u", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", ":", ":<c-g>u", { noremap = true, silent = true })
 
 -- Move line or line selection
-keymap("n", "<A-k>", ":m .+1<CR>==", opts)
-keymap("n", "<A-j>", ":m .-2<CR>==", opts)
-keymap("i", "<A-k>", "<ESC>:m .+1<CR>==gi", opts)
-keymap("i", "<A-j>", "<ESC>:m .-2<CR>==gi", opts)
-keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
-keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
+vim.api.nvim_set_keymap("n", "<A-k>", ":m .+1<CR>==", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<A-j>", ":m .-2<CR>==", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<A-k>", "<ESC>:m .+1<CR>==gi", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<A-j>", "<ESC>:m .-2<CR>==gi", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 
 -- do not populate delete register when pasting over visual selection
-keymap("v", "p", '"_dp', opts)
+vim.api.nvim_set_keymap("v", "p", '"_dp', { noremap = true, silent = true })
 
--- Create
 -- Adding ; to the end of line
-keymap("n", "<Leader>d", "<Esc>A;", opts)
-keymap("i", "<Leader>d", "<Esc>A;<Esc>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>d", "<Esc>A;", {
+	noremap = true,
+	silent = true,
+	desc = "Add ; to EOL",
+})
+vim.api.nvim_set_keymap("i", "<Leader>d", "<Esc>A;<Esc>", {
+	noremap = true,
+	silent = true,
+	desc = "Add ; to EOL",
+})
 
 -- Create code block with {}
-keymap("n", "<Leader>{", "<Esc>A<Space>{<CR>}<Esc>ko", opts)
-keymap("i", "<Leader>{", "<Esc>A<Space>{<CR>}<Esc>ko", opts)
-keymap("n", "<Leader>}", "<Esc>A<Space>{<CR>}<Esc>ko", opts)
-keymap("i", "<Leader>}", "<Esc>A<Space>{<CR>}<Esc>ko", opts)
+vim.api.nvim_set_keymap("n", "<Leader>{", "<Esc>A<Space>{<CR>}<Esc>ko", {
+	noremap = true,
+	silent = true,
+	desc = "Create Code Block {}",
+})
+vim.api.nvim_set_keymap("i", "<Leader>{", "<Esc>A<Space>{<CR>}<Esc>ko", {
+	noremap = true,
+	silent = true,
+	desc = "Create Code Block {}",
+})
+vim.api.nvim_set_keymap("n", "<Leader>}", "<Esc>A<Space>{<CR>}<Esc>ko", {
+	noremap = true,
+	silent = true,
+	desc = "Create Code Block {}",
+})
+vim.api.nvim_set_keymap("i", "<Leader>}", "<Esc>A<Space>{<CR>}<Esc>ko", {
+	noremap = true,
+	silent = true,
+	desc = "Create Code Block {}",
+})
 
 -- Create code block with []
-keymap("n", "<Leader>[", "<Esc>A<Space>[<CR>]<Esc>ko", opts)
-keymap("i", "<Leader>[", "<Esc>A<Space>[<CR>]<Esc>ko", opts)
-keymap("n", "<Leader>]", "<Esc>A<Space>[<CR>]<Esc>ko", opts)
-keymap("i", "<Leader>]", "<Esc>A<Space>[<CR>]<Esc>ko", opts)
+vim.api.nvim_set_keymap("n", "<Leader>[", "<Esc>A<Space>[<CR>]<Esc>ko", {
+	noremap = true,
+	silent = true,
+	desc = "Create Code Block []",
+})
+vim.api.nvim_set_keymap("i", "<Leader>[", "<Esc>A<Space>[<CR>]<Esc>ko", {
+	noremap = true,
+	silent = true,
+	desc = "Create Code Block []",
+})
+vim.api.nvim_set_keymap("n", "<Leader>]", "<Esc>A<Space>[<CR>]<Esc>ko", {
+	noremap = true,
+	silent = true,
+	desc = "Create Code Block []",
+})
+vim.api.nvim_set_keymap("i", "<Leader>]", "<Esc>A<Space>[<CR>]<Esc>ko", {
+	noremap = true,
+	silent = true,
+	desc = "Create Code Block []",
+})
 
--- Extras
-keymap("n", "<Leader>p", '"*p', opts)
+-- Paste from system clipboard
+vim.api.nvim_set_keymap("n", "<Leader>p", '"*p', {
+	noremap = true,
+	silent = true,
+	desc = "Paste From System Clipboard",
+})
 
 -- Quickfix
-keymap("n", "<Leader>q", ":lua ToggleQFList()<CR>", opts)
-keymap("n", "<A-l>", ":cnext<CR>", opts)
-keymap("n", "<A-h>", ":cprevious<CR>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>q", ":lua ToggleQFList()<CR>", {
+	noremap = true,
+	silent = true,
+	desc = "Toggle Quickfix List",
+})
+vim.api.nvim_set_keymap("n", "<A-l>", ":cnext<CR>", {
+	noremap = true,
+	silent = true,
+	desc = "Next Quickfix Item",
+})
+vim.api.nvim_set_keymap("n", "<A-h>", ":cprevious<CR>", {
+	noremap = true,
+	silent = true,
+	desc = "Previous Quickfix Item",
+})
 
 -- Print Page
-keymap("n", "<leader>P", ":lua PrintPage()<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>P", ":lua PrintPage()<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Print Page",
+})
 
--- s
-keymap("n", "<leader>ss", ":w<Cr>", opts) -- Save
-keymap("n", "<leader>sn", "]sz=", opts) -- Next Spelling Mistake
-keymap("n", "<leader>sp", "[sz=", opts) -- Previous Spelling Mistake
-keymap("n", "<leader>sc", ":source ~/.config/nvim/init.lua<Cr>", opts) -- Source Config
-keymap("n", "<leader>st", "<cmd>lua SetTerminalTitle()<cr>", opts) -- Set Terminal Title
+-- Save
+vim.api.nvim_set_keymap("n", "<leader>ss", ":w<Cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Save File",
+})
 
--- c
-keymap("n", "<leader>cj", "<cmd>normal gcc<cr>", opts) -- Toggle Comment
-keymap("v", "<leader>cj", "<cmd>normal gcc<cr>", opts) -- Toggle Comment V-Mode
-keymap("i", "<leader>cj", "<cmd>normal gcc<cr>", opts) -- Toggle Comment I-Mode
+-- Next Spelling Mistake
+vim.api.nvim_set_keymap("n", "<leader>ns", "]sz=", {
+	noremap = true,
+	silent = true,
+	desc = "Next Spelling Mistake",
+})
 
-keymap("n", "<leader>ch", "I###<space><esc>A<space><esc>80A#<esc>080lD:normal gcc<cr>", opts) -- Heading Comment
-keymap("i", "<leader>ch", "<esc>I###<space><esc>A<space><esc>80A#<esc>080lD:normal gcc<cr>", opts) -- Heading Comment I-Mode
+-- Previous Spelling Mistake
+vim.api.nvim_set_keymap("n", "<leader>nS", "[sz=", {
+	noremap = true,
+	silent = true,
+	desc = "Previous Spelling Mistake",
+})
 
-keymap("n", "<leader>cd", ":lcd %:p:h<CR>", opts) -- Change Working Directory To Current Dir
+-- Source Config
+vim.api.nvim_set_keymap("n", "<leader>sc", ":source ~/.config/nvim/init.lua<Cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Source Config",
+})
 
---r
+-- Set Terminal Title
+vim.api.nvim_set_keymap("n", "<leader>st", "<cmd>lua SetTerminalTitle()<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Set Terminal Title",
+})
+
+-- Comments
+vim.api.nvim_set_keymap("n", "<leader>cj", "<cmd>normal gcc<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Toggle Comment",
+})
+vim.api.nvim_set_keymap("v", "<leader>cj", "<cmd>normal gcc<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Toggle Comment",
+})
+vim.api.nvim_set_keymap("i", "<leader>cj", "<cmd>normal gcc<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Toggle Comment",
+})
+
+vim.api.nvim_set_keymap("n", "<leader>ch", "I###<space><esc>A<space><esc>80A#<esc>080lD:normal gcc<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Headline Comment",
+})
+vim.api.nvim_set_keymap("i", "<leader>ch", "<esc>I###<space><esc>A<space><esc>80A#<esc>080lD:normal gcc<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Headline Comment",
+})
+
+-- Change Working Directory To Current Dir
+vim.api.nvim_set_keymap("n", "<leader>cd", ":lcd %:p:h<CR>", {
+	noremap = true,
+	silent = true,
+	desc = "Change Working Directory To Current Dir",
+})
+
 -- Search and Replace
--- I-Mode
-keymap("n", "<leader>rr", ":%s///gI<Left><Left><Left><Left>", opts) -- Search/Replace in File
-keymap("n", "<leader>rw", ":%s/<C-r><C-w>//gI<Left><Left><Left>", opts) -- Search/Replace Word in File
-keymap("n", "<leader>rp", ":lua Search_and_replace_project()<cr>", opts) -- Search/Replace Project
--- V-Mode
-keymap("v", "<leader>rr", ":s///gI<Left><Left><Left><Left>", opts) -- Search/Replace in File
-keymap("v", "<leader>rw", ":s/<C-r><C-w>//gI<Left><Left><Left>", opts) -- Search/Replace Word in File
+vim.api.nvim_set_keymap("n", "<leader>rr", ":%s///gI<Left><Left><Left><Left>", {
+	noremap = true,
+	silent = true,
+	desc = "Search/Replace in File",
+})
+vim.api.nvim_set_keymap("n", "<leader>rw", ":%s/<C-r><C-w>//gI<Left><Left><Left>", {
+	noremap = true,
+	silent = true,
+	desc = "Search/Replace Word in File",
+})
+vim.api.nvim_set_keymap("n", "<leader>rp", ":lua Search_and_replace_project()<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Search/Replace Project",
+})
+vim.api.nvim_set_keymap("v", "<leader>rr", ":s///gI<Left><Left><Left><Left>", {
+	noremap = true,
+	silent = true,
+	desc = "Search/Replace in Selection",
+})
+vim.api.nvim_set_keymap("v", "<leader>rw", ":s/<C-r><C-w>//gI<Left><Left><Left>", {
+	noremap = true,
+	silent = true,
+	desc = "Search/Replace Word in Selection",
+})
 
---t
 -- Toggle
-keymap("n", "<leader>ts", "<cmd>setlocal spell!<CR>", opts) -- Toggle Spell Checking
-keymap("n", "<leader>th", "<cmd>set hls!<CR>", opts) -- Toggle Search Highligthing
+vim.api.nvim_set_keymap("n", "<leader>ts", "<cmd>setlocal spell!<CR>", {
+	noremap = true,
+	silent = true,
+	desc = "Toggle Spellcheck",
+})
+vim.api.nvim_set_keymap("n", "<leader>th", "<cmd>set hls!<CR>", {
+	noremap = true,
+	silent = true,
+	desc = "Toggle Search Highligthing",
+})
 
---y
 -- Copy Filename/Path
-keymap("n", "<leader>yf", ":let @+ = expand('%:t')<cr>:echo 'Filename copied'<cr>", opts)
-keymap("n", "<leader>yF", ":let @+ = expand('%:p')<cr>:echo 'Path copied'<cr>", opts)
+vim.api.nvim_set_keymap("n", "<leader>yf", ":let @+ = expand('%:t')<cr>:echo 'Filename copied'<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Copy Filename",
+})
+vim.api.nvim_set_keymap("n", "<leader>yp", ":let @+ = expand('%:p')<cr>:echo 'Path copied'<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Copy Path",
+})

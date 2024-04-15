@@ -9,7 +9,7 @@ vim.opt.termguicolors = true
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-keymap("n", "<Leader>e", "<cmd>NvimTreeToggle<CR>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>e", "<cmd>NvimTreeToggle<CR>", opts)
 
 local function my_on_attach(bufnr)
 	local api = require("nvim-tree.api")
