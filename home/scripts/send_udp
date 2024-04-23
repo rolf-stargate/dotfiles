@@ -1,0 +1,23 @@
+#!/bin/bash
+
+HOSTNAME=$1
+PORT=$2
+CHUNK_SIZE=$3
+
+if [ -z "$HOSTNAME" ]; then
+    echo "Usage: $0 <hostname> <port> <chunk_size>"
+    exit 1
+fi
+
+if [ -z "$PORT" ]; then
+    echo "Usage: $0 <hostname> <port> <chunk_size>"
+    exit 1
+fi
+
+if [ -z "$CHUNK_SIZE" ]; then
+    CHUNK_SIZE=1024
+fi
+
+while read -r -N $CHUNK_SIZE chunk; do
+  echo -n "$chunk" > /dev/udp/$HOSTNAME/$PORT;
+done < "/dev/stdin"

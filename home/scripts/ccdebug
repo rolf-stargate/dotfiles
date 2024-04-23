@@ -3,5 +3,5 @@
 ccbuild
 
 pushd ~/Learning/C/Quick/build > /dev/null
-./main
+gdb --tui ./main
 popd > /dev/null

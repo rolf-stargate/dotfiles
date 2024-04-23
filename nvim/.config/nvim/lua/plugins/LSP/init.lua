@@ -15,5 +15,5 @@ end
 
 require("plugins.LSP.mason")
 require("plugins.LSP.handlers").setup()
-require("plugins.LSP.null-ls")
 require("plugins.LSP.cmp")
+-- require("plugins.LSP.nvim-lint")

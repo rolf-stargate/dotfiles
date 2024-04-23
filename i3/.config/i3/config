@@ -273,7 +273,7 @@ assign [class="mpv"] 						          → Music
 # USER APPLICATIONS TO START AT BOOT
 
 #Discord
-exec --no-startup-id discord
+# exec --no-startup-id discord
 
 #Brave
 exec --no-startup-id sleep 1 && i3-msg 'workspace 9; exec brave'

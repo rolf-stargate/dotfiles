@@ -1,6 +1,6 @@
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
-vim.api.nvim_set_keymap("n", "<leader>cc", "<cmd>ColorPicker<cr>", {
+vim.keymap.set("n", "<leader>cc", "<cmd>ColorPicker<cr>", {
 	noremap = true,
 	silent = true,
 	desc = "ColorPicker",

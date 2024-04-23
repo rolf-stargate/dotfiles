@@ -1,154 +1,148 @@
 -- Plugin Manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-	-- Which-Key
-	{ "folke/which-key.nvim" },
-	-- My Plugin
-	{ "rolf-stargate/ankifly.nvim" },
-	-- Nvim-Surround
-	{
-		"kylechui/nvim-surround",
-		version = "*", -- Use for stability; omit to use `main` branch for the latest features
-		event = "VeryLazy",
-		config = true,
-	},
-	-- Vim Repeat
-	{ "tpope/vim-repeat" },
-	-- Indent Blankline
-	{ "lukas-reineke/indent-blankline.nvim", version = "2.20.8" },
-	-- Comment
-	{ "numToStr/Comment.nvim" },
-	-- Illuminate
-	{ "RRethy/vim-illuminate" },
-	-- Harpoon
-	{ "ThePrimeagen/harpoon" },
-	-- Dressing
-	{ "stevearc/dressing.nvim" },
-	-- Statusline
-	{ "windwp/windline.nvim" },
-	-- Gitsigns
-	{ "lewis6991/gitsigns.nvim" },
-	-- Clear Search Highlight when moving
-	{ "haya14busa/is.vim" },
-	-- Better Quickfix Window
-	{ "kevinhwang91/nvim-bqf" },
-	-- Popup API
-	{ "nvim-lua/popup.nvim" },
-	-- Floaterm
-	{ "voldikss/vim-floaterm" },
-	-- Undotree
-	{ "simnalamburt/vim-mundo" },
-	-- Colorizer
-	{ "norcalli/nvim-colorizer.lua" },
-	-- ColorPicker
-	{ "blindFS/vim-colorpicker" },
-	-- Auto Pairs
-	{ "windwp/nvim-autopairs" },
-	-- Neoscroll
-	{ "rolf-stargate/neoscroll.nvim" },
-	-- Copilot
-	{
-		"zbirenbaum/copilot-cmp",
-		after = { "copilot.lua", "nvim-cmp" },
-	},
-	{ "zbirenbaum/copilot.lua" },
-	-- Debugging
-	{ "mfussenegger/nvim-dap" },
-	-- Plenary
-	{ "nvim-lua/plenary.nvim" }, -- Useful lua functions used ny lots of plugins
-	-- CMP Plugins
-	{ "hrsh7th/nvim-cmp" }, -- The completion plugin
-	{ "hrsh7th/cmp-buffer" }, -- buffer completions
-	{ "hrsh7th/cmp-path" }, -- path completions
-	{ "hrsh7th/cmp-cmdline" }, -- cmdline completions
-	{ "saadparwaiz1/cmp_luasnip" }, -- snippet completions
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "alexaandru/nvim-lspupdate" },
-	{
-		"https://git.sr.ht/~nedia/auto-format.nvim",
-		config = function()
-			require("auto-format").setup()
-		end,
-	},
-	-- LSP Plugins
-	{ "neovim/nvim-lspconfig" }, -- enable LSP
-	{ "williamboman/mason.nvim" }, -- simple to use language server installer
-	{ "williamboman/mason-lspconfig.nvim" }, -- simple to use language server installer
-	{ "jose-elias-alvarez/null-ls.nvim" },
-	{ "onsails/lspkind.nvim" },
-	-- Snippits
-	{ "L3MON4D3/LuaSnip" }, --snippet engine
-	{ "rafamadriz/friendly-snippets" }, -- a bunch of snippets to use
-	-- Telescope
-	{ "nvim-telescope/telescope.nvim" },
-	{ "nvim-telescope/telescope-media-files.nvim" },
-	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-	{
-		"dhruvmanila/browser-bookmarks.nvim",
-		version = "*",
-	},
-	{ "joaomsa/telescope-orgmode.nvim" },
-	-- Neotree
-	{
-		"nvim-tree/nvim-tree.lua",
-		requires = {
-			"nvim-tree/nvim-web-devicons",
-		},
-	},
-	-- Treesitter
-	{
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	},
-	{ "nvim-treesitter/playground" },
-	{ "nvim-treesitter/nvim-treesitter-context" },
+  -- Which-Key
+  { "folke/which-key.nvim" },
+  -- My Plugin
+  { "rolf-stargate/ankifly.nvim" },
+  -- Nvim-Surround
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = true,
+  },
+  -- Vim Repeat
+  { "tpope/vim-repeat" },
+  -- Indent Blankline
+  { "lukas-reineke/indent-blankline.nvim", version = "2.20.8" },
+  -- Comment
+  { "numToStr/Comment.nvim" },
+  -- Illuminate
+  { "RRethy/vim-illuminate" },
+  -- Harpoon
+  { "ThePrimeagen/harpoon" },
+  -- Dressing
+  { "stevearc/dressing.nvim" },
+  -- Statusline
+  { "windwp/windline.nvim" },
+  -- Gitsigns
+  { "lewis6991/gitsigns.nvim" },
+  -- Clear Search Highlight when moving
+  { "haya14busa/is.vim" },
+  -- Better Quickfix Window
+  { "kevinhwang91/nvim-bqf" },
+  -- Popup API
+  { "nvim-lua/popup.nvim" },
+  -- Floaterm
+  { "voldikss/vim-floaterm" },
+  -- Undotree
+  { "simnalamburt/vim-mundo" },
+  -- Colorizer
+  { "norcalli/nvim-colorizer.lua" },
+  -- ColorPicker
+  { "blindFS/vim-colorpicker" },
+  -- Auto Pairs
+  { "windwp/nvim-autopairs" },
+  -- Neoscroll
+  { "rolf-stargate/neoscroll.nvim" },
+  -- Copilot
+  {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua", "nvim-cmp" },
+  },
+  { "zbirenbaum/copilot.lua" },
+  -- Debugging
+  { "mfussenegger/nvim-dap" },
+  -- Plenary
+  { "nvim-lua/plenary.nvim" },   -- Useful lua functions used ny lots of plugins
+  -- CMP Plugins
+  { "hrsh7th/nvim-cmp" },        -- The completion plugin
+  { "hrsh7th/cmp-buffer" },      -- buffer completions
+  { "hrsh7th/cmp-path" },        -- path completions
+  { "hrsh7th/cmp-cmdline" },     -- cmdline completions
+  { "saadparwaiz1/cmp_luasnip" }, -- snippet completions
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "alexaandru/nvim-lspupdate" },
+  -- LSP Plugins
+  { "neovim/nvim-lspconfig" },            -- enable LSP
+  { "williamboman/mason.nvim" },          -- simple to use language server installer
+  { "williamboman/mason-lspconfig.nvim" }, -- simple to use language server installer
+  { "onsails/lspkind.nvim" },
+  { "mfussenegger/nvim-lint" },
+  -- Snippits
+  { "L3MON4D3/LuaSnip" },            --snippet engine
+  { "rafamadriz/friendly-snippets" }, -- a bunch of snippets to use
+  -- Telescope
+  { "nvim-telescope/telescope.nvim" },
+  { "nvim-telescope/telescope-media-files.nvim" },
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  {
+    "dhruvmanila/browser-bookmarks.nvim",
+    version = "*",
+  },
+  { "joaomsa/telescope-orgmode.nvim" },
+  -- Neotree
+  {
+    "nvim-tree/nvim-tree.lua",
+    requires = {
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
+  -- Treesitter
+  {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  },
+  { "nvim-treesitter/playground" },
+  { "nvim-treesitter/nvim-treesitter-context" },
 
-	-- ###  #########################################################################
-	-- ### Markdown #################################################################
-	-- ###  #########################################################################
-	-- Ledger
-	{ "lukas-reineke/headlines.nvim", ft = "markdown" },
-	{ "ledger/vim-ledger" },
-	{
-		"vhyrro/luarocks.nvim",
-		priority = 1001, -- this plugin needs to run before anything else
-		opts = {
-			rocks = { "magick" },
-		},
-	},
-	{
-		"3rd/image.nvim",
-		dependencies = { "luarocks.nvim" },
-	},
-	{ "TobinPalmer/pastify.nvim" },
-	{ "ixru/nvim-markdown" },
-	{ "AckslD/nvim-FeMaco.lua", config = 'require("femaco").setup()' },
-	{
-		"jakewvincent/mkdnflow.nvim",
-		pin = true,
-	},
-	{ "nvim-tree/nvim-web-devicons" },
-	{ "jubnzv/mdeval.nvim" },
-	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		ft = { "markdown" },
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-	},
+  -- ###  #########################################################################
+  -- ### Markdown #################################################################
+  -- ###  #########################################################################
+  -- Ledger
+  { "lukas-reineke/headlines.nvim",           ft = "markdown" },
+  { "ledger/vim-ledger" },
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1001, -- this plugin needs to run before anything else
+    opts = {
+      rocks = { "magick" },
+    },
+  },
+  {
+    "3rd/image.nvim",
+    dependencies = { "luarocks.nvim" },
+  },
+  { "TobinPalmer/pastify.nvim" },
+  { "ixru/nvim-markdown" },
+  { "AckslD/nvim-FeMaco.lua",  config = 'require("femaco").setup()' },
+  {
+    "jakewvincent/mkdnflow.nvim",
+    pin = true,
+  },
+  { "nvim-tree/nvim-web-devicons" },
+  { "jubnzv/mdeval.nvim" },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
 }
 
 local opts = {}
@@ -164,7 +158,6 @@ require("plugins.harpoon")
 require("plugins.dressing")
 require("plugins.windline")
 require("plugins.gitsigns")
-require("plugins.floatterm")
 require("plugins.telescope")
 require("plugins.undo")
 require("plugins.copilot")
