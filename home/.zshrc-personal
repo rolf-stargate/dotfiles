@@ -1,3 +1,6 @@
+
+alias b="cat /sys/class/power_supply/BAT0/capacity"
+
 # Go to last dir vifm
 alias fmcd="cd $(cat ~/.config/vifm/lastdir)"
 

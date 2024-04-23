@@ -231,3 +231,4 @@ neofetch
 #sfetch | lolcat
 
 #zprof
+source /usr/share/nvm/init-nvm.sh

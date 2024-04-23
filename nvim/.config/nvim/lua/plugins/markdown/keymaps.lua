@@ -115,7 +115,6 @@ wk.register({
 			h = { "<cmd>MkdnTableNewColBefore<cr>", "New Col Before", noremap = true },
 			l = { "<cmd>MkdnTableNewColAfter<cr>", "New Col After", noremap = true },
 		},
-		T = { ":lua require'telescope.builtin'.grep_string{search = '- [ ] !'}<cr>", "Telescope TODO", noremap = true },
 		L = {
 			"<cmd>!pandoc % -o %.pdf --template=/home/rolf/Dropbox/Templates/Pandoc/letter.latex && brave %.pdf<cr>",
 			"Print Letter",
@@ -125,4 +124,25 @@ wk.register({
 }, {
 	mode = "n",
 	prefix = "<Leader>",
+})
+
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>oee",
+	"<cmd>TWEditTask<cr>",
+	{ desc = "TaskWarrior Edit", noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap("n", "<leader>oE", "<cmd>TWView<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>oeu", "<cmd>TWUpdateCurrent<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>oes", "<cmd>TWSyncTasks<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>oed", "<cmd>TWRunWithCurrent<cr>del<cr>dd", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<c-space>", "<cmd>TWToggle<cr>", { silent = true })
+-- Be caution: it may be slow to open large files, because it scan the whole buffer
+--
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
+	group = vim.api.nvim_create_augroup("TWTask", { clear = true }),
+	pattern = "*.md,*.markdown", -- Pattern to match Markdown files
+	callback = function()
+		vim.cmd("TWSyncTasks")
+	end,
 })

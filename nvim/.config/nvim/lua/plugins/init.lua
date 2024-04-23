@@ -109,40 +109,35 @@ local plugins = {
   { "nvim-treesitter/playground" },
   { "nvim-treesitter/nvim-treesitter-context" },
 
-  -- ###  #########################################################################
-  -- ### Markdown #################################################################
-  -- ###  #########################################################################
-  -- Ledger
-  { "lukas-reineke/headlines.nvim",           ft = "markdown" },
-  { "ledger/vim-ledger" },
-  {
-    "vhyrro/luarocks.nvim",
-    priority = 1001, -- this plugin needs to run before anything else
-    opts = {
-      rocks = { "magick" },
-    },
-  },
-  {
-    "3rd/image.nvim",
-    dependencies = { "luarocks.nvim" },
-  },
-  { "TobinPalmer/pastify.nvim" },
-  { "ixru/nvim-markdown" },
-  { "AckslD/nvim-FeMaco.lua",  config = 'require("femaco").setup()' },
-  {
-    "jakewvincent/mkdnflow.nvim",
-    pin = true,
-  },
-  { "nvim-tree/nvim-web-devicons" },
-  { "jubnzv/mdeval.nvim" },
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown" },
-    build = function()
-      vim.fn["mkdp#util#install"]()
-    end,
-  },
+	-- ###  #########################################################################
+	-- ### Markdown #################################################################
+	-- ###  #########################################################################
+	-- m_taskwarrior_d
+	{ "huantrinh1802/m_taskwarrior_d.nvim" },
+	{ "MunifTanjim/nui.nvim" },
+	-- Ledger
+	{ "lukas-reineke/headlines.nvim", ft = "markdown" },
+	{ "ledger/vim-ledger" },
+	{
+		"3rd/image.nvim",
+	},
+	{ "TobinPalmer/pastify.nvim" },
+	{ "ixru/nvim-markdown" },
+	{ "AckslD/nvim-FeMaco.lua", config = 'require("femaco").setup()' },
+	{
+		"jakewvincent/mkdnflow.nvim",
+		pin = true,
+	},
+	{ "nvim-tree/nvim-web-devicons" },
+	{ "jubnzv/mdeval.nvim" },
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	},
 }
 
 local opts = {}
