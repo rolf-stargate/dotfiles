@@ -118,6 +118,9 @@ local plugins = {
 	-- ###  #########################################################################
 	-- ### Markdown #################################################################
 	-- ###  #########################################################################
+	-- m_taskwarrior_d
+	{ "huantrinh1802/m_taskwarrior_d.nvim" },
+	{ "MunifTanjim/nui.nvim" },
 	-- Ledger
 	{ "lukas-reineke/headlines.nvim", ft = "markdown" },
 	{ "ledger/vim-ledger" },
