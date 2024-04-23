@@ -126,7 +126,6 @@ local plugins = {
 	{ "AckslD/nvim-FeMaco.lua", config = 'require("femaco").setup()' },
 	{
 		"jakewvincent/mkdnflow.nvim",
-		pin = true,
 	},
 	{ "nvim-tree/nvim-web-devicons" },
 	{ "jubnzv/mdeval.nvim" },

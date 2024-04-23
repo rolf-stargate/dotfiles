@@ -104,7 +104,7 @@ require("mkdnflow").setup({
 		MkdnYankFileAnchorLink = { "n", "yfa" },
 		MkdnIncreaseHeading = { "n", "+" },
 		MkdnDecreaseHeading = { "n", "-" },
-		MkdnToggleToDo = { { "n", "v" }, "" },
+		MkdnToggleToDo = false,
 		MkdnNewListItemBelowInsert = { "n", "o" },
 		MkdnNewListItemAboveInsert = { "n", "O" },
 		MkdnExtendList = false,
@@ -113,9 +113,5 @@ require("mkdnflow").setup({
 		MkdnTablePrevCell = { "i", "<S-Tab>" },
 		MkdnTableNextRow = false,
 		MkdnTablePrevRow = { "i", "<M-CR>" },
-		MkdnTableNewRowBelow = { "n", "<leader>ir" },
-		MkdnTableNewRowAbove = { "n", "<leader>iR" },
-		MkdnTableNewColAfter = { "n", "<leader>ic" },
-		MkdnTableNewColBefore = { "n", "<leader>iC" },
 	},
 })
