@@ -1,6 +1,19 @@
 
 alias b="cat /sys/class/power_supply/BAT0/capacity"
 
+# Taskwarrior
+alias t=task
+alias ta="task add"
+alias td="task del"
+alias tn="task context none && task list"
+alias tw="task context work && task list"
+alias tp="task context projects && task list"
+alias tr="task context rolf && task list"
+alias to="task context office && task list"
+alias tf="task context none && task +finish"
+alias tft="task context none; sleep 0.1; task due:today or until:today or scheduled:today or due:tomorrow or until:tomorrow or scheduled:tomorrow list"
+alias tfw="task context none; sleep 0.1; task due:socw or until:socw"
+
 # Go to last dir vifm
 alias fmcd="cd $(cat ~/.config/vifm/lastdir)"
 
@@ -19,10 +32,10 @@ autoload -Uz compinit && compinit
 
 ## Ezentials ##################################################################
 alias dropboxignore="di" # Dropbox ignore npm i dropbox-recursive-ignore-node_modules -g
-alias rgif="byzanz-record -c -x 0 -y 1960 -w 1920 -h 1080 " # Record gif 
+alias rgif="byzanz-record -c -x 0 -y 1960 -w 1920 -h 1080 " # Record gif
 alias duroot='sudo duc index / && sudo duc ui /'
 alias du='duc index ~ && duc ui ~'
-alias ls="ls -lA --color=auto --group-directories-first"
+alias ls="ls --color=auto --group-directories-first"
 
 ## Remaps #####################################################################
 alias v="nvim"
