@@ -1,7 +1,7 @@
-pushd ~/dotfiles/
+pushd ~/dotfiles/ > /dev/null
 git pull &&
 $EDITOR ~/dotfiles/home/.zshrc-personal &&
 git add -A &&
 git commit -m "Update Desktop" &&
 git push
-popd
+popd > /dev/null

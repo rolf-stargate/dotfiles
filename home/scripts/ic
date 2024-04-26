@@ -1,4 +1,4 @@
-pushd ~/dotfiles/i3/.config/i3 >/dev/null
+pushd ~/dotfiles/ >/dev/null
 git pull &&
 $EDITOR ~/dotfiles/i3/.config/i3/config &&
 git add -A &&

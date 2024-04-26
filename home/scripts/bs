@@ -1,13 +1,22 @@
 #!/bin/bash
 
 pushd ~/scripts
+git pull &&
 if [ -z "$1" ]; then
     nvim ~/scripts
+
+    git add -A &&
+    git commit -m "Update Desktop" &&
+    git push
     exit 1
 fi
 
 touch ~/scripts/$1
 chmod u+x ~/scripts/$1
 nvim ~/scripts/$1
+
+git add -A &&
+git commit -m "Update Desktop" &&
+git push
 popd
 
