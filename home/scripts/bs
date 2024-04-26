@@ -1,5 +1,6 @@
 #!/bin/bash
 
+pushd ~/scripts
 if [ -z "$1" ]; then
     nvim ~/scripts
     exit 1
@@ -8,4 +9,5 @@ fi
 touch ~/scripts/$1
 chmod u+x ~/scripts/$1
 nvim ~/scripts/$1
+popd
 

@@ -1,4 +1,3 @@
-
 alias b="cat /sys/class/power_supply/BAT0/capacity"
 
 # Taskwarrior
@@ -54,22 +53,6 @@ alias win11="sudo virsh start win11 && ~/Opt/looking-glass-B6/client/build/looki
 ## ytfz youtoube fuzzy search #################################################
 alias yt="ytfzf -tsl --pages=5"
 alias ytc="ytfzf -tsl --pages=5 --multi-search --type=channel --thumbnails"
-
-
-# Zathura
-alias zt="zathura"
-
-# Obsidian
-alias vo="nvim ~/Dropbox/Obsidian/Rolf/"
-alias oc="nvim ~/Dropbox/Obsidian/Rolf/Work/Websites/Coswig/CoswigColaberation/Lissi/Obsidian\ Vault/Havenburg\ Media\ UG"
-
-# Configs
-alias zc='nvim ~/.zshrc'
-alias zcp='nvim ~/.zshrc-personal'
-alias vc='nvim ~/.vimrc'
-alias ic='nvim ~/.config/i3/config'
-alias ibc='nvim ~/.config/i3/i3blocks.conf'
-alias fmc='nvim ~/.config/vifm/vifmrc'
 
 # script so vifm exit cd in the last selected directory
 function fm() {

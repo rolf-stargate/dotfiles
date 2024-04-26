@@ -1,9 +1,9 @@
+#!/bin/bash
+
 pushd ~/dotfiles/ > /dev/null
 git pull &&
-$EDITOR ~/dotfiles/nvim/.config/nvim &&
+$EDITOR ~/dotfiles/home/.zshrc &&
 git add -A &&
 git commit -m "Update Desktop" &&
 git push
 popd > /dev/null
-
-
