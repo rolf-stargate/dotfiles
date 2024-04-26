@@ -67,7 +67,6 @@ alias oc="nvim ~/Dropbox/Obsidian/Rolf/Work/Websites/Coswig/CoswigColaberation/L
 alias zc='nvim ~/.zshrc'
 alias zcp='nvim ~/.zshrc-personal'
 alias vc='nvim ~/.vimrc'
-alias nvc='nvim ~/.config/nvim/'
 alias ic='nvim ~/.config/i3/config'
 alias ibc='nvim ~/.config/i3/i3blocks.conf'
 alias fmc='nvim ~/.config/vifm/vifmrc'
