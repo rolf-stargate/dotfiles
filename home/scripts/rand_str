@@ -1,0 +1,9 @@
+#!/bin/bash
+
+length=$1
+
+if [ -z $length ]; then
+    length=16
+fi  
+
+tr -dc 'A-Za-z0-9^#=|\!@*$@",.`%()[]{}:' < /dev/urandom | head -c $length
