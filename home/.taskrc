@@ -38,12 +38,3 @@ include dark-violets-256.theme
 #include solarized-dark-256.theme
 #include solarized-light-256.theme
 #include no-color.theme
-
-context.work.read=+work
-context.work.write=+work
-context.rolf.read=+rolf
-context.rolf.write=+rolf
-context.projects.read=+projects
-context.projects.write=+projects
-context.office.read=+office
-context.office.write=+office

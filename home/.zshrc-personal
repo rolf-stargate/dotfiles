@@ -3,19 +3,13 @@ alias b="cat /sys/class/power_supply/BAT0/capacity"
 # Taskwarrior
 alias t=task
 alias tt="task context none; sleep 0.1; task due:today or until:today or scheduled:today or due:tomorrow or until:tomorrow or scheduled:tomorrow list or priority:H or +office"
+alias tl="task list"
+alias tc="task context"
 alias ta="task add"
 alias te="task edit"
 alias tA="task annotate"
 alias td="task del"
-alias tn="task context none && task list"
-alias tw="task context work && task list"
-alias tp="task context projects && task list"
-alias tR="task context rolf && task list"
-alias to="task context office && task list"
-alias tO="taskopen"
-alias tf="task context none && task +finish"
-alias tft="task context none; sleep 0.1; task due:today or until:today or scheduled:today or due:tomorrow or until:tomorrow or scheduled:tomorrow list"
-alias tfw="task context none; sleep 0.1; task due:socw or until:socw"
+alias to="taskopen"
 
 # Go to last dir vifm
 alias fmcd="cd $(cat ~/.config/vifm/lastdir)"
