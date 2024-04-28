@@ -21,3 +21,5 @@ local function create_task()
 end
 
 vim.api.nvim_create_user_command('CreateTask', create_task, {nargs = '?'})
+
+vim.api.nvim_set_keymap('n', '<leader>ct', ':CreateTask<CR>', {noremap = true, silent = true})
