@@ -1,8 +1,6 @@
-#!/bin/bash
-
 pushd ~/dotfiles/ > /dev/null
 git pull &&
-$EDITOR ~/dotfiles/home/.zshrc &&
+$EDITOR ~/dotfiles/home/.taskrc &&
 git add -A &&
 git commit -m "Update" &&
 git push

@@ -2,7 +2,7 @@ pushd ~/dotfiles/ > /dev/null
 git pull &&
 $EDITOR ~/dotfiles/nvim/.config/nvim &&
 git add -A &&
-git commit -m "Update Desktop" &&
+git commit -m "Update" &&
 git push
 popd > /dev/null
 

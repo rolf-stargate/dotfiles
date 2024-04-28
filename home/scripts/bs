@@ -6,7 +6,7 @@ if [ -z "$1" ]; then
     nvim ~/scripts
 
     git add -A &&
-    git commit -m "Update Desktop" &&
+    git commit -m "Update" &&
     git push
     exit 1
 fi
@@ -16,7 +16,7 @@ chmod u+x ~/scripts/$1
 nvim ~/scripts/$1
 
 git add -A &&
-git commit -m "Update Desktop" &&
+git commit -m "Update" &&
 git push
 popd
 
