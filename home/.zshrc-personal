@@ -2,7 +2,8 @@ alias b="cat /sys/class/power_supply/BAT0/capacity"
 
 # Taskwarrior
 alias t=task
-alias tt="task context none; sleep 0.1; task due:today or until:today or scheduled:today or due:tomorrow or until:tomorrow or scheduled:tomorrow list or priority:H or +office"
+alias tt="taskwarrior-tui"
+# alias tt="task context none; sleep 0.1; task due:today or until:today or scheduled:today or due:tomorrow or until:tomorrow or scheduled:tomorrow list or priority:H or +office"
 alias tl="task list"
 alias tc="task context"
 alias ta="task add"
