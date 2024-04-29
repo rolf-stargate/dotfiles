@@ -1,5 +1,5 @@
 pushd ~/dotfiles/ >/dev/null
-git pull &&
+git pull
 $EDITOR ~/dotfiles/i3/.config/i3/config &&
 git add -A &&
 git commit -m "Update" &&

@@ -1,5 +1,5 @@
 pushd ~/dotfiles/ > /dev/null
-git pull &&
+git pull
 $EDITOR ~/dotfiles/home/.zshrc-personal &&
 git add -A &&
 git commit -m "Update" &&
