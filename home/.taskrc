@@ -42,3 +42,4 @@ include dark-violets-256.theme
 
 # taskwarrior-tui
 uda.taskwarrior-tui.shortcuts.1=/home/rolf/scripts/taskw/tui/task_open.sh
+uda.taskwarrior-tui.shortcuts.2=/home/rolf/scripts/taskw/tui/create_child.sh
