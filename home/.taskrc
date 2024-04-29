@@ -24,6 +24,22 @@ data.location=/home/rolf/Dropbox/Wiki/.task
 #data.location=~/.local/share/task
 #hooks.location=~/.config/task/hooks
 
+# Urgency
+urgency.user.tag.costly.coefficient = 3.0
+urgency.user.tag.fun.coefficient = -5
+urgency.user.tag.work.coefficient = 2
+
+uda.priority.values = H,M,,L
+urgency.uda.priority.L.coefficient = 0
+urgency.uda.priority..coefficient = 1.8
+
+
+
+urgency.inherit = 0
+urgency.blocking.coefficient = 0
+urgency.blocked.coefficient = -0.05
+
+
 # Color theme (uncomment one to use)
 #include light-16.theme
 #include light-256.theme
@@ -39,6 +55,13 @@ include dark-violets-256.theme
 #include solarized-dark-256.theme
 #include solarized-light-256.theme
 #include no-color.theme
+
+# Color rules
+color.blocked=rgb224
+color.blocking=rgb000 on rgb224
+color.due=rgb335
+color.uda.priority.H=rgb533
+color.tag.config=rgb445
 
 # taskwarrior-tui
 uda.taskwarrior-tui.shortcuts.1=/home/rolf/scripts/taskw/tui/task_open.sh
