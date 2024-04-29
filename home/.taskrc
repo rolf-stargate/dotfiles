@@ -57,11 +57,11 @@ include dark-violets-256.theme
 #include no-color.theme
 
 # Color rules
-color.blocked=rgb224
+color.tag.config=rgb445
+color.blocked=rgb224 on rgb111
 color.blocking=rgb000 on rgb224
 color.due=rgb335
 color.uda.priority.H=rgb533
-color.tag.config=rgb445
 
 # taskwarrior-tui
 uda.taskwarrior-tui.shortcuts.1=/home/rolf/scripts/taskw/tui/task_open.sh
