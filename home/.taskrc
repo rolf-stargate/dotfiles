@@ -41,4 +41,4 @@ include dark-violets-256.theme
 #include no-color.theme
 
 # taskwarrior-tui
-uda.taskwarrior-tui.shortcuts.1=~/scripts/taskw/tui/task_open.sh
+uda.taskwarrior-tui.shortcuts.1=/home/rolf/scripts/taskw/tui/task_open.sh
