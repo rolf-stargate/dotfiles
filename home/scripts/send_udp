@@ -4,16 +4,19 @@ HOSTNAME=$1
 PORT=$2
 CHUNK_SIZE=$3
 
+# Check if hostname is set
 if [ -z "$HOSTNAME" ]; then
     echo "Usage: $0 <hostname> <port> <chunk_size>"
     exit 1
 fi
 
+# Check if port is set
 if [ -z "$PORT" ]; then
     echo "Usage: $0 <hostname> <port> <chunk_size>"
     exit 1
 fi
 
+# Default chunk size
 if [ -z "$CHUNK_SIZE" ]; then
     CHUNK_SIZE=1024
 fi
