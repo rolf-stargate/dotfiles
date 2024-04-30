@@ -438,3 +438,15 @@ vim.keymap.set(
 		desc = "Lazygit",
 	}
 )
+
+-- Format
+vim.keymap.set("n", "<leader>F", "<cmd>Format<CR>", {
+	noremap = true,
+	silent = true,
+	desc = "Format File",
+})
+vim.keymap.set("i", "<leader>F", "<cmd>Format<CR>", {
+	noremap = true,
+	silent = true,
+	desc = "Format File",
+})
