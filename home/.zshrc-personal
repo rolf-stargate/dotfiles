@@ -1,6 +1,6 @@
 alias b="cat /sys/class/power_supply/BAT0/capacity"
 
-alias h="xdotool type $(cat $HISTFILE | cut -d';' -f2- | fzf)"
+alias h='xdotool type $(cat $HISTFILE | cut -d';' -f2- | fzf)'
 
 # Taskwarrior
 alias t=task
