@@ -109,11 +109,11 @@ wk.register({
 		},
 		t = {
 			name = "Table",
-			t = { "<cmd>MkdnTable 2 1<cr>", "Create Table", noremap = true },
-			j = { "<cmd>MkdnTableNewRowBelow<cr>", "New Row Below", noremap = true },
-			k = { "<cmd>MkdnTableNewRowAbove<cr>", "New Row Above", noremap = true },
-			h = { "<cmd>MkdnTableNewColBefore<cr>", "New Col Before", noremap = true },
-			l = { "<cmd>MkdnTableNewColAfter<cr>", "New Col After", noremap = true },
+			-- t = { "<cmd>MkdnTable 2 1<cr>", "Create Table", noremap = true },
+			-- j = { "<cmd>MkdnTableNewRowBelow<cr>", "New Row Below", noremap = true },
+			-- k = { "<cmd>MkdnTableNewRowAbove<cr>", "New Row Above", noremap = true },
+			-- h = { "<cmd>MkdnTableNewColBefore<cr>", "New Col Before", noremap = true },
+			-- l = { "<cmd>MkdnTableNewColAfter<cr>", "New Col After", noremap = true },
 		},
 		L = {
 			"<cmd>!pandoc % -o %.pdf --template=/home/rolf/Dropbox/Templates/Pandoc/letter.latex && brave %.pdf<cr>",

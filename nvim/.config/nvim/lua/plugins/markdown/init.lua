@@ -1,4 +1,5 @@
-require("plugins.markdown.mkdnflow")
+require("plugins.markdown.vimwiki")
+-- require("plugins.markdown.mkdnflow")
 require("plugins.markdown.mdeval")
 require("plugins.markdown.keymaps")
 require("plugins.markdown.markdown-preview")
