@@ -114,29 +114,29 @@ local plugins = {
   -- ###  #########################################################################
   -- ### Markdown #################################################################
   -- ###  #########################################################################
-  {"vimwiki/vimwiki"},
-  { "tools-life/taskwiki" },
-  { "lukas-reineke/headlines.nvim",           ft = "markdown" },
-  { "ledger/vim-ledger" },
-  {
-    "3rd/image.nvim",
-  },
-  { "TobinPalmer/pastify.nvim" },
-  { "ixru/nvim-markdown" },
-  { "AckslD/nvim-FeMaco.lua",  config = 'require("femaco").setup()' },
-  {
-    "jakewvincent/mkdnflow.nvim",
-  },
-  { "nvim-tree/nvim-web-devicons" },
-  { "jubnzv/mdeval.nvim" },
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown" },
-    build = function()
-      vim.fn["mkdp#util#install"]()
-    end,
-  },
+  -- {"vimwiki/vimwiki"},
+  -- { "tools-life/taskwiki" },
+  -- { "lukas-reineke/headlines.nvim",           ft = "markdown" },
+  -- { "ledger/vim-ledger" },
+  -- {
+  --   "3rd/image.nvim",
+  -- },
+  -- { "TobinPalmer/pastify.nvim" },
+  -- { "ixru/nvim-markdown" },
+  -- { "AckslD/nvim-FeMaco.lua",  config = 'require("femaco").setup()' },
+  -- {
+  --   "jakewvincent/mkdnflow.nvim",
+  -- },
+  -- { "nvim-tree/nvim-web-devicons" },
+  -- { "jubnzv/mdeval.nvim" },
+  -- {
+  --   "iamcco/markdown-preview.nvim",
+  --   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+  --   ft = { "markdown" },
+  --   build = function()
+  --     vim.fn["mkdp#util#install"]()
+  --   end,
+  -- },
 }
 
 local opts = {}
@@ -165,4 +165,4 @@ require("plugins.colorpicker")
 require("plugins.colorizer")
 require("plugins.nvim_web_devicons")
 require("plugins.snippets")
-require("plugins.markdown")
+-- require("plugins.markdown")
