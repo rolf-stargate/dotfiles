@@ -326,7 +326,7 @@ bindsym mod1+s exec --no-startup-id flameshot gui
 
 #LLVM
 for_window [class="Google-chrome"] floating enable
-for_window [class="Google-chrome"] resize set 1000 1150
+for_window [class="Google-chrome"] resize set 1000 1050
 for_window [class="Google-chrome"] move position center
 for_window [class="Google-chrome"] move scratchpad
 bindsym mod1+a [class="Google-chrome"] scratchpad show 

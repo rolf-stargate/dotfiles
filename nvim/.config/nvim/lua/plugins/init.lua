@@ -66,6 +66,7 @@ local plugins = {
   { "zbirenbaum/copilot.lua" },
   -- Debugging
   { "mfussenegger/nvim-dap" },
+{ "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
   -- Plenary
   { "nvim-lua/plenary.nvim" },   -- Useful lua functions used ny lots of plugins
   -- CMP Plugins
