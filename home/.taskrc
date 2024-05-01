@@ -88,6 +88,8 @@ uda.taskwarrior-tui.context-menu.select-on-move=true
 uda.taskwarrior-tui.style.context.active=rgb000 on rgb976
 
 # Context
+context.wiki.read=+wiki
+context.wiki.write=+wiki
 context.work.read=+work
 context.work.write=+work
 context.fun.read=+fun
@@ -97,5 +99,4 @@ context.office.write=+office
 context.habit.read=+habit
 context.habit.write=+habit
 
-context.default.read=-fun
-context=default
+context.default.read=-fun -wiki
