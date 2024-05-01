@@ -65,26 +65,27 @@ local plugins = {
   },
   { "zbirenbaum/copilot.lua" },
   -- Debugging
+  { "theHamsta/nvim-dap-virtual-text" },
   { "mfussenegger/nvim-dap" },
-{ "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
+  { "rcarriga/nvim-dap-ui",                     dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
   -- Plenary
-  { "nvim-lua/plenary.nvim" },   -- Useful lua functions used ny lots of plugins
+  { "nvim-lua/plenary.nvim" },    -- Useful lua functions used ny lots of plugins
   -- CMP Plugins
-  { "hrsh7th/nvim-cmp" },        -- The completion plugin
-  { "hrsh7th/cmp-buffer" },      -- buffer completions
-  { "hrsh7th/cmp-path" },        -- path completions
-  { "hrsh7th/cmp-cmdline" },     -- cmdline completions
+  { "hrsh7th/nvim-cmp" },         -- The completion plugin
+  { "hrsh7th/cmp-buffer" },       -- buffer completions
+  { "hrsh7th/cmp-path" },         -- path completions
+  { "hrsh7th/cmp-cmdline" },      -- cmdline completions
   { "saadparwaiz1/cmp_luasnip" }, -- snippet completions
   { "hrsh7th/cmp-nvim-lsp" },
   { "alexaandru/nvim-lspupdate" },
   -- LSP Plugins
-  { "neovim/nvim-lspconfig" },            -- enable LSP
-  { "williamboman/mason.nvim" },          -- simple to use language server installer
+  { "neovim/nvim-lspconfig" },             -- enable LSP
+  { "williamboman/mason.nvim" },           -- simple to use language server installer
   { "williamboman/mason-lspconfig.nvim" }, -- simple to use language server installer
   { "onsails/lspkind.nvim" },
   { "mfussenegger/nvim-lint" },
   -- Snippits
-  { "L3MON4D3/LuaSnip" },            --snippet engine
+  { "L3MON4D3/LuaSnip" },             --snippet engine
   { "rafamadriz/friendly-snippets" }, -- a bunch of snippets to use
   -- Telescope
   { "nvim-telescope/telescope.nvim" },
@@ -110,30 +111,30 @@ local plugins = {
   { "nvim-treesitter/playground" },
   { "nvim-treesitter/nvim-treesitter-context" },
 
-	-- ###  #########################################################################
-	-- ### Markdown #################################################################
-	-- ###  #########################################################################
-	{ "lukas-reineke/headlines.nvim", ft = "markdown" },
-	{ "ledger/vim-ledger" },
-	{
-		"3rd/image.nvim",
-	},
-	{ "TobinPalmer/pastify.nvim" },
-	{ "ixru/nvim-markdown" },
-	{ "AckslD/nvim-FeMaco.lua", config = 'require("femaco").setup()' },
-	{
-		"jakewvincent/mkdnflow.nvim",
-	},
-	{ "nvim-tree/nvim-web-devicons" },
-	{ "jubnzv/mdeval.nvim" },
-	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		ft = { "markdown" },
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-	},
+  -- ###  #########################################################################
+  -- ### Markdown #################################################################
+  -- ###  #########################################################################
+  { "lukas-reineke/headlines.nvim",           ft = "markdown" },
+  { "ledger/vim-ledger" },
+  {
+    "3rd/image.nvim",
+  },
+  { "TobinPalmer/pastify.nvim" },
+  { "ixru/nvim-markdown" },
+  { "AckslD/nvim-FeMaco.lua",  config = 'require("femaco").setup()' },
+  {
+    "jakewvincent/mkdnflow.nvim",
+  },
+  { "nvim-tree/nvim-web-devicons" },
+  { "jubnzv/mdeval.nvim" },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
 }
 
 local opts = {}

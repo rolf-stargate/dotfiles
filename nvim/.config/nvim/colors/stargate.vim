@@ -232,7 +232,9 @@ hi diffFileId guifg=#de1d83 ctermfg=162 guibg=NONE ctermbg=NONE gui=bold,reverse
 hi diffFile guifg=#3b4048 ctermfg=238 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi diffNewFile guifg=#e644f6 ctermfg=171 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi diffOldFile guifg=#ff5555 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi debugPc guifg=NONE ctermfg=NONE guibg=#82cfe0 ctermbg=116 gui=NONE cterm=NONE
+
+" ### Debug ######################################################################
+hi debugPc guifg=#000 ctermfg=NONE guibg=#4D4950 ctermbg=NONE gui=bold, cterm=NONE
 hi debugBreakpoint guifg=#ff5555 ctermfg=203 guibg=NONE ctermbg=NONE gui=reverse cterm=reverse
 
 " ### Vimwiki ####################################################################

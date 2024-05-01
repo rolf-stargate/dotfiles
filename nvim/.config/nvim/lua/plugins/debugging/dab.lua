@@ -61,32 +61,53 @@ dap.configurations.c = {
     },
 }
 
+-- ### ui #########################################################################
+require("dapui").setup()
 
-vim.keymap.set("n", "<Leader>db", ":lua require'dap'.toggle_breakpoint()<cr>", {
+-- ### virtual text ###############################################################
+
+require("nvim-dap-virtual-text").setup()
+
+-- ### keymaps #####################################################################
+
+
+vim.keymap.set("n", "<Leader>Db", ":lua require'dap'.toggle_breakpoint()<cr>", {
 	noremap = true,
 	silent = true,
 	desc = "Toggle breakpoint",
 })
 
-vim.keymap.set("n", "<Leader>dc", ":lua require'dap'.continue()<cr>", {
+vim.keymap.set("n", "<Leader>Dc", ":lua require'dap'.continue()<cr>", {
 	noremap = true,
 	silent = true,
 	desc = "Continue",
 })
 
-vim.keymap.set("n", "<Leader>ds", ":lua require'dap'.step_into()<cr>", {
+vim.keymap.set("n", "<Leader>Dl", ":lua require'dap'.run_last()<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Run last",
+})
+
+vim.keymap.set("n", "<F1>", ":lua require'dap'.step_into()<cr>", {
 	noremap = true,
 	silent = true,
 	desc = "Step into",
 })
 
-vim.keymap.set("n", "<Leader>dn", ":lua require'dap'.step_over()<cr>", {
+vim.keymap.set("n", "<F4>", ":lua require'dap'.step_over()<cr>", {
 	noremap = true,
 	silent = true,
-	desc = "Step over",
+	desc = "Step out",
 })
 
-vim.keymap.set("n", "<Leader>do", ":lua require'dap'.repl.open()<cr>", {
+vim.keymap.set("n", "<F7>", ":lua require'dap'.step_out()<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Step out",
+})
+
+vim.keymap.set("n", "<Leader>Do", ":lua require('dapui').toggle()<cr>", {
 	noremap = true,
 	silent = true,
 	desc = "open REPL",
