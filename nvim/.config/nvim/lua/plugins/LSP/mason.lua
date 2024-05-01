@@ -5,7 +5,7 @@ local servers = {
   "volar",
   "tsserver",
   "emmet_ls",
-  "marksman",
+  -- "marksman",
   "rust_analyzer",
   "graphql",
   "eslint",
