@@ -66,8 +66,8 @@ report.next.labels=ID,Dep,P,Description,In,Due,Project,Tags,Urgency
 color.tag.config=rgb445
 color.due=rgb335
 color.uda.priority.H=rgb533
-color.tag.habit=rgb847
-color.label=rgb976
+# color.tag.habit=rgb847
+# color.label=rgb976
 color.blocked=rgb000 on rgb111
 color.blocking=rgb000 on rgb224
 
@@ -85,7 +85,7 @@ uda.taskwarrior-tui.task-report.looping=true
 uda.taskwarrior-tui.style.report.selection=rgb977
 uda.taskwarrior-tui.task-report.next.filter=status:pending -WAITING
 uda.taskwarrior-tui.context-menu.select-on-move=true
-uda.taskwarrior-tui.style.context.active=rgb000 on rgb976
+uda.taskwarrior-tui.style.context.active=rgb000 on rgb876
 
 # Context
 context.wiki.read=+wiki
