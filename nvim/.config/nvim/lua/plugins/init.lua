@@ -114,65 +114,84 @@ local plugins = {
   -- ###  #########################################################################
   -- ### Markdown #################################################################
   -- ###  #########################################################################
-{
-    "huantrinh1802/m_taskwarrior_d.nvim",
-    version = "*",
-    dependencies = { "MunifTanjim/nui.nvim" },
-    config = function()
-    -- Require
-      require("m_taskwarrior_d").setup(
+  {
+    "vimwiki/vimwiki",
+    init = function()
+      vim.g.vimwiki_list = {
         {
-          -- The order of toggling task statuses
-          task_statuses = { " ", ">", "x" },
-          -- The mapping between status and symbol in checkbox
-          status_map = { [" "] = "pending", [">"] = "started", ["x"] = "completed", ["d"] = "deleted" },
-
-          list_pattern = { lua = "[%_%*%+]", vim = "[\\_\\*\\+]" },
-          -- More configurations will be added in the future
-        }
-      )
-    -- Optional
-      vim.api.nvim_set_keymap("n", "<leader>te", "<cmd>TWEditTask<cr>", { desc = "TaskWarrior Edit", noremap = true, silent = true })
-      vim.api.nvim_set_keymap("n", "<leader>tv", "<cmd>TWView<cr>", { noremap = true, silent = true })
-      vim.api.nvim_set_keymap("n", "<leader>tu", "<cmd>TWUpdateCurrent<cr>", { noremap = true, silent = true })
-      vim.api.nvim_set_keymap("n", "<leader>ts", "<cmd>TWSyncTasks<cr>", { noremap = true, silent = true })
-      vim.api.nvim_set_keymap(
-        "n",
-        "<c-space>",
-        "<cmd>TWToggle<cr>",
-        { silent = true }
-      )
-    -- Be caution: it may be slow to open large files, because it scan the whole buffer
-      vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
-        group = vim.api.nvim_create_augroup("TWTask", { clear = true }),
-        pattern = "*.md,*.markdown", -- Pattern to match Markdown files
-        callback = function()
-          vim.cmd('TWSyncTasks')
-        end,
-      })
-    end,
+          path = '~/Dropbox/mainWiki',
+          syntax = 'markdown',
+          ext = '.md',
+        },
+              }
+      -- vim.g.vimwiki_ext2syntax = {
+      --   ['.md'] = 'markdown',
+      --   ['.markdown'] = 'markdown',
+      --   ['.mdown'] = 'markdown',
+      -- }
+      --
+      -- vim.g.vimwiki_global_ext = 0 -- don't treat all md files as vimwiki
+    end
   },
-  { "lukas-reineke/headlines.nvim", ft = "markdown" },
-  { "ledger/vim-ledger" },
-  {
-    "3rd/image.nvim",
-  },
-  { "TobinPalmer/pastify.nvim" },
-  { "ixru/nvim-markdown" },
-  { "AckslD/nvim-FeMaco.lua",     config = 'require("femaco").setup()' },
-  {
-  "jakewvincent/mkdnflow.nvim",
-  },
-  { "nvim-tree/nvim-web-devicons" },
-  { "jubnzv/mdeval.nvim" },
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown" },
-    build = function()
-      vim.fn["mkdp#util#install"]()
-    end,
-  },
+  -- {
+  --     "huantrinh1802/m_taskwarrior_d.nvim",
+  --     version = "*",
+  --     dependencies = { "MunifTanjim/nui.nvim" },
+  --     config = function()
+  --     -- Require
+  --       require("m_taskwarrior_d").setup(
+  --         {
+  --           -- The order of toggling task statuses
+  --           task_statuses = { " ", ">", "x" },
+  --           -- The mapping between status and symbol in checkbox
+  --           status_map = { [" "] = "pending", [">"] = "started", ["x"] = "completed", ["d"] = "deleted" },
+  --
+  --           list_pattern = { lua = "[%-%*%+]", vim = "[\\-\\*\\+]" },
+  --           -- More configurations will be added in the future
+  --         }
+  --       )
+  --     -- Optional
+  --       vim.api.nvim_set_keymap("n", "<leader>te", "<cmd>TWEditTask<cr>", { desc = "TaskWarrior Edit", noremap = true, silent = true })
+  --       vim.api.nvim_set_keymap("n", "<leader>tv", "<cmd>TWView<cr>", { noremap = true, silent = true })
+  --       vim.api.nvim_set_keymap("n", "<leader>tu", "<cmd>TWUpdateCurrent<cr>", { noremap = true, silent = true })
+  --       vim.api.nvim_set_keymap("n", "<leader>ts", "<cmd>TWSyncTasks<cr>", { noremap = true, silent = true })
+  --       vim.api.nvim_set_keymap(
+  --         "n",
+  --         "<c-space>",
+  --         "<cmd>TWToggle<cr>",
+  --         { silent = true }
+  --       )
+  --     -- Be caution: it may be slow to open large files, because it scan the whole buffer
+  --       vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
+  --         group = vim.api.nvim_create_augroup("TWTask", { clear = true }),
+  --         pattern = "*.md,*.markdown", -- Pattern to match Markdown files
+  --         callback = function()
+  --           vim.cmd('TWSyncTasks')
+  --         end,
+  --       })
+  --     end,
+  --   },
+  --   { "lukas-reineke/headlines.nvim", ft = "markdown" },
+  --   { "ledger/vim-ledger" },
+  --   {
+  --     "3rd/image.nvim",
+  --   },
+  --   { "TobinPalmer/pastify.nvim" },
+  --   { "ixru/nvim-markdown" },
+  --   { "AckslD/nvim-FeMaco.lua",     config = 'require("femaco").setup()' },
+  --   {
+  --   "jakewvincent/mkdnflow.nvim",
+  --   },
+  --   { "nvim-tree/nvim-web-devicons" },
+  --   { "jubnzv/mdeval.nvim" },
+  --   {
+  --     "iamcco/markdown-preview.nvim",
+  --     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+  --     ft = { "markdown" },
+  --     build = function()
+  --       vim.fn["mkdp#util#install"]()
+  --     end,
+  --   },
 }
 
 local opts = {}
