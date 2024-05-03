@@ -95,7 +95,6 @@ local plugins = {
     "dhruvmanila/browser-bookmarks.nvim",
     version = "*",
   },
-  { "joaomsa/telescope-orgmode.nvim" },
   -- Neotree
   {
     "nvim-tree/nvim-tree.lua",
