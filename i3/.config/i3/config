@@ -259,6 +259,7 @@ assign [class="Anki"]						      → 10
 
 # Workspace VM Virtual Machine Manager
 assign [class="Virt-manager"]						  → VM
+assign [class="looking-glass-client"]						  → VM
 
 assign [class="mpv"] 						          → Music
 
