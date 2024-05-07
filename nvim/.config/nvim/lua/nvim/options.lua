@@ -36,6 +36,7 @@ local options = {
   spelllang = "en,de",
 }
 vim.cmd("let g:markdown_folding = 99")
+vim.cmd("let g:python3_host_prog='/sbin/python3'")
 
 vim.cmd([[
   autocmd FileType * setlocal formatoptions=jcrql
