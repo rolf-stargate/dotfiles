@@ -5,3 +5,4 @@
 -- require("plugins.markdown.image")
 -- require("plugins.markdown.headlines")
 require("plugins.markdown.vimwiki")
+require("plugins.markdown.taskopen")
