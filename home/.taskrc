@@ -28,6 +28,7 @@ data.location=/home/rolf/Dropbox/Wiki/.task
 urgency.user.tag.costly.coefficient = 3.0
 urgency.user.tag.fun.coefficient = -5
 urgency.user.tag.work.coefficient = 2
+urgency.user.tag.today.coefficient = 5
 urgency.user.tag.child.coefficient = 0.05
 urgency.user.annotation.priority.coefficient = 0
 
