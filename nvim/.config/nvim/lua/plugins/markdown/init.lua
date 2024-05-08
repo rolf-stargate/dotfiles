@@ -6,3 +6,4 @@
 -- require("plugins.markdown.headlines")
 require("plugins.markdown.vimwiki")
 require("plugins.markdown.taskopen")
+require("plugins.markdown.taskwiki")

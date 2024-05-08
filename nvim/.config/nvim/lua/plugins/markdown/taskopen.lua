@@ -5,8 +5,8 @@ function Taskopen_get_uuid(line)
 end
 
 function Taskopen_annotation_marker_insert(line)
-    if not line:find("==ANN==") then
-        vim.cmd("normal! $F#hi==ANN==/<esc>:w<cr>")
+    if not line:find("**NOTE**") then
+        vim.cmd("normal! $F#hi**NOTE**")
     end
 end
 
@@ -15,10 +15,16 @@ function Taskopen_task_annotate_with_note()
     local line = vim.fn.getline(".")
     local uuid = Taskopen_get_uuid(line)
     Taskopen_annotation_marker_insert(line)
-    local cmd = "FloatermNew taskopen -A " .. uuid
+    local cmd = "FloatermNew --autoclose=0 taskopen -A " .. uuid
     vim.cmd(cmd)
 end
 
 -- Define the command
 vim.cmd("command! TaskAnnotateWithNote lua Taskopen_task_annotate_with_note()")
+
+vim.keymap.set("n", "<Leader>tn", ":TaskAnnotateWithNote<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Create Note for Task",
+})
 

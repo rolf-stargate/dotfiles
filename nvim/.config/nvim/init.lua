@@ -2,7 +2,6 @@
 require("nvim.utility_functions")
 require("nvim.options")
 require("nvim.keymaps")
-require("nvim.taskw")
 
 -- filetypes
 require("filetypes.lazygit")
