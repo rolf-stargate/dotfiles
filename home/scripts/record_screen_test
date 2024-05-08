@@ -12,8 +12,8 @@ read -p "Enter the monitor name you want to record: " monitor_name
 # Get resolution and offset
 monitor_info=$(xrandr | grep $monitor_name | grep -oP '\d+x\d+\+\d+\+\d+')
 resolution=$(echo $monitor_info | grep -oP '^\d+x\d+')
-offset=$(echo $monitor_info | grep -oP '\+\d+\+\d+$' | tr '+' ' ')
+offset=$(echo $monitor_info | grep -oP '\+\d+\+\d+$' | sed 's/^\+//' | sed 's/\+/,/')
 
 # Construct and run the ffmpeg command
 echo "Starting recording on $monitor_name with resolution $resolution and offset $offset..."
-ffmpeg -f x11grab -r 30 -s $resolution -i :0.0+$offset -codec:v libx264 -preset fast -pix_fmt yuv420p -crf 18 -threads 0 -bf 0 output.mp4
+ffmpeg -f x11grab -r 60 -s $resolution -i :0.0+$offset -codec:v libx264 -preset slow -pix_fmt yuv420p -crf 18 -threads 0 -bf 0 /tmp/output.mp4
