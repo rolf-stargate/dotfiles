@@ -57,10 +57,10 @@ function Open_or_create_wiki_index()
           project_name = string.gsub(project_name, ' ', '-')
 
           file:write("# " ..
-          project_name ..
-          " || project:" ..
-          project_name ..
-          "\n\n## Notes\n\n## TODAY | due:today or due:tomorrow or status:overdue \n\n## TODO | status:pending -bug due.not:tomorrow due.not:today\n\n## Bugs | status:pending +bug due.not:tomorrow due.not:today\n\n## Archive | status:Completed")
+            project_name ..
+            " || project:" ..
+            project_name ..
+            "\n\n## Notes\n\n## TODAY | due:today or due:tomorrow or status:overdue \n\n## TODO | status:pending -bug due.not:tomorrow due.not:today\n\n## Bugs | status:pending +bug due.not:tomorrow due.not:today\n\n## Archive | status:Completed")
           file:close()
         end
       end
@@ -73,4 +73,21 @@ function Open_or_create_wiki_index()
 end
 
 -- Create command to update vimwiki list with project wikis
-vim.keymap.set("n", "<Leader>wp", ":lua Open_or_create_wiki_index()<CR>", { noremap = true })
+vim.keymap.set("n", "<Leader>wp", ":lua Open_or_create_wiki_index()<CR>",
+  { noremap = true, desc = "Open or create wiki index" })
+
+-- paste image from clipboard
+function Paste_Image_From_Clipboard()
+  local buffer_path = vim.fn.expand("%:p:h")
+  local file_name = vim.fn.input("Enter file name: "):gsub(" ", "-")
+  local file_name_uuid = vim.fn.system("uuidgen"):gsub("\n", "")
+
+  os.execute("xclip -selection clipboard -t image/png -o > '" .. buffer_path .. "/" .. file_name .. file_name_uuid .. ".png'")
+
+  local link = "![file_name](" .. file_name .. file_name_uuid .. ".png)"
+
+  vim.api.nvim_set_current_line(link)
+end
+
+vim.keymap.set("n", "<Leader>wP", ":lua Paste_Image_From_Clipboard()<CR>",
+  { noremap = true, desc = "Paste image from clipboard" })

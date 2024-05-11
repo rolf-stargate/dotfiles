@@ -96,7 +96,7 @@ local plugins = {
     version = "*",
   },
   -- Neotree
-    { "nvim-tree/nvim-web-devicons" },
+  { "nvim-tree/nvim-web-devicons" },
   {
     "nvim-tree/nvim-tree.lua",
     requires = {
@@ -129,27 +129,25 @@ local plugins = {
           syntax = 'markdown',
           ext = '.md',
         },
-              }
+      }
     end
   },
   { "tools-life/taskwiki" },
   --   { "lukas-reineke/headlines.nvim", ft = "markdown" },
   --   { "ledger/vim-ledger" },
-  --   {
-  --     "3rd/image.nvim",
-  --   },
-  --   { "TobinPalmer/pastify.nvim" },
-    -- { "ixru/nvim-markdown" },
+  { "3rd/image.nvim" },
+  { "TobinPalmer/pastify.nvim" },
+  -- { "ixru/nvim-markdown" },
   --   { "AckslD/nvim-FeMaco.lua",     config = 'require("femaco").setup()' },
   --   { "jubnzv/mdeval.nvim" },
-    {
-      "iamcco/markdown-preview.nvim",
-      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-      ft = { "markdown" },
-      build = function()
-        vim.fn["mkdp#util#install"]()
-      end,
-    },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
 }
 
 local opts = {}
