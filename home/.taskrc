@@ -17,7 +17,7 @@
 alias.addnote=execute /home/rolf/Dropbox/Work/Opt/taskopen/scripts/addnote
 
 # Files
-data.location=/home/rolf/Dropbox/Tasks/.task
+data.location=/home/rolf/Dropbox/tasks/.task
 
 # To use the default location of the XDG directories,
 # move this configuration file from ~/.taskrc to ~/.config/task/taskrc and uncomment below
