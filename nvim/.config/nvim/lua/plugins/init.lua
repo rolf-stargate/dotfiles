@@ -120,7 +120,12 @@ local plugins = {
     init = function()
       vim.g.vimwiki_list = {
         {
-          path = '~/Dropbox/mainWiki',
+          path = '~/Dropbox/wiki',
+          syntax = 'markdown',
+          ext = '.md',
+        },
+        {
+          path = '~/Dropbox/tasks',
           syntax = 'markdown',
           ext = '.md',
         },
