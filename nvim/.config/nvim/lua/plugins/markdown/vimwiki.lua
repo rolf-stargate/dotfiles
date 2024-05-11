@@ -60,7 +60,7 @@ function Open_or_create_wiki_index()
           project_name ..
           " || project:" ..
           project_name ..
-          "\n\n## Notes\n\n## TODO | status:pending -bug\n\n## Bugs | status:pending +bug\n\n## Archive | status:Completed")
+          "\n\n## Notes\n\n## TODAY | due:today or due:tomorrow or status:overdue \n\n## TODO | status:pending -bug due.not:tomorrow due.not:today\n\n## Bugs | status:pending +bug due.not:tomorrow due.not:today\n\n## Archive | status:Completed")
           file:close()
         end
       end

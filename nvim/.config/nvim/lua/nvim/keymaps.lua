@@ -286,7 +286,7 @@ vim.keymap.set("n", "<A-h>", ":cprevious<CR>", {
 })
 
 -- Print Page
-vim.keymap.set("n", "<leader>P", ":lua PrintPage()<cr>", {
+vim.keymap.set("n", "<leader>PP", ":lua PrintPage()<cr>", {
 	noremap = true,
 	silent = true,
 	desc = "Print Page",

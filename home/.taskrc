@@ -17,7 +17,7 @@
 alias.addnote=execute /home/rolf/Dropbox/Work/Opt/taskopen/scripts/addnote
 
 # Files
-data.location=/home/rolf/Dropbox/Wiki/.task
+data.location=/home/rolf/Dropbox/Tasks/.task
 
 # To use the default location of the XDG directories,
 # move this configuration file from ~/.taskrc to ~/.config/task/taskrc and uncomment below
@@ -102,3 +102,8 @@ context.habit.read=+habit
 context.habit.write=+habit
 
 context.default.read=-fun -wiki
+taskd.certificate=Dropbox\/Tasks\/.task\/rolf_stargate.cert.pem
+taskd.key=Dropbox\/Tasks\/.task\/rolf_stargate.key.pem
+taskd.ca=Dropbox\/Tasks\/.task\/ca.cert.pem
+taskd.server=rolf-stargate.com:53589
+taskd.credentials=Stargate Systems\/Rolf Stargate\/ee60491e-992c-4cd6-866f-36d55ea56613

@@ -137,14 +137,14 @@ local plugins = {
     -- { "ixru/nvim-markdown" },
   --   { "AckslD/nvim-FeMaco.lua",     config = 'require("femaco").setup()' },
   --   { "jubnzv/mdeval.nvim" },
-  --   {
-  --     "iamcco/markdown-preview.nvim",
-  --     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-  --     ft = { "markdown" },
-  --     build = function()
-  --       vim.fn["mkdp#util#install"]()
-  --     end,
-  --   },
+    {
+      "iamcco/markdown-preview.nvim",
+      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+      ft = { "markdown" },
+      build = function()
+        vim.fn["mkdp#util#install"]()
+      end,
+    },
 }
 
 local opts = {}
