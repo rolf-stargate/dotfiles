@@ -137,9 +137,8 @@ local plugins = {
   --   { "ledger/vim-ledger" },
   { "3rd/image.nvim" },
   { "TobinPalmer/pastify.nvim" },
-  -- { "ixru/nvim-markdown" },
   --   { "AckslD/nvim-FeMaco.lua",     config = 'require("femaco").setup()' },
-  --   { "jubnzv/mdeval.nvim" },
+  { "jubnzv/mdeval.nvim" },
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },

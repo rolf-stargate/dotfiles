@@ -22,3 +22,5 @@ require("mdeval").setup({
 		-- },
 	},
 })
+
+vim.keymap.set("n", "<Leader>we", ":set filetype=markdown<cr>:MdEvalClean<CR>:MdEval<CR>:set filetype=vimwiki<cr>", { noremap = true , desc = "Evaluate code block" })

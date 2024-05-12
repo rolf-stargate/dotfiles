@@ -3,8 +3,10 @@ vim.g.vimwiki_list = {
     path = '~/Dropbox/vimwiki/',
     syntax = 'markdown',
     ext = '.md',
+    nested_syntaxes = "{'python': 'python', 'cpp': 'cpp', 'sh': 'sh', 'bash': 'bash', 'javascript': 'javascript'}"
   },
 }
+
 
 vim.g.vimwiki_ext2syntax = {
   ['.md'] = 'markdown',

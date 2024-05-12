@@ -1,5 +1,5 @@
 -- require("plugins.markdown.mkdnflow")
--- require("plugins.markdown.mdeval")
+require("plugins.markdown.mdeval")
 -- require("plugins.markdown.keymaps")
 require("plugins.markdown.image")
 -- require("plugins.markdown.headlines")
