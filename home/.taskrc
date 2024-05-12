@@ -100,6 +100,11 @@ report.appointment.labels=ID,Dep,P,Description,Due,Project,Tags,Urgency
 report.appointment.sort=due+
 report.appointment.filter=status:pending -WAITING +A
 
+report.learning.columns=id,depends,priority,description,due.relative,project,tags,urgency
+report.learning.labels=ID,Dep,P,Description,Due,Project,Tags,Urgency
+report.learning.sort=due+
+report.learning.filter=status:pending -WAITING +learning
+
 # Color rules
 color.tag.config=rgb445
 color.due=rgb335
