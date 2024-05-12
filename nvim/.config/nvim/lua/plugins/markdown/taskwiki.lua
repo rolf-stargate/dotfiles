@@ -58,4 +58,11 @@ vim.keymap.set("n", "<leader>TA", ":FloatermNew --autoclose=1 --wintype=split ta
 	desc = "Appointments",
 })
 
+-- Learning Report
+vim.keymap.set("n", "<leader>TL", ":FloatermNew --autoclose=1 --wintype=split taskwarrior-tui -r learning<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Learning",
+})
+
 
