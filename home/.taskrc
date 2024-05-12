@@ -75,6 +75,16 @@ report.tomorrow.labels=ID,Dep,P,Description,Due,Project,Tags,Urgency
 report.tomorrow.sort=due+
 report.tomorrow.filter=status:pending -WAITING +TOMORROW
 
+report.week.columns=id,depends,priority,description,due.relative,project,tags,urgency
+report.week.labels=ID,Dep,P,Description,Due,Project,Tags,Urgency
+report.week.sort=due+
+report.week.filter=status:pending -WAITING +WEEK
+
+report.overdue.columns=id,depends,priority,description,due.relative,project,tags,urgency
+report.overdue.labels=ID,Dep,P,Description,Due,Project,Tags,Urgency
+report.overdue.sort=due+
+report.overdue.filter=status:pending -WAITING +OVERDUE
+
 report.call.columns=id,depends,priority,description,due.relative,project,tags,urgency
 report.call.labels=ID,Dep,P,Description,Due,Project,Tags,Urgency
 report.call.sort=due+

@@ -16,6 +16,20 @@ vim.keymap.set("n", "<leader>TN", ":FloatermNew --autoclose=1 --wintype=split ta
 	desc = "Due Tomorrow",
 })
 
+-- Week Report
+vim.keymap.set("n", "<leader>TW", ":FloatermNew --autoclose=1 --wintype=split taskwarrior-tui -r week<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Due Week",
+})
+
+-- Overdue Report
+vim.keymap.set("n", "<leader>TO", ":FloatermNew --autoclose=1 --wintype=split taskwarrior-tui -r overdue<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Due Overdue",
+})
+
 -- Urgent Report
 vim.keymap.set("n", "<leader>TU", ":FloatermNew --autoclose=1 --wintype=split taskwarrior-tui<cr>", {
 	noremap = true,
