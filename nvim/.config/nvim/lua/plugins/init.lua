@@ -133,7 +133,6 @@ local plugins = {
     end
   },
   { "tools-life/taskwiki" },
-    { "lukas-reineke/headlines.nvim", ft = "vimwiki" },
   --   { "ledger/vim-ledger" },
   { "3rd/image.nvim" },
   { "TobinPalmer/pastify.nvim" },

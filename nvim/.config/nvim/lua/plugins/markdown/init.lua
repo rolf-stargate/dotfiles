@@ -2,7 +2,6 @@
 require("plugins.markdown.mdeval")
 -- require("plugins.markdown.keymaps")
 require("plugins.markdown.image")
--- require("plugins.markdown.headlines")
 require("plugins.markdown.markdown-preview")
 require("plugins.markdown.vimwiki")
 require("plugins.markdown.taskopen")
