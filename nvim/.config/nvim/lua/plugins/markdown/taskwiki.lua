@@ -2,10 +2,46 @@ vim.g.taskwiki_disable_concealcursor = "no"
 
   vim.cmd("normal! TaskWikiMod<cr>due:tomorrow")
 
-vim.keymap.set("n", "<leader>T", ":FloatermNew --autoclose=1 --wintype=split taskwarrior-tui<cr>", {
+-- Today Report
+vim.keymap.set("n", "<leader>TT", ":FloatermNew --autoclose=1 --wintype=split taskwarrior-tui -r today<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Due Today",
+})
+
+-- Tomorrow Report
+vim.keymap.set("n", "<leader>TN", ":FloatermNew --autoclose=1 --wintype=split taskwarrior-tui -r tomorrow<cr>", {
 	noremap = true,
 	silent = true,
 	desc = "Due Tomorrow",
+})
+
+-- Urgent Report
+vim.keymap.set("n", "<leader>TU", ":FloatermNew --autoclose=1 --wintype=split taskwarrior-tui<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Urgent",
+})
+
+-- Call Report
+vim.keymap.set("n", "<leader>TC", ":FloatermNew --autoclose=1 --wintype=split taskwarrior-tui -r call<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Calls",
+})
+
+-- Mail Report
+vim.keymap.set("n", "<leader>TM", ":FloatermNew --autoclose=1 --wintype=split taskwarrior-tui -r mail<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Mails",
+})
+
+-- Appointment Report
+vim.keymap.set("n", "<leader>TA", ":FloatermNew --autoclose=1 --wintype=split taskwarrior-tui -r appointment<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Appointments",
 })
 
 
