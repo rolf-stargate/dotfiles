@@ -108,7 +108,7 @@ report.learning.filter=status:pending -WAITING +learning
 report.learning.columns=id,depends,priority,description,due.relative,project,tags,urgency
 report.learning.labels=ID,Dep,P,Description,Due,Project,Tags,Urgency
 report.learning.sort=due+
-report.learning.filter=status:pending +WAITING
+report.learning.filter=+WAITING  -habit
 
 # Color rules
 color.tag.config=rgb445
