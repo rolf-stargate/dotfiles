@@ -124,11 +124,6 @@ local plugins = {
           syntax = 'markdown',
           ext = '.md',
         },
-        {
-          path = '~/Dropbox/tasks',
-          syntax = 'markdown',
-          ext = '.md',
-        },
       }
     end
   },
