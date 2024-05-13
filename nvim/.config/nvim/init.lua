@@ -7,6 +7,7 @@ require("nvim.keymaps")
 require("filetypes.lazygit")
 require("filetypes.text")
 require("filetypes.c")
+require("filetypes.vimwiki")
 
 -- plugins
 require("plugins.init")
