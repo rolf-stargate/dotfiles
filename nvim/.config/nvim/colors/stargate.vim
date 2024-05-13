@@ -39,7 +39,7 @@ hi Label guifg=#82cfe0 ctermfg=116 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Operator guifg=#c4a4f9 ctermfg=183 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Keyword guifg=#9372cb ctermfg=98 guibg=NONE ctermbg=NONE gui=italic cterm=italic
 hi Exception guifg=#c4a4f9 ctermfg=183 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi PreProc guifg=#de1d83 ctermfg=162 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi PreProc guifg=#CD93D7 ctermfg=162 guibg=NONE ctermbg=NONE gui=italic cterm=italic
 hi Include guifg=#c4a4f9 ctermfg=183 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Define guifg=#c4a4f9 ctermfg=183 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Title guifg=#82cfe0 ctermfg=116 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
@@ -238,14 +238,16 @@ hi debugPc guifg=#000 ctermfg=NONE guibg=#4D4950 ctermbg=NONE gui=bold, cterm=NO
 hi debugBreakpoint guifg=#ff5555 ctermfg=203 guibg=NONE ctermbg=NONE gui=reverse cterm=reverse
 
 " ### Vimwiki ####################################################################
-hi VimwikiHeader1 guifg=#d726c6 ctermfg=164 guibg=NONE ctermbg=NONE gui=bold cterm=bold
-hi VimwikiHeader2 guifg=#e644f6 ctermfg=171 guibg=NONE ctermbg=NONE gui=bold cterm=bold
-hi VimwikiHeader3 guifg=#c3fc8e ctermfg=192 guibg=NONE ctermbg=NONE gui=bold cterm=bold
-hi VimwikiHeader4 guifg=#82cfe0 ctermfg=116 guibg=NONE ctermbg=NONE gui=bold cterm=bold
-hi VimwikiHeader5 guifg=#de1d83 ctermfg=162 guibg=NONE ctermbg=NONE gui=bold cterm=bold
-hi VimwikiHeader6 guifg=#c4a4f9 ctermfg=183 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi VimwikiHeader1 guifg=#F68144 ctermfg=164 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi VimwikiHeader2 guifg=#f68144 ctermfg=171 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi VimwikiHeader3 guifg=#f68144 ctermfg=192 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi VimwikiHeader4 guifg=#f68144 ctermfg=116 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi VimwikiHeader5 guifg=#f68144 ctermfg=162 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi VimwikiHeader6 guifg=#f68144 ctermfg=183 guibg=NONE ctermbg=NONE gui=bold cterm=bold
 hi VimwikiLink guifg=#82cfe0 ctermfg=116 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi VimwikiHeaderChar guifg=#6272a4 ctermfg=61 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi VimwikiBold guifg=#c4a4f9 ctermfg=116 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi VimwikiItalic guifg=#93D8BA ctermfg=116 guibg=NONE ctermbg=NONE gui=italic cterm=italic
+hi VimwikiHeaderChar guifg=#F6447E ctermfg=61 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi VimwikiHR guifg=#de1d83 ctermfg=162 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi VimwikiList guifg=#d726c6 ctermfg=164 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi VimwikiTag guifg=#d726c6 ctermfg=164 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
