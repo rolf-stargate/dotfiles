@@ -65,4 +65,11 @@ vim.keymap.set("n", "<leader>TL", ":FloatermNew --autoclose=1 --wintype=split ta
 	desc = "Learning",
 })
 
+-- Waiting Report
+vim.keymap.set("n", "<leader>Tw", ":FloatermNew --autoclose=1 --wintype=split taskwarrior-tui -r waiting<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Waiting",
+})
+
 
