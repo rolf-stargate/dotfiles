@@ -141,6 +141,8 @@ local plugins = {
       vim.fn["mkdp#util#install"]()
     end,
   },
+  { 'echasnovski/mini.nvim', version = '*' },
+  { "jbyuki/venn.nvim" }
 }
 
 local opts = {}
@@ -170,3 +172,4 @@ require("plugins.colorizer")
 require("plugins.nvim_web_devicons")
 require("plugins.snippets")
 require("plugins.markdown")
+require("plugins.minimove")

@@ -10,11 +10,6 @@ let g:colors_name='stargate'
 " ### Javascript #################################################################
 hi MyDebug guifg=#616161 ctermfg=171 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 
-" ### SPELL ######################################################################
-hi SpellBad guifg=#B2B2B2 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi SpellCap guifg=#B2B2B2 ctermfg=162 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi SpellLocal guifg=#B2B2B2 ctermfg=162 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi SpellRare guifg=#B2B2B2 ctermfg=162 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 
 hi cErrInBracket guifg=#de1d83 ctermfg=162 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 
@@ -252,3 +247,9 @@ hi VimwikiHR guifg=#de1d83 ctermfg=162 guibg=NONE ctermbg=NONE gui=NONE cterm=NO
 hi VimwikiList guifg=#d726c6 ctermfg=164 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi VimwikiTag guifg=#d726c6 ctermfg=164 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi VimwikiMarkers guifg=#6272a4 ctermfg=61 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+
+" ### SPELL ######################################################################
+hi SpellBad guifg=#B2B2B2 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi SpellCap guifg=#B2B2B2 ctermfg=162 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi SpellLocal guifg=#B2B2B2 ctermfg=162 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi SpellRare guifg=#B2B2B2 ctermfg=162 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
