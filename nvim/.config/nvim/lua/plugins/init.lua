@@ -13,6 +13,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+  -- ColorSchemes
+  { 'Abstract-IDE/Abstract-cs' },
+  { 'rafamadriz/neon' },
   -- Which-Key
   { "folke/which-key.nvim" },
   -- My Plugin
@@ -151,6 +154,7 @@ require("lazy").setup(plugins, opts)
 
 -- Load Plugin Configs
 require("plugins.LSP")
+
 require("plugins.treesitter")
 require("plugins.whichkey")
 require("plugins.ankifly")

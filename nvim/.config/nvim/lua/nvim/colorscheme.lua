@@ -1,4 +1,7 @@
 local colorscheme = "stargate"
+-- local colorscheme = "abscs"
+-- local colorscheme = "neon"
+-- vim.g.neon_style = "dark"
 -- local colorscheme = "kat.nwim"
 
 local wk = require("which-key")

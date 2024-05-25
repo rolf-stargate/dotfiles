@@ -1,0 +1,56 @@
+[general]
+targets = paysaypau_gmail
+# Specify which TaskRC configuration file to use.
+taskrc = ~/.taskrc
+
+# Set to true to shorten links.
+shorten = False
+
+# When false, links are appended as an annotation.
+inline_links = False
+
+# When true will include a link to the ticket as an annotation.
+annotation_links = True
+
+# When false skips putting issue comments into annotations.
+annotation_comments = True
+
+# When false strips newlines from comments in annotations.
+annotation_newlines = False
+
+# Set to one of DEBUG, INFO, WARNING, ERROR, CRITICAL, or DISABLED to
+# control the logging verbosity.
+log.level = INFO
+
+# Set to the path at which you would like logging messages written.
+#log.file = <by default messages are written to stderr>
+
+# Import maximally this number of characters of incoming annotations.
+annotation_length = 80
+
+# Use maximally this number of characters in the description.
+description_length = 50
+
+# If false, bugwarrior won't bother with adding annotations to your tasks at all.
+merge_annotations = True
+
+# If false, bugwarrior won't bother with adding tags to your tasks at all.
+merge_tags = True
+
+# If true, bugwarrior will delete all tags prior to fetching new ones,
+# except those listed in static_tags. Only work if merge_tags is true.
+replace_tags = False
+
+# A list of tags that shouldn't be *removed* by bugwarrior. Use for tags
+# that you want to keep when replace_tags is set to true.
+static_tags =
+
+# A list of attributes that shouldn't be *updated* by bugwarrior.  Use for
+# values that you want to tune manually. Note that service-specific UDAs
+# can be included here.
+static_fields = priority
+
+[paysaypau_gmail]
+service = gmail
+gmail.query = label:Task
+gmail.login_name = paysaypau@gmail.com

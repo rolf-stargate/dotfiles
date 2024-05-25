@@ -37,7 +37,8 @@ if not lspconfig_status_ok then
   return
 end
 
-local opts = {}
+local opts = {
+}
 
 for _, server in pairs(servers) do
   opts = {
@@ -54,3 +55,12 @@ for _, server in pairs(servers) do
 
   lspconfig[server].setup(opts)
 end
+
+local lsp = require('lspconfig')
+lsp.lua_ls.setup {
+  on_attach = function(client, bufnr)
+    -- Opt out of semantic token highlighting.
+    client.server_capabilities.semanticTokensProvider = nil
+end,
+-- rest of the config.
+}

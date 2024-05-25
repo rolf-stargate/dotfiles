@@ -48,7 +48,7 @@ hi Special guifg=#c4a4f9 ctermfg=183 guibg=NONE ctermbg=NONE gui=bold cterm=bold
 hi SpecialComment guifg=#6272a4 ctermfg=61 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi Error guifg=#f44747 ctermfg=203 guibg=NONE ctermbg=NONE gui=bold,reverse cterm=bold,reverse
 hi Todo guifg=#c4a4f9 ctermfg=183 guibg=NONE ctermbg=NONE gui=bold,italic cterm=bold,italic
-hi Underlined guifg=#82cfe0 ctermfg=116 gui=underline cterm=underline
+hi Underlined guifg=#82cfe0 ctermfg=116 gui=NONE cterm=NONE
 hi Cursor guifg=NONE ctermfg=NONE guibg=NONE ctermbg=NONE gui=reverse cterm=reverse
 hi ColorColumn guifg=NONE ctermfg=NONE guibg=#2c323c ctermbg=236 gui=NONE cterm=NONE
 hi CursorLineNr guifg=#abb2bf ctermfg=249 guibg=NONE ctermbg=NONE gui=bold cterm=bold
