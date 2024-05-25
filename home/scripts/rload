@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+then echo "Name required"
+else 
+  cp ~/Learning/R/Quick/plot.R ~/Learning/R/Quick/plot.R.bak && 
+  cp "~/Learning/R/Quick/saved/$1.R" "~/Learning/R/Quick/plot.R" &&
+
+  cp ~/Learning/R/Quick/data.csv ~/Learning/R/Quick/data.csv.bak && 
+  cp ~/Learning/R/Quick/$1.csv ~/Learning/R/Quick/data.csv && 
+  set -i "s/$1.csv/data.csv/g" ~/Learning/R/Quick/plot.R
+fi

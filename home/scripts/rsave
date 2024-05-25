@@ -3,7 +3,7 @@
 if [ -z "$1" ] 
 then echo "Name required"
 else 
-  cp -i "~/Learning/R/Quick/plot.R" "~/Learning/C/Quick/saved/$1.R" &&
-  cp -i "~/Learning/R/Quick/data.csv" "~/Learning/C/Quick/saved/$1.csv" &&
-  sed -i "s/data.csv/$1.csv/g" "~/Learning/C/Quick/saved/$1.R"
+  cp -i "~/Learning/R/Quick/plot.R" "~/Learning/R/Quick/saved/$1.R" &&
+  cp -i "~/Learning/R/Quick/data.csv" "~/Learning/R/Quick/saved/$1.csv" &&
+  sed -i "s/data.csv/$1.csv/g" "~/Learning/R/Quick/saved/$1.R"
 fi
