@@ -3,10 +3,14 @@
 if [ -z "$1" ]
 then echo "Name required"
 else 
-  cp ~/Learning/R/Quick/plot.R ~/Learning/R/Quick/plot.R.bak && 
-  cp "~/Learning/R/Quick/saved/$1.R" "~/Learning/R/Quick/plot.R" &&
+  cp "$HOME/Learning/R/Quick/plot.R" "$HOME/Learning/R/Quick/plot.R.bak" && 
+  cp "$HOME/Learning/R/Quick/saved/$1.R" "$HOME/Learning/R/Quick/plot.R" &&
 
-  cp ~/Learning/R/Quick/data.csv ~/Learning/R/Quick/data.csv.bak && 
-  cp ~/Learning/R/Quick/$1.csv ~/Learning/R/Quick/data.csv && 
-  set -i "s/$1.csv/data.csv/g" ~/Learning/R/Quick/plot.R
+  cp "$HOME/Learning/R/Quick/data.csv" "$HOME/Learning/R/Quick/data.csv.bak" && 
+  cp "$HOME/Learning/R/Quick/saved/$1.csv" "$HOME/Learning/R/Quick/data.csv" && 
+  set -i "s/$1.csv/data.csv/g" "$HOME/Learning/R/Quick/plot.R"
+
+  cp "$HOME/Learning/R/Quick/plot.png" "$HOME/Learning/R/Quick/plot.png.bak" && 
+  cp "$HOME/Learning/R/Quick/saved/$1.png" "$HOME/Learning/R/Quick/plot.png" && 
+  set -i "s/$1.png/plot.png/g" "$HOME/Learning/R/Quick/plot.R"
 fi

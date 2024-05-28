@@ -8,6 +8,7 @@ require("filetypes.lazygit")
 require("filetypes.text")
 require("filetypes.c")
 require("filetypes.vimwiki")
+require("filetypes.r")
 
 -- plugins
 require("plugins.init")

@@ -2,8 +2,12 @@
 
 if [ -z "$1" ] 
 then echo "Name required"
-else 
-  cp -i "~/Learning/R/Quick/plot.R" "~/Learning/R/Quick/saved/$1.R" &&
-  cp -i "~/Learning/R/Quick/data.csv" "~/Learning/R/Quick/saved/$1.csv" &&
-  sed -i "s/data.csv/$1.csv/g" "~/Learning/R/Quick/saved/$1.R"
+else
+  cp -i "$HOME/Learning/R/Quick/plot.R" "$HOME/Learning/R/Quick/saved/$1.R" &&
+
+  cp -i "$HOME/Learning/R/Quick/data.csv" "$HOME/Learning/R/Quick/saved/$1.csv" &&
+  sed -i "s/data.csv/$1.csv/g" "$HOME/Learning/R/Quick/saved/$1.R" 
+
+  cp -i "$HOME/Learning/R/Quick/plot.png" "$HOME/Learning/R/Quick/saved/$1.png" &&
+  sed -i "s/plot.png/$1.png/g" "$HOME/Learning/R/Quick/saved/$1.R"
 fi

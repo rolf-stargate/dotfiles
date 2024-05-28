@@ -1,6 +1,14 @@
 vim.g.taskwiki_disable_concealcursor = "no"
 
-  vim.cmd("normal! TaskWikiMod<cr>due:tomorrow")
+vim.cmd("normal! TaskWikiMod<cr>due:tomorrow")
+
+-- Define the table with the sort orders
+local taskwiki_sort_orders = {
+    E = "end-",
+}
+
+-- Set the global variable
+vim.g.taskwiki_sort_orders = taskwiki_sort_orders
 
 -- Today Report
 vim.keymap.set("n", "<leader>TT", ":FloatermNew --autoclose=1 --wintype=split taskwarrior-tui -r today<cr>", {
