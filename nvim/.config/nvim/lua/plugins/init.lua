@@ -131,7 +131,7 @@ local plugins = {
     end
   },
   { "tools-life/taskwiki" },
-  --   { "ledger/vim-ledger" },
+  { "ledger/vim-ledger" },
   { "3rd/image.nvim" },
   { "TobinPalmer/pastify.nvim" },
   --   { "AckslD/nvim-FeMaco.lua",     config = 'require("femaco").setup()' },

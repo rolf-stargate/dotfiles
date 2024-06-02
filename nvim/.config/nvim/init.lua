@@ -9,6 +9,7 @@ require("filetypes.text")
 require("filetypes.c")
 require("filetypes.vimwiki")
 require("filetypes.r")
+require("filetypes.ledger")
 
 -- plugins
 require("plugins.init")

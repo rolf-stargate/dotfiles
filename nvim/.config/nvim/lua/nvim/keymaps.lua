@@ -59,6 +59,12 @@ end
 vim.g.mapleader = ";"
 vim.g.maplocalleader = " "
 
+vim.keymap.set("n", "<Leader>+", "<C-+>", {
+	noremap = true,
+	silent = true,
+	desc = "Zoom in",
+})
+
 -- Esc
 vim.keymap.set("n", "<Leader>j", "<Esc>", {
 	noremap = true,
