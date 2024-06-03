@@ -52,7 +52,7 @@ urgency.blocked.coefficient = -0.05
 #include dark-red-256.theme
 #include dark-green-256.theme
 #include dark-blue-256.theme
-include dark-violets-256.theme
+#include dark-violets-256.theme
 #include dark-yellow-green.theme
 #include dark-gray-256.theme
 #include dark-gray-blue-256.theme
@@ -106,8 +106,8 @@ report.learning.sort=due+
 report.learning.filter=status:pending -WAITING +learning
 
 report.waiting.columns=id,depends,priority,description,due.relative,project,tags,wait
-report.waiting.labels=ID,Dep,P,Description,Due,Project,Tags,Urgency,WAIT
-report.waiting.sort=due+
+report.waiting.labels=ID,Dep,P,Description,Due,Project,Tags,Wait
+report.waiting.sort=wait+
 report.waiting.filter=status:waiting -habit
 
 # Color rules

@@ -15,7 +15,7 @@ function Taskopen_task_annotate_with_note()
     local line = vim.fn.getline(".")
     local uuid = Taskopen_get_uuid(line)
     Taskopen_annotation_marker_insert(line)
-    local cmd = "FloatermNew --autoclose=0 taskopen -A " .. uuid
+    local cmd = "FloatermNew --autoclose=1 taskopen -A " .. uuid
     vim.cmd(cmd)
 end
 

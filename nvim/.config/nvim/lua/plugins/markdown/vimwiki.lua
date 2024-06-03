@@ -93,3 +93,18 @@ end
 
 vim.keymap.set("n", "<Leader>wP", ":lua Paste_Image_From_Clipboard()<CR>",
   { noremap = true, desc = "Paste image from clipboard" })
+
+vim.api.nvim_set_keymap('v', '<Leader>wb', ':lua WrapWithAsterisks()<CR>', { noremap = true, silent = true, desc = "Bold wrap selected text" })
+
+vim.keymap.set("n", "<Leader>wTT", ":VimwikiTable<CR>",
+  { noremap = true, desc = "Create Table" })
+
+vim.keymap.set("n", "<Leader>wTh", ":VimwikiTableMoveColumnRight<CR>",
+  { noremap = true, desc = "Table Move Column Right" })
+
+vim.keymap.set("n", "<Leader>wTl", ":VimwikiTableMoveColumnLeft<CR>",
+  { noremap = true, desc = "Table Move Column Left" })
+
+vim.keymap.set("n", "<Leader>wo", "80i-<esc>O<esc>jo<esc>k",
+  { noremap = true, desc = "Line Seperator" })
+

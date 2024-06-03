@@ -135,6 +135,7 @@ M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
     client.server_capabilities.documentFormattingProvider = false
   end
+  client.server_capabilities.semanticTokensProvider = nil
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
 end

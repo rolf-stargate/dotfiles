@@ -13,6 +13,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+  -- ColorSchemes
+  { 'Abstract-IDE/Abstract-cs' },
+  { 'rafamadriz/neon' },
   -- Which-Key
   { "folke/which-key.nvim" },
   -- My Plugin
@@ -128,7 +131,7 @@ local plugins = {
     end
   },
   { "tools-life/taskwiki" },
-  --   { "ledger/vim-ledger" },
+  { "ledger/vim-ledger" },
   { "3rd/image.nvim" },
   { "TobinPalmer/pastify.nvim" },
   --   { "AckslD/nvim-FeMaco.lua",     config = 'require("femaco").setup()' },
@@ -141,6 +144,8 @@ local plugins = {
       vim.fn["mkdp#util#install"]()
     end,
   },
+  { 'echasnovski/mini.nvim', version = '*' },
+  { "jbyuki/venn.nvim" }
 }
 
 local opts = {}
@@ -149,6 +154,7 @@ require("lazy").setup(plugins, opts)
 
 -- Load Plugin Configs
 require("plugins.LSP")
+
 require("plugins.treesitter")
 require("plugins.whichkey")
 require("plugins.ankifly")
@@ -170,4 +176,4 @@ require("plugins.colorizer")
 require("plugins.nvim_web_devicons")
 require("plugins.snippets")
 require("plugins.markdown")
-require("plugins.hover")
+require("plugins.minimove")

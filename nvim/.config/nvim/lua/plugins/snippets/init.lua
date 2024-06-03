@@ -22,7 +22,7 @@ vim.keymap.set({ "i", "s" }, "<C-E>", function()
 end, { silent = true })
 
 local date = function()
-	return { os.date("%Y/%m/%d") }
+	return { os.date("%Y-%m-%d") }
 end
 
 local year = function()
@@ -59,7 +59,7 @@ ls.add_snippets(nil, {
 			text({ "</style>" }),
 		}),
 	},
-	markdown = {
+	vimwiki = {
 		snip({
 			trig = "co",
 			namr = "Code Block",
@@ -94,6 +94,38 @@ ls.add_snippets(nil, {
 			text({ "signature: Paul Saynisch", "" }),
 			text({ "---", "" }),
 		}),
+    snip({
+      trig = "log",
+      namr = "Logging Template",
+      dsct = "Logging template in vimwiki",
+    }, {
+      text({"*Date:* "}),
+      func(date),
+      text({ "", "" }),
+      text({ "", "" }),
+      text({ "**Environment Details:** ", "" }),
+      text({ "", "" }),
+      text({ "*Platform:* ", "" }),
+      text({ "*User:* ", "" }),
+      text({ "*Hostname:* ", "" }),
+      text({ "*Port:* ", "" }),
+      text({ "", "" }),
+      text({ "**Service Details:** ", "" }),
+      text({ "", "" }),
+      text({ "*Service Name:* ", "" }),
+      text({ "*Command:* ", "" }),
+      text({ "*Management Tool:* ", "" }),
+      text({ "", "" }),
+      text({ "**Configuration Files:** ", "" }),
+      text({ "", "" }),
+      text({ "*Configuration File:*", "" }),
+      text({ "", "" }),
+      text({ "**Configuration Files:** ", "" }),
+      text({ "", "" }),
+      text({ "", "" }),
+      text({ "**Setup Notes:** ", "" }),
+      text({ "", "" }),
+    }),
 	},
 	ledger = {
 		snip({

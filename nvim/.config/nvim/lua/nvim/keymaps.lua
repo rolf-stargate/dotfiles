@@ -59,6 +59,12 @@ end
 vim.g.mapleader = ";"
 vim.g.maplocalleader = " "
 
+vim.keymap.set("n", "<Leader>+", "<C-+>", {
+	noremap = true,
+	silent = true,
+	desc = "Zoom in",
+})
+
 -- Esc
 vim.keymap.set("n", "<Leader>j", "<Esc>", {
 	noremap = true,
@@ -269,24 +275,26 @@ vim.keymap.set("n", "<Leader>p", '"*p', {
 })
 
 -- Quickfix
-vim.keymap.set("n", "<Leader>q", ":lua ToggleQFList()<CR>", {
+  vim.keymap.set("n", "Q", ":lua ToggleQFList()<CR>", {
 	noremap = true,
 	silent = true,
 	desc = "Toggle Quickfix List",
 })
-vim.keymap.set("n", "<A-l>", ":cnext<CR>", {
+vim.keymap.set("n", "<A-.>", ":cnext<CR>", {
 	noremap = true,
 	silent = true,
-	desc = "Next Quickfix Item",
+  desc = "Next Quickfix Item",
 })
-vim.keymap.set("n", "<A-h>", ":cprevious<CR>", {
+vim.keymap.set("n", "<A-,>", ":cprevious<CR>", {
 	noremap = true,
 	silent = true,
 	desc = "Previous Quickfix Item",
 })
 
+vim.cmd("autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter>")
+
 -- Print Page
-vim.keymap.set("n", "<leader>PP", ":lua PrintPage()<cr>", {
+vim.keymap.set("n", "<leader>PPP", ":lua PrintPage()<cr>", {
 	noremap = true,
 	silent = true,
 	desc = "Print Page",

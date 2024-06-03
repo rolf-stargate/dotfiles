@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd ~/Learning/R/Quick/
+touch data.csv
+nvim ./plot.R

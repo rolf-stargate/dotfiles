@@ -392,6 +392,8 @@ exec --no-startup-id urxvt -e 'nmtui'
 #################                          floating or tiled                                        #################
 #####################################################################################################################
 
+for_window [class="feh"] floating enable
+
 for_window [title="Copying"] floating enable
 for_window [title="Deleting"] floating enable
 for_window [title="Moving"] floating enable
