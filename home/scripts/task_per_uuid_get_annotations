@@ -1,0 +1,18 @@
+#!/bin/bash
+
+part_uuid=$1
+uuid=$(task uuid:$part_uuid info | grep -E "^UUID" | sed -n 's/^UUID[ ]*\(.*\)/\1/p')
+
+count=1
+workdone=0
+
+while : ; do
+  annotation=$(task _get $uuid.annotations.$count.description)
+
+  if [ "${#annotation}" -eq 0 ]; then
+    break
+  fi
+
+  echo "$annotation"
+  let "count++"
+done

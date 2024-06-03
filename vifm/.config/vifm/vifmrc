@@ -181,7 +181,8 @@ command! reload :write | restart
 " program.
 
 " Pdf
-filextype *.pdf sioyek %c %i &, apvlv %c, xpdf %c
+" filextype *.pdf sioyek %c %i &, apvlv %c, xpdf %c
+filextype *.pdf soiyek %c %i &, zathura %c %i &, apvlv %c, xpdf %c
 fileviewer *.pdf
         \ vifmimg pdfpreview %px %py %pw %ph %c
         \ %pc

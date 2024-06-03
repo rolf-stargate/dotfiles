@@ -110,7 +110,7 @@ local plugins = {
   },
   { "nvim-treesitter/playground" },
   { "nvim-treesitter/nvim-treesitter-context" },
-
+  { "lewis6991/hover.nvim" },
   -- ###  #########################################################################
   -- ### Markdown #################################################################
   -- ###  #########################################################################
@@ -170,3 +170,4 @@ require("plugins.colorizer")
 require("plugins.nvim_web_devicons")
 require("plugins.snippets")
 require("plugins.markdown")
+require("plugins.hover")
