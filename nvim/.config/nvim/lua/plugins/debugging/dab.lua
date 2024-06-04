@@ -24,7 +24,7 @@ dap.configurations.c = {
         program = function()
             local path = vim.fn.input({
                 prompt = 'Path to executable: ',
-                default = vim.fn.getcwd() .. '/',
+                default = vim.fn.getcwd() .. '/build/main',
                 completion = 'file',
             })
 
@@ -40,7 +40,7 @@ dap.configurations.c = {
         program = function()
             local path = vim.fn.input({
                 prompt = 'Path to executable: ',
-                default = vim.fn.getcwd() .. '/',
+                default = vim.fn.getcwd() .. '/build/main',
                 completion = 'file',
             })
 

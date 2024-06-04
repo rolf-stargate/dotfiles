@@ -9,6 +9,18 @@
 *.italicFont: xft:Iosevka:style=Italic:size=8
 *.boldItalicFont: xft:Iosevka:style=Bold Italic:size=8
 
+*renderTable: xft
+*xft*fontType: FONT_IS_XFT
+*xft*fontName: Sans
+*xft*fontSize: 8
+
+Xft.dpi: 96
+Xft.autohint: true
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintslight
+Xft.hinting: true
+Xft.antialias: true
+
 ! general settings
 URxvt.saveLines:        50000
 URxvt.termName:         xterm-256color
