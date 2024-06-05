@@ -352,12 +352,25 @@ vim.keymap.set("i", "<leader>cj", "<cmd>normal gcc<cr>", {
 	desc = "Toggle Comment",
 })
 
-vim.keymap.set("n", "<leader>ch", "I###<space><esc>A<space><esc>80A#<esc>080lD:normal gcc<cr>", {
+vim.keymap.set("n", "<leader>cH", "O_<esc>r 80i=<esc>:normal gcc<cr>080lDjI---<space><esc>A<space><esc>80A-<esc>:normal gcc<cr>080lDo_<esc>r 80i=<esc>:normal gcc<cr>080lD", {
+	noremap = true,
+	silent = true,
+	desc = "Big Headline Comment",
+})
+
+vim.keymap.set("i", "<leader>cH", "<esc>O_<esc>r 80i=<esc>:normal gcc<cr>080lDjI---<space><esc>A<space><esc>80A-<esc>:normal gcc<cr>080lDo_<esc>r 80i=<esc>:normal gcc<cr>080lD", {
+	noremap = true,
+	silent = true,
+	desc = "Big Headline Comment",
+})
+
+vim.keymap.set("n", "<leader>ch", "I---<space><esc>A<space><esc>80A-<esc>:normal gcc<cr>080lDo_<esc>r 80i=<esc>:normal gcc<cr>080lD", {
 	noremap = true,
 	silent = true,
 	desc = "Headline Comment",
 })
-vim.keymap.set("i", "<leader>ch", "<esc>I###<space><esc>A<space><esc>80A#<esc>080lD:normal gcc<cr>", {
+
+vim.keymap.set("i", "<leader>ch", "<esc>I---<space><esc>A<space><esc>80A-<esc>:normal gcc<cr>080lDo_<esc>r 80i=<esc>:normal gcc<cr>080lD", {
 	noremap = true,
 	silent = true,
 	desc = "Headline Comment",

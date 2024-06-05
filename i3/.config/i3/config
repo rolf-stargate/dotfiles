@@ -436,7 +436,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease
 
 
 #new_window pixel 1
-default_border normal
+default_border none
 #new_window none
 
 #new_float pixel 1

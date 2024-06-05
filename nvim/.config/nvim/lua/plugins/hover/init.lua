@@ -48,7 +48,6 @@ require('hover').register {
 
     local line_content = vim.api.nvim_buf_get_lines(opts.bufnr, opts.pos[1] - 1, opts.pos[1], false)
     local part_uuid = string.match(line_content[1], "#([a-z0-9]+)$")
-    print(part_uuid)
 
     local annotations = {}
     if part_uuid ~= nil then
@@ -58,9 +57,8 @@ require('hover').register {
         table.insert(annotations, line)
       end
     end
-    if #annotations == 0 then
-      table.insert(annotations, "-")
+    if #annotations > 0 then
+      done { lines = annotations, filetype = "vimwiki" }
     end
-    done { lines = annotations, filetype = "vimwiki" }
   end
 }
