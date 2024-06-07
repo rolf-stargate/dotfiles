@@ -1,0 +1,7 @@
+pushd ~/dotfiles/ >/dev/null
+git pull
+$EDITOR ~/dotfiles/home/.gdbinit &&
+git add -A &&
+git commit -m "Update" &&
+git push
+popd >/dev/null
