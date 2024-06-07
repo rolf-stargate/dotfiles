@@ -4,21 +4,56 @@ vim.api.nvim_create_autocmd("FileType", {
 		-- Use vim.keymap.set for Neovim 0.7 and above
 		vim.keymap.set(
 			"n",
-			"<leader>RR",
-			":FloatermNew --autoclose=0 --wintype=split ./run.sh<CR>",
-			{ buffer = true, noremap = true, desc = "Execute run.sh" }
+			"<leader>dd",
+			":silent!./build.sh<CR>:GdbStart gdb -q ./build/main",
+			{ buffer = true, noremap = true, desc = "GdbStart" }
 		)
 		vim.keymap.set(
 			"n",
-			"<leader>RD",
-			":FloatermNew --autoclose=0 --height=1.0 --wintype=split ./debug.sh<CR>",
-			{ buffer = true, noremap = true, desc = "Execute debug.sh" }
+			"<leader>dg",
+			":silent!./build.sh<CR>:silent!gdbgui ./build/main", { buffer = true, noremap = true, desc = "Interrupt" }
 		)
 		vim.keymap.set(
 			"n",
-			"<leader>RB",
+			"<leader>db",
 			":FloatermNew --autoclose=0 --wintype=split ./build.sh<CR>",
-			{ buffer = true, noremap = true, desc = "Execute build.sh" }
+			{ buffer = true, noremap = true, desc = "Build" }
+		)
+		vim.keymap.set(
+			"n",
+			"<leader>dr",
+			":GdbRun<CR>",
+			{ buffer = true, noremap = true, desc = "Run" }
+		)
+		vim.keymap.set(
+			"n",
+			"<leader>dq",
+			":GdbDebugStop<CR>",
+			{ buffer = true, noremap = true, desc = "Quit" }
+		)
+		vim.keymap.set(
+			"n",
+			"<leader>dw",
+			":GdbCreateWatch",
+			{ buffer = true, noremap = true, desc = "Open Watch" }
+		)
+		vim.keymap.set(
+			"n",
+			"<leader>dB",
+			":GdbLopenBacktrace<CR>",
+			{ buffer = true, noremap = true, desc = "Open Backtrace" }
+		)
+		vim.keymap.set(
+			"n",
+			"<leader>du",
+			":GdbUntil<CR>",
+			{ buffer = true, noremap = true, desc = "Until" }
+		)
+		vim.keymap.set(
+			"n",
+			"<leader>di",
+			":GdbUntil<CR>",
+			{ buffer = true, noremap = true, desc = "Interrupt" }
 		)
 	end,
 })

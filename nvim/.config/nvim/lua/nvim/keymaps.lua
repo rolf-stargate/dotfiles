@@ -212,12 +212,12 @@ vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true
 vim.keymap.set("v", "p", '"_dp', { noremap = true, silent = true })
 
 -- Adding ; to the end of line
-vim.keymap.set("n", "<Leader>d", "<Esc>A;", {
+vim.keymap.set("n", "<Leader>D", "<Esc>A;", {
 	noremap = true,
 	silent = true,
 	desc = "Add ; to EOL",
 })
-vim.keymap.set("i", "<Leader>d", "<Esc>A;<Esc>", {
+vim.keymap.set("i", "<Leader>D", "<Esc>A;<Esc>", {
 	noremap = true,
 	silent = true,
 	desc = "Add ; to EOL",
@@ -437,7 +437,7 @@ vim.keymap.set("n", "<leader>yp", ":let @+ = expand('%:p')<cr>:echo 'Path copied
 -- ### Terminal ###################################################################
 vim.cmd("let g:floaterm_wintype = 'split'")
 
-vim.keymap.set("t", "<c-\\><c-n>", "<esc>", {
+vim.keymap.set("t", "<c-\\><c-N>", "<esc>", {
 	noremap = true,
 	silent = true,
 	desc = "Esc",

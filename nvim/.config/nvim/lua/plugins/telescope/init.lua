@@ -13,7 +13,7 @@ wk.register({
 			"Find File",
 			noremap = true,
 		},
-		F = {
+		d = {
 			"<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<cr>",
 			"Current Buffer fuzzy",
 			noremap = true,
