@@ -68,6 +68,7 @@ local plugins = {
   },
   { "zbirenbaum/copilot.lua" },
   -- Debugging
+  { "sakhnik/nvim-gdb" },
   { "theHamsta/nvim-dap-virtual-text" },
   { "mfussenegger/nvim-dap" },
   { "rcarriga/nvim-dap-ui",                     dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },

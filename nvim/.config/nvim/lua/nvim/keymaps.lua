@@ -437,6 +437,24 @@ vim.keymap.set("n", "<leader>yp", ":let @+ = expand('%:p')<cr>:echo 'Path copied
 -- ### Terminal ###################################################################
 vim.cmd("let g:floaterm_wintype = 'split'")
 
+vim.keymap.set("t", "<c-\\><c-n>", "<esc>", {
+	noremap = true,
+	silent = true,
+	desc = "Esc",
+})
+
+vim.keymap.set("t", "<c-k>", "<c-\\><c-N><c-w>k", {
+	noremap = true,
+	silent = true,
+	desc = "Window up",
+})
+
+vim.keymap.set("t", "<c-j>", "<c-\\><c-N><c-w>j", {
+	noremap = true,
+	silent = true,
+	desc = "Window down",
+})
+
 vim.keymap.set("t", "<leader>tt", "<cmd>FloatermToggle<CR>", {
 	noremap = true,
 	silent = true,
