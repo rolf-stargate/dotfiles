@@ -1,8 +1,7 @@
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = "*.md",
   callback = function()
-    print("task sync")
-    local cmd = "task sync &"
+    local cmd = "task sync > /dev/null 2>&1 &"
     vim.fn.system(cmd)
   end,
 })
