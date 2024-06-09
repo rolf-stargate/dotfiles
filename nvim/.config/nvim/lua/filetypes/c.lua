@@ -55,5 +55,38 @@ vim.api.nvim_create_autocmd("FileType", {
 			":GdbUntil<CR>",
 			{ buffer = true, noremap = true, desc = "Interrupt" }
 		)
-	end,
+
+    vim.keymap.set("n", "<Leader>{", "<Esc>o{<CR>}<Esc>ko", {
+      noremap = true,
+      silent = true,
+      desc = "Create Code Block {}",
+    })
+    vim.keymap.set("i", "<Leader>{", "<Esc>o{<CR>}<Esc>ko", {
+      noremap = true,
+      silent = true,
+      desc = "Create Code Block {}",
+    })
+    vim.keymap.set("n", "<Leader>}", "<Esc>o{<CR>}<Esc>ko", {
+      noremap = true,
+      silent = true,
+      desc = "Create Code Block {}",
+    })
+    vim.keymap.set("i", "<Leader>}", "<Esc>o{<CR>}<Esc>ko", {
+      noremap = true,
+      silent = true,
+      desc = "Create Code Block {}",
+    })
+  end
 })
+
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--   pattern = "*.c",
+--   callback = function()
+--     local file_path = vim.fn.expand("%:p")
+--     local result = vim.fn.system("clang-format -i -style='GNU' " .. file_path)
+--     if vim.v.shell_error ~= 0 then
+--       vim.notify("clang-format failed!", vim.log.levels.ERROR)
+--     end
+--     vim.cmd("edit!")
+--   end,
+-- })

@@ -1,19 +1,9 @@
-local status_ok, _ = pcall(require, "lspconfig")
-if not status_ok then
-	return
-end
-
--- Surpress warnings
-local notify = vim.notify
-vim.notify = function(msg, ...)
-	if msg:match("warning: multiple different client offset_encodings") then
-		return
-	end
-
-	notify(msg, ...)
-end
-
-require("plugins.LSP.mason")
-require("plugins.LSP.handlers").setup()
 require("plugins.LSP.cmp")
--- require("plugins.LSP.nvim-lint")
+
+local lsp_zero = require('lsp-zero')
+
+lsp_zero.on_attach(function(client, bufnr)
+  lsp_zero.default_keymaps({buffer = bufnr})
+end)
+require('lspconfig').clangd.setup({})
+

@@ -61,6 +61,15 @@ local plugins = {
   { "windwp/nvim-autopairs" },
   -- Neoscroll
   { "rolf-stargate/neoscroll.nvim" },
+  -- LSP
+  {"VonHeikemen/lsp-zero.nvim"},
+  {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
+  {'neovim/nvim-lspconfig'},
+  {'hrsh7th/cmp-nvim-lsp'},
+  {'hrsh7th/nvim-cmp'},
+  {'onsails/lspkind.nvim'},
+  {'L3MON4D3/LuaSnip'},
+  { "rafamadriz/friendly-snippets" }, -- a bunch of snippets to use
   -- Copilot
   {
     "zbirenbaum/copilot-cmp",
@@ -74,23 +83,6 @@ local plugins = {
   { "rcarriga/nvim-dap-ui",                     dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
   -- Plenary
   { "nvim-lua/plenary.nvim" },    -- Useful lua functions used ny lots of plugins
-  -- CMP Plugins
-  { "hrsh7th/nvim-cmp" },         -- The completion plugin
-  { "hrsh7th/cmp-buffer" },       -- buffer completions
-  { "hrsh7th/cmp-path" },         -- path completions
-  { "hrsh7th/cmp-cmdline" },      -- cmdline completions
-  { "saadparwaiz1/cmp_luasnip" }, -- snippet completions
-  { "hrsh7th/cmp-nvim-lsp" },
-  { "alexaandru/nvim-lspupdate" },
-  -- LSP Plugins
-  { "neovim/nvim-lspconfig" },             -- enable LSP
-  { "williamboman/mason.nvim" },           -- simple to use language server installer
-  { "williamboman/mason-lspconfig.nvim" }, -- simple to use language server installer
-  { "onsails/lspkind.nvim" },
-  { "mfussenegger/nvim-lint" },
-  -- Snippits
-  { "L3MON4D3/LuaSnip" },             --snippet engine
-  { "rafamadriz/friendly-snippets" }, -- a bunch of snippets to use
   -- Telescope
   { "nvim-telescope/telescope.nvim" },
   { "nvim-telescope/telescope-media-files.nvim" },
