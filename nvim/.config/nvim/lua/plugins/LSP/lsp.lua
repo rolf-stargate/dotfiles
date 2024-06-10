@@ -1,7 +1,12 @@
 local lsp_zero = require('lsp-zero')
 
+vim.diagnostic.config({
+  virtual_text = false,
+})
+
 lsp_zero.on_attach(function(client, bufnr)
   lsp_zero.default_keymaps({buffer = bufnr})
+  vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', {buffer = bufnr})
 end)
 
 require('lspconfig').tsserver.setup({
@@ -11,7 +16,7 @@ require('lspconfig').tsserver.setup({
 })
 
 require('lspconfig').clangd.setup({
-  cmd = { "clangd", "--background-index", "--fallback-style=gnu" },
+  cmd = { "clangd", "--background-index", "--fallback-style=gnu", "--offset-encoding=utf-16" },
 })
 
 lsp_zero.format_on_save({
