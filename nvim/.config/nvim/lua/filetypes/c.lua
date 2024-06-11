@@ -2,56 +2,72 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = "c",
 	callback = function()
 		-- Use vim.keymap.set for Neovim 0.7 and above
+      vim.keymap.set("n", "<Leader>dd", "<Esc>A;", {
+      noremap = true,
+      silent = true,
+      desc = "Add ; to EOL",
+    })
+    vim.keymap.set("i", "<Leader>dd", "<Esc>A;<Esc>", {
+      noremap = true,
+      silent = true,
+      desc = "Add ; to EOL",
+    })
 		vim.keymap.set(
 			"n",
-			"<leader>dd",
+			"<leader>DD",
 			":silent!./build.sh<CR>:GdbStart gdb -q ./build/main",
 			{ buffer = true, noremap = true, desc = "GdbStart" }
 		)
 		vim.keymap.set(
 			"n",
-			"<leader>dg",
+			"<leader>DG",
 			":silent!./build.sh<CR>:silent!gdbgui ./build/main", { buffer = true, noremap = true, desc = "Interrupt" }
 		)
 		vim.keymap.set(
 			"n",
-			"<leader>db",
+			"<leader>DB",
 			":FloatermNew --autoclose=0 --wintype=split ./build.sh<CR>",
 			{ buffer = true, noremap = true, desc = "Build" }
 		)
 		vim.keymap.set(
 			"n",
-			"<leader>dr",
-			":GdbRun<CR>",
+			"<leader>DR",
+			":FloatermNew --autoclose=0 --wintype=split ./build.sh && ./run.sh<CR>",
 			{ buffer = true, noremap = true, desc = "Run" }
 		)
 		vim.keymap.set(
 			"n",
-			"<leader>dq",
+			"<leader>Dr",
+			":FloatermNew --autoclose=0 --wintype=split ./build.sh && ./run.sh",
+			{ buffer = true, noremap = true, desc = "Run" }
+		)
+		vim.keymap.set(
+			"n",
+			"<leader>DQ",
 			":GdbDebugStop<CR>",
 			{ buffer = true, noremap = true, desc = "Quit" }
 		)
 		vim.keymap.set(
 			"n",
-			"<leader>dw",
+			"<leader>DW",
 			":GdbCreateWatch",
 			{ buffer = true, noremap = true, desc = "Open Watch" }
 		)
 		vim.keymap.set(
 			"n",
-			"<leader>dB",
+			"<leader>Db",
 			":GdbLopenBacktrace<CR>",
 			{ buffer = true, noremap = true, desc = "Open Backtrace" }
 		)
 		vim.keymap.set(
 			"n",
-			"<leader>du",
+			"<leader>DU",
 			":GdbUntil<CR>",
 			{ buffer = true, noremap = true, desc = "Until" }
 		)
 		vim.keymap.set(
 			"n",
-			"<leader>di",
+			"<leader>DI",
 			":GdbUntil<CR>",
 			{ buffer = true, noremap = true, desc = "Interrupt" }
 		)

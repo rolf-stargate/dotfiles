@@ -232,6 +232,12 @@ hi diffOldFile guifg=#ff5555 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=
 hi debugPc guifg=#000 ctermfg=NONE guibg=#4D4950 ctermbg=NONE gui=bold, cterm=NONE
 hi debugBreakpoint guifg=#ff5555 ctermfg=203 guibg=NONE ctermbg=NONE gui=reverse cterm=reverse
 
+" LSP
+hi DiagnosticVirtualTextError guifg=#9078B9 ctermfg=164 guibg=NONE ctermbg=NONE gui=NONE cterm=bold
+hi DiagnosticUnderlineError guifg=#FF2F4B ctermfg=164 guibg=NONE ctermbg=NONE gui=italic cterm=bold
+hi DiagnosticVirtualTextWarn guifg=#9078B9 ctermfg=164 guibg=NONE ctermbg=NONE gui=NONE cterm=bold
+hi DiagnosticUnderlineWarn guifg=#F8F724 ctermfg=164 guibg=NONE ctermbg=NONE gui=italic cterm=bold
+
 " ### Vimwiki ####################################################################
 hi VimwikiHeader1 guifg=#F68144 ctermfg=164 guibg=NONE ctermbg=NONE gui=bold cterm=bold
 hi VimwikiHeader2 guifg=#f68144 ctermfg=171 guibg=NONE ctermbg=NONE gui=bold cterm=bold
