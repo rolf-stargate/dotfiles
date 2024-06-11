@@ -266,6 +266,7 @@ assign [class="mpv"] 						          → Music
 
 # Workspace Paint
 assign [class="asprite"] 						      → Paint
+assign [class="rnote"] 			   			      → Paint
 
 
 #####################################################################################################################
@@ -294,6 +295,7 @@ exec --no-startup-id dropbox start
 
 # Udiskie
 exec udiskie --tray
+exec --no-startup-id rnote
 
 #####################################################################################################################
 #################                                 system applications                               #################
@@ -314,6 +316,10 @@ bindsym $mod+b exec --no-startup-id brave
 bindsym $mod+Return exec --no-startup-id urxvt;focus
 bindsym $mod+KP_Enter exec --no-startup-id urxvt;focus
 
+# Keepassxc
+bindsym mod1+p exec --no-startup-id keepassxc
+
+# Rnote
 
 #####################################################################################################################
 #################                          screenshots                                              #################
@@ -342,7 +348,6 @@ exec --no-startup-id google-chrome-stable http://chat.openai.com
 # for_window [class="keepassxc"] move scratchpad
 # bindsym mod1+p [class="keepassxc"] scratchpad show 
 
-bindsym mod1+p exec --no-startup-id keepassxc
 
 #Calculator
 for_window [class="SpeedCrunch"] floating enable

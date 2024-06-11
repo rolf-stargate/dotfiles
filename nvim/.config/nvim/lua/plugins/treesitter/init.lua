@@ -12,7 +12,7 @@ configs.setup({
 		enable = true, -- false will disable the whole extension
 		disable = { "markdown" }, -- list of language that will be disabled
 	},
-	indent = { enable = true, disable = { "yaml" } },
+	-- indent = { enable = true, disable = { "yaml" } },
 })
 
 vim.api.nvim_set_hl(0, "@function.debug.javascript", { link = "MyDebug" })
