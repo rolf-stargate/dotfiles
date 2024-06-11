@@ -127,6 +127,7 @@ local plugins = {
   { "ledger/vim-ledger" },
   { "3rd/image.nvim" },
   { "TobinPalmer/pastify.nvim" },
+  {'myzel394/easytables.nvim'},
   --   { "AckslD/nvim-FeMaco.lua",     config = 'require("femaco").setup()' },
   { "jubnzv/mdeval.nvim" },
   {
