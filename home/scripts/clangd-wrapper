@@ -1,2 +1,0 @@
-#!/bin/bash
-clangd --compile-commands-dir=.config/clangd "$@"
