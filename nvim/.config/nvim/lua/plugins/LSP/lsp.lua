@@ -16,7 +16,7 @@ require('lspconfig').tsserver.setup({
 })
 
 require('lspconfig').clangd.setup({
-  cmd = { "clangd", "--background-index", "--fallback-style=gnu", "--offset-encoding=utf-16", "--enable-config" },
+  cmd = { "clangd-wrapper", "--background-index", "--fallback-style=none", "--offset-encoding=utf-16", "--enable-config" },
 })
 
 lsp_zero.format_on_save({
