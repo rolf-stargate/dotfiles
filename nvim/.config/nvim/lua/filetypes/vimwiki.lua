@@ -13,26 +13,8 @@ vim.api.nvim_create_autocmd("BufEnter", {
 		vim.keymap.set(
 			"n",
 			"<leader>dd",
-			":EasyTablesCreateNew 3x3<cr>",
+			":VimwikiTable ",
 			{ buffer = true, noremap = true, desc = "Create 3x3 table" }
-		)
-		vim.keymap.set(
-			"n",
-			"<leader>DD",
-			":EasyTablesCreateNew ",
-			{ buffer = true, noremap = true, desc = "Create table" }
-		)
-		vim.keymap.set(
-			"n",
-			"<leader>dE",
-			":EasyTablesImportThisTable<cr>",
-			{ buffer = true, noremap = true, desc = "Edit table" }
-		)
-		vim.keymap.set(
-			"n",
-			"<leader>de",
-			":ExportTable<cr>",
-			{ buffer = true, noremap = true, desc = "Export table" }
 		)
   end,
 })

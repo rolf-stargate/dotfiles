@@ -15,13 +15,13 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.keymap.set(
 			"n",
 			"<leader>DD",
-			":silent!./build.sh<CR>:GdbStart gdb -q ./build/main",
+			":silent!./build.sh<CR>:GdbStart gdb -q -x gdb.cmd --args ./build/main",
 			{ buffer = true, noremap = true, desc = "GdbStart" }
 		)
 		vim.keymap.set(
 			"n",
 			"<leader>DG",
-			":silent!./build.sh<CR>:silent!gdbgui ./build/main", { buffer = true, noremap = true, desc = "Interrupt" }
+			":silent!./build.sh<CR>:silent!gdbgui --args ./build/main", { buffer = true, noremap = true, desc = "Interrupt" }
 		)
 		vim.keymap.set(
 			"n",
