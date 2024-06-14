@@ -3,7 +3,7 @@
 WORK=25
 PAUSE=5
 POMODORI=4
-TASK=$(task next limit:1 | tail -n +4 | head -n 1 | sed 's/^ //' | cut -d ' ' -f1)
+# TASK=$(task next limit:1 | tail -n +4 | head -n 1 | sed 's/^ //' | cut -d ' ' -f1)
 INTERACTIVE=true
 MUTE=false
 
@@ -24,7 +24,7 @@ show_help() {
 }
 
 play_notification() {
-	aplay -q /usr/lib/potato/notification.wav&
+	pw-play ~/promo_notification.wav&
 }
 
 while getopts :sw:b:p:t:m opt; do
