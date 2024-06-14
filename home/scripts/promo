@@ -56,18 +56,18 @@ done
 
 time_left="%im left of %s "
 
-if $INTERACTIVE; then
-    task $TASK list
-	time_left="\r$time_left"
-else
-    task $TASK list
-	time_left="$time_left\n"
-fi
+# if $INTERACTIVE; then
+#     task $TASK list
+# 	time_left="\r$time_left"
+# else
+#     task $TASK list
+# 	time_left="$time_left\n"
+# fi
 
 # while true
 for ((p=$POMODORI; p>0; p--))
 do
-    task $TASK start
+    # task $TASK start
 
 	for ((i=$WORK; i>0; i--))
 	do
@@ -83,7 +83,7 @@ do
 		read
 	fi
 
-    task $TASK stop
+    # task $TASK stop
 
 	for ((i=$PAUSE; i>0; i--))
 	do
