@@ -1,3 +1,8 @@
+-- easy-i3-neovim-nav
+vim.fn.serverstart(vim.fn.tempname())
+vim.opt.titlestring = "nvim %F -- [" .. vim.v.servername .. "]"
+vim.opt.title = true
+
 -- nvim
 require("nvim.utility_functions")
 require("nvim.options")
