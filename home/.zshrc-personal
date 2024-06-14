@@ -33,8 +33,6 @@ autoload -Uz compinit && compinit
 ## Ezentials ##################################################################
 alias dropboxignore="di" # Dropbox ignore npm i dropbox-recursive-ignore-node_modules -g
 alias rgif="byzanz-record -c -x 0 -y 1960 -w 1920 -h 1080 " # Record gif
-alias duroot='sudo duc index / && sudo duc ui /'
-alias du='duc index ~ && duc ui ~'
 alias ls="ls --color=auto --group-directories-first"
 
 ## Remaps #####################################################################
