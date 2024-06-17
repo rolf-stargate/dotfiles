@@ -32,6 +32,7 @@ lsp_zero.format_on_save({
   servers = {
     ['tsserver'] = {'javascript', 'typescript'},
     ['clangd'] = {'c'},
+    ['bashls'] = {'sh', 'bash'},
   }
 })
 
