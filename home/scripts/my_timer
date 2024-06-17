@@ -20,9 +20,14 @@ let bar_num=$(cat /home/rolf/scripts/bar.txt | wc -m)
      echo "$(cat /home/rolf/scripts/bar.txt) $((bar_num * 15 / 60))"
    fi
 
-   > /home/rolf/scripts/bar.txt
-   for((i = 0; i < $((bar_num - 1)); i++)); do
-     echo -n ":" >> /home/rolf/scripts/bar.txt
-   done
+   if [ $(cat /home/rolf/script/bar.txt | grep -c '\.') -eq "0" ]; then
+     > /home/rolf/scripts/bar.txt
+     for((i = 0; i < $((bar_num - 1)); i++)); do
+       echo -n ":" >> /home/rolf/scripts/bar.txt
+     done
+   else
+
+   fi
+
  fi
 

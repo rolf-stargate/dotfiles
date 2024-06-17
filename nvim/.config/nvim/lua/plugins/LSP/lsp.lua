@@ -9,6 +9,11 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', {buffer = bufnr})
 end)
 
+require('lspconfig').bashls.setup({
+  cmd = { "bash-language-server", "start" },
+  filetypes = { "sh", "bash" },
+})
+
 require('lspconfig').tsserver.setup({
   on_init = function(client)
     client.server_capabilities.semanticTokensProvider = nil
