@@ -5,8 +5,12 @@ if [ -z "$1" ]; then
  exit 1
 fi
 
-num=$(($1 * 60 / 15))
-for((i = 0; i < $num; i++)); do
+let arg1=$1
+
+let num=$((arg1 * 60 / 15))
+
+> /home/rolf/scripts/bar.txt
+for((i = 0; i < $((num)); i++)); do
  echo -n ":" >> /home/rolf/scripts/bar.txt
- echo 0 >> /home/rolf/scripts/pause.txt
 done
+echo 0 > /home/rolf/scripts/pause.txt

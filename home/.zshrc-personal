@@ -14,6 +14,9 @@ alias tA="task annotate"
 alias td="task del"
 alias to="taskopen"
 
+# my timer
+alias mt="start_my_timer"
+
 # Go to last dir vifm
 alias fmcd="cd $(cat ~/.config/vifm/lastdir)"
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pause=$(cat /home/rolf/scripts/pause.txt)
+let pause=$(cat /home/rolf/scripts/pause.txt)
 let bar_num=$(cat /home/rolf/scripts/bar.txt | wc -m)
 
  if [ "$bar_num" -eq "0" ]; then
@@ -13,7 +13,7 @@ let bar_num=$(cat /home/rolf/scripts/bar.txt | wc -m)
 
    > /home/rolf/scripts/bar.txt
  fi
-
+ 
  if [ "$pause" -eq "0" ]; then
 
    if((bar_num > 0)); then
