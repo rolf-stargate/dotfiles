@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
   vim.keymap.set(
     "n",
-    "<leader>tt",
+    "<leader>TT",
     ":FloatermNew --autoclose=1 --height=30 watch -n 1 ledger bal -f ~/Dropbox/wiki/2023-11-28__8cfd__finance.ledger<cr>",
     {
       buffer = true,

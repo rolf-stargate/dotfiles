@@ -59,7 +59,7 @@ function fm() {
 }
 
 # Path
-export PATH="/home/rolf/scripts:$PATH"
+export PATH="/home/rolf/scripts:/home/rolf/.cargo/bin:$PATH"
 
 # Export
 export HARSHPATH="$HOME/.config/harsh"

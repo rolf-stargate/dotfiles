@@ -185,7 +185,7 @@ hi markdownLinkText guifg=#c3fc8e ctermfg=192 guibg=NONE ctermbg=NONE gui=NONE c
 hi markdownListMarker guifg=#82cfe0 ctermfg=116 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi markdownOrderedListMarker guifg=#ff5555 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi markdownRule guifg=#6272a4 ctermfg=61 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi markdownUrl guifg=#82cfe0 ctermfg=116 guibg=NONE ctermbg=NONE gui=underline cterm=underline
+hi markdownUrl guifg=#828FE0 ctermfg=116 guibg=NONE ctermbg=NONE gui=underline cterm=underline
 
 hi CocExplorerIndentLine guifg=#6272a4 ctermfg=61 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi CocExplorerBufferRoot guifg=#82cfe0 ctermfg=116 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
@@ -239,12 +239,12 @@ hi DiagnosticVirtualTextWarn guifg=#9078B9 ctermfg=164 guibg=NONE ctermbg=NONE g
 hi DiagnosticUnderlineWarn guifg=#F8F724 ctermfg=164 guibg=NONE ctermbg=NONE gui=italic cterm=bold
 
 " ### Vimwiki ####################################################################
-hi VimwikiHeader1 guifg=#F68144 ctermfg=164 guibg=NONE ctermbg=NONE gui=bold cterm=bold
-hi VimwikiHeader2 guifg=#f68144 ctermfg=171 guibg=NONE ctermbg=NONE gui=bold cterm=bold
-hi VimwikiHeader3 guifg=#f68144 ctermfg=192 guibg=NONE ctermbg=NONE gui=bold cterm=bold
-hi VimwikiHeader4 guifg=#f68144 ctermfg=116 guibg=NONE ctermbg=NONE gui=bold cterm=bold
-hi VimwikiHeader5 guifg=#f68144 ctermfg=162 guibg=NONE ctermbg=NONE gui=bold cterm=bold
-hi VimwikiHeader6 guifg=#f68144 ctermfg=183 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi VimwikiHeader1 guifg=#c4a4f9 ctermfg=164 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi VimwikiHeader2 guifg=#c4a4f9 ctermfg=171 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi VimwikiHeader3 guifg=#c4a4f9 ctermfg=192 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi VimwikiHeader4 guifg=#c4a4f9 ctermfg=116 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi VimwikiHeader5 guifg=#c4a4f9 ctermfg=162 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi VimwikiHeader6 guifg=#c4a4f9 ctermfg=183 guibg=NONE ctermbg=NONE gui=bold cterm=bold
 hi VimwikiLink guifg=#82cfe0 ctermfg=116 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi VimwikiBold guifg=#c4a4f9 ctermfg=116 guibg=NONE ctermbg=NONE gui=bold cterm=bold
 hi VimwikiItalic guifg=#93D8BA ctermfg=116 guibg=NONE ctermbg=NONE gui=italic cterm=italic

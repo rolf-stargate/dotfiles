@@ -10,19 +10,6 @@ local taskwiki_sort_orders = {
 -- Set the global variable
 vim.g.taskwiki_sort_orders = taskwiki_sort_orders
 
--- Today Report
-vim.keymap.set("n", "<leader>TT", ":FloatermNew --autoclose=1 --wintype=split taskwarrior-tui -r today<cr>", {
-	noremap = true,
-	silent = true,
-	desc = "Due Today",
-})
-
-vim.keymap.set("n", "<leader>TB", ":FloatermNew --autoclose=0 --wintype=split task burndown.daily<cr>", {
-	noremap = true,
-	silent = true,
-	desc = "Due Today",
-})
-
 -- Tomorrow Report
 vim.keymap.set("n", "<leader>TN", ":FloatermNew --autoclose=1 --wintype=split taskwarrior-tui -r tomorrow<cr>", {
 	noremap = true,

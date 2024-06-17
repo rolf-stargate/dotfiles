@@ -443,25 +443,13 @@ vim.keymap.set("t", "<c-\\><c-N>", "<esc>", {
 	desc = "Esc",
 })
 
-vim.keymap.set("t", "<c-k>", "<c-\\><c-N><c-w>k", {
-	noremap = true,
-	silent = true,
-	desc = "Window up",
-})
-
-vim.keymap.set("t", "<c-j>", "<c-\\><c-N><c-w>j", {
-	noremap = true,
-	silent = true,
-	desc = "Window down",
-})
-
-vim.keymap.set("t", "<leader>tt", "<cmd>FloatermToggle<CR>", {
+vim.keymap.set("t", "<leader>TT", "<cmd>FloatermToggle<CR>", {
 	noremap = true,
 	silent = true,
 	desc = "Toggle Floaterm",
 })
 
-vim.keymap.set("n", "<leader>tt", "<cmd>FloatermToggle<CR>", {
+vim.keymap.set("n", "<leader>TT", "<cmd>FloatermToggle<CR>", {
 	noremap = true,
 	silent = true,
 	desc = "Toggle Floaterm",
@@ -469,7 +457,7 @@ vim.keymap.set("n", "<leader>tt", "<cmd>FloatermToggle<CR>", {
 
 vim.keymap.set(
 	"n",
-	"<leader>tl",
+	"<leader>Tl",
 	":FloatermNew --autoclose=2 --width=" .. Get_window_width() .. " --height=" .. Get_window_height() .. " lazygit<CR>",
 	{
 		noremap = true,
