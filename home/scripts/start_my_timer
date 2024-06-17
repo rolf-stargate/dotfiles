@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+ echo "Usage: $0 <min>"
+ exit 1
+fi
+
+num=$(($1 * 60 / 15))
+for((i = 0; i < $num; i++)); do
+ echo -n ":" >> /home/rolf/scripts/bar.txt
+ echo 0 >> /home/rolf/scripts/pause.txt
+done
