@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ $(cat /home/rolf/scripts/pause.txt) -eq 1 ]; then
+  echo 0 > /home/rolf/scripts/pause.txt
+else
+  echo 1 > /home/rolf/scripts/pause.txt
+fi
+  
