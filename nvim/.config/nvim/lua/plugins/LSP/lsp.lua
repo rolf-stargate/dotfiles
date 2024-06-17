@@ -22,6 +22,7 @@ require('lspconfig').tsserver.setup({
 
 require('lspconfig').clangd.setup({
   cmd = { "clangd", "--offset-encoding=utf-16"},
+  filetypes = { "c", "cpp" },
 })
 
 lsp_zero.format_on_save({
