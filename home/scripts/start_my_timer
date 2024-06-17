@@ -7,7 +7,7 @@ fi
 
 let arg1=$1
 
-let num=$((arg1 * 60 / 15))
+let num=$((arg1 * 60 / 5 / 2))
 
 > /home/rolf/scripts/bar.txt
 for((i = 0; i < $((num)); i++)); do
