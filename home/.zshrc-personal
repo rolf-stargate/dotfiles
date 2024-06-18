@@ -16,6 +16,7 @@ alias to="taskopen"
 
 # my timer
 alias mt="start_my_timer"
+alias tmt="toggle_my_timer"
 
 # Go to last dir vifm
 alias fmcd="cd $(cat ~/.config/vifm/lastdir)"

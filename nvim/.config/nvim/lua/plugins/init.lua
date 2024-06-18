@@ -13,6 +13,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+  -- ChatGpt
+  {"robitx/gp.nvim"},
   -- ColorSchemes
   { 'Abstract-IDE/Abstract-cs' },
   { 'rafamadriz/neon' },
@@ -172,3 +174,4 @@ require("plugins.snippets")
 require("plugins.markdown")
 require("plugins.minimove")
 require("plugins.hover")
+require("plugins.chatgpt")

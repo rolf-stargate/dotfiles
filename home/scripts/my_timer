@@ -3,30 +3,37 @@
 let pause=$(cat /home/rolf/scripts/pause.txt)
 let bar_num=$(cat /home/rolf/scripts/bar.txt | wc -m)
 
- if [ "$bar_num" -eq "0" ]; then
-   if [ "$pause" -eq "0" ]; then
-     pw-play ~/promo_notification.wav&
-   fi
-   echo 1 > /home/rolf/scripts/pause.txt
+let minutes=0
+if [ "$bar_num" -ne "0" ]; then
+  minutes=$((bar_num * 10 / 60))
+fi
 
+if [ "$bar_num" -eq "0" ]; then
+ if [ "$pause" -eq "0" ]; then
+   pw-play ~/promo_notification.wav&
+ fi
+ echo 1 > /home/rolf/scripts/pause.txt
+
+ > /home/rolf/scripts/bar.txt
+fi
+
+if [ "$pause" -eq "0" ]; then
+
+ if((bar_num > 0)); then
+   echo "$(cat /home/rolf/scripts/bar.txt) $minutes"
+ fi
+
+ if [ $(cat /home/rolf/scripts/bar.txt | grep -c '\.') -eq "0" ]; then
+   > /home/rolf/scripts/bar.txt
+   echo -n "." >> /home/rolf/scripts/bar.txt
+ else
    > /home/rolf/scripts/bar.txt
  fi
- 
- if [ "$pause" -eq "0" ]; then
 
-   if((bar_num > 0)); then
-     echo "$(cat /home/rolf/scripts/bar.txt) $((bar_num * 10 / 60))"
-   fi
-
-   if [ $(cat /home/rolf/scripts/bar.txt | grep -c '\.') -eq "0" ]; then
-     > /home/rolf/scripts/bar.txt
-     echo -n "." >> /home/rolf/scripts/bar.txt
-   else
-     > /home/rolf/scripts/bar.txt
-   fi
-
-   for((i = 0; i < $((bar_num - 1)); i++)); do
-     echo -n ":" >> /home/rolf/scripts/bar.txt
-   done
- fi
+ for((i = 0; i < $((bar_num - 1)); i++)); do
+   echo -n ":" >> /home/rolf/scripts/bar.txt
+ done
+else
+  echo "Paused $minutes"
+fi
 
