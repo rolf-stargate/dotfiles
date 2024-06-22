@@ -64,6 +64,8 @@ local plugins = {
   -- Neoscroll
   { "rolf-stargate/neoscroll.nvim" },
   -- LSP
+  {"mhartington/formatter.nvim"},
+  {"rushjs1/nuxt-goto.nvim"},
   {"VonHeikemen/lsp-zero.nvim"},
   {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
   {'neovim/nvim-lspconfig'},

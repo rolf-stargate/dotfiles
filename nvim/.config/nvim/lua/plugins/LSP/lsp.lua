@@ -14,10 +14,35 @@ require('lspconfig').bashls.setup({
   filetypes = { "sh", "bash" },
 })
 
+local vue_typescript_plugin = '/home/rolf/.nvm/versions/node/v17.9.1'
+  .. '/lib/node_modules'
+  .. '/@vue/language-server/node_modules'
+  .. '@vue/typescript-plugin'
+
 require('lspconfig').tsserver.setup({
-  on_init = function(client)
-    client.server_capabilities.semanticTokensProvider = nil
-  end,
+  init_options = {
+    plugins = {
+      {
+        name = "@vue/typescript-plugin",
+        location = vue_typescript_plugin,
+        languages = {'javascript', 'typescript', 'vue'}
+      },
+    }
+  },
+  filetypes = {
+    'javascript',
+    'javascriptreact',
+    'javascript.jsx',
+    'typescript',
+    'typescriptreact',
+    'typescript.tsx',
+    'vue',
+  },
+})
+
+require('lspconfig').volar.setup({
+   cmd = { 'vue-language-server', '--stdio' },
+   filetypes = { 'vue' },
 })
 
 require('lspconfig').clangd.setup({
@@ -33,7 +58,6 @@ lsp_zero.format_on_save({
   servers = {
     ['tsserver'] = {'javascript', 'typescript'},
     ['clangd'] = {'c'},
-    ['bashls'] = {'sh', 'bash'},
   }
 })
 
