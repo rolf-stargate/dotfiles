@@ -147,10 +147,10 @@ bindsym $mod+q kill
 # bindsym $mod+$right focus right
 
 # Move focus for easy-i3-neovim-nav install with: cargo install easy-i3-neovim-nav
-bindsym $mod+$left exec --no-startup-id easy-i3-neovim-nav focus left
-bindsym $mod+$down exec --no-startup-id easy-i3-neovim-nav focus down
-bindsym $mod+$up exec --no-startup-id easy-i3-neovim-nav focus up
-bindsym $mod+$right exec --no-startup-id easy-i3-neovim-nav focus right
+bindsym $mod+$left exec --no-startup-id /home/rolf/.cargo/bin/easy-i3-neovim-nav focus left
+bindsym $mod+$down exec --no-startup-id /home/rolf/.cargo/bin/easy-i3-neovim-nav focus down
+bindsym $mod+$up exec --no-startup-id /home/rolf/.cargo/bin/easy-i3-neovim-nav focus up
+bindsym $mod+$right exec --no-startup-id /home/rolf/.cargo/bin/easy-i3-neovim-nav focus right
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -220,10 +220,10 @@ bindsym $mod+a focus parent
 
 
 # Resizing for easy-i3-neovim-nav install with: cargo install easy-i3-neovim-nav                                                            
-bindsym $mod+Left  exec --no-startup-id easy-i3-neovim-nav resize shrink width  5 10 5
-bindsym $mod+Down  exec --no-startup-id easy-i3-neovim-nav resize shrink height 5 10 5
-bindsym $mod+Up    exec --no-startup-id easy-i3-neovim-nav resize grow   height 5 10 5
-bindsym $mod+Right exec --no-startup-id easy-i3-neovim-nav resize grow   width  5 10 5
+bindsym $mod+Left  exec --no-startup-id /home/rolf/.cargo/bin/easy-i3-neovim-nav resize shrink width  5 10 5
+bindsym $mod+Down  exec --no-startup-id /home/rolf/.cargo/bin/easy-i3-neovim-nav resize shrink height 5 10 5
+bindsym $mod+Up    exec --no-startup-id /home/rolf/.cargo/bin/easy-i3-neovim-nav resize grow   height 5 10 5
+bindsym $mod+Right exec --no-startup-id /home/rolf/.cargo/bin/easy-i3-neovim-nav resize grow   width  5 10 5
 
 # # Resizing by 1
 # bindsym $mod+Left resize shrink width 10 px or 10 ppt
