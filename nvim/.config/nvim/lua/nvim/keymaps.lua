@@ -212,12 +212,12 @@ vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true
 vim.keymap.set("v", "p", '"_dp', { noremap = true, silent = true })
 
 -- Adding ; to the end of line
-  vim.keymap.set("n", "<Leader>dd", "<Esc>A;", {
+  vim.keymap.set("n", "<Leader>dd", "<Esc>A;o", {
 	noremap = true,
 	silent = true,
 	desc = "Add ; to EOL",
 })
-vim.keymap.set("i", "<Leader>dd", "<Esc>A;<Esc>", {
+vim.keymap.set("i", "<Leader>dd", "<Esc>A;<Esc>o", {
 	noremap = true,
 	silent = true,
 	desc = "Add ; to EOL",
