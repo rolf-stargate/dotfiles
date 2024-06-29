@@ -25,7 +25,7 @@ alias fmcd="cd $(cat ~/.config/vifm/lastdir)"
 alias paint="gromit-mpx -a"
 
 # QMK edit --> compile --> flash
-alias qmk="nvim ~/Dropbox/Work/Opt/qmk_firmware/keyboards/splitkb/kyria/keymaps/rolfstargate && /bin/qmk compile -kb kyria -e AVR_CFLAGS='-Wno-array-bounds' && /bin/qmk flash -kb kyria -e AVR_CFLAGS='-Wno-array-bounds'"
+alias qmk="nvim ~/Dropbox/work/opt/qmk_firmware/keyboards/splitkb/kyria/keymaps/rolfstargate && /bin/qmk compile -kb kyria -e AVR_CFLAGS='-Wno-array-bounds' && /bin/qmk flash -kb kyria -e AVR_CFLAGS='-Wno-array-bounds'"
 
 # printlog files
 alias plog="multitail -cS MyLogs"
