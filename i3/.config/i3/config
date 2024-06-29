@@ -393,13 +393,12 @@ bindsym mod1+b [title="bluetuith"] scratchpad show
 exec --no-startup-id urxvt -e bluetuith
 
 #Network
-for_window [title="nmtui"] floating enable
-for_window [title="nmtui"] resize set 1000 1000
-for_window [title="nmtui"] move position center
-for_window [title="nmtui"] move scratchpad
-bindsym mod1+n [title="nmtui"] scratchpad show 
+for_window [class="nm-connection-editor"] floating enable
+for_window [class="nm-connection-editor"] resize set 1000 1000
+for_window [class="nm-connection-editor"] move position center
+for_window [class="nm-connection-editor"] move scratchpad
+bindsym mod1+n [class="nm-connection-editor"] scratchpad show 
 
-exec --no-startup-id urxvt -e 'nmtui'
 #####################################################################################################################
 #################                          floating or tiled                                        #################
 #####################################################################################################################
