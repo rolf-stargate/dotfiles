@@ -212,7 +212,7 @@ vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true
 vim.keymap.set("v", "p", '"_dp', { noremap = true, silent = true })
 
 -- Adding ; to the end of line
-  vim.keymap.set("n", "<Leader>dd", "<Esc>A;o", {
+vim.keymap.set("n", "<Leader>dd", "<Esc>A;o", {
 	noremap = true,
 	silent = true,
 	desc = "Add ; to EOL",
@@ -275,7 +275,7 @@ vim.keymap.set("n", "<Leader>p", '"*p', {
 })
 
 -- Quickfix
-  vim.keymap.set("n", "Q", ":lua ToggleQFList()<CR>", {
+vim.keymap.set("n", "Q", ":lua ToggleQFList()<CR>", {
 	noremap = true,
 	silent = true,
 	desc = "Toggle Quickfix List",
@@ -283,7 +283,7 @@ vim.keymap.set("n", "<Leader>p", '"*p', {
 vim.keymap.set("n", "<A-.>", ":cnext<CR>", {
 	noremap = true,
 	silent = true,
-  desc = "Next Quickfix Item",
+	desc = "Next Quickfix Item",
 })
 vim.keymap.set("n", "<A-,>", ":cprevious<CR>", {
 	noremap = true,
@@ -352,29 +352,49 @@ vim.keymap.set("i", "<leader>cj", "<cmd>normal gcc<cr>", {
 	desc = "Toggle Comment",
 })
 
-vim.keymap.set("n", "<leader>cH", "O_<esc>r 80i=<esc>:normal gcc<cr>080lDjI---<space><esc>A<space><esc>80A-<esc>:normal gcc<cr>080lDo_<esc>r 80i=<esc>:normal gcc<cr>080lD", {
-	noremap = true,
-	silent = true,
-	desc = "Big Headline Comment",
-})
+vim.keymap.set(
+	"n",
+	"<leader>cH",
+	"O_<esc>r 80i=<esc>:normal gcc<cr>080lDjI---<space><esc>A<space><esc>80A-<esc>:normal gcc<cr>080lDo_<esc>r 80i=<esc>:normal gcc<cr>080lD",
+	{
+		noremap = true,
+		silent = true,
+		desc = "Big Headline Comment",
+	}
+)
 
-vim.keymap.set("i", "<leader>cH", "<esc>O_<esc>r 80i=<esc>:normal gcc<cr>080lDjI---<space><esc>A<space><esc>80A-<esc>:normal gcc<cr>080lDo_<esc>r 80i=<esc>:normal gcc<cr>080lD", {
-	noremap = true,
-	silent = true,
-	desc = "Big Headline Comment",
-})
+vim.keymap.set(
+	"i",
+	"<leader>cH",
+	"<esc>O_<esc>r 80i=<esc>:normal gcc<cr>080lDjI---<space><esc>A<space><esc>80A-<esc>:normal gcc<cr>080lDo_<esc>r 80i=<esc>:normal gcc<cr>080lD",
+	{
+		noremap = true,
+		silent = true,
+		desc = "Big Headline Comment",
+	}
+)
 
-vim.keymap.set("n", "<leader>ch", "I---<space><esc>A<space><esc>80A-<esc>:normal gcc<cr>080lDo_<esc>r 80i=<esc>:normal gcc<cr>080lD", {
-	noremap = true,
-	silent = true,
-	desc = "Headline Comment",
-})
+vim.keymap.set(
+	"n",
+	"<leader>ch",
+	"I---<space><esc>A<space><esc>80A-<esc>:normal gcc<cr>080lDo_<esc>r 80i=<esc>:normal gcc<cr>080lD",
+	{
+		noremap = true,
+		silent = true,
+		desc = "Headline Comment",
+	}
+)
 
-vim.keymap.set("i", "<leader>ch", "<esc>I---<space><esc>A<space><esc>80A-<esc>:normal gcc<cr>080lDo_<esc>r 80i=<esc>:normal gcc<cr>080lD", {
-	noremap = true,
-	silent = true,
-	desc = "Headline Comment",
-})
+vim.keymap.set(
+	"i",
+	"<leader>ch",
+	"<esc>I---<space><esc>A<space><esc>80A-<esc>:normal gcc<cr>080lDo_<esc>r 80i=<esc>:normal gcc<cr>080lD",
+	{
+		noremap = true,
+		silent = true,
+		desc = "Headline Comment",
+	}
+)
 
 -- Change Working Directory To Current Dir
 vim.keymap.set("n", "<leader>cd", ":lcd %:p:h<CR>", {
@@ -443,13 +463,13 @@ vim.keymap.set("t", "<c-\\><c-N>", "<esc>", {
 	desc = "Esc",
 })
 
-vim.keymap.set("t", "<leader>TT", "<cmd>FloatermToggle<CR>", {
+vim.keymap.set("t", "<leader>tt", "<cmd>FloatermToggle<CR>", {
 	noremap = true,
 	silent = true,
 	desc = "Toggle Floaterm",
 })
 
-vim.keymap.set("n", "<leader>TT", "<cmd>FloatermToggle<CR>", {
+vim.keymap.set("n", "<leader>tt", "<cmd>FloatermToggle<CR>", {
 	noremap = true,
 	silent = true,
 	desc = "Toggle Floaterm",

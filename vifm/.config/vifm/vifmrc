@@ -76,7 +76,7 @@ colorscheme palenight.vifm
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
 " See man date or man strftime for details.
 
-set timefmt=%m/%d/%Y\ %H:%M
+set timefmt=%Y/%m/%d\ %H:%M
 
 " Show list of matches on tab completion in command-line mode
 
@@ -116,7 +116,7 @@ endif
 
 " Set custom status line look
 
-set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
+set statusline='%z%= %A %10u:%-7g %15s %20d'
 
 " Set line numbers to show
 

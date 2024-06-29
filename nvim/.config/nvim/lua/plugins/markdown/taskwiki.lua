@@ -1,14 +1,124 @@
 vim.g.taskwiki_disable_concealcursor = "no"
+vim.g.taskwiki_suppress_mappings = "yes"
 
 vim.cmd("normal! TaskWikiMod<cr>due:tomorrow")
 
 -- Define the table with the sort orders
 local taskwiki_sort_orders = {
-    E = "end-",
+	E = "end-",
 }
 
 -- Set the global variable
 vim.g.taskwiki_sort_orders = taskwiki_sort_orders
+
+-- Taskwiki
+vim.keymap.set("n", "<leader>t-", ":TaskWikiStop<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Stop Task",
+})
+
+vim.keymap.set("v", "<leader>t-", ":TaskWikiStop<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Stop Task",
+})
+
+vim.keymap.set("n", "<leader>t+", ":TaskWikiStart<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Start Task",
+})
+
+vim.keymap.set("v", "<leader>t+", ":TaskWikiStart<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Start Task",
+})
+
+vim.keymap.set("n", "<leader>tm", ":TaskWikiMod<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Modify Task",
+})
+
+vim.keymap.set("v", "<leader>tm", ":TaskWikiMod<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Modify Task",
+})
+
+vim.keymap.set("n", "<leader>ti", ":TaskWikiInfo<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Info Task",
+})
+
+vim.keymap.set("v", "<leader>ti", ":TaskWikiInfo<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Info Task",
+})
+
+vim.keymap.set("n", "<leader>te", ":TaskWikiEdit<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Edit Task",
+})
+
+vim.keymap.set("v", "<leader>te", ":TaskWikiEdit<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Edit Task",
+})
+
+vim.keymap.set("n", "<leader>td", ":TaskWikiDone<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Done Task",
+})
+
+vim.keymap.set("v", "<leader>td", ":TaskWikiDone<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Done Task",
+})
+
+vim.keymap.set("n", "<leader>tD", ":TaskWikiDelete<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Delete Task",
+})
+
+vim.keymap.set("v", "<leader>tD", ":TaskWikiDelete<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Delete Task",
+})
+
+vim.keymap.set("n", "<leader>ta", ":TaskWikiAnnotate<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Annotate Task",
+})
+
+vim.keymap.set("v", "<leader>ta", ":TaskWikiAnnotate<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Annotate Task",
+})
+
+vim.keymap.set("n", "<leader>tc", ":TaskWikiCalendar<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Annotate Task",
+})
+
+vim.keymap.set("n", "<leader>ta", ":TaskWikiAnnotate<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Annotate Task",
+})
 
 -- Tomorrow Report
 vim.keymap.set("n", "<leader>TN", ":FloatermNew --autoclose=1 --wintype=split taskwarrior-tui -r tomorrow<cr>", {
@@ -72,5 +182,3 @@ vim.keymap.set("n", "<leader>Tw", ":FloatermNew --autoclose=1 --wintype=split ta
 	silent = true,
 	desc = "Waiting",
 })
-
-
