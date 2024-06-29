@@ -2,6 +2,6 @@
 
 ccbuild
 
-pushd ~/Learning/C/Quick/build > /dev/null
+pushd ~/learning/c/quick/build > /dev/null
 ./main
 popd > /dev/null

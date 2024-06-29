@@ -14,7 +14,7 @@
 
 # Use the command 'task show' to see all defaults and overrides
 
-alias.addnote=execute /home/rolf/Dropbox/Work/Opt/taskopen/scripts/addnote
+alias.addnote=execute /home/rolf/Dropbox/work/opt/taskopen/scripts/addnote
 
 # Files
 data.location=/home/rolf/.task

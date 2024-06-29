@@ -3,7 +3,9 @@ local save_interval = 30000 -- Interval in milliseconds
 local timer
 
 local function save()
-	vim.cmd("update")
+	if vim.bo.modifiable and not vim.bo.readonly then
+		vim.cmd("update")
+	end
 end
 
 local function start_timer()

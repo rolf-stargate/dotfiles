@@ -55,6 +55,6 @@ Also=NetworkManager-wait-online.service
 " > ~/archiso/releng/airootfs/etc/systemd/system/multi-user.target.wants/NetworkManager.service &&
 
 
-sudo mkarchiso -v -o ~/Dropbox/Isos -w /tmp/archiso-tmp ~/archiso/releng
-echo "dd if=~/Dropbox/Isos/arch... of=/dev/sdX bs=4M status=progress"
+sudo mkarchiso -v -o ~/Dropbox/isos -w /tmp/archiso-tmp ~/archiso/releng
+echo "dd if=~/Dropbox/isos/arch... of=/dev/sdX bs=4M status=progress"
 echo "copy .ssh and /Script/arch_post_install.sh to the drive"

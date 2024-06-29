@@ -1,0 +1,31 @@
+#!/bin/bash
+
+folder=$1
+path=$2
+
+if [ -z "$folder" ] || [ -z "$path" ]; then
+  echo "Usage: $0 <folder> <path>"
+  exit 1
+fi
+
+# delete leading slash
+if [ "${folder:0:1}" == "/" ]; then
+  folder="${folder:1}"
+fi
+
+# delete trailing slash
+if [ "${folder: -1}" == "/" ]; then
+  folder="${folder:0:-1}"
+fi
+
+
+links=$(find "$path" -type l -xtype d -printf '%p -> %l\n' 2>/dev/null | grep -E "\->.*(/$folder|$folder/)")
+
+files=$(find "$path" -maxdepth 5 -type f -exec grep -lE "(/$folder|$folder/)" {} \;)
+
+echo "Files containing reference to $folder:"
+echo "$files"
+echo ""
+echo "Links to $folder:"
+echo "$links"
+
