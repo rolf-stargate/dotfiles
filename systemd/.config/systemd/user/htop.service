@@ -1,0 +1,9 @@
+[Unit]
+Description=Starts htop in the backgound
+
+[Service]
+ExecStart=/sbin/urxvt -e htop
+Restart=always
+
+[Install]
+WantedBy=default.target

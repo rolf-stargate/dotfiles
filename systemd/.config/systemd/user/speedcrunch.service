@@ -1,0 +1,9 @@
+[Unit]
+Description=Starts speedcrunch in the backgound
+
+[Service]
+ExecStart=/sbin/speedcrunch
+Restart=always
+
+[Install]
+WantedBy=default.target

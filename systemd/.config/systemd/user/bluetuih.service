@@ -1,0 +1,9 @@
+[Unit]
+Description=Starts bluetuith in the backgound
+
+[Service]
+ExecStart=/sbin/urxvt -e bluetuith
+Restart=always
+
+[Install]
+WantedBy=default.target

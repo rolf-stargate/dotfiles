@@ -1,0 +1,9 @@
+[Unit]
+Description=Starts chatgpt-desktop in the backgound
+
+[Service]
+ExecStart=/sbin/chat-gpt
+Restart=always
+
+[Install]
+WantedBy=default.target

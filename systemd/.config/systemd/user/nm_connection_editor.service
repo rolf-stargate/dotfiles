@@ -1,0 +1,9 @@
+[Unit]
+Description=Starts advanced connection manager
+
+[Service]
+ExecStart=/sbin/nm-connection-editor
+Restart=always
+
+[Install]
+WantedBy=default.target
