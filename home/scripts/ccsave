@@ -2,5 +2,5 @@
 
 if [ -z "$1" ] 
 then echo "Name required"
-else cp -i ~/Learning/C/Quick/src/main.c ~/Learning/C/Quick/src/$1.c
+else cp -i ~/learning/c/quick/src/main.c ~/learning/c/quick/src/$1.c
 fi

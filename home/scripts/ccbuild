@@ -1,5 +1,5 @@
 #!/bin/bash
 
-pushd ~/Learning/C/Quick > /dev/null
+pushd ~/learning/c/quick > /dev/null
 gcc -g ./src/main.c -o ./build/main
 popd > /dev/null

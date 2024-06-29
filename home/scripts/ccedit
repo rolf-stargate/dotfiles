@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd ~/Learning/C/Quick/
+cd ~/learning/c/quick/
 nvim ./src/main.c
