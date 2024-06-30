@@ -50,7 +50,7 @@ alias less="moar"
 alias y="yay -Slq | fzf -m --preview-window=top --preview 'yay -Si {1}' | xargs -ro yay -S"
 
 ## vm ########################################################################
-alias win11="sudo virsh start win11 && ~/Opt/looking-glass-B6/client/build/looking-glass-client -m KEY_F10"
+alias win11="sudo virsh start win11 && ~/opt/looking-glass-B6/client/build/looking-glass-client -m KEY_F10"
 
 ## ytfz youtoube fuzzy search #################################################
 alias yt="ytfzf -tsl --pages=5"

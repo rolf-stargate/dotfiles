@@ -1,0 +1,22 @@
+#!/bin/bash
+LOGFILE="/var/log/pacman_timeing.log"
+count=0
+
+echo "Start: $(date)" > $LOGFILE
+echo "" >> $LOGFILE
+
+log_time() {
+  local pkg="$1"
+  /usr/bin/time -f "%E:$pkg\n" -a -o $LOGFILE pacman -S --noconfirm --needed "$pkg"
+}
+
+packages=$(pacman -Quq)
+
+for pkg in $packages; do
+  conut=$((count+1))
+  log_time "$pkg"
+done
+
+echo "" >> $LOGFILE
+echo "End: $(date)" >> $LOGFILE
+echo "Total packages: $count" >> $LOGFILE
