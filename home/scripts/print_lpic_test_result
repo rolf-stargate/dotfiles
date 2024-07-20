@@ -1,0 +1,4 @@
+#!/bin/bash
+
+qnum=$(grep -Ec '[0-9]\{1,2\}')
+echo $qnum
