@@ -477,7 +477,7 @@ vim.keymap.set("n", "<leader>tt", "<cmd>FloatermToggle<CR>", {
 
 vim.keymap.set(
 	"n",
-	"<leader>Tl",
+	"<leader>tl",
 	":FloatermNew --autoclose=2 --width=" .. Get_window_width() .. " --height=" .. Get_window_height() .. " lazygit<CR>",
 	{
 		noremap = true,

@@ -5,32 +5,29 @@ end
 
 local wk = require("which-key")
 wk.register({
-	f = {
-		name = "Find",
-		-- Telescope
-		f = {
-			"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({ previewer = false}))<cr>",
-			"Find File",
-			noremap = true,
-		},
-		d = {
-			"<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<cr>",
-			"Current Buffer fuzzy",
-			noremap = true,
-		},
-		b = { "<cmd>Telescope bookmarks<cr>", "Brave Bookmarks", noremap = true },
-		g = { "<cmd>Telescope live_grep<cr>", "Live Grep", noremap = true },
-		c = { "<cmd>lua require'telescope.builtin'.commands{}<cr>", "Commands", noremap = true },
-		w = { "<cmd>lua require'telescope.builtin'.grep_string{}<cr>", "Grep String", noremap = true },
-		M = { "<cmd>lua require'telescope.builtin'.man_pages{}<cr>", "Man Pages", noremap = true },
-		q = { "<cmd>lua require'telescope.builtin'.quickfix{}<cr>", "Quickfix", noremap = true },
-		v = { "<cmd>lua require'telescope.builtin'.vim_options{}<cr>", "Vim Options", noremap = true },
-		k = { "<cmd>lua require'telescope.builtin'.keymaps{}<cr>", "Keymaps", noremap = true },
-		h = { "<cmd>lua require'telescope.builtin'.highlights{}<cr>", "Heighlights", noremap = true },
+
+	{ "<Leader>f", group = "Find" },
+	{ "<Leader>fM", "<cmd>lua require'telescope.builtin'.man_pages{}<cr>", desc = "Man Pages", remap = false },
+	{ "<Leader>fb", "<cmd>Telescope bookmarks<cr>", desc = "Brave Bookmarks", remap = false },
+	{ "<Leader>fc", "<cmd>lua require'telescope.builtin'.commands{}<cr>", desc = "Commands", remap = false },
+	{
+		"<Leader>fd",
+		"<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<cr>",
+		desc = "Current Buffer fuzzy",
+		remap = false,
 	},
-}, {
-	mode = "n",
-	prefix = "<Leader>",
+	{
+		"<Leader>ff",
+		"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({ previewer = false}))<cr>",
+		desc = "Find File",
+		remap = false,
+	},
+	{ "<Leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep", remap = false },
+	{ "<Leader>fh", "<cmd>lua require'telescope.builtin'.highlights{}<cr>", desc = "Heighlights", remap = false },
+	{ "<Leader>fk", "<cmd>lua require'telescope.builtin'.keymaps{}<cr>", desc = "Keymaps", remap = false },
+	{ "<Leader>fq", "<cmd>lua require'telescope.builtin'.quickfix{}<cr>", desc = "Quickfix", remap = false },
+	{ "<Leader>fv", "<cmd>lua require'telescope.builtin'.vim_options{}<cr>", desc = "Vim Options", remap = false },
+	{ "<Leader>fw", "<cmd>lua require'telescope.builtin'.grep_string{}<cr>", desc = "Grep String", remap = false },
 })
 
 local actions = require("telescope.actions")
@@ -142,7 +139,6 @@ telescope.load_extension("fzf")
 require("telescope").load_extension("bookmarks")
 
 -- This is your opts table
-require("telescope").setup {
-  extensions = {
-  }
-}
+require("telescope").setup({
+	extensions = {},
+})

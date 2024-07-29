@@ -6,14 +6,20 @@ local colorscheme = "stargate"
 
 local wk = require("which-key")
 wk.register({
-	c = {
-		name = "Color",
-		d = { "<cmd>colorscheme stargate<cr><cmd>set background=dark<cr>", "Dark Colorscheme", noremap = true },
-		l = { "<cmd>colorscheme kat.nvim<cr><cmd>set background=light<cr>", "Light Colorscheme", noremap = true },
+
+	{ "<Leader>c", group = "Color" },
+	{
+		"<Leader>cd",
+		"<cmd>colorscheme stargate<cr><cmd>set background=dark<cr>",
+		desc = "Dark Colorscheme",
+		remap = false,
 	},
-}, {
-	mode = "n",
-	prefix = "<Leader>",
+	{
+		"<Leader>cl",
+		"<cmd>colorscheme kat.nvim<cr><cmd>set background=light<cr>",
+		desc = "Light Colorscheme",
+		remap = false,
+	},
 })
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-qnum=$(grep -c '[0-9]\{1,2\}' ~/Dropbox/wiki/main-wiki-notes.md)
+qnum=$(grep -c '^[0-9]\{1,2\}' ~/Dropbox/wiki/main-wiki-notes.md)
 rightnum=$(grep -c '*' ~/Dropbox/wiki/main-wiki-notes.md)
 falsenum=$(grep -c '!' ~/Dropbox/wiki/main-wiki-notes.md)
 cperc=$(bc <<< "scale=2; $rightnum/($rightnum+$falsenum)*100")

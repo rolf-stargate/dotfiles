@@ -21,7 +21,8 @@ local plugins = {
 	-- Which-Key
 	{ "folke/which-key.nvim" },
 	-- My Plugin
-	{ "rolf-stargate/ankifly.nvim" },
+	-- { "rolf-stargate/ankifly.nvim", branch = "develop" },
+	{ dir = "/home/rolf/Dropbox/work/rolfworld/programming/projects/ankifly.nvim" },
 	-- Nvim-Surround
 	{
 		"kylechui/nvim-surround",

@@ -1,14 +1,9 @@
 local wk = require("which-key")
 
 wk.register({
-	a = {
-		name = "Anki",
-		n = { "<cmd>Anki<cr>", "Create Note", noremap = true },
-		c = { "<cmd>AnkiCloze<cr>", "Create Cloze Note", noremap = true },
-		b = { "<cmd>AnkiBasic<cr>", "Create Basic Note", noremap = true },
-		r = { "<cmd>AnkiReverse<cr>", "Create Reverse Note", noremap = true },
-	},
-}, {
-	mode = "n",
-	prefix = "<Leader>",
+	{ "<Leader>a", group = "Anki" },
+	{ "<Leader>ab", "<cmd>AnkiBasic<cr>", desc = "Create Basic Note", remap = false },
+	{ "<Leader>ac", "<cmd>AnkiCloze<cr>", desc = "Create Cloze Note", remap = false },
+	{ "<Leader>an", "<cmd>Anki<cr>", desc = "Create Note", remap = false },
+	{ "<Leader>ar", "<cmd>AnkiReverse<cr>", desc = "Create Reverse Note", remap = false },
 })
