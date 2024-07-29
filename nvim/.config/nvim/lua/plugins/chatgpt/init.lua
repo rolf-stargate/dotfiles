@@ -61,7 +61,7 @@ require("gp").setup({
 
 -- VISUAL mode mappings
 -- s, x, v modes are handled the same way by which_key
-require("which-key").register({
+require("which-key").add({
 
 	{
 		mode = { "v" },
@@ -82,21 +82,29 @@ require("which-key").register({
 })
 
 -- NORMAL mode mappings
-require("which-key").register({
+require("which-key").add({
 
-	{ "<C-g>N", "<cmd>GpNextAgent<cr>", desc = "Next Agent", nowait = true, remap = false },
-	{ "<C-g>n", "<cmd>GpChatNew split<cmd>GpChatToggle split<cr>", desc = "Toggle Chat", nowait = true, remap = false },
-	{ "<C-g>s", "<cmd>GpStop<cr>", desc = "GpStop", nowait = true, remap = false },
-	{ "<C-g>t", "<cmd>GpChatToggle split<cr>", desc = "Toggle Chat", nowait = true, remap = false },
-	{ "<C-g>w", group = "Whisper", nowait = true, remap = false },
-	{ "<C-g>wa", "<cmd>GpWhisperAppend<cr>", desc = "Whisper Append (after)", nowait = true, remap = false },
-	{ "<C-g>wb", "<cmd>GpWhisperPrepend<cr>", desc = "Whisper Prepend (before)", nowait = true, remap = false },
-	{ "<C-g>we", "<cmd>GpWhisperEnew<cr>", desc = "Whisper Enew", nowait = true, remap = false },
-	{ "<C-g>wn", "<cmd>GpWhisperNew<cr>", desc = "Whisper New", nowait = true, remap = false },
-	{ "<C-g>wp", "<cmd>GpWhisperPopup<cr>", desc = "Whisper Popup", nowait = true, remap = false },
-	{ "<C-g>wr", "<cmd>GpWhisperRewrite<cr>", desc = "Whisper Inline Rewrite", nowait = true, remap = false },
-	{ "<C-g>wt", "<cmd>GpWhisperTabnew<cr>", desc = "Whisper Tabnew", nowait = true, remap = false },
-	{ "<C-g>wv", "<cmd>GpWhisperVnew<cr>", desc = "Whisper Vnew", nowait = true, remap = false },
-	{ "<C-g>ww", "<cmd>GpWhisper<cr>", desc = "Whisper", nowait = true, remap = false },
-	{ "<C-g>x", "<cmd>GpContext<cr>", desc = "Toggle GpContext", nowait = true, remap = false },
+	{
+		{ "<C-g>N", "<cmd>GpNextAgent<cr>", desc = "Next Agent", nowait = true, remap = false },
+		{
+			"<C-g>n",
+			"<cmd>GpChatNew split<cmd>GpChatToggle split<cr>",
+			desc = "Toggle Chat",
+			nowait = true,
+			remap = false,
+		},
+		{ "<C-g>s", "<cmd>GpStop<cr>", desc = "GpStop", nowait = true, remap = false },
+		{ "<C-g>t", "<cmd>GpChatToggle split<cr>", desc = "Toggle Chat", nowait = true, remap = false },
+		{ "<C-g>w", group = "Whisper", nowait = true, remap = false },
+		{ "<C-g>wa", "<cmd>GpWhisperAppend<cr>", desc = "Whisper Append (after)", nowait = true, remap = false },
+		{ "<C-g>wb", "<cmd>GpWhisperPrepend<cr>", desc = "Whisper Prepend (before)", nowait = true, remap = false },
+		{ "<C-g>we", "<cmd>GpWhisperEnew<cr>", desc = "Whisper Enew", nowait = true, remap = false },
+		{ "<C-g>wn", "<cmd>GpWhisperNew<cr>", desc = "Whisper New", nowait = true, remap = false },
+		{ "<C-g>wp", "<cmd>GpWhisperPopup<cr>", desc = "Whisper Popup", nowait = true, remap = false },
+		{ "<C-g>wr", "<cmd>GpWhisperRewrite<cr>", desc = "Whisper Inline Rewrite", nowait = true, remap = false },
+		{ "<C-g>wt", "<cmd>GpWhisperTabnew<cr>", desc = "Whisper Tabnew", nowait = true, remap = false },
+		{ "<C-g>wv", "<cmd>GpWhisperVnew<cr>", desc = "Whisper Vnew", nowait = true, remap = false },
+		{ "<C-g>ww", "<cmd>GpWhisper<cr>", desc = "Whisper", nowait = true, remap = false },
+		{ "<C-g>x", "<cmd>GpContext<cr>", desc = "Toggle GpContext", nowait = true, remap = false },
+	},
 })

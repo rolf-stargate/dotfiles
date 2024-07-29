@@ -5,20 +5,21 @@ local colorscheme = "stargate"
 -- local colorscheme = "kat.nwim"
 
 local wk = require("which-key")
-wk.register({
-
-	{ "<Leader>c", group = "Color" },
+wk.add({
 	{
-		"<Leader>cd",
-		"<cmd>colorscheme stargate<cr><cmd>set background=dark<cr>",
-		desc = "Dark Colorscheme",
-		remap = false,
-	},
-	{
-		"<Leader>cl",
-		"<cmd>colorscheme kat.nvim<cr><cmd>set background=light<cr>",
-		desc = "Light Colorscheme",
-		remap = false,
+		{ "<Leader>c", group = "Color" },
+		{
+			"<Leader>cd",
+			"<cmd>colorscheme stargate<cr><cmd>set background=dark<cr>",
+			desc = "Dark Colorscheme",
+			remap = false,
+		},
+		{
+			"<Leader>cl",
+			"<cmd>colorscheme kat.nvim<cr><cmd>set background=light<cr>",
+			desc = "Light Colorscheme",
+			remap = false,
+		},
 	},
 })
 

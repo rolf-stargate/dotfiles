@@ -4,30 +4,32 @@ if not status_ok then
 end
 
 local wk = require("which-key")
-wk.register({
+wk.add({
 
-	{ "<Leader>f", group = "Find" },
-	{ "<Leader>fM", "<cmd>lua require'telescope.builtin'.man_pages{}<cr>", desc = "Man Pages", remap = false },
-	{ "<Leader>fb", "<cmd>Telescope bookmarks<cr>", desc = "Brave Bookmarks", remap = false },
-	{ "<Leader>fc", "<cmd>lua require'telescope.builtin'.commands{}<cr>", desc = "Commands", remap = false },
 	{
-		"<Leader>fd",
-		"<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<cr>",
-		desc = "Current Buffer fuzzy",
-		remap = false,
+		{ "<Leader>f", group = "Find" },
+		{ "<Leader>fM", "<cmd>lua require'telescope.builtin'.man_pages{}<cr>", desc = "Man Pages", remap = false },
+		{ "<Leader>fb", "<cmd>Telescope bookmarks<cr>", desc = "Brave Bookmarks", remap = false },
+		{ "<Leader>fc", "<cmd>lua require'telescope.builtin'.commands{}<cr>", desc = "Commands", remap = false },
+		{
+			"<Leader>fd",
+			"<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<cr>",
+			desc = "Current Buffer fuzzy",
+			remap = false,
+		},
+		{
+			"<Leader>ff",
+			"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({ previewer = false}))<cr>",
+			desc = "Find File",
+			remap = false,
+		},
+		{ "<Leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep", remap = false },
+		{ "<Leader>fh", "<cmd>lua require'telescope.builtin'.highlights{}<cr>", desc = "Heighlights", remap = false },
+		{ "<Leader>fk", "<cmd>lua require'telescope.builtin'.keymaps{}<cr>", desc = "Keymaps", remap = false },
+		{ "<Leader>fq", "<cmd>lua require'telescope.builtin'.quickfix{}<cr>", desc = "Quickfix", remap = false },
+		{ "<Leader>fv", "<cmd>lua require'telescope.builtin'.vim_options{}<cr>", desc = "Vim Options", remap = false },
+		{ "<Leader>fw", "<cmd>lua require'telescope.builtin'.grep_string{}<cr>", desc = "Grep String", remap = false },
 	},
-	{
-		"<Leader>ff",
-		"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({ previewer = false}))<cr>",
-		desc = "Find File",
-		remap = false,
-	},
-	{ "<Leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep", remap = false },
-	{ "<Leader>fh", "<cmd>lua require'telescope.builtin'.highlights{}<cr>", desc = "Heighlights", remap = false },
-	{ "<Leader>fk", "<cmd>lua require'telescope.builtin'.keymaps{}<cr>", desc = "Keymaps", remap = false },
-	{ "<Leader>fq", "<cmd>lua require'telescope.builtin'.quickfix{}<cr>", desc = "Quickfix", remap = false },
-	{ "<Leader>fv", "<cmd>lua require'telescope.builtin'.vim_options{}<cr>", desc = "Vim Options", remap = false },
-	{ "<Leader>fw", "<cmd>lua require'telescope.builtin'.grep_string{}<cr>", desc = "Grep String", remap = false },
 })
 
 local actions = require("telescope.actions")
