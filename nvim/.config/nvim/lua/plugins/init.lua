@@ -76,11 +76,21 @@ local plugins = {
 	{ "L3MON4D3/LuaSnip" },
 	{ "rafamadriz/friendly-snippets" }, -- a bunch of snippets to use
 	-- Copilot
+	-- {
+	-- 	"zbirenbaum/copilot-cmp",
+	-- 	after = { "copilot.lua", "nvim-cmp" },
+	-- },
+	-- { "zbirenbaum/copilot.lua" },
 	{
-		"zbirenbaum/copilot-cmp",
-		after = { "copilot.lua", "nvim-cmp" },
+		"Exafunction/codeium.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"hrsh7th/nvim-cmp",
+		},
+		config = function()
+			require("codeium").setup({})
+		end,
 	},
-	{ "zbirenbaum/copilot.lua" },
 	-- Debugging
 	{ "sakhnik/nvim-gdb" },
 	{ "theHamsta/nvim-dap-virtual-text" },
@@ -162,7 +172,7 @@ require("plugins.windline")
 require("plugins.gitsigns")
 require("plugins.telescope")
 require("plugins.undo")
-require("plugins.copilot")
+-- require("plugins.copilot")
 require("plugins.debugging")
 require("plugins.neoscroll")
 require("plugins.nvimtree")

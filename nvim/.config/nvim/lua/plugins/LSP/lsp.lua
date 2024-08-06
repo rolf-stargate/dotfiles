@@ -7,6 +7,11 @@ vim.diagnostic.config({
 lsp_zero.on_attach(function(client, bufnr)
   lsp_zero.default_keymaps({buffer = bufnr})
   vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', {buffer = bufnr})
+  vim.keymap.set('n', 'gj', '<cmd>lua vim.diagnostic.goto_next()<CR>', { buffer = bufnr })
+  vim.keymap.set('n', 'gk', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { buffer = bufnr })
+  vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { buffer = bufnr })
+  vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', { buffer = bufnr })
+end)
 end)
 
 require('lspconfig').bashls.setup({

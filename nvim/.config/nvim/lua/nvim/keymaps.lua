@@ -280,12 +280,12 @@ vim.keymap.set("n", "Q", ":lua ToggleQFList()<CR>", {
 	silent = true,
 	desc = "Toggle Quickfix List",
 })
-vim.keymap.set("n", "<A-.>", ":cnext<CR>", {
+vim.keymap.set("n", "<A-n>", ":cnext<CR>", {
 	noremap = true,
 	silent = true,
 	desc = "Next Quickfix Item",
 })
-vim.keymap.set("n", "<A-,>", ":cprevious<CR>", {
+vim.keymap.set("n", "<A-p>", ":cprevious<CR>", {
 	noremap = true,
 	silent = true,
 	desc = "Previous Quickfix Item",
