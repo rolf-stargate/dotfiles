@@ -12,7 +12,6 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { buffer = bufnr })
   vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', { buffer = bufnr })
 end)
-end)
 
 require('lspconfig').bashls.setup({
   cmd = { "bash-language-server", "start" },
