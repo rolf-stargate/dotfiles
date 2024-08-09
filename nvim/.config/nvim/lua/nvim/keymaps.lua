@@ -112,28 +112,6 @@ vim.keymap.set("n", "<Leader>b", "<C-^>", {
 	desc = "Last Buffer",
 })
 
--- Better window navigation
-vim.keymap.set("n", "<C-h>", "<C-w>h", {
-	noremap = true,
-	silent = true,
-	desc = "Window/Split Left",
-})
-vim.keymap.set("n", "<C-j>", "<C-w>j", {
-	noremap = true,
-	silent = true,
-	desc = "Window/Split Down",
-})
-vim.keymap.set("n", "<C-k>", "<C-w>k", {
-	noremap = true,
-	silent = true,
-	desc = "Window/Split UP",
-})
-vim.keymap.set("n", "<C-l>", "<C-w>l", {
-	noremap = true,
-	silent = true,
-	desc = "Window/Split Right",
-})
-
 -- Crtl Backspace
 vim.keymap.set("i", "<C-bs>", "<C-w>", {
 	noremap = true,
@@ -280,12 +258,12 @@ vim.keymap.set("n", "Q", ":lua ToggleQFList()<CR>", {
 	silent = true,
 	desc = "Toggle Quickfix List",
 })
-vim.keymap.set("n", "<A-n>", ":cnext<CR>", {
+vim.keymap.set("n", "<C-j>", ":cnext<CR>", {
 	noremap = true,
 	silent = true,
 	desc = "Next Quickfix Item",
 })
-vim.keymap.set("n", "<A-p>", ":cprevious<CR>", {
+vim.keymap.set("n", "<C-k>", ":cprevious<CR>", {
 	noremap = true,
 	silent = true,
 	desc = "Previous Quickfix Item",
