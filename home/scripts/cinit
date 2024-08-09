@@ -2,7 +2,7 @@
 
 projectname=$1
 
-if [ -z $1 ] then
+if [ -z "$1" ]; then
   echo "Usage: $0 <[path/]projectname>"
 fi
 
@@ -12,8 +12,11 @@ mkdir $projectname/build
 
 touch $projectname/src/main.c
 
-echo "#!/bin/bash\ngcc ./src/main.c -o ./build/main" > $projectname/build.sh
-chmod u+x $projectname/build/build.sh
+echo -e "#!/bin/bash\ngcc ./src/main.c -o ./build/main" > "$projectname/build.sh"
+chmod u+x "$projectname/build.sh"
 
-echo "#!/bin/bash\n./build/main" > $projectname/run.sh
-chmod u+x $projectname/run.sh
+echo -e "#!/bin/bash\n./build/main" > "$projectname/run.sh"
+chmod u+x "$projectname/run.sh"
+
+cd "$projectname"
+nvim
