@@ -12,11 +12,13 @@ mkdir $projectname/build
 
 touch $projectname/src/main.c
 
-echo -e "#!/bin/bash\n\ngcc ./src/main.c -o ./build/main" > "$projectname/build.sh"
+echo -e "#!/bin/bash\n\ngcc -g ./src/main.c -o ./build/main" > "$projectname/build.sh"
 chmod u+x "$projectname/build.sh"
 
 echo -e "#!/bin/bash\n\n./build/main" > "$projectname/run.sh"
 chmod u+x "$projectname/run.sh"
+
+touch "$projectname/gdb.cmd"
 
 cd "$projectname"
 nvim

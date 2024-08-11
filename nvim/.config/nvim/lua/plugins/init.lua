@@ -81,18 +81,11 @@ local plugins = {
 	-- 	after = { "copilot.lua", "nvim-cmp" },
 	-- },
 	-- { "zbirenbaum/copilot.lua" },
-	{
-		"Exafunction/codeium.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"hrsh7th/nvim-cmp",
-		},
-		config = function()
-			require("codeium").setup({})
-		end,
-	},
+	{ "codota/tabnine-nvim", build = "./dl_binaries.sh" },
 	-- Debugging
-	{ "sakhnik/nvim-gdb" },
+	{
+		"sakhnik/nvim-gdb",
+	},
 	{ "theHamsta/nvim-dap-virtual-text" },
 	{ "mfussenegger/nvim-dap" },
 	{ "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
@@ -173,6 +166,7 @@ require("plugins.gitsigns")
 require("plugins.telescope")
 require("plugins.undo")
 -- require("plugins.copilot")
+require("plugins.tabnine")
 require("plugins.debugging")
 require("plugins.neoscroll")
 require("plugins.nvimtree")
