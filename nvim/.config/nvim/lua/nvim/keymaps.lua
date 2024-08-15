@@ -333,7 +333,7 @@ vim.keymap.set("i", "<leader>cj", "<cmd>normal gcc<cr>", {
 vim.keymap.set(
 	"n",
 	"<leader>cH",
-	"O_<esc>r 80i=<esc>:normal gcc<cr>080lDjI---<space><esc>A<space><esc>80A-<esc>:normal gcc<cr>080lDo_<esc>r 80i=<esc>:normal gcc<cr>080lD",
+	"O_<esc>r 80i=<esc>:normal gcc<cr>080lDjI===<space><esc>A<space><esc>:normal gcc<cr>o_<esc>r 80i=<esc>:normal gcc<cr>080lD",
 	{
 		noremap = true,
 		silent = true,
@@ -344,7 +344,7 @@ vim.keymap.set(
 vim.keymap.set(
 	"i",
 	"<leader>cH",
-	"<esc>O_<esc>r 80i=<esc>:normal gcc<cr>080lDjI---<space><esc>A<space><esc>80A-<esc>:normal gcc<cr>080lDo_<esc>r 80i=<esc>:normal gcc<cr>080lD",
+	"<esc>O_<esc>r 80i=<esc>:normal gcc<cr>080lDjI===<space><esc>A<esc>:normal gcc<cr>o_<esc>r 80i=<esc>:normal gcc<cr>080lD",
 	{
 		noremap = true,
 		silent = true,
@@ -352,27 +352,17 @@ vim.keymap.set(
 	}
 )
 
-vim.keymap.set(
-	"n",
-	"<leader>ch",
-	"I---<space><esc>A<space><esc>80A-<esc>:normal gcc<cr>080lDo_<esc>r 80i=<esc>:normal gcc<cr>080lD",
-	{
-		noremap = true,
-		silent = true,
-		desc = "Headline Comment",
-	}
-)
+vim.keymap.set("n", "<leader>ch", "I===<space><esc>A<space><esc>80A=<esc>:normal gcc<cr>080lD", {
+	noremap = true,
+	silent = true,
+	desc = "Headline Comment",
+})
 
-vim.keymap.set(
-	"i",
-	"<leader>ch",
-	"<esc>I---<space><esc>A<space><esc>80A-<esc>:normal gcc<cr>080lDo_<esc>r 80i=<esc>:normal gcc<cr>080lD",
-	{
-		noremap = true,
-		silent = true,
-		desc = "Headline Comment",
-	}
-)
+vim.keymap.set("i", "<leader>ch", "<esc>I===<space><esc>A<space><esc>80A=<esc>:normal gcc<cr>080lD", {
+	noremap = true,
+	silent = true,
+	desc = "Headline Comment",
+})
 
 -- Change Working Directory To Current Dir
 vim.keymap.set("n", "<leader>cd", ":lcd %:p:h<CR>", {

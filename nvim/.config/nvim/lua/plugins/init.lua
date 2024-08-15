@@ -36,6 +36,23 @@ local plugins = {
 	{ "lukas-reineke/indent-blankline.nvim", version = "2.20.8" },
 	-- Comment
 	{ "numToStr/Comment.nvim" },
+	-- Markw
+	{ "chentoast/marks.nvim" },
+	-- Flash
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		---@type Flash.Config
+		opts = {},
+  -- stylua: ignore
+  keys = {
+    { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+    { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+    { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+    { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+    { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+  },
+	},
 	-- Illuminate
 	{ "RRethy/vim-illuminate" },
 	-- Harpoon
@@ -181,3 +198,5 @@ require("plugins.markdown")
 require("plugins.minimove")
 require("plugins.hover")
 require("plugins.chatgpt")
+require("plugins.marks")
+-- require("plugins.flash")
