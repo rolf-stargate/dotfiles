@@ -34,6 +34,7 @@ local options = {
 	foldlevel = 99, -- foldlevel
 	wildignore = "*/node_modules/*", -- ignore node_modules in :vim
 	spelllang = "en,de",
+	spellsuggest = "fast",
 }
 
 vim.g.nvimgdb_disable_start_keymaps = true

@@ -5,6 +5,7 @@ set follow-fork-mode child
 set print pretty on
 
 define xxd
+  print $arg0
   dump binary memory /tmp/dump.bin $arg0 ((char *)$arg0)+$arg1
   shell hexyl /tmp/dump.bin
 end
@@ -13,3 +14,15 @@ document xxd
 
   xxd ADDR LENTH
 end
+
+define ps
+  print *$arg0
+  dump binary memory /tmp/dump.bin $arg0 ((char *)$arg0)+sizeof(*$arg0)
+  shell hexyl /tmp/dump.bin
+end
+document psm
+  Print struct from pointer
+
+  psm pointer
+end
+
