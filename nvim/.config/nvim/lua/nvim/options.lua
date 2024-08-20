@@ -37,9 +37,21 @@ local options = {
 	spellsuggest = "fast",
 }
 
+vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
+	pattern = { "*.*" },
+	desc = "save view (folds), when closing file",
+	command = "mkview",
+})
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+	pattern = { "*.*" },
+	desc = "load view (folds), when opening file",
+	command = "silent! loadview",
+})
+
 vim.g.nvimgdb_disable_start_keymaps = true
 
-vim.cmd("let g:markdown_folding = 99")
+vim.cmd("let g:markdown_folding = 0")
+
 vim.cmd("let g:python3_host_prog='/sbin/python3'")
 
 vim.cmd([[
