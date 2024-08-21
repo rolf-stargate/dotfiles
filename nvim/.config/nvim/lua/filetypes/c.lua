@@ -8,6 +8,14 @@ vim.api.nvim_create_autocmd("FileType", {
 			":silent!./build.sh<CR>:GdbStart gdb -q -x gdb.cmd --args ./build/main",
 			{ buffer = true, noremap = true, desc = "GdbStart" }
 		)
+
+		vim.keymap.set("n", "<leader>Dd", function()
+			print("test")
+			vim.cmd("!./build.sh")
+			local line_number = vim.api.nvim_win_get_cursor(0)[1]
+			local command = "GdbStart gdb -q -ex b\\ " .. line_number .. " -ex run -x gdb.cmd --args ./build/main"
+			vim.cmd(command)
+		end, { buffer = true, noremap = true, desc = "GdbStart break on current line and run" })
 		vim.keymap.set(
 			"n",
 			"<leader>DG",

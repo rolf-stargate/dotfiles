@@ -36,7 +36,6 @@ local filetypes = { "*.md", "*.txt", "*.org" }
 vim.api.nvim_create_autocmd("BufEnter", {
 	pattern = filetypes,
 	callback = function()
-		vim.opt_local.foldlevel = 99
 		vim.opt_local.spell = true
 		vim.opt_local.textwidth = 80
 		last_move_time = os.time() -- Reset move time on buffer enter
