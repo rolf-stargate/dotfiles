@@ -33,8 +33,8 @@ require("marks").setup({
 		annotate = false,
 	},
 	mappings = {
-		next = "<C-j>",
-		prev = "<C-k>",
+		next = "}",
+		prev = "{",
 		delete_line = "md",
 		set_bookmark0 = "m0",
 		set_bookmark1 = "m1",

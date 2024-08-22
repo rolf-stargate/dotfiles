@@ -13,6 +13,16 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+	{
+		"stevearc/aerial.nvim",
+		opts = {},
+		-- Optional dependencies
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
+	{ "cbochs/portal.nvim" },
 	-- ChatGpt
 	{ "robitx/gp.nvim" },
 	-- ColorSchemes
@@ -181,3 +191,4 @@ require("plugins.minimove")
 require("plugins.hover")
 require("plugins.chatgpt")
 require("plugins.marks")
+require("plugins.aerial")
