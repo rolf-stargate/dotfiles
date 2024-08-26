@@ -13,6 +13,9 @@ vim.g.vimwiki_ext2syntax = {
 	[".mdown"] = "markdown",
 }
 
+vim.g.vimwiki_auto_header = 1
+vim.g.vimwiki_option_links_space_char = "_"
+
 local function get_last_folder_name(path)
 	-- Normalize the path by removing a trailing slash if it exists
 	path = string.gsub(path, "/$", "")
@@ -104,25 +107,18 @@ vim.keymap.set(
 	{ noremap = true, desc = "Paste image from clipboard" }
 )
 
-vim.api.nvim_set_keymap(
-	"v",
-	"<Leader>wb",
-	":lua WrapWithAsterisks()<CR>",
-	{ noremap = true, silent = true, desc = "Bold wrap selected text" }
-)
-
-vim.keymap.set("n", "<Leader>wTT", ":VimwikiTable", { noremap = true, desc = "Create Table" })
+vim.keymap.set("n", "<Leader>wtt", ":VimwikiTable", { noremap = true, desc = "Create Table" })
 
 vim.keymap.set(
 	"n",
-	"<Leader>wTh",
+	"<Leader>wth",
 	":VimwikiTableMoveColumnRight<CR>",
 	{ noremap = true, desc = "Table Move Column Right" }
 )
 
 vim.keymap.set(
 	"n",
-	"<Leader>wTl",
+	"<Leader>wtl",
 	":VimwikiTableMoveColumnLeft<CR>",
 	{ noremap = true, desc = "Table Move Column Left" }
 )
