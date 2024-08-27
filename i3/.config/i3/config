@@ -282,9 +282,6 @@ assign [class="mpv"] 						          → Music
 assign [class="asprite"] 						      → Paint
 assign [class="rnote"] 			   			      → Paint
 
-# Workspace 4 raylib
-assign [class="NeoNote"]						        → 4
-
 
 #####################################################################################################################
 #################           autostart   -    execute applications at boot time                      #################

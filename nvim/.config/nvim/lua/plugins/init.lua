@@ -140,6 +140,7 @@ local plugins = {
 			}
 		end,
 	},
+	{ "dhruvasagar/vim-table-mode" },
 	{ "tools-life/taskwiki" },
 	{ "ledger/vim-ledger" },
 	{ "3rd/image.nvim" },
