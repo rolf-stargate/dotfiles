@@ -22,6 +22,12 @@ vim.api.nvim_create_autocmd("BufEnter", {
 			":VimwikiTable ",
 			{ buffer = true, noremap = true, desc = "Create 3x3 table" }
 		)
+		vim.keymap.set(
+			"n",
+			"<leader>lp",
+			":pandoc % -o %.pdf --template=/home/rolf/.config/nvim/templates/letter.latex && brave %.pdf<cr>",
+			{ buffer = true, noremap = true, desc = "Create 3x3 table" }
+		)
 	end,
 })
 

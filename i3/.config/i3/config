@@ -674,20 +674,36 @@ exec --no-startup-id unclutter
 exec --no-startup-id ~/.screenlayout/6M.sh
 
 # Desktop Setup
-
 workspace 1 output DisplayPort-3
 workspace 2 output DisplayPort-3
 workspace 3 output DisplayPort-1
 workspace 4 output DisplayPort-1
 workspace 5 output DisplayPort-2
-workspace 6 output DisplayPort-0
+workspace 6 output DisplayPort-2
 workspace 7 output DisplayPort-4
-workspace 10 output DisplayPort-5
+workspace 10 output DisplayPort-0
 workspace 8 output DisplayPort-4
-workspace 9 output DisplayPort-5
+workspace 9 output DisplayPort-0
 workspace Music output DisplayPort-2
-workspace VM output DisplayPort-5
-workspace Paint output DisplayPort-5
+workspace VM output DisplayPort-0
+workspace Paint output DisplayPort-0
 workspace Com output DisplayPort-1
 workspace Tablet output DisplayPort-1
 workspace Debug output DisplayPort-1
+
+# workspace 1 output DisplayPort-3
+# workspace 2 output DisplayPort-3
+# workspace 3 output DisplayPort-1
+# workspace 4 output DisplayPort-1
+# workspace 5 output DisplayPort-2
+# workspace 6 output DisplayPort-0
+# workspace 7 output DisplayPort-4
+# workspace 10 output DisplayPort-5
+# workspace 8 output DisplayPort-4
+# workspace 9 output DisplayPort-5
+# workspace Music output DisplayPort-2
+# workspace VM output DisplayPort-5
+# workspace Paint output DisplayPort-5
+# workspace Com output DisplayPort-1
+# workspace Tablet output DisplayPort-1
+# workspace Debug output DisplayPort-1
