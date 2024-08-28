@@ -12,7 +12,7 @@ wk.add({
 		{ "<Leader>fb", "<cmd>Telescope bookmarks<cr>", desc = "Brave Bookmarks", remap = false },
 		{ "<Leader>fc", "<cmd>lua require'telescope.builtin'.commands{}<cr>", desc = "Commands", remap = false },
 		{
-			"<Leader>fD",
+			"<Leader>fs",
 			"<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<cr>",
 			desc = "Current Buffer fuzzy",
 			remap = false,

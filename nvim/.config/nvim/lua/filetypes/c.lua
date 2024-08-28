@@ -11,7 +11,6 @@ vim.api.nvim_create_autocmd("FileType", {
 		)
 
 		vim.keymap.set("n", "<leader>Dd", function()
-			print("test")
 			vim.cmd("!./build.sh")
 			local line_number = vim.api.nvim_win_get_cursor(0)[1]
 			local command = "GdbStart gdb -q -ex b\\ " .. line_number .. " -ex run -x gdb.cmd --args ./build/main"

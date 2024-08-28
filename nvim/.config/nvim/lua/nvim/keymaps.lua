@@ -314,6 +314,7 @@ vim.keymap.set("n", "<leader>st", "<cmd>lua SetTerminalTitle()<cr>", {
 })
 
 -- Comments
+-- Change Text
 vim.keymap.set("n", "<leader>cj", "<cmd>normal gcc<cr>", {
 	noremap = true,
 	silent = true,
@@ -362,6 +363,44 @@ vim.keymap.set("i", "<leader>ch", "<esc>I===<space><esc>A<space><esc>80A=<esc>:n
 	noremap = true,
 	silent = true,
 	desc = "Headline Comment",
+})
+
+-- Insert Text
+
+vim.keymap.set("n", "<leader>ic", "o<esc>k:normal gbj<cr>o", {
+	noremap = true,
+	silent = true,
+	desc = "Start Multiline Comment",
+})
+
+vim.keymap.set("n", "<leader>it", ":normal gcc<cr>ATODO: ", {
+	noremap = true,
+	silent = true,
+	desc = "Insert Todo Comment",
+})
+
+vim.keymap.set("n", "<leader>in", ":normal gcc<cr>ANOTE: ", {
+	noremap = true,
+	silent = true,
+	desc = "Insert Note Comment",
+})
+
+vim.keymap.set("i", "<leader>ic", "<esc>o<esc>k:normal gbj<cr>o", {
+	noremap = true,
+	silent = true,
+	desc = "Start Multiline Comment",
+})
+
+vim.keymap.set("i", "<leader>it", "<esc>:normal gcc<cr>ATODO: ", {
+	noremap = true,
+	silent = true,
+	desc = "Insert Todo Comment",
+})
+
+vim.keymap.set("i", "<leader>in", "<esc>:normal gcc<cr>ANOTE: ", {
+	noremap = true,
+	silent = true,
+	desc = "Insert Note Comment",
 })
 
 -- Change Working Directory To Current Dir
