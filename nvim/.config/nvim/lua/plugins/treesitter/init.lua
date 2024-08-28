@@ -10,7 +10,6 @@ configs.setup({
 	},
 	highlight = {
 		enable = true, -- false will disable the whole extension
-		disable = { "markdown" }, -- list of language that will be disabled
 	},
 	-- indent = { enable = true, disable = { "yaml" } },
 })
@@ -33,9 +32,3 @@ require("treesitter-context").setup({
 vim.keymap.set("n", "<leader>ck", function()
 	require("treesitter-context").go_to_context(vim.v.count1)
 end, { noremap = true, desc = "Jump to top context" })
-
-vim.api.nvim_set_hl(0, "@function.debug.javascript", { link = "MyDebug" })
-vim.api.nvim_set_hl(0, "@parameter.debug.javascript", { link = "MyDebug" })
-vim.api.nvim_set_hl(0, "@text.strong", { link = "markdownBold" })
-vim.api.nvim_set_hl(0, "@text.emphasis", { link = "markdownBold" })
-vim.api.nvim_set_hl(0, "@comment.note", { link = "markdownBold" })
