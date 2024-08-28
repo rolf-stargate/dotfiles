@@ -71,3 +71,9 @@ lsp_zero.set_sign_icons({
 	hint = "h",
 	info = "i",
 })
+
+lsp_zero.set_server_config({
+	on_init = function(client)
+		client.server_capabilities.semanticTokensProvider = nil
+	end,
+})
