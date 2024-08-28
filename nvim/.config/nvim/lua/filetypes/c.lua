@@ -1,7 +1,8 @@
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "c",
 	callback = function()
-		-- Use vim.keymap.set for Neovim 0.7 and above
+		vim.cmd("set iskeyword-=-") -- handle foo-bar as three words
+
 		vim.keymap.set(
 			"n",
 			"<leader>DD",

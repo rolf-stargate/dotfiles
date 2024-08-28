@@ -10,7 +10,7 @@ configs.setup({
 	},
 	highlight = {
 		enable = true, -- false will disable the whole extension
-		-- disable = { "markdown" }, -- list of language that will be disabled
+		disable = { "markdown" }, -- list of language that will be disabled
 	},
 	-- indent = { enable = true, disable = { "yaml" } },
 })
