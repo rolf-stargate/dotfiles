@@ -17,10 +17,9 @@ hi CodeBlock guifg=NONE guibg=#2F002C gui=NONE
 hi Dash guifg=#630033 guibg=NONE gui=NONE
 hi FloatTitle guifg=#d726c6 guibg=NONE gui=NONE
 hi NormalFloat guifg=#d726c6 guibg=NONE gui=NONE
-hi Normal guifg=#e5e5e2 guibg=#0f0016 gui=NONE
+hi Normal guifg=#B1BAD4 guibg=#0f0016 gui=NONE
 hi Comment guifg=#6272a4 guibg=NONE gui=italic
 hi Constant guifg=#9372cb guibg=NONE gui=NONE
-hi String guifg=#b7acc1 guibg=NONE gui=NONE
 hi Character guifg=#e644f6 guibg=NONE gui=NONE
 hi Number guifg=#d726c6 guibg=NONE gui=NONE
 hi Boolean guifg=#82cfe0 guibg=NONE gui=NONE
@@ -46,7 +45,7 @@ hi Structure guifg=#de1d83 guibg=NONE gui=NONE
 hi Typedef guifg=#de1d83 guibg=NONE gui=NONE
 hi Special guifg=#c4a4f9 guibg=NONE gui=bold
 hi SpecialComment guifg=#6272a4 guibg=NONE gui=NONE
-hi Error guifg=#f44747 guibg=NONE gui=bold,reverse
+hi Error guifg=#f44747 guibg=NONE gui=bold
 
 hi @comment.todo guifg=#09a4f9 guibg=NONE gui=bold,italic
 hi @comment.note guifg=#00E27B guibg=NONE gui=bold,italic
@@ -133,7 +132,6 @@ hi TSType guifg=#c3fc8e guibg=NONE gui=NONE
 hi TSTypeBuiltin guifg=#82cfe0 guibg=NONE gui=italic
 hi TSStructure guifg=#c4a4f9 guibg=NONE gui=NONE
 hi TSInclude guifg=#c3fc8e guibg=NONE gui=NONE
-hi TSVariable guifg=#e5e5e2 guibg=NONE gui=NONE
 hi TSVariableBuiltin guifg=#c4a4f9 guibg=NONE gui=NONE
 hi TSText guifg=#ffff00 guibg=NONE gui=NONE
 hi TSStrong guifg=#ffff00 guibg=NONE gui=NONE
@@ -144,6 +142,11 @@ hi TSLiteral guifg=#ffff00 guibg=NONE gui=NONE
 hi TSURI guifg=#ffff00 guibg=NONE gui=NONE
 hi TSTag guifg=#82cfe0 guibg=NONE gui=NONE
 hi TSTagDelimiter guifg=#abb2bf guibg=NONE gui=NONE
+
+hi @variable guifg=#B1BAD4 guibg=NONE gui=NONE
+hi @punctuation guifg=#B1BAD4 guibg=NONE gui=NONE
+hi @punctuation guifg=#B1BAD4 guibg=NONE gui=NONE
+hi @string guifg=#b7acc1 guibg=NONE gui=NONE
 
 " ### HTML #######################################################################
 hi htmlH1 guifg=#FC8EE8 guibg=#fff gui=NONE
@@ -250,6 +253,7 @@ hi VimwikiHeader3 guifg=#c4a4f9 guibg=NONE gui=bold
 hi VimwikiHeader4 guifg=#c4a4f9 guibg=NONE gui=bold
 hi VimwikiHeader5 guifg=#c4a4f9 guibg=NONE gui=bold
 hi VimwikiHeader6 guifg=#c4a4f9 guibg=NONE gui=bold
+hi VimwikiTodo guifg=#c4a4f9 guibg=NONE gui=bold
 hi VimwikiLink guifg=#82cfe0 guibg=NONE gui=NONE
 hi VimwikiBold guifg=#c4a4f9 guibg=NONE gui=bold
 hi VimwikiItalic guifg=#93D8BA guibg=NONE gui=italic
