@@ -20,7 +20,7 @@ hi NormalFloat guifg=#d726c6 guibg=NONE gui=NONE
 hi Normal guifg=#B1BAD4 guibg=#0f0016 gui=NONE
 hi Comment guifg=#6272a4 guibg=NONE gui=italic
 hi Constant guifg=#9372cb guibg=NONE gui=NONE
-hi Character guifg=#e644f6 guibg=NONE gui=NONE
+" hi Character guifg=#e644f6 guibg=NONE gui=NONE
 hi Number guifg=#d726c6 guibg=NONE gui=NONE
 hi Boolean guifg=#82cfe0 guibg=NONE gui=NONE
 hi Float guifg=#d726c6 guibg=NONE gui=NONE
@@ -52,101 +52,103 @@ hi @comment.note guifg=#00E27B guibg=NONE gui=bold,italic
 hi @comment.warning guifg=#c3fc8e guibg=NONE gui=bold,italic
 hi @comment.error guifg=#f44747 guibg=NONE gui=bold,italic
 
-hi Underlined guifg=#82cfe0 gui=NONE
-hi Cursor guifg=NONE guibg=NONE gui=reverse
-hi ColorColumn guifg=NONE guibg=#2c323c gui=NONE
-hi CursorLineNr guifg=#abb2bf guibg=NONE gui=bold
-hi SignColumn guifg=NONE guibg=#0f0016 gui=NONE
-hi Conceal guifg=#6272a4 guibg=NONE gui=NONE
-hi CursorColumn guifg=NONE guibg=#2c323c gui=NONE
-hi CursorLine guifg=NONE guibg=#313131 gui=NONE
-hi Directory guifg=#82cfe0 guibg=NONE gui=NONE
-hi DiffAdd guifg=#e644f6 guibg=NONE gui=NONE
-hi DiffChange guifg=#d726c6 guibg=NONE gui=NONE
-hi DiffDelete guifg=#ff5555 guibg=NONE gui=NONE
-hi DiffText guifg=#6272a4 guibg=NONE gui=NONE
-hi ErrorMsg guifg=#f44747 guibg=NONE gui=NONE
-hi VertSplit guifg=#181a1f guibg=NONE gui=NONE
-hi Folded guifg=#6272a4 guibg=NONE gui=NONE
-hi FoldColumn guifg=NONE guibg=NONE gui=NONE
-hi IncSearch guifg=#310049 guibg=#25DB6C gui=NONE
-hi LineNr guifg=#6272a4 guibg=NONE gui=NONE
-hi MatchParen guifg=#F9CD00 guibg=NONE gui=NONE
-hi NonText guifg=#3b4048 guibg=NONE gui=NONE
-hi Pmenu guifg=#abb2bf guibg=#282c34 gui=NONE
-hi PmenuSel guifg=#1e1e1e guibg=#82cfe0 gui=NONE
-hi PmenuSbar guifg=NONE guibg=#3b4048 gui=NONE
-hi PmenuThumb guifg=NONE guibg=#abb2bf gui=NONE
-hi Question guifg=#c4a4f9 guibg=NONE gui=NONE
-hi QuickFixLine guifg=#1e1e1e guibg=#de1d83 gui=NONE
-hi Search guifg=#1e1e1e guibg=#de1d83 gui=NONE
-hi SpecialKey guifg=#3b4048 guibg=NONE gui=NONE
-hi StatusLine guifg=#abb2bf guibg=#2c323c gui=NONE
-hi StatusLineNC guifg=#6272a4 guibg=NONE gui=NONE
-hi StatusLineTerm guifg=#abb2bf guibg=#2c323c gui=NONE
-hi StatusLineTermNC guifg=#2c323c guibg=NONE gui=NONE
-hi TabLine guifg=#6272a4 guibg=NONE gui=NONE
-hi TabLineSel guifg=#abb2bf guibg=NONE gui=NONE
-hi TabLineFill guifg=NONE guibg=#0f0016 gui=NONE
-hi Terminal guifg=#abb2bf guibg=#1e1e1e gui=NONE
-hi Visual guifg=NONE guibg=#3e4452 gui=NONE
-hi VisualNOS guifg=#3e4452 guibg=NONE gui=NONE
-hi WarningMsg guifg=#de1d83 guibg=NONE gui=NONE
-hi WildMenu guifg=#1e1e1e guibg=#82cfe0 gui=NONE
-hi EndOfBuffer guifg=#1e1e1e guibg=NONE gui=NONE
-hi TSError guifg=#f44747 guibg=NONE gui=NONE
-hi TSPunctDelimiter guifg=#e5e5e2 guibg=NONE gui=NONE
-hi TSPunctBracket guifg=#e5e5e2 guibg=NONE gui=NONE
-hi TSPunctSpecial guifg=#2bff00 guibg=NONE gui=NONE
-hi TSConstant guifg=#c4a4f9 guibg=NONE gui=NONE
-hi TSConstBuiltin guifg=#c4a4f9 guibg=NONE gui=NONE
-hi TSConstMacro guifg=#82cfe0 guibg=NONE gui=NONE
-hi TSStringRegex guifg=#ff5555 guibg=NONE gui=NONE
-hi TSString guifg=#de1d83 guibg=NONE gui=NONE
-hi TSStringEscape guifg=#82cfe0 guibg=NONE gui=NONE
-hi TSCharacter guifg=#e644f6 guibg=NONE gui=NONE
-hi TSNumber guifg=#c4a4f9 guibg=NONE gui=NONE
-hi TSBoolean guifg=#c4a4f9 guibg=NONE gui=NONE
-hi TSFloat guifg=#e644f6 guibg=NONE gui=NONE
-hi TSAnnotation guifg=#de1d83 guibg=NONE gui=NONE
-hi TSAttribute guifg=#82cfe0 guibg=NONE gui=NONE
-hi TSNamespace guifg=#ff00ff guibg=NONE gui=NONE
-hi TSFuncBuiltin guifg=#82cfe0 guibg=NONE gui=NONE
-hi TSFunction guifg=#e644f6 guibg=NONE gui=NONE
-hi TSFuncMacro guifg=#e644f6 guibg=NONE gui=NONE
-hi TSParameter guifg=#d726c6 guibg=NONE gui=NONE
-hi TSParameterReference guifg=#d726c6 guibg=NONE gui=NONE
-hi TSMethod guifg=#e644f6 guibg=NONE gui=NONE
-hi TSField guifg=#d726c6 guibg=NONE gui=NONE
-hi TSProperty guifg=#e5e5e2 guibg=NONE gui=NONE
-hi TSConstructor guifg=#82cfe0 guibg=NONE gui=NONE
-hi TSConditional guifg=#c3fc8e guibg=NONE gui=NONE
-hi TSRepeat guifg=#2bff00 guibg=NONE gui=NONE
-hi TSLabel guifg=#82cfe0 guibg=NONE gui=NONE
-hi TSKeyword guifg=#c3fc8e guibg=NONE gui=NONE
-hi TSKeywordFunction guifg=#82cfe0 guibg=NONE gui=NONE
-hi TSKeywordOperator guifg=#c3fc8e guibg=NONE gui=NONE
-hi TSOperator guifg=#c3fc8e guibg=NONE gui=NONE
-hi TSException guifg=#c4a4f9 guibg=NONE gui=NONE
-hi TSType guifg=#c3fc8e guibg=NONE gui=NONE
-hi TSTypeBuiltin guifg=#82cfe0 guibg=NONE gui=italic
-hi TSStructure guifg=#c4a4f9 guibg=NONE gui=NONE
-hi TSInclude guifg=#c3fc8e guibg=NONE gui=NONE
-hi TSVariableBuiltin guifg=#c4a4f9 guibg=NONE gui=NONE
-hi TSText guifg=#ffff00 guibg=NONE gui=NONE
-hi TSStrong guifg=#ffff00 guibg=NONE gui=NONE
-hi TSEmphasis guifg=#ffff00 guibg=NONE gui=NONE
-hi TSUnderline guifg=#ffff00 guibg=NONE gui=NONE
-hi TSTitle guifg=#ffff00 guibg=NONE gui=NONE
-hi TSLiteral guifg=#ffff00 guibg=NONE gui=NONE
-hi TSURI guifg=#ffff00 guibg=NONE gui=NONE
-hi TSTag guifg=#82cfe0 guibg=NONE gui=NONE
-hi TSTagDelimiter guifg=#abb2bf guibg=NONE gui=NONE
+" hi Underlined guifg=#82cfe0 gui=NONE
+" hi Cursor guifg=NONE guibg=NONE gui=reverse
+" hi ColorColumn guifg=NONE guibg=#2c323c gui=NONE
+" hi CursorLineNr guifg=#abb2bf guibg=NONE gui=bold
+" hi SignColumn guifg=NONE guibg=#0f0016 gui=NONE
+" hi Conceal guifg=#6272a4 guibg=NONE gui=NONE
+" hi CursorColumn guifg=NONE guibg=#2c323c gui=NONE
+" hi CursorLine guifg=NONE guibg=#313131 gui=NONE
+" hi Directory guifg=#82cfe0 guibg=NONE gui=NONE
+" hi DiffAdd guifg=#e644f6 guibg=NONE gui=NONE
+" hi DiffChange guifg=#d726c6 guibg=NONE gui=NONE
+" hi DiffDelete guifg=#ff5555 guibg=NONE gui=NONE
+" hi DiffText guifg=#6272a4 guibg=NONE gui=NONE
+" hi ErrorMsg guifg=#f44747 guibg=NONE gui=NONE
+" hi VertSplit guifg=#181a1f guibg=NONE gui=NONE
+" hi Folded guifg=#6272a4 guibg=NONE gui=NONE
+" hi FoldColumn guifg=NONE guibg=NONE gui=NONE
+" hi IncSearch guifg=#310049 guibg=#25DB6C gui=NONE
+" hi LineNr guifg=#6272a4 guibg=NONE gui=NONE
+" hi MatchParen guifg=#F9CD00 guibg=NONE gui=NONE
+" hi NonText guifg=#3b4048 guibg=NONE gui=NONE
+" hi Pmenu guifg=#abb2bf guibg=#282c34 gui=NONE
+" hi PmenuSel guifg=#1e1e1e guibg=#82cfe0 gui=NONE
+" hi PmenuSbar guifg=NONE guibg=#3b4048 gui=NONE
+" hi PmenuThumb guifg=NONE guibg=#abb2bf gui=NONE
+" hi Question guifg=#c4a4f9 guibg=NONE gui=NONE
+" hi QuickFixLine guifg=#1e1e1e guibg=#de1d83 gui=NONE
+" hi Search guifg=#1e1e1e guibg=#de1d83 gui=NONE
+" hi SpecialKey guifg=#3b4048 guibg=NONE gui=NONE
+" hi StatusLine guifg=#abb2bf guibg=#2c323c gui=NONE
+" hi StatusLineNC guifg=#6272a4 guibg=NONE gui=NONE
+" hi StatusLineTerm guifg=#abb2bf guibg=#2c323c gui=NONE
+" hi StatusLineTermNC guifg=#2c323c guibg=NONE gui=NONE
+" hi TabLine guifg=#6272a4 guibg=NONE gui=NONE
+" hi TabLineSel guifg=#abb2bf guibg=NONE gui=NONE
+" hi TabLineFill guifg=NONE guibg=#0f0016 gui=NONE
+" hi Terminal guifg=#abb2bf guibg=#1e1e1e gui=NONE
+" hi Visual guifg=NONE guibg=#3e4452 gui=NONE
+" hi VisualNOS guifg=#3e4452 guibg=NONE gui=NONE
+" hi WarningMsg guifg=#de1d83 guibg=NONE gui=NONE
+" hi WildMenu guifg=#1e1e1e guibg=#82cfe0 gui=NONE
+" hi EndOfBuffer guifg=#1e1e1e guibg=NONE gui=NONE
+" hi TSError guifg=#f44747 guibg=NONE gui=NONE
+" hi TSPunctDelimiter guifg=#e5e5e2 guibg=NONE gui=NONE
+" hi TSPunctBracket guifg=#e5e5e2 guibg=NONE gui=NONE
+" hi TSPunctSpecial guifg=#2bff00 guibg=NONE gui=NONE
+" hi TSConstant guifg=#c4a4f9 guibg=NONE gui=NONE
+" hi TSConstBuiltin guifg=#c4a4f9 guibg=NONE gui=NONE
+" hi TSConstMacro guifg=#82cfe0 guibg=NONE gui=NONE
+" hi TSStringRegex guifg=#ff5555 guibg=NONE gui=NONE
+" hi TSString guifg=#de1d83 guibg=NONE gui=NONE
+" hi TSStringEscape guifg=#82cfe0 guibg=NONE gui=NONE
+" hi TSCharacter guifg=#e644f6 guibg=NONE gui=NONE
+" hi TSNumber guifg=#c4a4f9 guibg=NONE gui=NONE
+" hi TSBoolean guifg=#c4a4f9 guibg=NONE gui=NONE
+" hi TSFloat guifg=#e644f6 guibg=NONE gui=NONE
+" hi TSAnnotation guifg=#de1d83 guibg=NONE gui=NONE
+" hi TSAttribute guifg=#82cfe0 guibg=NONE gui=NONE
+" hi TSNamespace guifg=#ff00ff guibg=NONE gui=NONE
+" hi TSFuncBuiltin guifg=#82cfe0 guibg=NONE gui=NONE
+" hi TSFunction guifg=#e644f6 guibg=NONE gui=NONE
+" hi TSFuncMacro guifg=#e644f6 guibg=NONE gui=NONE
+" hi TSParameter guifg=#d726c6 guibg=NONE gui=NONE
+" hi TSParameterReference guifg=#d726c6 guibg=NONE gui=NONE
+" hi TSMethod guifg=#e644f6 guibg=NONE gui=NONE
+" hi TSField guifg=#d726c6 guibg=NONE gui=NONE
+" hi TSProperty guifg=#e5e5e2 guibg=NONE gui=NONE
+" hi TSConstructor guifg=#82cfe0 guibg=NONE gui=NONE
+" hi TSConditional guifg=#c3fc8e guibg=NONE gui=NONE
+" hi TSRepeat guifg=#2bff00 guibg=NONE gui=NONE
+" hi TSLabel guifg=#82cfe0 guibg=NONE gui=NONE
+" hi TSKeyword guifg=#c3fc8e guibg=NONE gui=NONE
+" hi TSKeywordFunction guifg=#82cfe0 guibg=NONE gui=NONE
+" hi TSKeywordOperator guifg=#c3fc8e guibg=NONE gui=NONE
+" hi TSOperator guifg=#c3fc8e guibg=NONE gui=NONE
+" hi TSException guifg=#c4a4f9 guibg=NONE gui=NONE
+" hi TSType guifg=#c3fc8e guibg=NONE gui=NONE
+" hi TSTypeBuiltin guifg=#82cfe0 guibg=NONE gui=italic
+" hi TSStructure guifg=#c4a4f9 guibg=NONE gui=NONE
+" hi TSInclude guifg=#c3fc8e guibg=NONE gui=NONE
+" hi TSVariableBuiltin guifg=#c4a4f9 guibg=NONE gui=NONE
+" hi TSText guifg=#ffff00 guibg=NONE gui=NONE
+" hi TSStrong guifg=#ffff00 guibg=NONE gui=NONE
+" hi TSEmphasis guifg=#ffff00 guibg=NONE gui=NONE
+" hi TSUnderline guifg=#ffff00 guibg=NONE gui=NONE
+" hi TSTitle guifg=#ffff00 guibg=NONE gui=NONE
+" hi TSLiteral guifg=#ffff00 guibg=NONE gui=NONE
+" hi TSURI guifg=#ffff00 guibg=NONE gui=NONE
+" hi TSTag guifg=#82cfe0 guibg=NONE gui=NONE
+" hi TSTagDelimiter guifg=#abb2bf guibg=NONE gui=NONE
 
 hi @variable guifg=#B1BAD4 guibg=NONE gui=NONE
-hi @punctuation guifg=#B1BAD4 guibg=NONE gui=NONE
-hi @punctuation guifg=#B1BAD4 guibg=NONE gui=NONE
-hi @string guifg=#b7acc1 guibg=NONE gui=NONE
+hi @punctuation guifg=#A3B5EA guibg=NONE gui=NONE
+hi @string guifg=#F9A4D8 guibg=NONE gui=italic
+hi @string.escape guifg=NONE guibg=NONE gui=bold
+hi @character guifg=#c4a4f9 guibg=NONE gui=NONE
+hi @character.escape guifg=NONE guibg=NONE gui=bold
 
 " ### HTML #######################################################################
 hi htmlH1 guifg=#FC8EE8 guibg=#fff gui=NONE
