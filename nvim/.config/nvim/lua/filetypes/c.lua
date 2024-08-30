@@ -16,6 +16,7 @@ vim.api.nvim_create_autocmd("FileType", {
 			local command = "GdbStart gdb -q -ex b\\ " .. line_number .. " -ex run -x gdb.cmd --args ./build/main"
 			vim.cmd(command)
 		end, { buffer = true, noremap = true, desc = "GdbStart break on current line and run" })
+
 		vim.keymap.set(
 			"n",
 			"<leader>DG",
@@ -73,15 +74,3 @@ vim.api.nvim_create_autocmd("FileType", {
 		})
 	end,
 })
-
--- vim.api.nvim_create_autocmd("BufWritePost", {
---   pattern = "*.c",
---   callback = function()
---     local file_path = vim.fn.expand("%:p")
---     local result = vim.fn.system("clang-format -i -style='GNU' " .. file_path)
---     if vim.v.shell_error ~= 0 then
---       vim.notify("clang-format failed!", vim.log.levels.ERROR)
---     end
---     vim.cmd("edit!")
---   end,
--- })

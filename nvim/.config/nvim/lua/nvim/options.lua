@@ -48,6 +48,20 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 	command = "silent! loadview",
 })
 
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+	pattern = { "*.*" },
+	callback = function()
+		vim.wo.relativenumber = true
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "BufLeave" }, {
+	pattern = { "*.*" },
+	callback = function()
+		vim.wo.relativenumber = false
+	end,
+})
+
 vim.g.nvimgdb_disable_start_keymaps = true
 
 vim.cmd("let g:markdown_folding = 0")
