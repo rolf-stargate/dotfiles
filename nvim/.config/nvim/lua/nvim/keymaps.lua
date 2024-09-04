@@ -112,6 +112,20 @@ vim.keymap.set("n", "<Leader>b", "<C-^>", {
 	desc = "Last Buffer",
 })
 
+-- Capitalise Last Word
+
+vim.keymap.set("n", "<leader>u", "<esc>bgUaw", {
+	noremap = true,
+	silent = true,
+	desc = "Capitalise Last Word",
+})
+
+vim.keymap.set("i", "<leader>u", "<esc>bgUawA", {
+	noremap = true,
+	silent = true,
+	desc = "Capitalise Last Word",
+})
+
 -- Crtl Backspace
 vim.keymap.set("i", "<C-bs>", "<C-w>", {
 	noremap = true,
