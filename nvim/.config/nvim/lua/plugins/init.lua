@@ -141,6 +141,7 @@ local plugins = {
 			}
 		end,
 	},
+	{ "michal-h21/vim-zettel" },
 	{ "tools-life/taskwiki" },
 	{ "ledger/vim-ledger" },
 	{ "3rd/image.nvim" },
