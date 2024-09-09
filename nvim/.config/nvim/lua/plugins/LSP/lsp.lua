@@ -18,6 +18,12 @@ require("lspconfig").bashls.setup({
 	filetypes = { "sh", "bash" },
 })
 
+require("lspconfig").sqls.setup({
+	on_attach = function(client, bufnr)
+		require("sqls").on_attach(client, bufnr)
+	end,
+})
+
 local vue_typescript_plugin = "/home/rolf/.nvm/versions/node/v17.9.1"
 	.. "/lib/node_modules"
 	.. "/@vue/language-server/node_modules"

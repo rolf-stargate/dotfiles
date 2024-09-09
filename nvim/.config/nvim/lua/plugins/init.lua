@@ -82,6 +82,7 @@ local plugins = {
 	{ "VonHeikemen/lsp-zero.nvim" },
 	{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
 	{ "neovim/nvim-lspconfig" },
+	{ "nanotee/sqls.nvim" },
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/nvim-cmp" },
 	{ "onsails/lspkind.nvim" },
@@ -140,7 +141,6 @@ local plugins = {
 			}
 		end,
 	},
-	{ "dhruvasagar/vim-table-mode" },
 	{ "tools-life/taskwiki" },
 	{ "ledger/vim-ledger" },
 	{ "3rd/image.nvim" },
