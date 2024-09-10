@@ -29,7 +29,7 @@ local vue_typescript_plugin = "/home/rolf/.nvm/versions/node/v17.9.1"
 	.. "/@vue/language-server/node_modules"
 	.. "@vue/typescript-plugin"
 
-require("lspconfig").tsserver.setup({
+require("lspconfig").ts_ls.setup({
 	init_options = {
 		plugins = {
 			{
@@ -66,7 +66,7 @@ lsp_zero.format_on_save({
 		timeout_ms = 10000,
 	},
 	servers = {
-		["tsserver"] = { "javascript", "typescript" },
+		["ts-ls"] = { "javascript", "typescript" },
 		["clangd"] = { "c" },
 	},
 })
