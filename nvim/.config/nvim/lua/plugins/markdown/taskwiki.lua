@@ -1,5 +1,5 @@
-vim.g.taskwiki_disable_concealcursor = "no"
 vim.g.taskwiki_suppress_mappings = "yes"
+vim.g.taskwiki_disable_concealcursor = "no"
 
 vim.cmd("normal! TaskWikiMod<cr>due:tomorrow")
 

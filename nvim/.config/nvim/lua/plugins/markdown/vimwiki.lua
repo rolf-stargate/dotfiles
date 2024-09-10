@@ -1,20 +1,18 @@
+vim.g.vimwiki_auto_header = 1
 vim.g.vimwiki_list = {
 	{
 		path = "~/Dropbox/vimwiki/",
+		links_space_char = "_",
 		syntax = "markdown",
 		ext = ".md",
 		nested_syntaxes = "{'python': 'python', 'cpp': 'cpp', 'sh': 'sh', 'bash': 'bash', 'javascript': 'javascript'}",
 	},
 }
-
 vim.g.vimwiki_ext2syntax = {
 	[".md"] = "markdown",
 	[".markdown"] = "markdown",
 	[".mdown"] = "markdown",
 }
-
-vim.g.vimwiki_auto_header = 1
-vim.g.vimwiki_option_links_space_char = "_"
 
 local function get_last_folder_name(path)
 	-- Normalize the path by removing a trailing slash if it exists

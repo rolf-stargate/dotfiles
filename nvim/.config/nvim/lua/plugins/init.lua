@@ -82,6 +82,7 @@ local plugins = {
 	{ "VonHeikemen/lsp-zero.nvim" },
 	{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
 	{ "neovim/nvim-lspconfig" },
+	{ "nanotee/sqls.nvim" },
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/nvim-cmp" },
 	{ "onsails/lspkind.nvim" },
@@ -128,7 +129,7 @@ local plugins = {
 	-- ### Markdown #################################################################
 	-- ###  #########################################################################
 	{
-		"vimwiki/vimwiki",
+		"rolf-stargate/vimwiki",
 		branch = "dev",
 		init = function()
 			vim.g.vimwiki_list = {
@@ -136,11 +137,12 @@ local plugins = {
 					path = "~/Dropbox/wiki",
 					syntax = "markdown",
 					ext = ".md",
+					links_space_char = "_",
 				},
 			}
 		end,
 	},
-	{ "dhruvasagar/vim-table-mode" },
+	{ "mattn/calendar-vim" },
 	{ "tools-life/taskwiki" },
 	{ "ledger/vim-ledger" },
 	{ "3rd/image.nvim" },

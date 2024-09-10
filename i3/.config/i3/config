@@ -548,7 +548,7 @@ bar {
     position top
 
     # https://github.com/vivien/i3blocks
-    output DisplayPort-5
+    output DisplayPort-0
     output eDP-1
 
 
@@ -577,7 +577,7 @@ bar {
     position top
 
     # https://github.com/vivien/i3blocks
-    output DisplayPort-0
+    # output DisplayPort-0
     output DisplayPort-1
     output DisplayPort-2
     output DisplayPort-3

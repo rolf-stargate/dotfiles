@@ -14,17 +14,17 @@ wk.add({
 		{
 			"<Leader>fs",
 			"<cmd>lua require'telescope.builtin'.current_buffer_fuzzy_find{}<cr>",
-			desc = "Current Buffer fuzzy",
-			remap = false,
-		},
-		{
-			"<Leader>fd",
-			"<cmd>Telescope aerial<cr>",
-			desc = "Current Buffer fuzzy",
+			desc = "Current Buffer Fuzzy",
 			remap = false,
 		},
 		{
 			"<Leader>ff",
+			"<cmd>Telescope aerial<cr>",
+			desc = "Aerial Fuzzy",
+			remap = false,
+		},
+		{
+			"<Leader>fF",
 			"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({ previewer = false}))<cr>",
 			desc = "Find File",
 			remap = false,
