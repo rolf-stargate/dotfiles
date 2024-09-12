@@ -3,7 +3,6 @@
 ! ------------------------------------------------------------------------------
 ! // if new machine install community/urxvt-perls sync clipbord with primary
 
-
 *.font: xft:Iosevka\ Nerd\ Font:style=Regular:size=8
 *.boldFont: xft:Iosevka:style=Bold:size=8
 *.italicFont: xft:Iosevka:style=Italic:size=8

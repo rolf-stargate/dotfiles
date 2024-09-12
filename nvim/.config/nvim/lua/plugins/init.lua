@@ -166,8 +166,9 @@ local opts = {}
 require("lazy").setup(plugins, opts)
 
 -- Load Plugin Configs
-require("plugins.LSP")
+-- require("plugins.copilot")
 
+require("plugins.LSP")
 require("plugins.treesitter")
 require("plugins.whichkey")
 require("plugins.ankifly")
@@ -177,7 +178,6 @@ require("plugins.windline")
 require("plugins.gitsigns")
 require("plugins.telescope")
 require("plugins.undo")
--- require("plugins.copilot")
 require("plugins.tabnine")
 require("plugins.debugging")
 require("plugins.neoscroll")

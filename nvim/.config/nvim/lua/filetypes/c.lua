@@ -78,7 +78,6 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd({ "User" }, {
 	pattern = { "NvimGdbQuery" },
 	callback = function()
-		print("penis")
 
 		-- coroutine.resume(coroutine.create(function()
 		-- 	local app = require("nvimgdb").here

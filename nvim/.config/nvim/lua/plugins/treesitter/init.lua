@@ -5,7 +5,7 @@ configs.setup({
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	query_linter = {
 		enable = true,
-		use_virtual_text = true,
+		use_virtual_text = false,
 		lint_events = { "BufWrite", "CursorHold" },
 	},
 	highlight = {
