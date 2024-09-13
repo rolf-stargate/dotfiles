@@ -202,7 +202,7 @@ xterm*colorBD: rgb:ff/ff/ff
 ! ------------------------------------------------------------------------------
 
 ! termtype
-UXTerm*termName: xterm-256color
+! UXTerm*termName: xterm-256color
 
 
 UXTerm*VT100.geometry:     100x30
