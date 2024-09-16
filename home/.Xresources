@@ -3,22 +3,22 @@
 ! ------------------------------------------------------------------------------
 ! // if new machine install community/urxvt-perls sync clipbord with primary
 
-*.font: xft:Iosevka\ Nerd\ Font:style=Regular:size=8
+! *.font: xft:Iosevka\ Nerd\ Font:style=Regular:size=8
 *.boldFont: xft:Iosevka:style=Bold:size=8
 *.italicFont: xft:Iosevka:style=Italic:size=8
 *.boldItalicFont: xft:Iosevka:style=Bold Italic:size=8
 
 *renderTable: xft
-*xft*fontType: FONT_IS_XFT
-*xft*fontName: Sans
-*xft*fontSize: 8
+! *xft*fontType: FONT_IS_XFT
+! *xft*fontName: Sans
+! *xft*fontSize: 8
 
 Xft.dpi: 96
 Xft.autohint: true
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintslight
 Xft.hinting: true
-Xft.antialias: true
+Xft.antialias: false
 
 ! general settings
 URxvt.saveLines:        50000
@@ -136,7 +136,6 @@ URxvt.resize-font.step:   1
 URxvt.keysym.C-minus:     resize-font:smaller
 URxvt.keysym.C-plus:      resize-font:bigger
 URxvt.keysym.C-equal:     resize-font:reset
-URxvt.keysym.C-question:  resize-font:show
 
 ! macros for clipboard and selection
 URxvt.clipboard.autocopy: true
@@ -144,8 +143,8 @@ URxvt.copyCommand:      xclip -i -selection clipboard
 URxvt.pasteCommand:     xclip -o -selection clipboard
 URxvt.keysym.M-v:       perl:clipboard:paste
 URxvt.keysym.M-C-v:     perl:clipboard:paste_escaped
-URxvt.keysym.M-Escape:  perl:keyboard-select:activate
-URxvt.keysym.M-s:       perl:keyboard-select:search
+URxvt.keysym.Control-Shift-J:  perl:keyboard-select:activate
+URxvt.keysym.Control-Shift-K:       perl:keyboard-select:search
 URxvt.keysym.M-u:       perl:url-select:select_next
 
 ! tabbed
@@ -158,91 +157,6 @@ URxvt.buffered:         false
 ! clipboard
 URxvt.keysym.Control-Shift-C: perl:clipboard:copy
 URxvt.keysym.Control-Shift-V: perl:clipboard:paste
-
-
-! ------------------------------------------------------------------------------
-! xterm standard arcolinux theme
-! ------------------------------------------------------------------------------
-
-xterm*faceName: Monospace
-xterm*faceSize: 11
-xterm*loginShell: true
-xterm*vt100*geometry: 100x30
-xterm*saveLines: 50000
-xterm*charClass: 33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48
-xterm*termName: xterm-color
-xterm*eightBitInput: false
-xterm*foreground: rgb:f9/f9/f9
-xterm*background: rgb:22/22/22
-xterm*color0: rgb:3f/3f/3f
-xterm*color1: rgb:cc/00/00
-xterm*color2: rgb:4e/9a/06
-xterm*color3: rgb:c4/a0/00
-xterm*color4: rgb:34/65/a4
-xterm*color5: rgb:ad/6a/b8
-xterm*color6: rgb:06/98/9a
-xterm*color7: rgb:dc/dc/cc
-xterm*color8: rgb:54/54/54
-xterm*color9: rgb:fc/54/54
-xterm*color10: rgb:8a/e2/34
-xterm*color11: rgb:fc/e9/4f
-xterm*color12: rgb:94/bf/f3
-xterm*color13: rgb:dc/95/e8
-xterm*color14: rgb:93/e0/e3
-xterm*color15: rgb:ff/ff/ff
-xterm*boldMode: false
-xterm*colorBDMode: true
-xterm*colorBD: rgb:ff/ff/ff
-
-
-
-
-! ------------------------------------------------------------------------------
-! UXTerm standard arcolinux theme
-! ------------------------------------------------------------------------------
-
-! termtype
-! UXTerm*termName: xterm-256color
-
-
-UXTerm*VT100.geometry:     100x30
-UXTerm*font:               Monospace
-UXTerm*faceSize:		   11
-UXTerm*dynamicColors:      true
-UXTerm*utf8:               2
-UXTerm*eightBitInput:      true
-UXTerm*saveLines:          50000
-UXTerm*scrollKey:          true
-UXTerm*scrollTtyOutput:    false
-UXTerm*scrollBar:          false
-UXTerm*rightScrollBar:     false
-UXTerm*jumpScroll:         true
-UXTerm*multiScroll:        true
-UXTerm*toolBar:            false
-
-! fix colors
-UXTerm*background: rgb:30/30/30
-UXTerm*foreground: rgb:00/00/00
-UXTerm*color0: rgb:3f/3f/3f
-UXTerm*color1: rgb:cc/00/00
-UXTerm*color2: rgb:4e/9a/06
-UXTerm*color3: rgb:c4/a0/00
-UXTerm*color4: rgb:34/65/a4
-UXTerm*color5: rgb:ad/6a/b8
-UXTerm*color6: rgb:06/98/9a
-UXTerm*color7: rgb:dc/dc/cc
-UXTerm*color8: rgb:54/54/54
-UXTerm*color9: rgb:fc/54/54
-UXTerm*color10: rgb:8a/e2/34
-UXTerm*color11: rgb:fc/e9/4f
-UXTerm*color12: rgb:94/bf/f3
-UXTerm*color13: rgb:dc/95/e8
-UXTerm*color14: rgb:93/e0/e3
-UXTerm*color15: rgb:ff/ff/ff
-
-UXTerm*boldMode: false
-UXTerm*colorBDMode: true
-UXTerm*colorBD: rgb:ff/ff/ff
 
 ! fix oversized cursor after setting display with aranr
 Xcursor.size: 16
