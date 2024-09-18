@@ -142,6 +142,7 @@ local plugins = {
 			}
 		end,
 	},
+	{ "mipmip/vim-scimark" },
 	{ "mattn/calendar-vim" },
 	{ "tools-life/taskwiki" },
 	{ "ledger/vim-ledger" },

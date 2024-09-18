@@ -2,11 +2,11 @@
 ! or alias merge
 ! ------------------------------------------------------------------------------
 ! // if new machine install community/urxvt-perls sync clipbord with primary
-
-! *.font: xft:Iosevka\ Nerd\ Font:style=Regular:size=8
-*.boldFont: xft:Iosevka:style=Bold:size=8
-*.italicFont: xft:Iosevka:style=Italic:size=8
-*.boldItalicFont: xft:Iosevka:style=Bold Italic:size=8
+!
+! *.font: xft:Iosevka\ Nerd\ Font\ Mono:style=Regular:size=16
+! *.boldFont: xft:Iosevka\ Nerd\ Font\ Mono:style=Bold:size=16
+! *.italicFont: xft:Iosevka\ Nerd\ Font\ Mono:style=Italic:size=16
+! *.boldItalicFont: xft:\ Nerd\ Font\ MonoIosevka:style=Bold Italic:size=16
 
 *renderTable: xft
 ! *xft*fontType: FONT_IS_XFT
@@ -18,7 +18,7 @@ Xft.autohint: true
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintslight
 Xft.hinting: true
-Xft.antialias: false
+Xft.antialias: true
 
 ! general settings
 URxvt.saveLines:        50000
