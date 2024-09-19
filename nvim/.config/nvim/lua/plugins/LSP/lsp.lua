@@ -22,6 +22,16 @@ require("lspconfig").sqls.setup({
 	on_attach = function(client, bufnr)
 		require("sqls").on_attach(client, bufnr)
 	end,
+	settings = {
+		sqls = {
+			connections = {
+				{
+					driver = "mysql",
+					dataSourceName = "rolf:rolf@tcp(127.0.0.0:3306)/Geld_her",
+				},
+			},
+		},
+	},
 })
 
 local vue_typescript_plugin = "/home/rolf/.nvm/versions/node/v17.9.1"
