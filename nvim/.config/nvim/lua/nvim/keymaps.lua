@@ -215,6 +215,28 @@ vim.keymap.set("i", "<Leader>d", "<Esc>A;<Esc>", {
 	desc = "Add ; to EOL",
 })
 
+-- Create code block with ()
+vim.keymap.set("n", "<Leader>(", "<Esc>A<Space>(<CR>)<Esc>ko", {
+	noremap = true,
+	silent = true,
+	desc = "Create Code Block ()",
+})
+vim.keymap.set("i", "<Leader>(", "<Esc>A<Space>(<CR>)<Esc>ko", {
+	noremap = true,
+	silent = true,
+	desc = "Create Code Block ()",
+})
+vim.keymap.set("n", "<Leader>)", "<Esc>A<Space>(<CR>)<Esc>ko", {
+	noremap = true,
+	silent = true,
+	desc = "Create Code Block ()",
+})
+vim.keymap.set("i", "<Leader>)", "<Esc>A<Space>(<CR>)<Esc>ko", {
+	noremap = true,
+	silent = true,
+	desc = "Create Code Block ()",
+})
+
 -- Create code block with {}
 vim.keymap.set("n", "<Leader>{", "<Esc>A<Space>{<CR>}<Esc>ko", {
 	noremap = true,

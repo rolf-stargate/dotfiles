@@ -147,6 +147,10 @@ URxvt.keysym.Control-Shift-J:  perl:keyboard-select:activate
 URxvt.keysym.Control-Shift-K:       perl:keyboard-select:search
 URxvt.keysym.M-u:       perl:url-select:select_next
 
+! enabling S-Retrun and C-Return
+URxvt.keysym.S-Return:     \033[13;2u
+URxvt.keysym.C-Return:     \033[13;5u
+
 ! tabbed
 URxvt.tabbed.tabbar-fg: 4
 URxvt.tabbed.tabbar-bg: 16

@@ -27,7 +27,7 @@ require("lspconfig").sqls.setup({
 			connections = {
 				{
 					driver = "mysql",
-					dataSourceName = "rolf:rolf@tcp(127.0.0.0:3306)/Geld_her",
+					dataSourceName = "rolf:@tcp(127.0.0.0:3306)/Geld_her",
 				},
 			},
 		},

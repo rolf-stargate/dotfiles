@@ -98,27 +98,43 @@ function Paste_Image_From_Clipboard()
 	vim.api.nvim_set_current_line(link)
 end
 
-vim.keymap.set(
-	"n",
-	"<Leader>wP",
-	":lua Paste_Image_From_Clipboard()<CR>",
-	{ noremap = true, desc = "Paste image from clipboard" }
-)
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "vimwiki",
+	callback = function()
+		vim.api.nvim_buf_set_keymap(
+			0,
+			"i",
+			"<CR>",
+			"<C-]><Esc>:VimwikiReturn 3 5<CR>",
+			{ noremap = true, silent = true }
+		)
+		vim.api.nvim_buf_set_keymap(0, "i", "<S-CR>", "<Esc>:VimwikiReturn 2 2<CR>", { noremap = true, silent = true })
 
-vim.keymap.set("n", "<Leader>wtt", ":VimwikiTable", { noremap = true, desc = "Create Table" })
+		vim.api.nvim_buf_set_keymap(0, "n", "<S-CR>", "A<Esc>:VimwikiReturn 2 2<CR>", { noremap = true, silent = true })
 
-vim.keymap.set(
-	"n",
-	"<Leader>wth",
-	":VimwikiTableMoveColumnRight<CR>",
-	{ noremap = true, desc = "Table Move Column Right" }
-)
+		vim.keymap.set(
+			"n",
+			"<Leader>wP",
+			":lua Paste_Image_From_Clipboard()<CR>",
+			{ noremap = true, desc = "Paste image from clipboard" }
+		)
 
-vim.keymap.set(
-	"n",
-	"<Leader>wtl",
-	":VimwikiTableMoveColumnLeft<CR>",
-	{ noremap = true, desc = "Table Move Column Left" }
-)
+		vim.keymap.set("n", "<Leader>wtt", ":VimwikiTable", { noremap = true, desc = "Create Table" })
 
-vim.keymap.set("n", "<Leader>wo", "80i-<esc>O<esc>jo<esc>k", { noremap = true, desc = "Line Seperator" })
+		vim.keymap.set(
+			"n",
+			"<Leader>wth",
+			":VimwikiTableMoveColumnRight<CR>",
+			{ noremap = true, desc = "Table Move Column Right" }
+		)
+
+		vim.keymap.set(
+			"n",
+			"<Leader>wtl",
+			":VimwikiTableMoveColumnLeft<CR>",
+			{ noremap = true, desc = "Table Move Column Left" }
+		)
+
+		vim.keymap.set("n", "<Leader>wo", "80i-<esc>O<esc>jo<esc>k", { noremap = true, desc = "Line Seperator" })
+	end,
+})

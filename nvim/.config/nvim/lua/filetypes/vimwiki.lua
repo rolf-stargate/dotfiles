@@ -12,10 +12,13 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("BufEnter", {
-	pattern = "*.md",
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "vimwiki",
 	callback = function()
+		vim.cmd("setlocal softtabstop=3")
+		vim.cmd("setlocal shiftwidth=3")
 		vim.cmd("setlocal updatetime=100")
+
 		vim.keymap.set(
 			"n",
 			"<leader>dd",
