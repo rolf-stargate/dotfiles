@@ -85,6 +85,7 @@ local plugins = {
 	{ "nanotee/sqls.nvim" },
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/nvim-cmp" },
+	{ "hrsh7th/cmp-buffer" },
 	{ "onsails/lspkind.nvim" },
 	{ "L3MON4D3/LuaSnip" },
 	{ "rafamadriz/friendly-snippets" }, -- a bunch of snippets to use
