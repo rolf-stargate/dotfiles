@@ -328,7 +328,7 @@ bindsym $mod+Return exec --no-startup-id urxvt;focus
 bindsym $mod+KP_Enter exec --no-startup-id urxvt;focus
 
 # Keepassxc
-bindsym mod1+p exec --no-startup-id keepassxc
+# bindsym mod1+p exec --no-startup-id keepassxc
 
 # Rnote
 
@@ -351,11 +351,11 @@ for_window [title="ChatGPT"] move scratchpad
 bindsym mod1+a [title="ChatGPT"] scratchpad show 
 
 #Password Manager
-# for_window [class="keepassxc"] floating enable
-# for_window [class="keepassxc"] resize set 1000 1150
-# for_window [class="keepassxc"] move position center
-# for_window [class="keepassxc"] move scratchpad
-# bindsym mod1+p [class="keepassxc"] scratchpad show 
+for_window [class="keepassxc"] floating enable
+for_window [class="keepassxc"] resize set 1000 1150
+for_window [class="keepassxc"] move position center
+for_window [class="keepassxc"] move scratchpad
+bindsym mod1+p [class="keepassxc"] scratchpad show 
 
 
 #Calculator
@@ -372,7 +372,7 @@ for_window [title="ncpamixer"] move position center
 for_window [title="ncpamixer"] move scratchpad
 bindsym mod1+v [title="ncpamixer"] scratchpad show 
 
-exec --no-startup-id urxvt -e ncpamixer
+# exec --no-startup-id urxvt -e ncpamixer
 
 #Task Manager
 for_window [title="htop"] floating enable
@@ -381,7 +381,7 @@ for_window [title="htop"] move position center
 for_window [title="htop"] move scratchpad
 bindsym mod1+t [title="htop"] scratchpad show 
 
-exec --no-startup-id urxvt -e htop
+# exec --no-startup-id urxvt -e htop
 
 #Bluetooth
 for_window [title="bluetuith"] floating enable
@@ -390,14 +390,14 @@ for_window [title="bluetuith"] move position center
 for_window [title="bluetuith"] move scratchpad
 bindsym mod1+b [title="bluetuith"] scratchpad show 
 
-exec --no-startup-id urxvt -e bluetuith
+# exec --no-startup-id urxvt -e bluetuith
 
-#Network
-for_window [class="nm-connection-editor"] floating enable
-for_window [class="nm-connection-editor"] resize set 1000 1000
-for_window [class="nm-connection-editor"] move position center
-for_window [class="nm-connection-editor"] move scratchpad
-bindsym mod1+n [class="nm-connection-editor"] scratchpad show 
+#XP-PEN
+for_window [title="PenTablet"] floating enable
+for_window [title="PenTablet"] resize set 1000 1000
+for_window [title="PenTablet"] move position center
+for_window [title="PenTablet"] move scratchpad
+bindsym mod1+d [title="PenTablet"] scratchpad show 
 
 #####################################################################################################################
 #################                          floating or tiled                                        #################
