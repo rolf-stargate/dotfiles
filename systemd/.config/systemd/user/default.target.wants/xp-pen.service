@@ -1,9 +1,1 @@
-[Unit]
-Description=Starts xppentable in the backgound
-
-[Service]
-ExecStart=/usr/lib/pentablet/PenTablet.sh
-Restart=always
-
-[Install]
-WantedBy=default.target
+/home/rolf/.config/systemd/user/xp-pen.service

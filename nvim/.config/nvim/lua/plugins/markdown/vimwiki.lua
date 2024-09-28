@@ -136,5 +136,12 @@ vim.api.nvim_create_autocmd("FileType", {
 		)
 
 		vim.keymap.set("n", "<Leader>wo", "80i-<esc>O<esc>jo<esc>k", { noremap = true, desc = "Line Seperator" })
+
+		vim.keymap.set(
+			"n",
+			"gla",
+			":VimwikiChangeSymbolTo a)<cr>",
+			{ noremap = true, desc = "Change List Symbol to a)" }
+		)
 	end,
 })
