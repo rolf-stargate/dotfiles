@@ -1,7 +1,6 @@
 #!/bin/bash
 
-for FILE in /home/rolf/foo/*; do
-  echo "${FILE}"
-  TEST="${FILE##*/}"
-  echo $TEST
+for NUM in 1 2 3 4 5;
+do
+  echo $NUM
 done
