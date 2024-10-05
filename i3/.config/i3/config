@@ -344,11 +344,11 @@ bindsym mod1+s exec --no-startup-id flameshot gui
 #####################################################################################################################
 
 # LLVM chat
-for_window [title="tgpt"] floating enable
-for_window [title="tgpt"] resize set 1000 1050
-for_window [title="tgpt"] move position center
-for_window [title="tgpt"] move scratchpad
-bindsym mod1+a [title="tgpt"] scratchpad show 
+for_window [title="^tgpt$"] floating enable
+for_window [title="^tgpt$"] resize set 1000 1050
+for_window [title="^tgpt$"] move position center
+for_window [title="^tgpt$"] move scratchpad
+bindsym mod1+a [title="^tgpt$"] scratchpad show 
 
 #Password Manager
 for_window [class="keepassxc"] floating enable
@@ -366,29 +366,29 @@ for_window [class="SpeedCrunch"] move scratchpad
 bindsym mod1+c [class="SpeedCrunch"] scratchpad show 
 
 #Volume/Sound
-for_window [title="pulsemixer"] floating enable
-for_window [title="pulsemixer"] resize set 900 500
-for_window [title="pulsemixer"] move position center
-for_window [title="pulsemixer"] move scratchpad
-bindsym mod1+v [title="pulsemixer"] scratchpad show 
+for_window [title="^pulsemixer$"] floating enable
+for_window [title="^pulsemixer$"] resize set 900 500
+for_window [title="^pulsemixer$"] move position center
+for_window [title="^pulsemixer$"] move scratchpad
+bindsym mod1+v [title="^pulsemixer$"] scratchpad show 
 
 # exec --no-startup-id urxvt -e ncpamixer
 
 #Task Manager
-for_window [title="htop"] floating enable
-for_window [title="htop"] resize set 1000 1000
-for_window [title="htop"] move position center
-for_window [title="htop"] move scratchpad
-bindsym mod1+t [title="htop"] scratchpad show 
+for_window [title="^htop$"] floating enable
+for_window [title="^htop$"] resize set 1000 1000
+for_window [title="^htop$"] move position center
+for_window [title="^htop$"] move scratchpad
+bindsym mod1+t [title="^htop$"] scratchpad show 
 
 # exec --no-startup-id urxvt -e htop
 
 #Bluetooth
-for_window [title="bluetuith"] floating enable
-for_window [title="bluetuith"] resize set 1000 1000
-for_window [title="bluetuith"] move position center
-for_window [title="bluetuith"] move scratchpad
-bindsym mod1+b [title="bluetuith"] scratchpad show 
+for_window [title="^bluetuith$"] floating enable
+for_window [title="^bluetuith$"] resize set 1000 1000
+for_window [title="^bluetuith$"] move position center
+for_window [title="^bluetuith$"] move scratchpad
+bindsym mod1+b [title="^bluetuith$"] scratchpad show 
 
 # exec --no-startup-id urxvt -e bluetuith
 
