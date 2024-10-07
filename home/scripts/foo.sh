@@ -1,11 +1,6 @@
 #!/bin/bash
 
-echo $1
-
-if [ -t "$1" ]; then
-  echo $?
-  echo "yes"
-else
-  echo $?
-  echo "no"
-fi
+for NUM in 1 2 3 4 5;
+do
+  echo $NUM
+done

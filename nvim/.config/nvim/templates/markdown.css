@@ -182,7 +182,9 @@ sub {
  */
 
 img {
+  max-width: 100%;
   border: 0;
+  object-fit: cover;
 }
 
 /**
@@ -839,6 +841,7 @@ ol {
 }
 ol,
 ul {
+  display: grid;
   padding-left: 0;
   margin-top: 0;
 }
@@ -972,7 +975,7 @@ h6 {
   margin-bottom: 1rem;
   font-weight: 600;
   line-height: 1.25;
-  color: black;
+  color: #501D4C;
 }
 
 a.anchor {
@@ -980,32 +983,52 @@ a.anchor {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   line-height: 1.2;
 }
 h2 {
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   line-height: 1.25;
 }
 h3 {
-  font-size: 1.5rem;
+  font-size: 2.3rem;
   line-height: 1.3;
 }
 h4 {
-  font-size: 1.2rem;
+  font-size: 2.2rem;
   line-height: 1.35;
 }
 h5 {
-  font-size: 0.9rem;
+  font-size: 2.1rem;
   line-height: 1.5;
 }
 h6 {
-  font-size: 0.7rem;
+  font-size: 2rem;
   line-height: 1.6;
 }
 
 @media print {
-  @page {
-    size: A4;
-  }
+    @page {
+      size: A4;
+    }
+
+    h1 {
+      page-break-before: always; /* Start a new page before <h1> elements */
+    }
+
+    h1 {
+      page-break-before: always; /* Start a new page before <h1> elements */
+    }
+
+    h2 {
+      page-break-before: always; /* Start a new page before <h1> elements */
+    }
+
+    h3 {
+      page-break-before: always; /* Start a new page before <h1> elements */
+    }
+
+    section {
+      page-break-after: always; /* Start a new page after <section> elements */
+    }
 }

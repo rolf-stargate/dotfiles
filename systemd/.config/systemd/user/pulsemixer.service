@@ -1,0 +1,9 @@
+[Unit]
+Description=Starts pulsemixer in the backgound
+
+[Service]
+ExecStart=/sbin/urxvt -e pulsemixer
+Restart=always
+
+[Install]
+WantedBy=default.target

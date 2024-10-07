@@ -2,7 +2,7 @@
 Description=Starts chatgpt-desktop in the backgound
 
 [Service]
-ExecStart=/sbin/chat-gpt
+ExecStart=/sbin/urxvt -e tgpt -m
 Restart=always
 
 [Install]

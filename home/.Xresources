@@ -70,7 +70,7 @@ URxvt.background:   [90]#14001E
 ! special
 *.foreground:   #a6d6c7
 *.background:   #090f0e
-*.cursorColor:  #DCFFFC
+*.cursorColor:  #FFE8E1
 
 ! black
 *.color0:       #111917
@@ -143,8 +143,9 @@ URxvt.copyCommand:      xclip -i -selection clipboard
 URxvt.pasteCommand:     xclip -o -selection clipboard
 URxvt.keysym.M-v:       perl:clipboard:paste
 URxvt.keysym.M-C-v:     perl:clipboard:paste_escaped
-URxvt.keysym.Control-Shift-J:  perl:keyboard-select:activate
+URxvt.keysym.Control-Escape:  perl:keyboard-select:activate
 URxvt.keysym.Control-Shift-K:       perl:keyboard-select:search
+
 URxvt.keysym.M-u:       perl:url-select:select_next
 
 ! enabling S-Retrun and C-Return
