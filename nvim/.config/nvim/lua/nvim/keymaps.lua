@@ -120,7 +120,7 @@ vim.keymap.set("n", "<leader>u", "<esc>bgUaw", {
 	desc = "Capitalise Last Word",
 })
 
-vim.keymap.set("i", "<leader>u", "<esc>bgUawA", {
+vim.keymap.set("i", "<leader>u", "<esc>bgUawea", {
 	noremap = true,
 	silent = true,
 	desc = "Capitalise Last Word",
