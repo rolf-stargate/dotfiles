@@ -95,7 +95,7 @@ local plugins = {
 	-- 	after = { "copilot.lua", "nvim-cmp" },
 	-- },
 	-- { "zbirenbaum/copilot.lua" },
-	{ "codota/tabnine-nvim", build = "./dl_binaries.sh" },
+	-- { "codota/tabnine-nvim", build = "./dl_binaries.sh" },
 	-- Debugging
 	{
 		"sakhnik/nvim-gdb",
