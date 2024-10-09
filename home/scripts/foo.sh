@@ -1,6 +1,13 @@
 #!/bin/bash
 
-for NUM in 1 2 3 4 5;
-do
-  echo $NUM
+arr1=( $* )
+arr2=( "$@" )
+
+for (( i=0; i < ${#arr1[@]}; i++ )); do
+  echo ${arr1[i]}
 done
+
+for (( i=0; i < ${#arr2[@]}; i++ )); do
+  echo ${arr2[i]}
+done
+
