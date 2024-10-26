@@ -76,6 +76,12 @@ local plugins = {
 	{ "windwp/nvim-autopairs" },
 	-- Neoscroll
 	{ "rolf-stargate/neoscroll.nvim" },
+	-- talon
+	{ "hands-free-vim/talon.nvim", config = 'require("talon").setup()' },
+	{ "hands-free-vim/cursorless.nvim", config = 'require("cursorless").setup()' },
+	-- dependencies useful for neovim-talon
+	{ "dhruvasagar/vim-zoom" },
+	{ "gcmt/taboo.vim" },
 	-- LSP
 	{ "mhartington/formatter.nvim" },
 	{ "rushjs1/nuxt-goto.nvim" },

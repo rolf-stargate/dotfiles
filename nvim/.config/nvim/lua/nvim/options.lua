@@ -35,6 +35,8 @@ local options = {
 	wildignore = "*/node_modules/*", -- ignore node_modules in :vim
 	spelllang = "en,de",
 	spellsuggest = "fast",
+	spelllang = "en,de",
+	colorcolumn = "81",
 }
 
 vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
