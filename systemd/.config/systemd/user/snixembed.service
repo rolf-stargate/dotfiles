@@ -1,0 +1,9 @@
+[Unit]
+Description=Starts sixembed used to detect icons(needed for talon icon)
+
+[Service]
+ExecStart=/sbin/snixembed
+Restart=always
+
+[Install]
+WantedBy=default.target

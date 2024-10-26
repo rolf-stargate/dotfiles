@@ -6,6 +6,10 @@ nvim/.config/nvim/spell/de.utf-8.add.spl
 vifm/.config/vifm/vifminfo.json*
 nvim/.config/nvim/lazy-lock.json
 nvim/.config/nvim/lazy-lock.json
+./systemd/.config/systemd/user/chatgpt_vars.env
 home/scripts/bar.txt
 home/scripts/pause.txt
 
+systemd/.config/systemd/user/chatgpt_vars.env
+home/scripts/pause.txt
+home/scripts/pause.txt
