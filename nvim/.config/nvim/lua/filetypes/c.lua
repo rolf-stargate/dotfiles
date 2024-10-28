@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd("FileType", {
 			{ buffer = true, noremap = true, desc = "Open Backtrace" }
 		)
 		vim.keymap.set("n", "<leader>DU", ":GdbUntil<CR>", { buffer = true, noremap = true, desc = "Until" })
-		vim.keymap.set("n", "<leader>DI", ":GdbUntil<CR>", { buffer = true, noremap = true, desc = "Interrupt" })
+		-- vim.keymap.set("n", "<leader>DI", ":GdbUntil<CR>", { buffer = true, noremap = true, desc = "Interrupt" })
 
 		vim.keymap.set("n", "<Leader>{", "<Esc>o{<CR>}<Esc>ko", {
 			noremap = true,
@@ -75,15 +75,13 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-vim.api.nvim_create_autocmd({ "User" }, {
-	pattern = { "NvimGdbQuery" },
-	callback = function()
-
-		-- coroutine.resume(coroutine.create(function()
-		-- 	local app = require("nvimgdb").here
-		-- 	local output = app:custom_command_async("")
-		-- 	print(output)
-		-- 	-- Do whatever is required to process the output
-		-- end))
-	end,
-})
+-- vim.api.nvim_create_autocmd({ "User" }, {
+-- 	pattern = { "NvimGdbQuery" },
+-- 	callback = function()
+--
+-- 		-- coroutine.resume(coroutine.create(function()
+-- 		-- 	local app = require("nvimgdb").here
+-- 		-- 	local output = app:custom_command_async("")
+-- 		-- 	print(output)
+-- 		-- 	-- Do whatever is required to process the output
+-- 		-- end))

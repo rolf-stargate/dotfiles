@@ -344,11 +344,11 @@ bindsym mod1+s exec --no-startup-id flameshot gui
 #####################################################################################################################
 
 # LLVM chat
-for_window [title="^tgpt$"] floating enable
-for_window [title="^tgpt$"] resize set 1000 1050
-for_window [title="^tgpt$"] move position center
-for_window [title="^tgpt$"] move scratchpad
-bindsym mod1+a [title="^tgpt$"] scratchpad show 
+for_window [class="^GpChat$"] floating enable
+for_window [class="^GpChat$"] resize set 1000 1050
+for_window [class="^GpChat$"] move position center
+for_window [class="^GpChat$"] move scratchpad
+  bindsym mod1+a [class="^GpChat$"] scratchpad show 
 
 #Password Manager
 for_window [class="keepassxc"] floating enable

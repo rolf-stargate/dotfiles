@@ -1,5 +1,5 @@
 require("gp").setup({
-	openai_api_key = { "cat", "/home/rolf/openai_key" },
+	openai_api_key = { "gpg", "--decrypt", "/home/rolf/openai_key.gpg" },
 	toggle_target = "split",
 	chat_user_prefix = "Rolf:",
 	chat_assistant_prefix = { "KI:", "[{{agent}}]" },
@@ -88,7 +88,7 @@ require("which-key").add({
 		{ "<C-g>N", "<cmd>GpNextAgent<cr>", desc = "Next Agent", nowait = true, remap = false },
 		{
 			"<C-g>n",
-			"<cmd>GpChatNew split<cmd>GpChatToggle split<cr>",
+			"<cmd>GpChatNew split<cr><cmd>GpChatToggle split<cr>",
 			desc = "Toggle Chat",
 			nowait = true,
 			remap = false,
