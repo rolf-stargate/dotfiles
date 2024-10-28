@@ -4,6 +4,7 @@ Description=Starts chatgpt-desktop in the backgound
 [Service]
 ExecStart=/sbin/urxvt -e tgpt -m
 Restart=always
+Environment=/home/rolf/.config/systemd/user/chatgpt_vars.env
 
 [Install]
 WantedBy=default.target
