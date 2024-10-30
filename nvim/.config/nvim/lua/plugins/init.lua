@@ -65,7 +65,7 @@ local plugins = {
 	-- Popup API
 	{ "nvim-lua/popup.nvim" },
 	-- Floaterm
-	-- { "voldikss/vim-floaterm" },
+	{ "voldikss/vim-floaterm" },
 	-- Undotree
 	{ "simnalamburt/vim-mundo" },
 	-- Colorizer
