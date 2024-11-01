@@ -188,7 +188,7 @@ vim.keymap.set("i", ",", ",<c-g>u", { noremap = true, silent = true })
 vim.keymap.set("i", ".", ".<c-g>u", { noremap = true, silent = true })
 vim.keymap.set("i", "?", "?<c-g>u", { noremap = true, silent = true })
 vim.keymap.set("i", "!", "!<c-g>u", { noremap = true, silent = true })
-vim.keymap.set("i", "<", "<<c-g>u", { noremap = true, silent = true })
+-- vim.keymap.set("i", "<", "<<c-g>u", { noremap = true, silent = true })
 vim.keymap.set("i", ">", "><c-g>u", { noremap = true, silent = true })
 vim.keymap.set("i", ":", ":<c-g>u", { noremap = true, silent = true })
 

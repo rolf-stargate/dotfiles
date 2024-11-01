@@ -63,7 +63,7 @@ cmp.setup({
 		}),
 		-- Accept currently selected item. If none selected, `select` first item.
 		-- Set `select` to `false` to only confirm explicitly selected items.
-		["<c-space"] = cmp.mapping.confirm({ select = true }),
+		["<leader><tab>"] = cmp.mapping.confirm({ select = true }),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
@@ -158,5 +158,8 @@ cmp.setup({
 		end),
 	},
 })
+
+-- Hack at the moment
+vim.keymap.set("i", "<leader><tab>", cmp.mapping.confirm({ select = true }))
 
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
