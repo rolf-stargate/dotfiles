@@ -324,8 +324,8 @@ exec --no-startup-id rnote
 bindsym $mod+b exec --no-startup-id brave
 
 # terminal
-bindsym $mod+Return exec --no-startup-id kitty;focus
-bindsym $mod+KP_Enter exec --no-startup-id kitty;focus
+bindsym $mod+Return exec --no-startup-id urxvt;focus
+bindsym $mod+KP_Enter exec --no-startup-id urxvt;focus
 
 # Keepassxc
 # bindsym mod1+p exec --no-startup-id keepassxc
