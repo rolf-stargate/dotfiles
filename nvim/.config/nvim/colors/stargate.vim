@@ -146,7 +146,7 @@ hi TSTagDelimiter guifg=#abb2bf guibg=NONE gui=NONE
 hi @variable guifg=#B1BAD4 guibg=NONE gui=NONE
 hi @punctuation guifg=#A3B5EA guibg=NONE gui=NONE
 hi @string guifg=#c4a4f9 guibg=NONE gui=italic
-hi @string.c guifg=#F9A4C6 guibg=NONE gui=italic
+hi @string. guifg=#F9A4C6 guibg=NONE gui=italic
 hi @string.escape guifg=NONE guibg=NONE gui=bold
 hi @character guifg=#c4a4f9 guibg=NONE gui=NONE
 hi @character.escape guifg=NONE guibg=NONE gui=bold
@@ -247,7 +247,7 @@ hi debugBreakpoint guifg=#ff5555 guibg=NONE gui=reverse
 hi DiagnosticVirtualTextError guifg=#9078B9 guibg=NONE gui=NONE
 hi DiagnosticUnderlineError guifg=#FF2F4B guibg=NONE gui=italic
 hi DiagnosticVirtualTextWarn guifg=#9078B9 guibg=NONE gui=NONE
-hi DiagnosticUnderlineWarn guifg=#F8F724 guibg=NONE gui=italic
+hi DiagnosticUnderlineWarn guifg=#DADA5C guibg=NONE gui=italic
 
 " ### Vimwiki ####################################################################
 hi VimwikiHeader1 guifg=#c4a4f9 guibg=NONE gui=bold
