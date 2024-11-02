@@ -2,7 +2,7 @@
 Description=Starts htop in the backgound
 
 [Service]
-ExecStart=/sbin/urxvt -e htop
+ExecStart=/sbin/kitty -e htop
 Restart=always
 
 [Install]

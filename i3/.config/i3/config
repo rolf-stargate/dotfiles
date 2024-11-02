@@ -324,8 +324,8 @@ exec --no-startup-id rnote
 bindsym $mod+b exec --no-startup-id brave
 
 # terminal
-bindsym $mod+Return exec --no-startup-id urxvt;focus
-bindsym $mod+KP_Enter exec --no-startup-id urxvt;focus
+bindsym $mod+Return exec --no-startup-id kitty;focus
+bindsym $mod+KP_Enter exec --no-startup-id kitty;focus
 
 # Keepassxc
 # bindsym mod1+p exec --no-startup-id keepassxc
@@ -372,8 +372,6 @@ for_window [title="^pulsemixer$"] move position center
 for_window [title="^pulsemixer$"] move scratchpad
 bindsym mod1+v [title="^pulsemixer$"] scratchpad show 
 
-# exec --no-startup-id urxvt -e ncpamixer
-
 #Task Manager
 for_window [title="^htop$"] floating enable
 for_window [title="^htop$"] resize set 1000 1000
@@ -381,16 +379,12 @@ for_window [title="^htop$"] move position center
 for_window [title="^htop$"] move scratchpad
 bindsym mod1+t [title="^htop$"] scratchpad show 
 
-# exec --no-startup-id urxvt -e htop
-
 #Bluetooth
 for_window [title="^bluetuith$"] floating enable
 for_window [title="^bluetuith$"] resize set 1000 1000
 for_window [title="^bluetuith$"] move position center
 for_window [title="^bluetuith$"] move scratchpad
 bindsym mod1+b [title="^bluetuith$"] scratchpad show 
-
-# exec --no-startup-id urxvt -e bluetuith
 
 #XP-PEN
 for_window [class="PenTablet"] floating enable
@@ -416,7 +410,7 @@ for_window [window_role="setup"] floating enable
 #################                          give focus to applications                               #################
 #####################################################################################################################
 
-for_window [class="Urxvt"] focus
+for_window [class="Kitty"] focus
 no_focus [title="^Peek preview$"]
 
 #####################################################################################################################

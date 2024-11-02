@@ -2,7 +2,7 @@
 Description=Starts chatgpt-desktop in the backgound
 
 [Service]
-ExecStart=/sbin/urxvt -name "GpChat" -e nvim -c "GpChatNew"
+ExecStart=/sbin/kitty --name "GpChat" -e nvim -c "GpChatNew"
 Restart=always
 
 [Install]

@@ -2,7 +2,7 @@
 Description=Starts pulsemixer in the backgound
 
 [Service]
-ExecStart=/sbin/urxvt -e pulsemixer
+ExecStart=/sbin/kitty -e pulsemixer
 Restart=always
 
 [Install]

@@ -2,7 +2,7 @@
 Description=Starts bluetuith in the backgound
 
 [Service]
-ExecStart=/sbin/urxvt -e bluetuith
+ExecStart=/sbin/kitty -e bluetuith
 Restart=always
 
 [Install]

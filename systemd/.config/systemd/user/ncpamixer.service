@@ -2,7 +2,7 @@
 Description=Starts ncpamixer in the backgound
 
 [Service]
-ExecStart=/sbin/urxvt -e ncpamixer
+ExecStart=/sbin/kitty -e ncpamixer
 Restart=always
 
 [Install]
