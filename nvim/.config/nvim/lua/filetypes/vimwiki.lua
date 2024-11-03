@@ -37,6 +37,12 @@ vim.api.nvim_create_autocmd("FileType", {
 			"G?rolf:<cr>A ",
 			{ buffer = true, noremap = true, desc = "ChatGpt Jump to Input" }
 		)
+		vim.keymap.set(
+			"i",
+			"<C-g>h",
+			"<esc>G?rolf:<cr>A ",
+			{ buffer = true, noremap = true, desc = "ChatGpt Jump to Input" }
+		)
 	end,
 })
 
