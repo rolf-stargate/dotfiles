@@ -31,6 +31,12 @@ vim.api.nvim_create_autocmd("FileType", {
 			":pandoc % -o %.pdf --template=/home/rolf/.config/nvim/templates/letter.latex && brave %.pdf<cr>",
 			{ buffer = true, noremap = true, desc = "Create 3x3 table" }
 		)
+		vim.keymap.set(
+			"n",
+			"<C-g>h",
+			"G?rolf:<cr>A ",
+			{ buffer = true, noremap = true, desc = "ChatGpt Jump to Input" }
+		)
 	end,
 })
 
