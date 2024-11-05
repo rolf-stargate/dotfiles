@@ -119,6 +119,13 @@ vim.api.nvim_create_autocmd("FileType", {
 			{ noremap = true, desc = "Paste image from clipboard" }
 		)
 
+		vim.keymap.set(
+			"n",
+			"<Leader>wL",
+			"<cmd>!pandoc % -o %.pdf --template=/home/rolf/.config/nvim/templates/letter.latex && brave %.pdf<cr>",
+			{ noremap = true, desc = "Print Letter" }
+		)
+
 		vim.keymap.set("n", "<Leader>wtt", ":VimwikiTable", { noremap = true, desc = "Create Table" })
 
 		vim.keymap.set(
