@@ -275,9 +275,6 @@ assign [class="Anki"]						          → 10
 assign [class="Virt-manager"]						  → VM
 assign [class="looking-glass-client"]		  → VM
 
-assign [class="mpv"] 						          → Music
-
-
 # Workspace Paint
 assign [class="asprite"] 						      → Paint
 assign [class="rnote"] 			   			      → Paint
