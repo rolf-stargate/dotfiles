@@ -27,8 +27,6 @@ $endif$
 $for(classoption)$
   $classoption$$sep$,
 $endfor$
-firstfoot=false,
-entlargefirstpage,
 ]{scrlttr2}
 $if(beamer)$
 $if(background-image)$
@@ -265,8 +263,8 @@ $else$
 \makesavenoteenv{longtable}
 $endif$
 $endif$
-$if(graphics)$
 \usepackage{graphicx}
+$if(graphics)$
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -459,12 +457,13 @@ $endif$
 
 \KOMAoptions{fromemail=false}
 \KOMAoptions{fromfax=false}
-\KOMAoptions{fromlogo=false}
+\KOMAoptions{fromlogo=true}
 \KOMAoptions{frommobilephone=false}
 \KOMAoptions{fromphone=false}
 \KOMAoptions{fromurl=false}
 \KOMAoptions{fromalign=right}
-\KOMAoptions{backaddress=plain}
+\KOMAoptions{foldmarks=false}
+\KOMAoptions{backaddress=false}
 
 \setkomavar{opening}{}
 \setkomavar{closing}{}
@@ -475,7 +474,7 @@ $for(letteroption)$
 $endfor$
 
 $if(addresseeimage)$\setkomavar{addresseeimage}{$addresseeimage$}$endif$
-$if(backaddress)$\setkomavar{backaddress}{$backaddress$}\KOMAoptions{backaddress=plain}$endif$
+$if(backaddress)$\setkomavar{backaddress}{$backaddress$}\KOMAoptions{backaddress=true}$endif$
 $if(backaddressseparator)$\setkomavar{backaddressseparator}{$backaddressseparator$}$endif$
 $if(ccseparator)$\setkomavar{ccseparator}{$ccseparator$}$endif$
 $if(customer)$\setkomavar{customer}{$customer$}$endif$
@@ -489,7 +488,7 @@ $if(fromaddress)$\setkomavar{fromaddress}{$fromaddress$}$endif$
 $if(frombank)$\setkomavar{frombank}{$frombank$}$endif$
 $if(fromemail)$\setkomavar{fromemail}{$fromemail$}\KOMAoptions{fromemail=true}$endif$
 $if(fromfax)$\setkomavar{fromfax}{$fromfax$}\KOMAoptions{fromfax=true}$endif$
-$if(fromlogo)$\setkomavar{fromlogo}{$fromlogo$}\KOMAoptions{fromlogo=true}$endif$
+$if(fromlogo)$\setkomavar{fromlogo}{\includegraphics{$fromlogo$}}\KOMAoptions{fromlogo=true}$endif$
 $if(frommobilephone)$\setkomavar{frommobilephone}{$frommobilephone$}\KOMAoptions{frommobilephone=true}$endif$
 $if(fromname)$\setkomavar{fromname}{$fromname$}$endif$
 $if(fromphone)$\setkomavar{fromphone}{$fromphone$}\KOMAoptions{fromphone=true}$endif$
@@ -526,7 +525,9 @@ $if(yourrefname)$\setkomavar*{yourref}{$yourrefname$}$endif$
 $if(opening)$\setkomavar{opening}{$opening$}$endif$
 $if(closing)$\setkomavar{closing}{$closing$}$endif$
 $if(enclseparator)$\setkomavar*{enclseparator}{$enclseparator$}$endif$
+
 % END OVERRIDES
+
 
 \usepackage[bottom=2cm]{geometry}
 \begin{document}
