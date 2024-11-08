@@ -1,94 +1,62 @@
-$if(CJKmainfont)$
-\PassOptionsToPackage{space}{xeCJK}
-$endif$
+% You can use 11pt or 12pt font size 
+\documentclass[10pt,language=french]{ETSletter}  % Date, subject start and logo in French
+% \documentclass[11pt,language=english]{ETSletter} % Date, subject start and logo in English
+% \documentclass[11pt,language=spanish]{ETSletter  % Date, subject start and logo in Spanish
 
-\documentclass[]{scrlttr2}
+% If you provide the option signature, the class will create 
+% a signature field that can be signed using Acrobat Reader
+% \documentclass[10pt,language=french,signature]{ETSletter}
 
-\usepackage{graphicx}
-\usepackage[bottom=2cm]{geometry}
-\usepackage{pgfpages}
-
-
-\newkomavar{opening}
-\newkomavar{closing}
-
-\KOMAoptions{parskip=half}
-\KOMAoptions{fromemail=false}
-\KOMAoptions{fromfax=false}
-\KOMAoptions{fromlogo=true}
-\KOMAoptions{frommobilephone=false}
-\KOMAoptions{fromphone=false}
-\KOMAoptions{fromurl=false}
-\KOMAoptions{fromalign=right}
-\KOMAoptions{foldmarks=false}
-\KOMAoptions{backaddress=false}
-
-\setkomavar{opening}{}
-\setkomavar{closing}{}
-\setkomavar*{enclseparator}{Anlagen}
+% Uncomment this line if you don't want page numbering
+%\pagenumbering{gobble}
 
 $for(letteroption)$
 \LoadLetterOption{$letteroption$}
 $endfor$
 
+% As per the new ETS guidelines, the phone number on the letters
+% should be the one below, but I kept the customization option just in case
+\ETSphone{514 396-8800}
+\ETSdepartment{Direction générale} % Your department here
+\ETSname{Aldus Dumbledore} % Your name here
+% \ETScity{Montreal}  % If you want to change the default city (Montreal)
 
-$if(addresseeimage)$\setkomavar{addresseeimage}{$addresseeimage$}$endif$
-$if(date)$\setkomavar{date}{$date$}$endif$
-$if(emailseparator)$\setkomavar{emailseparator}{$emailseparator$}$endif$
-$if(enclseparator)$\setkomavar{enclseparator}{$enclseparator$}$endif$
-$if(firstfoot)$\setkomavar{firstfoot}{$firstfoot$}$endif$
-$if(firsthead)$\setkomavar{firsthead}{$firsthead$}$endif$
-$if(fromaddress)$\setkomavar{fromaddress}{$fromaddress$}$endif$
-$if(frombank)$\setkomavar{frombank}{$frombank$}$endif$
-$if(fromemail)$\setkomavar{fromemail}{$fromemail$}\KOMAoptions{fromemail=true}$endif$
-$if(fromfax)$\setkomavar{fromfax}{$fromfax$}\KOMAoptions{fromfax=true}$endif$
-$if(fromlogo)$\setkomavar{fromlogo}{\includegraphics{$fromlogo$}}\KOMAoptions{fromlogo=true}$endif$
-$if(frommobilephone)$\setkomavar{frommobilephone}{$frommobilephone$}\KOMAoptions{frommobilephone=true}$endif$
-$if(fromname)$\setkomavar{fromname}{$fromname$}$endif$
-$if(fromphone)$\setkomavar{fromphone}{$fromphone$}\KOMAoptions{fromphone=true}$endif$
-$if(fromurl)$\setkomavar{fromurl}{$fromurl$}\KOMAoptions{fromurl=true}$endif$
-$if(fromzipcode)$\setkomavar{fromzipcode}{$fromzipcode$}$endif$
-$if(invoice)$\setkomavar{invoice}{$invoice$}$endif$
-$if(location)$\setkomavar{location}{$location$}$endif$
-$if(myref)$\setkomavar{myref}{$myref$}$endif$
-$if(nextfoot)$\setkomavar{nextfoot}{$nextfoot$}$endif$
-$if(nexthead)$\setkomavar{nexthead}{$nexthead$}$endif$
-$if(phoneseparator)$\setkomavar{phoneseparator}{$phoneseparator$}$endif$
-$if(place)$\setkomavar{place}{$place$}$endif$
-$if(placeseparator)$\setkomavar{placeseparator}{$placeseparator$}$endif$
-$if(PPdatamatrix)$\setkomavar{PPdatamatrix}{$PPdatamatrix$}$endif$
-$if(PPcode)$\setkomavar{PPcode}{$PPcode$}$endif$
-$if(signature)$\setkomavar{signature}{$signature$}\renewcommand*{\raggedsignature}{\raggedright}$endif$
-$if(specialmail)$\setkomavar{specialmail}{$specialmail$}$endif$
-$if(subject)$\setkomavar{subject}{$subject$}$endif$
-$if(subjectseparator)$\setkomavar{placeseparator}{$placeseparator$}$endif$
-$if(title)$\setkomavar{title}{$title$}$endif$
-$if(toaddress)$\setkomavar{toaddress}{$toaddress$}\KOMAoptions{toaddress=true}$endif$
-$if(toname)$\setkomavar{toname}{$toname$}\KOMAoptions{toname=true}$endif$
-$if(yourmail)$\setkomavar{yourmail}{$yourmail$}$endif$
-$if(yourref)$\setkomavar{yourref}{$yourref$}$endif$
-$if(zipcodeseparator)$\setkomavar{zipcodeseparator}{$zipcodeseparator$}$endif$
-$if(enclseparator)$\setkomavar{enclseparator}{$enclseparator$}$endif$
-$if(fromalign)$\KOMAoptions{fromalign=$fromalign$}$endif$
-$if(customername)$\setkomavar*{customer}{$customername$}$endif$
-$if(datename)$\setkomavar*{date}{$datename$}$endif$
-$if(invoicename)$\setkomavar*{invoice}{$invoicename$}$endif$
-$if(myrefname)$\setkomavar*{myref}{$myrefname$}$endif$
-$if(yourmailname)$\setkomavar*{yourmail}{$yourmailname$}$endif$
-$if(yourrefname)$\setkomavar*{yourref}{$yourrefname$}$endif$
-$if(opening)$\setkomavar{opening}{$opening$}$endif$
-$if(closing)$\setkomavar{closing}{$closing$}$endif$
-$if(enclseparator)$\setkomavar*{enclseparator}{$enclseparator$}$endif$
+% Optional subject line
+\subject{L'insupportable métamorphose}
+
+% You can create your signature here if you want to use an image.
+% If you provide the option "signature" to the document class, it will
+% create a signature field to be signed via Adobe Acrobat Reader. 
+% In such case, leave the content of \signature empty (i.e., \signature{}).
+\signature{
+ \raggedright
+ \includegraphics[scale=0.2]{figs/dumbledores_signature.png}
+}
+
+% Your address / affiliation details.
+\address{\textbf{Directeur de Poudlard\\
+Président du Magenmagot\\
+Fondateur de l'ordre du Phénix}\\
+École de magie et de sorcellerie de Poudlard\\ 
+Highlands, Écosse, Royaume-Uni\\
+}
 
 \begin{document}
-\begin{letter}{%
-$to$
+
+% The recipient of the letter, in case there is one.
+\begin{letter}{
+    Professeure Minerva McGonagall\\ 
+    École de magie et de sorcellerie de Poudlard\\ 
+    Highlands, Écosse, Royaume-Uni\\ 
 }
-\opening{\usekomavar{opening}}
-$body$
-\closing{\usekomavar{closing}}
-$if(ps)$\ps{$ps$}$endif$
-$if(encl)$\encl{$encl$}$endif$
+ 
+\opening{Chère Professeure McGonagall,}
+
+% The letter's content goes here.
+\lipsum[1-3]
+
+\closing{Bien cordialement,}
 
 \end{letter}
+
 \end{document}

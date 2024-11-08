@@ -128,9 +128,16 @@ vim.api.nvim_create_autocmd("FileType", {
 
 		vim.keymap.set(
 			"n",
+			"<Leader>wlp",
+			"<cmd>!pandoc % -o %.pdf --template=/home/rolf/.config/nvim/templates/letter_pdf.latex && brave %.pdf<cr><cr>",
+			{ noremap = true, desc = "Print PDF" }
+		)
+
+		vim.keymap.set(
+			"n",
 			"<Leader>wla",
-			"<cmd>!pandoc % -o %.pdf --template=/home/rolf/.config/nvim/templates/letter_application.latex && brave %.pdf<cr><cr>",
-			{ noremap = true, desc = "Print Application" }
+			"<cmd>!pandoc % -o %.pdf --template=/home/rolf/.config/nvim/templates/letter_pdf.latex && brave %.pdf<cr><cr>",
+			{ noremap = true, desc = "Print PDF" }
 		)
 
 		vim.keymap.set("n", "<Leader>wtt", ":VimwikiTable", { noremap = true, desc = "Create Table" })
