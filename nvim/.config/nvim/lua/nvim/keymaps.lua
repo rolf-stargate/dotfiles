@@ -105,6 +105,19 @@ vim.keymap.set("n", "Q", ":wq<CR>", {
 	desc = "Save & Quit",
 })
 
+-- Change Current Filename
+vim.keymap.set("n", "<Leader>cf", ":!mv % %:h/%P", {
+	noremap = true,
+	silent = true,
+	desc = "Edit Current Filename",
+})
+
+vim.keymap.set("n", "<Leader>cF", ":!mv % %:h/", {
+	noremap = true,
+	silent = true,
+	desc = "Change Current Filename",
+})
+
 -- Last Buffer
 vim.keymap.set("n", "<Leader>b", "<C-^>", {
 	noremap = true,

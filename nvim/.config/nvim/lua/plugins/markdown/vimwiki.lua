@@ -126,20 +126,6 @@ vim.api.nvim_create_autocmd("FileType", {
 			{ noremap = true, desc = "Print Letter" }
 		)
 
-		vim.keymap.set(
-			"n",
-			"<Leader>wlp",
-			"<cmd>!pandoc % -o %.pdf --template=/home/rolf/.config/nvim/templates/letter_pdf.latex && brave %.pdf<cr><cr>",
-			{ noremap = true, desc = "Print PDF" }
-		)
-
-		vim.keymap.set(
-			"n",
-			"<Leader>wla",
-			"<cmd>!pandoc % -o %.pdf --template=/home/rolf/.config/nvim/templates/letter_pdf.latex && brave %.pdf<cr><cr>",
-			{ noremap = true, desc = "Print PDF" }
-		)
-
 		vim.keymap.set("n", "<Leader>wtt", ":VimwikiTable", { noremap = true, desc = "Create Table" })
 
 		vim.keymap.set(
@@ -158,11 +144,35 @@ vim.api.nvim_create_autocmd("FileType", {
 
 		vim.keymap.set("n", "<Leader>wo", "80i-<esc>O<esc>jo<esc>k", { noremap = true, desc = "Line Seperator" })
 
-		vim.keymap.set(
-			"n",
-			"gla",
-			":VimwikiChangeSymbolTo a)<cr>",
-			{ noremap = true, desc = "Change List Symbol to a)" }
-		)
+		vim.cmd([[
+      function! VimwikiLinkHandler(link)
+          let link = a:link
+          if link =~# '^file:'
+            let link_file = substitute(link,'^file:', '', 'g')
+              try
+                  " Substitute '/' or any unwanted characters with a valid file name format
+                  let link_file = substitute(link_file, '\/', '_', 'g')
+                  " Set the directory and file path
+                  let file_path = expand('~/Dropbox/wiki/' . link_file)
+
+                  " Check if the file exists
+                  if filereadable(file_path)
+                      " If the file exists, open it in the current buffer
+                      execute 'edit ' . file_path
+                  else
+                      " If not, create a new file and open it in the current buffer
+                      call writefile([''], file_path) " Creates an empty file
+                      execute 'edit ' . file_path
+                  endif
+
+                  return 1
+              catch
+                  echo "This can happen for a variety of reasons ..."
+              endtry
+              return 0
+          else
+            return 0
+      endfunction
+    ]])
 	end,
 })
