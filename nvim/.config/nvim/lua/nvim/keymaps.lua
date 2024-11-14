@@ -426,13 +426,16 @@ function comment_block_with_input()
 	local top_comment_end = "|»)-->"
 	top_comment = top_comment_start .. string.rep("/", 81 - #top_comment_start - #top_comment_end) .. top_comment_end
 
+	local line = comment_string .. " " .. string.rep(":", 78)
 	local bottom_comment_start = string.format("%s <--(«|", comment_string)
 	local bottom_comment_end = string.format("|__ %s __|////|", user_text)
 	local bottom_comment = bottom_comment_start
 		.. string.rep("/", 81 - #bottom_comment_start - #bottom_comment_end)
 		.. bottom_comment_end
 
+	vim.fn.append(line_end, line)
 	vim.fn.append(line_end, bottom_comment)
+	vim.fn.append(line_start - 1, line)
 	vim.fn.append(line_start - 1, top_comment)
 end
 

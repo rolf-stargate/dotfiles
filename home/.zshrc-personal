@@ -1,14 +1,15 @@
 alias b="cat /sys/class/power_supply/BAT0/capacity"
 
+# |////|__ HISTORY FZF SEARCH __|/////////////////////////////////////////|»)-->
 alias h='xdotool type $(cat $HISTFILE | cut -d";" -f2- | fzf)'
+# <--(«|/////////////////////////////////////////|__ HISTORY FZF SEARCH __|////|
 
-
-# |////|__ GRAP AWK SED TRAINER __|//////////////////////////////////////|»)-->
+# |////|__ GRAP AWK SED TRAINER __|///////////////////////////////////////|»)-->
 # pip3 install grepexercises,sedexercises,awkexercises
 alias traingrep="grepexercises"
 alias trainsed="sedexercises"
 alias trainawk="awkexercises"
-# <--(«|//////////////////////////////////////|__ GRAP AWK SED TRAINER __|////|
+# <--(«|///////////////////////////////////////|__ GRAP AWK SED TRAINER __|////|
 
 # pacman
 
