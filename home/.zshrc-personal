@@ -36,23 +36,28 @@ alias tmt="toggle_my_timer"
 alias qmk="nvim ~/Dropbox/work/opt/qmk_firmware/keyboards/splitkb/kyria/keymaps/rolfstargate && /bin/qmk compile -kb kyria -e AVR_CFLAGS='-Wno-array-bounds' && /bin/qmk flash -kb kyria -e AVR_CFLAGS='-Wno-array-bounds'"
 # <==========================================================  QMK KYRIA   =====
 
+# =======  ESSENTIALS  =========================================================>
 alias dropboxignore="di" # Dropbox ignore npm i dropbox-recursive-ignore-node_modules -g
 alias rgif="byzanz-record -c -x 0 -y 1960 -w 1920 -h 1080 " # Record gif
 alias ls="ls --color=auto --group-directories-first"
+# <========================================================  ESSENTIALS  =======
 
-## Remaps #####################################################################
+# =======  REMAPS  ============================================================>
 alias v="nvim"
 alias vim="nvim"
 alias cat="bat"
 alias less="moar"
 alias y="yay -Slq | fzf -m --preview-window=top --preview 'yay -Si {1}' | xargs -ro yay -S"
+# <============================================================  REMAPS  =======
 
-## vm ########################################################################
+# =======  VM  ================================================================>
 alias win11="sudo virsh start win11 && ~/opt/looking-glass-B6/client/build/looking-glass-client -m KEY_F10"
+# <================================================================  VM  =======
 
-## ytfz youtoube fuzzy search #################################################
+# =======  YOUTUBE  ============================================================>
 alias yt="ytfzf -tsl --pages=5"
 alias ytc="ytfzf -tsl --pages=5 --multi-search --type=channel --thumbnails"
+# <===========================================================  YOUTUBE  =======
 
 # script so vifm exit cd in the last selected directory
 function fm() {
