@@ -1,31 +1,19 @@
-# |////|__ SHOW BATTERY CAPACITY __|//////////////////////////////////////|»)-->
-# ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+# ======   BATTERY CAPACITY   =================================================>
 alias b="cat /sys/class/power_supply/BAT0/capacity"
-# ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-# <--(«|//////////////////////////////////////|__ SHOW BATTERY CAPACITY __|////|
+# <==================================================   BATTERY CAPACITY   =====
 
-# |////|__ HISTORY FZF SEARCH __|/////////////////////////////////////////|»)-->
-# ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+# ======   HISTORY FZF SEARCH   ===============================================>
 alias h='xdotool type $(cat $HISTFILE | cut -d";" -f2- | fzf)'
-# ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-# <--(«|/////////////////////////////////////////|__ HISTORY FZF SEARCH __|////|
+# <================================================   HISTORY FZF SEARCH   =====
 
-# |////|__ GRAP AWK SED TRAINER __|///////////////////////////////////////|»)-->
-# ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+# ======   GREP SED AWK TRAINER   =============================================>
 # pip3 install grepexercises,sedexercises,awkexercises
 alias traingrep="grepexercises"
 alias trainsed="sedexercises"
 alias trainawk="awkexercises"
-# ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-# <--(«|///////////////////////////////////////|__ GRAP AWK SED TRAINER __|////|
+# <==============================================   GREP SED AWK TRAINER   =====
 
-# |////|__ PACMAN __|/////////////////////////////////////////////////////|»)-->
-# ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-# pacman
-# ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-# <--(«|/////////////////////////////////////////////////////|__ PACMAN __|////|
-
-# Taskwarrior
+# ======   TASKWARRIOR   ======================================================>
 alias t=task
 alias tt="taskwarrior-tui"
 # alias tt="task context none; sleep 0.1; task due:today or until:today or scheduled:today or due:tomorrow or until:tomorrow or scheduled:tomorrow list or priority:H or +office"
@@ -36,31 +24,18 @@ alias te="task edit"
 alias tA="task annotate"
 alias td="task del"
 alias to="taskopen"
+# <========================================================  TASKWARRIOR  ======
 
-# my timer
+# ======   MY TIMER   =========================================================>
 alias mt="start_my_timer"
 alias tmt="toggle_my_timer"
+# <===========================================================  MY TIMER  ======
 
-# Go to last dir vifm
-alias fmcd="cd $(cat ~/.config/vifm/lastdir)"
-
-# Paint on Screen
-alias paint="gromit-mpx -a"
-
-# Music Visualizer
-alias musicv="cava"
-
+# ======   QMK KYRIA   ========================================================>
 # QMK edit --> compile --> flash
 alias qmk="nvim ~/Dropbox/work/opt/qmk_firmware/keyboards/splitkb/kyria/keymaps/rolfstargate && /bin/qmk compile -kb kyria -e AVR_CFLAGS='-Wno-array-bounds' && /bin/qmk flash -kb kyria -e AVR_CFLAGS='-Wno-array-bounds'"
+# <==========================================================  QMK KYRIA   =====
 
-# printlog files
-alias plog="multitail -cS MyLogs"
-
-# load completion stuff ??
-autoload -Uz compinit && compinit
-## My Aliases #################################################################
-
-## Ezentials ##################################################################
 alias dropboxignore="di" # Dropbox ignore npm i dropbox-recursive-ignore-node_modules -g
 alias rgif="byzanz-record -c -x 0 -y 1960 -w 1920 -h 1080 " # Record gif
 alias ls="ls --color=auto --group-directories-first"
@@ -87,6 +62,9 @@ function fm() {
     cd "$1" && ~/.config/vifm/scripts/vifmrun 
   fi
 }
+
+# load completion stuff ??
+autoload -Uz compinit && compinit
 
 # Path
 export PATH="/home/rolf/scripts:/home/rolf/.cargo/bin:$PATH"
