@@ -381,7 +381,7 @@ for_window [title="^bluetuith$"] floating enable
 for_window [title="^bluetuith$"] resize set 1000 1000
 for_window [title="^bluetuith$"] move position center
 for_window [title="^bluetuith$"] move scratchpad
-bindsym mod1+b [title="^bluetuith$"] scratchpad show 
+bindsym mod1+n [title="^bluetuith$"] scratchpad show 
 
 #XP-PEN
 for_window [class="PenTablet"] floating enable

@@ -40,21 +40,21 @@ require("gp").setup({
 				.. "```{{filetype}}\n{{selection}}\n```\n\n"
 				.. "Please analyze for code smells and suggest improvements."
 			local agent = gp.get_chat_agent()
-			gp.Prompt(params, gp.Target.new("markdown"), nil, agent.model, template, agent.system_prompt)
+			gp.Prompt(params, gp.Target.new("markdown"), agent, template)
 		end,
 		AddComments = function(gp, params)
 			local template = "I have the following code from {{filename}}:\n\n"
 				.. "```{{filetype}}\n{{selection}}\n```\n\n"
 				.. "Please add comments to the code but do not change it."
 			local agent = gp.get_command_agent()
-			gp.Prompt(params, gp.Target.rewrite, nil, agent.model, template, agent.system_prompt)
+			gp.Prompt(params, gp.Target.rewrite, agent, template)
 		end,
 		Explain = function(gp, params)
 			local template = "I have the following code from {{filename}}:\n\n"
 				.. "```{{filetype}}\n{{selection}}\n```\n\n"
 				.. "Please respond by explaining the code above."
 			local agent = gp.get_chat_agent()
-			gp.Prompt(params, gp.Target.new("markdown"), nil, agent.model, template, agent.system_prompt)
+			gp.Prompt(params, gp.Target.new("markdown"), agent, template)
 		end,
 	},
 })
