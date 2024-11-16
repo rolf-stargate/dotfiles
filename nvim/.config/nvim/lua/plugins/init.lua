@@ -1,4 +1,5 @@
--- Plugin Manager
+-- |////|__ SETUP PACKAGE MANAGER(LAZY) __|///////////////////////////////|»)-->
+-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -11,67 +12,108 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 vim.opt.rtp:prepend(lazypath)
+-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+-- <--(«|///////////////////////////////|__ SETUP PACKAGE MANAGER(LAZY) __|////|
 
+-- |////|__ PLUGINS __|///////////////////////////////////////////////////|»)-->
+-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 local plugins = {
-	-- =======  UTILITIES  ========================================================>
-	-- === Plenary ===============================================================
+	-- =======  UTILITIES  ======================================================>
+	-- Plenary
 	{ "nvim-lua/plenary.nvim" }, -- Useful lua functions used ny lots of plugins
-	-- <========================================================  UTILITIES  =======
-	-- === ChatGpt ===============================================================
-	{ "robitx/gp.nvim" },
-	-- =======  COLOR SCHEMES  ====================================================>
-	{ "Abstract-IDE/Abstract-cs" },
-	{ "rafamadriz/neon" },
-	-- <====================================================  COLOR SCHEMES  =======
-	-- === Which-Key =============================================================
-	{ "folke/which-key.nvim" },
-	-- =======  MY PLUGINS  =====================================================>
-	-- { "rolf-stargate/ankifly.nvim", branch = "develop" },
-	{ dir = "/home/rolf/Dropbox/work/rolfworld/programming/projects/ankifly.nvim" },
-	-- <=====================================================  MY PLUGINS  =======
-	-- === Nvim-Surround =========================================================
+	-- Nvim-Surround
 	{
 		"kylechui/nvim-surround",
 		version = "*",
 		event = "VeryLazy",
 		config = true,
 	},
-	-- === Vim Repeat ============================================================
+	-- Auto Pairs
+	{ "windwp/nvim-autopairs" },
+	-- Vim Repeat
 	{ "tpope/vim-repeat" },
-	-- === Indent Blankline ======================================================
-	{ "lukas-reineke/indent-blankline.nvim" },
+	-- Comment
 	{ "numToStr/Comment.nvim" },
-	-- :-------- Markw ------------------------------------------------------------
-	{ "chentoast/marks.nvim" },
+	-- Minimove
+	{ "echasnovski/mini.nvim", version = "*" }, -- Indentation with ALT+h/j/k/l
+	-- <======================================================  UTILITIES  =======
+
+	-- =======  LLMS  ===========================================================>
+	-- ChatGpt
+	{ "robitx/gp.nvim" }, -- LLM integration
+	-- Copilot
+	-- { "zbirenbaum/copilot-cmp", after = { "copilot.lua", "nvim-cmp" }},
+	-- { "zbirenbaum/copilot.lua" },
+	-- Tabnine
+	-- { "codota/tabnine-nvim", build = "./dl_binaries.sh" },
+	-- <===========================================================  LLMS  =======
+
+	-- =======  APPEARANCE  =====================================================>
+	-- Color Schemes
+	{ "Abstract-IDE/Abstract-cs" },
+	{ "rafamadriz/neon" },
+	-- Indent Blankline
+	{ "lukas-reineke/indent-blankline.nvim" }, -- Indent visualization
 	-- Illuminate
-	{ "RRethy/vim-illuminate" },
-	-- Harpoon
-	{ "ThePrimeagen/harpoon" },
-	-- Dressing
-	{ "stevearc/dressing.nvim" },
+	{ "RRethy/vim-illuminate" }, -- Highlight repeated words
 	-- Statusline
 	{ "windwp/windline.nvim" },
 	-- Gitsigns
 	{ "lewis6991/gitsigns.nvim" },
 	-- Clear Search Highlight when moving
 	{ "haya14busa/is.vim" },
+	-- Colorizer
+	{ "norcalli/nvim-colorizer.lua" }, -- Highlight colors
+	-- <=====================================================  APPEARANCE  =======
+
+	-- =======  MY PLUGINS  =====================================================>
+	-- Ankifly
+	{ dir = "/home/rolf/Dropbox/work/rolfworld/programming/projects/ankifly.nvim" },
+	-- { "rolf-stargate/ankifly.nvim", branch = "develop" },
+	-- <=====================================================  MY PLUGINS  =======
+
+	-- =======  MOVEMENT  =======================================================>
+	-- Markw
+	{ "chentoast/marks.nvim" }, -- Marks preview window
+	-- <=======================================================  MOVEMENT  =======
+
+	-- =======  NAVIGATION  =====================================================>
+	-- Aerial
+	{ "stevearc/aerial.nvim" },
+	-- Neotree
+	{ "nvim-tree/nvim-web-devicons" },
+	{
+		"nvim-tree/nvim-tree.lua",
+		requires = {
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
+	-- Harpoon
+	{ "ThePrimeagen/harpoon" },
+	-- Neoscroll
+	{ "rolf-stargate/neoscroll.nvim" },
+	-- <=====================================================  NAVIGATION  =======
+
+	-- =======  UI  =============================================================>
+	-- Dressing
+	{ "stevearc/dressing.nvim" }, -- Better Menus
 	-- Better Quickfix Window
 	{ "kevinhwang91/nvim-bqf" },
+	-- Which-Key
+	{ "folke/which-key.nvim" },
 	-- Popup API
 	{ "nvim-lua/popup.nvim" },
 	-- Floaterm
 	{ "voldikss/vim-floaterm" },
 	-- Undotree
 	{ "simnalamburt/vim-mundo" },
-	-- Colorizer
-	{ "norcalli/nvim-colorizer.lua" },
 	-- ColorPicker
 	{ "blindFS/vim-colorpicker" },
-	-- Auto Pairs
-	{ "windwp/nvim-autopairs" },
-	-- Neoscroll
-	{ "rolf-stargate/neoscroll.nvim" },
-	-- LSP
+	-- Hover
+	{ "lewis6991/hover.nvim" }, -- Used for LSP
+	-- <=============================================================  UI  =======
+
+	-- =======  LSP  ============================================================>
 	{ "mhartington/formatter.nvim" },
 	{ "rushjs1/nuxt-goto.nvim" },
 	{ "VonHeikemen/lsp-zero.nvim" },
@@ -85,17 +127,15 @@ local plugins = {
 	{ "L3MON4D3/LuaSnip" },
 	{ "saadparwaiz1/cmp_luasnip" },
 	{ "rafamadriz/friendly-snippets" }, -- a bunch of snippets to use
-	-- Copilot
-	-- {
-	-- 	"zbirenbaum/copilot-cmp",
-	-- 	after = { "copilot.lua", "nvim-cmp" },
-	-- },
-	-- { "zbirenbaum/copilot.lua" },
-	-- { "codota/tabnine-nvim", build = "./dl_binaries.sh" },
-	-- Debugging
+	-- <============================================================  LSP  =======
+
+	-- =======  DEBUGGING  ======================================================>
 	{
 		"sakhnik/nvim-gdb",
 	},
+	-- <======================================================  DEBUGGING  =======
+
+	-- =======  SEARCH  =========================================================>
 	-- Telescope
 	{ "nvim-telescope/telescope.nvim" },
 	{ "nvim-telescope/telescope-media-files.nvim" },
@@ -104,26 +144,9 @@ local plugins = {
 		"dhruvmanila/browser-bookmarks.nvim",
 		version = "*",
 	},
-	-- =======  NAVIGATION  =====================================================>
-	-- === aerial ================================================================
-	{
-		"stevearc/aerial.nvim",
-		opts = {},
-		-- Optional dependencies
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-tree/nvim-web-devicons",
-		},
-	},
-	-- === Neotree ===============================================================
-	{ "nvim-tree/nvim-web-devicons" },
-	{
-		"nvim-tree/nvim-tree.lua",
-		requires = {
-			"nvim-tree/nvim-web-devicons",
-		},
-	},
-	-- <=====================================================  NAVIGATION  =======
+	-- <=========================================================  SEARCH  =======
+
+	-- =======  TREESITTER  =====================================================>
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -131,40 +154,24 @@ local plugins = {
 	},
 	{ "nvim-treesitter/playground" },
 	{ "nvim-treesitter/nvim-treesitter-context" },
-	{ "lewis6991/hover.nvim" },
-	-- ###  #########################################################################
-	-- ### Markdown #################################################################
-	-- ###  #########################################################################
+	-- <=====================================================  TREESITTER  =======
+
+	-- =======  MARKDOWN  =======================================================>
 	{
 		"lervag/vimtex",
 		lazy = false, -- we don't want to lazy load VimTeX
-		-- tag = "v2.15", -- uncomment to pin to a specific release
 		init = function()
 			-- VimTeX configuration goes here, e.g.
 			vim.g.vimtex_view_method = "mupdf"
 		end,
 	},
-	{
-		"rolf-stargate/vimwiki",
-		branch = "dev",
-		init = function()
-			vim.g.vimwiki_list = {
-				{
-					path = "~/Dropbox/wiki",
-					syntax = "markdown",
-					ext = ".md",
-					links_space_char = "_",
-				},
-			}
-		end,
-	},
+	{ "rolf-stargate/vimwiki", branch = "dev" },
 	{ "mipmip/vim-scimark" },
 	{ "mattn/calendar-vim" },
 	{ "tools-life/taskwiki" },
 	{ "ledger/vim-ledger" },
 	{ "3rd/image.nvim" },
 	{ "TobinPalmer/pastify.nvim" },
-	--   { "AckslD/nvim-FeMaco.lua",     config = 'require("femaco").setup()' },
 	{ "jubnzv/mdeval.nvim" },
 	{
 		"iamcco/markdown-preview.nvim",
@@ -174,17 +181,18 @@ local plugins = {
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
-	{ "echasnovski/mini.nvim", version = "*" },
 	{ "jbyuki/venn.nvim" },
+	-- <=======================================================  MARKDOWN  =======
 }
+-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+-- <--(«|///////////////////////////////////////////////////|__ PLUGINS __|////|
 
 local opts = {}
-
 require("lazy").setup(plugins, opts)
 
 -- Load Plugin Configs
--- require("plugins.copilot")
-
+-- |////|__ LOAD PLUGIN CONFIGS __|///////////////////////////////////////|»)-->
+-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 require("plugins.LSP")
 require("plugins.treesitter")
 require("plugins.whichkey")
@@ -195,7 +203,6 @@ require("plugins.windline")
 require("plugins.gitsigns")
 require("plugins.telescope")
 require("plugins.undo")
--- require("plugins.tabnine")
 require("plugins.debugging")
 require("plugins.neoscroll")
 require("plugins.nvimtree")
@@ -212,3 +219,8 @@ require("plugins.hover")
 require("plugins.chatgpt")
 require("plugins.marks")
 require("plugins.aerial")
+
+-- require("plugins.tabnine")
+-- require("plugins.copilot")
+-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+-- <--(«|///////////////////////////////////////|__ LOAD PLUGIN CONFIGS __|////|
