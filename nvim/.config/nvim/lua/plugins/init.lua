@@ -13,37 +13,33 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-	{
-		"stevearc/aerial.nvim",
-		opts = {},
-		-- Optional dependencies
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-tree/nvim-web-devicons",
-		},
-	},
-	{ "cbochs/portal.nvim" },
-	-- ChatGpt
+	-- =======  UTILITIES  ========================================================>
+	-- === Plenary ===============================================================
+	{ "nvim-lua/plenary.nvim" }, -- Useful lua functions used ny lots of plugins
+	-- <========================================================  UTILITIES  =======
+	-- === ChatGpt ===============================================================
 	{ "robitx/gp.nvim" },
-	-- ColorSchemes
+	-- =======  COLOR SCHEMES  ====================================================>
 	{ "Abstract-IDE/Abstract-cs" },
 	{ "rafamadriz/neon" },
-	-- Which-Key
+	-- <====================================================  COLOR SCHEMES  =======
+	-- === Which-Key =============================================================
 	{ "folke/which-key.nvim" },
-	-- My Plugin
+	-- =======  MY PLUGINS  =====================================================>
 	-- { "rolf-stargate/ankifly.nvim", branch = "develop" },
 	{ dir = "/home/rolf/Dropbox/work/rolfworld/programming/projects/ankifly.nvim" },
-	-- Nvim-Surround
+	-- <=====================================================  MY PLUGINS  =======
+	-- === Nvim-Surround =========================================================
 	{
 		"kylechui/nvim-surround",
-		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		version = "*",
 		event = "VeryLazy",
 		config = true,
 	},
-	-- Vim Repeat
+	-- === Vim Repeat ============================================================
 	{ "tpope/vim-repeat" },
-	-- Indent Blankline
-	{ "lukas-reineke/indent-blankline.nvim", version = "2.20.8" },
+	-- === Indent Blankline ======================================================
+	{ "lukas-reineke/indent-blankline.nvim" },
 	-- Comment
 	{ "numToStr/Comment.nvim" },
 	-- Markw
@@ -101,8 +97,6 @@ local plugins = {
 	{
 		"sakhnik/nvim-gdb",
 	},
-	-- Plenary
-	{ "nvim-lua/plenary.nvim" }, -- Useful lua functions used ny lots of plugins
 	-- Telescope
 	{ "nvim-telescope/telescope.nvim" },
 	{ "nvim-telescope/telescope-media-files.nvim" },
@@ -111,7 +105,18 @@ local plugins = {
 		"dhruvmanila/browser-bookmarks.nvim",
 		version = "*",
 	},
-	-- Neotree
+	-- =======  NAVIGATION  =====================================================>
+	-- === aerial ================================================================
+	{
+		"stevearc/aerial.nvim",
+		opts = {},
+		-- Optional dependencies
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
+	-- === Neotree ===============================================================
 	{ "nvim-tree/nvim-web-devicons" },
 	{
 		"nvim-tree/nvim-tree.lua",
@@ -119,6 +124,7 @@ local plugins = {
 			"nvim-tree/nvim-web-devicons",
 		},
 	},
+	-- <=====================================================  NAVIGATION  =======
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
