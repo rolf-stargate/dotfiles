@@ -40,7 +40,6 @@ local plugins = {
 	{ "tpope/vim-repeat" },
 	-- === Indent Blankline ======================================================
 	{ "lukas-reineke/indent-blankline.nvim" },
-	-- Comment
 	{ "numToStr/Comment.nvim" },
 	-- Markw
 	{ "chentoast/marks.nvim" },
