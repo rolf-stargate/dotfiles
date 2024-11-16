@@ -1,7 +1,7 @@
 require("gp").setup({
 	openai_api_key = { "gpg", "--decrypt", "/home/rolf/openai_key.gpg" },
 	toggle_target = "split",
-	chat_user_prefix = "Rolf:",
+	chat_user_prefix = "*Rolf*:",
 	chat_assistant_prefix = { "KI:", "[{{agent}}]" },
 	command_prompt_prefix_template = "KI {{agent}} ~ ",
 	agents = {
@@ -23,7 +23,7 @@ require("gp").setup({
 				.. "- Take a deep breath; You've got this!\n",
 		},
 		{
-			name = "CodeGPT-4o",
+			name = "CodeGPT-4o-Code",
 			chat = false,
 			command = true,
 			-- string with model name or table with model name and parameters
@@ -86,13 +86,6 @@ require("which-key").add({
 
 	{
 		{ "<C-g>N", "<cmd>GpNextAgent<cr>", desc = "Next Agent", nowait = true, remap = false },
-		{
-			"<C-g>n",
-			"<cmd>GpChatNew split<cr><cmd>GpChatToggle split<cr>",
-			desc = "Toggle Chat",
-			nowait = true,
-			remap = false,
-		},
 		{ "<C-g>s", "<cmd>GpStop<cr>", desc = "GpStop", nowait = true, remap = false },
 		{ "<C-g>t", "<cmd>GpChatToggle split<cr>", desc = "Toggle Chat", nowait = true, remap = false },
 		{ "<C-g>w", group = "Whisper", nowait = true, remap = false },

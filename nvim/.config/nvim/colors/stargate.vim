@@ -54,7 +54,7 @@ hi @comment.error guifg=#f44747 guibg=NONE gui=bold,italic
 
 hi Underlined guifg=#82cfe0 gui=NONE
 hi Cursor guifg=NONE guibg=NONE gui=reverse
-hi ColorColumn guifg=NONE guibg=#2c323c gui=NONE
+hi ColorColumn guifg=NONE guibg=#1E232A gui=NONE
 hi CursorLineNr guifg=#abb2bf guibg=NONE gui=bold
 hi SignColumn guifg=NONE guibg=#0f0016 gui=NONE
 hi Conceal guifg=#6272a4 guibg=NONE gui=NONE
@@ -257,7 +257,7 @@ hi VimwikiHeader5 guifg=#c4a4f9 guibg=NONE gui=bold
 hi VimwikiHeader6 guifg=#c4a4f9 guibg=NONE gui=bold
 hi VimwikiTodo guifg=#c4a4f9 guibg=NONE gui=bold
 hi VimwikiLink guifg=#82cfe0 guibg=NONE gui=NONE
-hi VimwikiBold guifg=#c4a4f9 guibg=NONE gui=bold
+hi VimwikiBold guifg=#B6DD5A guibg=NONE gui=bold
 hi VimwikiItalic guifg=#93D8BA guibg=NONE gui=italic
 hi VimwikiHeaderChar guifg=#F6447E guibg=NONE gui=NONE
 hi VimwikiHR guifg=#de1d83 guibg=NONE gui=NONE
