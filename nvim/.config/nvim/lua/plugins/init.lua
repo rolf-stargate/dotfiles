@@ -41,7 +41,7 @@ local plugins = {
 	-- === Indent Blankline ======================================================
 	{ "lukas-reineke/indent-blankline.nvim" },
 	{ "numToStr/Comment.nvim" },
-	-- Markw
+	-- :-------- Markw ------------------------------------------------------------
 	{ "chentoast/marks.nvim" },
 	-- Illuminate
 	{ "RRethy/vim-illuminate" },
