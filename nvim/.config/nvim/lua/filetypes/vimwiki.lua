@@ -34,6 +34,21 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.cmd("setlocal updatetime=100")
 		-- <====================================================  LOCAL OPTIONS  =======
 
+		-- =======  FORMATTING  =======================================================>
+		vim.keymap.set(
+			"v",
+			"<leader>wfci",
+			":s/- \\[ \\] \\(.*$\\)/- [ ] *\\1*/gI<cr>:nohl<cr>",
+			{ buffer = true, noremap = true, desc = "Italic Checklist Items" }
+		)
+		vim.keymap.set(
+			"v",
+			"<leader>wfcb",
+			":s/- \\[ \\] \\(.*$\\)/- [ ] **\\1**/gI<cr>:nohl<cr>",
+			{ buffer = true, noremap = true, desc = "Bold Checklist Items" }
+		)
+		-- <=======================================================  FORMATTING  =======
+
 		-- =======  MARKDOWN TABLE  ===================================================>
 		vim.keymap.set(
 			"n",
