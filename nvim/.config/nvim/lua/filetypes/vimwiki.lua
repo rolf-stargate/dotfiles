@@ -28,7 +28,13 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.keymap.set(
 			"n",
 			"<leader>lp",
-			":pandoc % -o %.pdf --template=/home/rolf/.config/nvim/templates/letter.latex && brave %.pdf<cr>",
+			":!pandoc % -o %.pdf --template=/home/rolf/.config/nvim/templates/letter.latex && brave %.pdf<cr>",
+			{ buffer = true, noremap = true, desc = "Create 3x3 table" }
+		)
+		vim.keymap.set(
+			"n",
+			"<leader>lP",
+			':%s/%%.*$//g<cr>:!pandoc % --from=markdown --output=/tmp/%:t:r.pdf --variable=geometry:"margin=3cm, a4paper" && brave /tmp/%:t:r.pdf<cr><cr>u:w<cr>:nohl<cr>',
 			{ buffer = true, noremap = true, desc = "Create 3x3 table" }
 		)
 		vim.keymap.set(

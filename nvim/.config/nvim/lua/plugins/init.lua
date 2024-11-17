@@ -165,7 +165,20 @@ local plugins = {
 			vim.g.vimtex_view_method = "mupdf"
 		end,
 	},
-	{ "rolf-stargate/vimwiki", branch = "dev" },
+	{
+		"rolf-stargate/vimwiki",
+		branch = "dev",
+		init = function()
+			vim.g.vimwiki_list = {
+				{
+					path = "~/Dropbox/wiki/",
+					links_space_char = "_",
+					syntax = "markdown",
+					ext = ".md",
+				},
+			}
+		end,
+	},
 	{ "mipmip/vim-scimark" },
 	{ "mattn/calendar-vim" },
 	{ "tools-life/taskwiki" },
@@ -173,14 +186,6 @@ local plugins = {
 	{ "3rd/image.nvim" },
 	{ "TobinPalmer/pastify.nvim" },
 	{ "jubnzv/mdeval.nvim" },
-	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		ft = { "markdown" },
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-	},
 	{ "jbyuki/venn.nvim" },
 	-- <=======================================================  MARKDOWN  =======
 }

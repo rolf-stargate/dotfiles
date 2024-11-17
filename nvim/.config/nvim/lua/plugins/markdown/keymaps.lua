@@ -101,7 +101,6 @@ wk.register({
 		l = { "<cmd>lua Open_or_create_wiki_index()<cr>", "Local Wiki", noremap = true },
 		r = { "<cmd>MdEval<cr>", "Eval Code Block", noremap = true },
 		i = { "<cmd>PasteImg<cr>", "Paste Image From Clipboard", noremap = true },
-		p = { "<cmd>MarkdownPreview<cr>", "Open Markdown Preview", noremap = true },
 		D = {
 			"<cmd>MkdnEnter<cr><cmd>lua Delete_current_buffer_if_md_and_switch_back()<cr><cmd>MkdnDestroyLink<cr>",
 			"Destroy Link and Delete File",
