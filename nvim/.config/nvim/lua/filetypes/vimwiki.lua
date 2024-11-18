@@ -23,6 +23,27 @@ vim.api.nvim_create_autocmd("CursorHold", {
 -- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- <--(«|////////////////////////////////////////////////////|__ EVENTS __|////|
 
+function Test_for_vimwiki_link_from_visual_selection(path)
+	local name = Get_visual_selection()
+	name = name:gsub("^%s*(.-)%s*$", "%1")
+	print("Searching: " .. name)
+
+	local cmd = "grep --include=\\*.md -Eorh " .. path .. " -e '\\[[^]\\[]*\\]\\(.*\\)' | sort | uniq"
+	local lines = Get_cmd_output(cmd)
+
+	local match = false
+	for i, line in ipairs(lines) do
+		if line:find(name) then
+			match = true
+			print("Found:" .. line)
+			Append_line_below(line)
+		end
+	end
+	if match ~= true then
+		print("No Matching Link Found")
+	end
+end
+
 -- |////|__ FILETYPE __|//////////////////////////////////////////////////|»)-->
 -- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 vim.api.nvim_create_autocmd("FileType", {
@@ -33,6 +54,13 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.cmd("setlocal shiftwidth=3")
 		vim.cmd("setlocal updatetime=100")
 		-- <====================================================  LOCAL OPTIONS  =======
+
+		vim.keymap.set(
+			"v",
+			"<leader>l",
+			"<cmd>lua Test_for_vimwiki_link_from_visual_selection('~/Dropbox/wiki')<cr>",
+			{ buffer = true, noremap = true, desc = "Check If Link Exists In Main Wiki" }
+		)
 
 		-- =======  FORMATTING  =======================================================>
 		vim.keymap.set(
