@@ -49,6 +49,13 @@ require("gp").setup({
 			local agent = gp.get_command_agent()
 			gp.Prompt(params, gp.Target.rewrite, agent, template)
 		end,
+		Summarize = function(gp, params)
+			local template = "I have the following text from {{filename}}:\n\n"
+				.. "```{{filetype}}\n{{selection}}\n```\n\n"
+				.. "Please summarize the text in short, meaningful bullet points."
+			local agent = gp.get_command_agent()
+			gp.Prompt(params, gp.Target.rewrite, agent, template)
+		end,
 		Explain = function(gp, params)
 			local template = "I have the following code from {{filename}}:\n\n"
 				.. "```{{filetype}}\n{{selection}}\n```\n\n"
@@ -69,6 +76,7 @@ require("which-key").add({
 		{ "<C-g>a", ":<C-u>'<,'>GpAppend<cr>", desc = "Visual Append (after)", nowait = true, remap = false },
 		{ "<C-g>b", ":<C-u>'<,'>GpPrepend<cr>", desc = "Visual Prepend (before)", nowait = true, remap = false },
 		{ "<C-g>c", ":<C-u>'<,'>GpAddComments<cr>", desc = "Add comments to selection", nowait = true, remap = false },
+		{ "<C-g>s", ":<C-u>'<,'>GpSummarize<cr>", desc = "Summarize selection", nowait = true, remap = false },
 		{ "<C-g>e", ":<C-u>'<,'>GpExplain<cr>", desc = "Explain selection", nowait = true, remap = false },
 		{ "<C-g>g", group = "generate into new ..", nowait = true, remap = false },
 		{ "<C-g>ge", ":<C-u>'<,'>GpEnew<cr>", desc = "Visual GpEnew", nowait = true, remap = false },
@@ -86,7 +94,7 @@ require("which-key").add({
 
 	{
 		{ "<C-g>N", "<cmd>GpNextAgent<cr>", desc = "Next Agent", nowait = true, remap = false },
-		{ "<C-g>s", "<cmd>GpStop<cr>", desc = "GpStop", nowait = true, remap = false },
+		{ "<C-g>S", "<cmd>GpStop<cr>", desc = "GpStop", nowait = true, remap = false },
 		{ "<C-g>t", "<cmd>GpChatToggle split<cr>", desc = "Toggle Chat", nowait = true, remap = false },
 		{ "<C-g>w", group = "Whisper", nowait = true, remap = false },
 		{ "<C-g>wa", "<cmd>GpWhisperAppend<cr>", desc = "Whisper Append (after)", nowait = true, remap = false },

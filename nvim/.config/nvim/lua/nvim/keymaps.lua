@@ -414,10 +414,6 @@ function small_comment_block_with_input()
 
 	local user_text = vim.fn.input("Enter comment text: "):upper()
 
-	local top_comment_start = string.format("%s =======  %s  ==", comment_string, user_text)
-	local top_comment_end = "=====>"
-	top_comment = top_comment_start .. string.rep("=", 80 - #top_comment_start - #top_comment_end) .. top_comment_end
-
 	local bottom_comment_start = string.format("%s <=====", comment_string)
 	local bottom_comment_end = string.format("==  %s  =======", user_text)
 	local bottom_comment = bottom_comment_start
@@ -425,13 +421,38 @@ function small_comment_block_with_input()
 		.. bottom_comment_end
 
 	vim.fn.append(line_end, bottom_comment)
-	vim.fn.append(line_start - 1, top_comment)
+	vim.fn.append(line_start - 1, bottom_comment)
 end
 
 vim.api.nvim_set_keymap(
 	"v",
 	"<leader>cb",
 	":lua small_comment_block_with_input()<CR>",
+	{ noremap = true, silent = true }
+)
+
+function tiny_comment_block_with_input()
+	local comment_string = vim.bo.commentstring:match("^(.-)%s?%%s")
+
+	local line_start, col_start = vim.fn.getpos("'<")[2], vim.fn.getpos("'<")[3]
+	local line_end, col_end = vim.fn.getpos("'>")[2], vim.fn.getpos("'>")[3]
+
+	local user_text = vim.fn.input("Enter comment text: "):upper()
+
+	local bottom_comment_start = string.format("%s <-----", comment_string)
+	local bottom_comment_end = string.format("  %s  -----", user_text)
+	local bottom_comment = bottom_comment_start
+		.. string.rep("-", 80 - #bottom_comment_start - #bottom_comment_end)
+		.. bottom_comment_end
+
+	vim.fn.append(line_end, bottom_comment)
+	vim.fn.append(line_start - 1, bottom_comment)
+end
+
+vim.api.nvim_set_keymap(
+	"v",
+	"<leader>cv",
+	":lua tiny_comment_block_with_input()<CR>",
 	{ noremap = true, silent = true }
 )
 
