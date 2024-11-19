@@ -18,11 +18,6 @@ require("lspconfig").bashls.setup({
 	filetypes = { "sh", "bash" },
 })
 
-require("lspconfig").lua_ls.setup({
-	cmd = { "bash-language-server", "start" },
-	filetypes = { "lua" },
-})
-
 require("lspconfig").sqls.setup({
 	on_attach = function(client, bufnr)
 		require("sqls").on_attach(client, bufnr)
