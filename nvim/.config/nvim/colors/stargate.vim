@@ -147,7 +147,7 @@ hi TSTagDelimiter guifg=#abb2bf guibg=NONE gui=NONE
 
 hi @variable guifg=#B1BAD4 guibg=NONE gui=NONE
 hi @punctuation guifg=#A3B5EA guibg=NONE gui=NONE
-hi @string guifg=#BF7EB2 guibg=NONE gui=italic
+hi @string guifg=#E99FF7 guibg=NONE gui=italic
 hi @string.escape guifg=#98F09F guibg=NONE gui=bold
 hi @character guifg=#c4a4f9 guibg=NONE gui=NONE
 hi @character.escape guifg=NONE guibg=NONE gui=bold
