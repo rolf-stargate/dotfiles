@@ -49,20 +49,17 @@ end
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "vimwiki",
 	callback = function()
-		-- =======  LOCAL OPTIONS  ====================================================>
+		-- <================================================  LOCAL OPTIONS  =======
 		vim.cmd("setlocal softtabstop=3")
 		vim.cmd("setlocal shiftwidth=3")
 		vim.cmd("setlocal updatetime=100")
-		-- <====================================================  LOCAL OPTIONS  =======
+		-- <================================================  LOCAL OPTIONS  =======
 
-		vim.keymap.set(
-			"v",
-			"<leader>l",
-			"<cmd>lua Test_for_vimwiki_link_from_visual_selection('~/Dropbox/wiki')<cr>",
-			{ buffer = true, noremap = true, desc = "Check If Link Exists In Main Wiki" }
-		)
+		-- <=================================  FIND EXISTING MARKDOWN LINKS  =======
+		vim.api.nvim_set_keymap("v", "<leader>cb", ":MarkdownLinkFinder<CR>", { noremap = true, silent = true })
+		-- <=================================  FIND EXISTING MARKDOWN LINKS  =======
 
-		-- =======  FORMATTING  =======================================================>
+		-- <===================================================  FORMATTING  =======
 		vim.keymap.set(
 			"v",
 			"<leader>wfci",
@@ -75,18 +72,18 @@ vim.api.nvim_create_autocmd("FileType", {
 			":s/- \\[ \\] \\(.*$\\)/- [ ] **\\1**/gI<cr>:nohl<cr>",
 			{ buffer = true, noremap = true, desc = "Bold Checklist Items" }
 		)
-		-- <=======================================================  FORMATTING  =======
+		-- <===================================================  FORMATTING  =======
 
-		-- =======  MARKDOWN TABLE  ===================================================>
+		-- <===============================================  MARKDOWN TABLE  =======
 		vim.keymap.set(
 			"n",
 			"<leader>dd",
 			":VimwikiTable ",
 			{ buffer = true, noremap = true, desc = "Create 3x3 table" }
 		)
-		-- <===================================================  MARKDOWN TABLE  =======
+		-- <===============================================  MARKDOWN TABLE  =======
 
-		-- =======  MARKDOWN TO LATEX TO PDF  =========================================>
+		-- <=====================================  MARKDOWN TO LATEX TO PDF  =======
 		vim.keymap.set(
 			"n",
 			"<leader>ol",
@@ -105,9 +102,9 @@ vim.api.nvim_create_autocmd("FileType", {
 			':%s/%%.*$//g<cr>:!pandoc % --from=markdown --output=/tmp/%:t:r.pdf --variable=geometry:"margin=3cm, a4paper" && brave /tmp/%:t:r.pdf<cr><cr>u:w<cr>:nohl<cr>',
 			{ buffer = true, noremap = true, desc = "Documentation" }
 		)
-		-- <=========================================  MARKDOWN TO LATEX TO PDF  =======
+		-- <=====================================  MARKDOWN TO LATEX TO PDF  =======
 
-		-- =======  LLM CHAT BUFFER  ==================================================>
+		-- <==============================================  LLM CHAT BUFFER  =======
 		vim.keymap.set(
 			"n",
 			"<C-g>g",
@@ -120,7 +117,7 @@ vim.api.nvim_create_autocmd("FileType", {
 			"<esc>G?rolf:<cr>:nohlsearch<cr>A ",
 			{ buffer = true, noremap = true, desc = "ChatGpt Jump to Input" }
 		)
-		-- <==================================================  LLM CHAT BUFFER  =======
+		-- <==============================================  LLM CHAT BUFFER  =======
 	end,
 })
 -- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

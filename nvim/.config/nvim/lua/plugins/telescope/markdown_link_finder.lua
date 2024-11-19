@@ -10,6 +10,7 @@ local pickers = require("telescope.pickers")
 local previewers = require("telescope.previewers")
 local entry_display = require("telescope.pickers.entry_display")
 local make_entry = require("telescope.make_entry")
+local action_state = require("telescope.actions.state")
 
 local conf = require("telescope.config").values
 
@@ -30,9 +31,6 @@ function markdown_link_finder(opts)
 			else
 				local link, filename, _ = line:match("%[([^]]+)%]%(([^)]+)%)")
 				if filename and link then
-					-- print(filename)
-					-- print(path)
-					-- print(link)
 					table.insert(results, { filename = filename .. ".md", link = link, path = search_dir })
 				end
 			end
@@ -47,15 +45,30 @@ function markdown_link_finder(opts)
 				entry_maker = function(entry)
 					return {
 						value = entry,
-						display = entry.link,
-						ordinal = entry.link,
+						display = entry.link .. " --> " .. entry.filename,
+						ordinal = entry.link .. " " .. entry.filename,
 						path = entry.path .. entry.filename,
 					}
 				end,
 			}),
+			attach_mappings = function(prompt_bufnr, map)
+				actions.select_default:replace(function()
+					actions.close(prompt_bufnr)
+					local entry = action_state.get_selected_entry()
+					if entry then
+						local link = entry.value.link
+						local filename = entry.value.filename
+						local current_line = vim.fn.line(".")
+						vim.fn.append(current_line, "[" .. link .. "](" .. filename .. ")")
+					end
+				end)
+
+				return true
+			end,
 			previewer = previewers.new_termopen_previewer({
 				get_command = function(entry)
-					return { "bat", entry.path }
+					return { "nvim", entry.path }
+					-- return { "bat", entry.path }
 				end,
 			}),
 			sorter = conf.generic_sorter(opts),
@@ -64,4 +77,4 @@ function markdown_link_finder(opts)
 end
 
 -- Map this to a key or call directly with :lua
-vim.cmd([[ command! MarkdownLinksFinder lua markdown_link_finder() ]])
+vim.cmd([[ command! MarkdownLinkFinder lua markdown_link_finder() ]])
