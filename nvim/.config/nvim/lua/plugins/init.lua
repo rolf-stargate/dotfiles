@@ -157,6 +157,9 @@ local plugins = {
 	-- <=====================================================  TREESITTER  =======
 
 	-- =======  MARKDOWN  =======================================================>
+	{ "junegunn/fzf" },
+	{ "junegunn/fzf.vim" },
+	{ "michal-h21/vim-zettel" },
 	{
 		"lervag/vimtex",
 		lazy = false, -- we don't want to lazy load VimTeX
