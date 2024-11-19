@@ -150,3 +150,5 @@ require("telescope").load_extension("bookmarks")
 require("telescope").setup({
 	extensions = {},
 })
+
+require("plugins.telescope.markdown_link_finder")
