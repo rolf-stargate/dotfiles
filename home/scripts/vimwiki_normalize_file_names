@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+if [ $1 = "" ]; then
+  echo "Usage: $0 [directory]"
+  exit
+fi
+
+directory=$1
+
+(cd "$directory"; 
+  mapfile -t files < <(find . -mindepth 1 -maxdepth 1 -type f -name "*.md")
+
+  for filename in "${files[@]}"; do
+    file=$(basename -- "$filename")
+
+    if [ "$file" != "index.md" ]; then
+
+      base=${file%.*}
+      ext=${file##*.}
+      uuid=$(tr -cd 'a-zA-Z0-9' < /dev/urandom | head -c 5)
+
+      mv "$filename" "./$uuid.$ext"
+      echo "Moving $filename > ./$uuid.$ext"
+
+      for filename_ in ./*.md; do
+        file_=$(basename -- "$filename_")
+        sed -i "s/]($base/]($uuid/g" "$file_"
+      done
+    fi
+  done
+)

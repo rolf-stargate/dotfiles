@@ -65,6 +65,11 @@ require("lspconfig").volar.setup({
 	filetypes = { "vue" },
 })
 
+require("lspconfig").bashls.setup({
+	cmd = { "bash-language-server", "start" },
+	filetypes = { "sh" },
+})
+
 require("lspconfig").clangd.setup({
 	cmd = { "clangd", "--offset-encoding=utf-16" },
 	filetypes = { "c", "cpp" },
