@@ -52,7 +52,21 @@ require("gp").setup({
 		Summarize = function(gp, params)
 			local template = "I have the following text from {{filename}}:\n\n"
 				.. "```{{filetype}}\n{{selection}}\n```\n\n"
-				.. "Please summarize the text in short, meaningful bullet points."
+				.. "Please summarize the text in very short, concise bullet points. No hole sentences."
+			local agent = gp.get_command_agent()
+			gp.Prompt(params, gp.Target.rewrite, agent, template)
+		end,
+		Shorten = function(gp, params)
+			local template = "I have the following text from {{filename}}:\n\n"
+				.. "```{{filetype}}\n{{selection}}\n```\n\n"
+				.. "Please shorten the text making it very concise."
+			local agent = gp.get_command_agent()
+			gp.Prompt(params, gp.Target.rewrite, agent, template)
+		end,
+		BulletToText = function(gp, params)
+			local template = "I have the following bullet points from {{filename}}:\n\n"
+				.. "```{{filetype}}\n{{selection}}\n```\n\n"
+				.. "Please create a concise and unemotional including all the information from the bullet points."
 			local agent = gp.get_command_agent()
 			gp.Prompt(params, gp.Target.rewrite, agent, template)
 		end,
@@ -77,6 +91,8 @@ require("which-key").add({
 		{ "<C-g>b", ":<C-u>'<,'>GpPrepend<cr>", desc = "Visual Prepend (before)", nowait = true, remap = false },
 		{ "<C-g>c", ":<C-u>'<,'>GpAddComments<cr>", desc = "Add comments to selection", nowait = true, remap = false },
 		{ "<C-g>s", ":<C-u>'<,'>GpSummarize<cr>", desc = "Summarize selection", nowait = true, remap = false },
+		{ "<C-g>S", ":<C-u>'<,'>GpShorten<cr>", desc = "Shorten selection", nowait = true, remap = false },
+		{ "<C-g>T", ":<C-u>'<,'>GpBulletToText<cr>", desc = "Bullet Points to Text", nowait = true, remap = false },
 		{ "<C-g>e", ":<C-u>'<,'>GpExplain<cr>", desc = "Explain selection", nowait = true, remap = false },
 		{ "<C-g>g", group = "generate into new ..", nowait = true, remap = false },
 		{ "<C-g>ge", ":<C-u>'<,'>GpEnew<cr>", desc = "Visual GpEnew", nowait = true, remap = false },

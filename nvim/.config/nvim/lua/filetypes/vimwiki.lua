@@ -23,6 +23,8 @@ vim.api.nvim_create_autocmd("CursorHold", {
 -- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- <--(«|////////////////////////////////////////////////////|__ EVENTS __|////|
 
+-- |////|__ FUNCTIONS __|/////////////////////////////////////////////////|»)-->
+-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 function Test_for_vimwiki_link_from_visual_selection(path)
 	local name = Get_visual_selection()
 	name = name:gsub("^%s*(.-)%s*$", "%1")
@@ -44,6 +46,9 @@ function Test_for_vimwiki_link_from_visual_selection(path)
 	end
 end
 
+-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+-- <--(«|/////////////////////////////////////////////////|__ FUNCTIONS __|////|
+
 -- |////|__ FILETYPE __|//////////////////////////////////////////////////|»)-->
 -- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 vim.api.nvim_create_autocmd("FileType", {
@@ -53,10 +58,11 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.cmd("setlocal softtabstop=3")
 		vim.cmd("setlocal shiftwidth=3")
 		vim.cmd("setlocal updatetime=100")
+		vim.cmd("setlocal foldmethod=manual")
 		-- <================================================  LOCAL OPTIONS  =======
 
 		-- <=================================  FIND EXISTING MARKDOWN LINKS  =======
-		vim.api.nvim_set_keymap("v", "<leader>cb", ":MarkdownLinkFinder<CR>", { noremap = true, silent = true })
+		vim.api.nvim_set_keymap("n", "<leader>wf", ":MarkdownLinkFinder<CR>", { noremap = true, silent = true })
 		-- <=================================  FIND EXISTING MARKDOWN LINKS  =======
 
 		-- <===================================================  FORMATTING  =======

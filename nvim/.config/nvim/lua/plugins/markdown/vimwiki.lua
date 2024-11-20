@@ -1,5 +1,6 @@
 vim.g.vimwiki_auto_header = 1
-vim.cmd([[syntax match vimwikicomment "__ [A-Z]* __"]])
+vim.g.vimwiki_folding = "manual"
+vim.cmd([[syntax match Vimwikicomment "__ [A-Z]* __"]])
 vim.g.vimwiki_list = {
 	{
 		path = "~/Dropbox/wiki/",
@@ -165,7 +166,6 @@ vim.api.nvim_create_autocmd("FileType", {
                       call writefile([''], file_path) " Creates an empty file
                       execute 'edit ' . file_path
                   endif
-
                   return 1
               catch
                   echo "This can happen for a variety of reasons ..."
