@@ -13,6 +13,9 @@ configs.setup({
 		enable = true, -- false will disable the whole extension
 	},
 	-- indent = { enable = true, disable = { "yaml" } },
+	vimwiki = {
+		filetype_to_parsername = "markdown",
+	},
 })
 
 require("treesitter-context").setup({
