@@ -78,6 +78,31 @@ function Change_to_buffer_dir_and_back(cmd)
 	vim.cmd("cd " .. current_dir)
 end
 
+-- Create auto closing buffer
+function Create_temporay_horizontal_split(height, path, keymap_close)
+	keymap_close = keymap_close or "<leader>qq"
+	-- Create and move to a new split if corrected height is required
+	vim.cmd("botright " .. height .. "split " .. path)
+	vim.cmd("wincmd j") -- move cursor to the newly created split
+
+	-- Get current buffer in the new split
+	local buf = vim.api.nvim_get_current_buf()
+
+	-- Close with <leader>TT
+	vim.api.nvim_buf_set_keymap(buf, "n", keymap_close, ":wq<CR>", { noremap = true, silent = true })
+	-- Or leaving the buffer
+	vim.api.nvim_create_autocmd("BufLeave", {
+		buffer = buf,
+		callback = function()
+			vim.cmd("update") -- Saves the buffer if there are any changes
+			local win_ids = vim.fn.win_findbuf(buf)
+			if win_ids and #win_ids > 0 then
+				vim.api.nvim_win_close(win_ids[1], true)
+			end
+		end,
+	})
+end
+
 -- Toggle horizontal split with height between 0 and 1
 function Toggle_large_split(path, height)
 	-- Get all windows in the current tab page
@@ -89,22 +114,26 @@ function Toggle_large_split(path, height)
 	local desired_height = math.floor(height * total_height)
 
 	if window_count == 1 then
-		-- The only window on screen, let's go ahead and open a large split
-		vim.cmd("topleft " .. desired_height .. "split " .. path)
+		Create_temporay_horizontal_split(desired_height, path, "<leader>TT")
 	else
-		-- Calculate the current window height
+		-- Determine current window height
 		local current_window = vim.api.nvim_get_current_win()
 		local current_height = vim.api.nvim_win_get_height(current_window)
 
-		-- Toggle logic handling
-		if current_height < desired_height then
-			-- Resize to desired height
-			vim.api.nvim_win_set_height(current_window, desired_height)
+		if current_height ~= desired_height then
+			Create_temporay_horizontal_split(desired_height, path, "<leader>TT")
 		else
-			-- Close the split
-			vim.cmd("q")
+			-- If already a split at desired height, just close it
+			for _, win in ipairs(windows) do
+				local bufname = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(win))
+				if bufname == path then
+					vim.cmd("q") -- close split holding the path file
+					return
+				end
+			end
 		end
 	end
 end
+
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- <--(«|/////////////////////////////////////////|__ UTILITY FUNCTIONS __|////|

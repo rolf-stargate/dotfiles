@@ -13,7 +13,7 @@ local taskwiki_sort_orders = {
 vim.g.taskwiki_sort_orders = taskwiki_sort_orders
 
 -- Taskwiki
-vim.keymap.set("n", "<leader>TT", ":lua Toggle_large_split('~/Dropbox/wiki/tasks.md', 0.8)", {
+vim.keymap.set("n", "<leader>TT", ":lua Toggle_large_split('~/Dropbox/wiki/tasks.md', 0.8)<cr>", {
 	noremap = true,
 	silent = true,
 	desc = "Toggle Tasks",
