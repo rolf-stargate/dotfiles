@@ -31,7 +31,7 @@ function markdown_link_finder(opts)
 			else
 				local link, filename, _ = line:match("%[([^]]+)%]%(([^)]+)%)")
 				if filename and link then
-					table.insert(results, { filename = filename .. ".md", link = link, path = search_dir })
+					table.insert(results, { filename = filename, link = link, path = search_dir })
 				end
 			end
 		end
@@ -47,7 +47,7 @@ function markdown_link_finder(opts)
 						value = entry,
 						display = entry.link .. " --> " .. entry.filename,
 						ordinal = entry.link .. " " .. entry.filename,
-						path = entry.path .. entry.filename,
+						path = entry.path .. entry.filename .. ".md",
 					}
 				end,
 			}),

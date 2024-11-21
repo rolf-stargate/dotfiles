@@ -106,6 +106,7 @@ cmp.setup({
 				luasnip = "[Snippet]",
 				buffer = "[Buffer]",
 				path = "[Path]",
+				omni = "[Omni]",
 			})[entry.source.name]
 			return vim_item
 		end,
@@ -118,6 +119,9 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
+		{ name = "omni", option = {
+			disable_omnifuncs = {},
+		} },
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,

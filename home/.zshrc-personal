@@ -46,6 +46,8 @@ alias td="task del"
 alias to="taskopen"
 # <========================================================  TASKWARRIOR  ======
 
+alias wiki="(cd ~/Dropbox/wiki; nvim index.md)"
+
 # ======   MY TIMER   =========================================================>
 alias mt="start_my_timer"
 alias tmt="toggle_my_timer"

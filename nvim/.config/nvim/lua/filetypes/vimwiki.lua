@@ -65,6 +65,10 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.api.nvim_set_keymap("n", "<leader>wf", ":MarkdownLinkFinder<CR>", { noremap = true, silent = true })
 		-- <=================================  FIND EXISTING MARKDOWN LINKS  =======
 
+		-- <===================================================  TAG COMPLETION  =======
+		-- vim.keymap.set("i", ":", ":<c-x><c-o>", { buffer = true, noremap = true, desc = "Test" })
+		-- <==================================================>  TAG COMPLETION  <======
+
 		-- <===================================================  FORMATTING  =======
 		vim.keymap.set(
 			"v",

@@ -1,6 +1,7 @@
 vim.g.vimwiki_auto_header = 1
 vim.g.vimwiki_folding = "manual"
 vim.cmd([[syntax match Vimwikicomment "__ [A-Z]* __"]])
+
 vim.g.vimwiki_list = {
 	{
 		path = "~/Dropbox/wiki/",
