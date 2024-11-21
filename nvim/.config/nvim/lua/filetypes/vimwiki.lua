@@ -118,13 +118,13 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.keymap.set(
 			"n",
 			"<C-g>g",
-			"G?rolf:<cr>:nohlsearch<cr>A ",
+			"G?*rolf*:<cr>:nohlsearch<cr>A ",
 			{ buffer = true, noremap = true, desc = "ChatGpt Jump to Input" }
 		)
 		vim.keymap.set(
 			"i",
 			"<C-g>g",
-			"<esc>G?rolf:<cr>:nohlsearch<cr>A ",
+			"<esc>G?*rolf*:<cr>:nohlsearch<cr>A ",
 			{ buffer = true, noremap = true, desc = "ChatGpt Jump to Input" }
 		)
 		-- <==============================================  LLM CHAT BUFFER  =======

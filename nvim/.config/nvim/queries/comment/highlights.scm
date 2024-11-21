@@ -33,7 +33,7 @@
   (#any-of? @comment.warning "HACK" "WARNING" "WARN" "FIX"))
 
 ("text" @text.note.rare @nospell
-  (#match? @text.note.rare "[A-Z]+"))
+  (#match? @text.note.rare " [A-Z]+ "))
 
 
 ((tag

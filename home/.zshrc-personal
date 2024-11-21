@@ -63,7 +63,7 @@ alias qmk="nvim ~/Dropbox/work/opt/qmk_firmware/keyboards/splitkb/kyria/keymaps/
 alias win11="sudo virsh start win11 && ~/opt/looking-glass-B6/client/build/looking-glass-client -m KEY_F10"
 # <================================================================  VM  =======
 
-# =======  YOUTUBE  ============================================================>
+# =======  YOUTUBE  ===========================================================>
 alias yt="ytfzf -tsl --pages=5"
 alias ytc="ytfzf -tsl --pages=5 --multi-search --type=channel --thumbnails"
 # <===========================================================  YOUTUBE  =======
