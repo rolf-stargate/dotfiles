@@ -2,7 +2,7 @@ local configs = require("nvim-treesitter.configs")
 
 configs.setup({
 	ensure_installed = "all",
-	sync_install = false,
+	sync_install = true,
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	query_linter = {
 		enable = true,
@@ -12,10 +12,10 @@ configs.setup({
 	highlight = {
 		enable = true, -- false will disable the whole extension
 	},
-	-- indent = { enable = true, disable = { "yaml" } },
-	vimwiki = {
-		filetype_to_parsername = "markdown",
+	autotag = {
+		enable = true,
 	},
+	-- indent = { enable = true, disable = { "yaml" } },
 })
 
 require("treesitter-context").setup({

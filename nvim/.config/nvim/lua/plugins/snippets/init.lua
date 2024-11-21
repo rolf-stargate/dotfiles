@@ -84,4 +84,5 @@ ls.add_snippets(nil, {
 	},
 })
 
+require("plugins.snippets.all")
 require("plugins.snippets.vimwiki")

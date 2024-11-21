@@ -42,45 +42,72 @@ local function fill_between(target_length, start_text, end_text, fill_char, inde
 	return start_text .. string.rep(fill_char, fill_length) .. end_text
 end
 
+local function split(inputstr, sep)
+	if sep == nil then
+		sep = "%s" -- default delimiter is space
+	end
+	local t = {}
+	for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
+		print(str)
+		table.insert(t, str)
+	end
+	return t
+end
+
 -- <================================================  UTILITY FUNCTIONS  =======
 
 -- =======  SNIPPETS  =========================================================>
--- h1
-ls.add_snippets("vimwiki", {
-	s("h1", {
-		descr = "Create H1 Heading Block",
+
+ls.add_snippets("all", {
+	s("c1", {
+		descr = "Big Comment Block",
 		func(function(args)
-			local indent_length = get_indent_length()
+			local comment_strings = split(vim.bo.commentstring, "%%s")
+			local start_comment_string = comment_strings[1] or ""
+			return start_comment_string .. "|////|__ "
+		end),
+		insert(1, "NAME"),
+		func(function(args)
+			local comment_strings = split(vim.bo.commentstring, "%%s")
+			local start_comment_string = comment_strings[1] or ""
+			local end_comment_string = comment_strings[2] or ""
+			local indent_length = get_indent_length() + #args[1][1] + #start_comment_string + 9
 			local fill_char = "/"
-			local start_text = "<!-- |////|__ " .. string.upper(args[1][1]) .. " __|"
-			local end_text = "|») -->"
+			local start_text = " __|"
+			local end_text = "|»)-->" .. end_comment_string
 			return fill_between(81, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 		t({ "", "" }),
 		func(function(args)
+			local comment_strings = split(vim.bo.commentstring, "%%s")
+			local start_comment_string = comment_strings[1] or ""
+			local end_comment_string = comment_strings[2] or ""
 			local indent_length = get_indent_length()
 			local fill_char = ":"
-			local start_text = "<!-- "
-			local end_text = " -->"
-			return fill_between(80, start_text, end_text, fill_char, indent_length)
-		end, { 1 }),
-		t({ "", "# " }),
-		insert(1, "INSERT1"),
-		insert(2),
-		t({ "", "" }),
-		func(function(args)
-			local indent_length = get_indent_length()
-			local fill_char = ":"
-			local start_text = "<!-- "
-			local end_text = ":"
+			local start_text = start_comment_string
+			local end_text = end_comment_string
 			return fill_between(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 		t({ "", "" }),
 		func(function(args)
+			local comment_strings = split(vim.bo.commentstring, "%%s")
+			local start_comment_string = comment_strings[1] or ""
+			local end_comment_string = comment_strings[2] or ""
+			local indent_length = get_indent_length()
+			local fill_char = ":"
+			local start_text = start_comment_string
+			local end_text = end_comment_string
+			return fill_between(80, start_text, end_text, fill_char, indent_length)
+		end, { 1 }),
+		t({ "", "" }),
+		func(function(args)
+			local comment_strings = split(vim.bo.commentstring, "%%s")
+			local start_comment_string = comment_strings[1] or ""
+			local end_comment_string = comment_strings[2] or ""
 			local indent_length = get_indent_length()
 			local fill_char = "/"
-			local start_text = "<!-- («|"
-			local end_text = "|__ " .. string.upper(args[1][1]) .. " __|////| -->"
+			local start_text = start_comment_string .. "<--(«|"
+			local end_text = "|__ " .. string.upper(args[1][1]) .. " __|////|" .. end_comment_string
 			return fill_between(81, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 	}),
