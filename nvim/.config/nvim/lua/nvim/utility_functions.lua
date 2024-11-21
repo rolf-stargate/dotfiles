@@ -77,5 +77,34 @@ function Change_to_buffer_dir_and_back(cmd)
 	-- Change back to the original directory
 	vim.cmd("cd " .. current_dir)
 end
+
+-- Toggle horizontal split with height between 0 and 1
+function Toggle_large_split(path, height)
+	-- Get all windows in the current tab page
+	local windows = vim.api.nvim_tabpage_list_wins(0)
+	local window_count = #windows
+
+	-- Calculate 90% of the total height
+	local total_height = vim.o.lines
+	local desired_height = math.floor(height * total_height)
+
+	if window_count == 1 then
+		-- The only window on screen, let's go ahead and open a large split
+		vim.cmd("topleft " .. desired_height .. "split " .. path)
+	else
+		-- Calculate the current window height
+		local current_window = vim.api.nvim_get_current_win()
+		local current_height = vim.api.nvim_win_get_height(current_window)
+
+		-- Toggle logic handling
+		if current_height < desired_height then
+			-- Resize to desired height
+			vim.api.nvim_win_set_height(current_window, desired_height)
+		else
+			-- Close the split
+			vim.cmd("q")
+		end
+	end
+end
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- <--(«|/////////////////////////////////////////|__ UTILITY FUNCTIONS __|////|
