@@ -3,7 +3,7 @@ vim.cmd([[highlight IndentBlanklineContextChar guifg=#C791A1 gui=nocombine]])
 
 vim.opt.list = true
 
-require("ibl").setup({
+require("indent_blankline").setup({
 	space_char_blankline = " ",
 	show_current_context = true,
 })

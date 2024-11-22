@@ -53,7 +53,7 @@ local plugins = {
 	{ "Abstract-IDE/Abstract-cs" },
 	{ "rafamadriz/neon" },
 	-- Indent Blankline
-	{ "lukas-reineke/indent-blankline.nvim" }, -- Indent visualization
+	{ "lukas-reineke/indent-blankline.nvim", version = 2 }, -- Indent visualization
 	-- Illuminate
 	{ "RRethy/vim-illuminate" }, -- Highlight repeated words
 	-- Statusline
