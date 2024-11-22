@@ -98,7 +98,7 @@ ls.add_snippets("vimwiki", {
 			return fill_between(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 		t({ "", "## " }),
-		insert(1, "INSERT1"),
+		insert(1, "INSERT"),
 		insert(2),
 		t({ "", "" }),
 		t({ "", "" }),
@@ -106,7 +106,7 @@ ls.add_snippets("vimwiki", {
 			local indent_length = get_indent_length()
 			local fill_char = "="
 			local start_text = "<!-- "
-			local end_text = ">  " .. string.upper(args[1][1]) .. "  <======= -->"
+			local end_text = "> " .. string.upper(args[1][1]) .. " <====== -->"
 			return fill_between(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 	}),
@@ -132,7 +132,7 @@ ls.add_snippets("vimwiki", {
 			local indent_length = get_indent_length()
 			local fill_char = "-"
 			local start_text = "<!--"
-			local end_text = ":  " .. string.upper(args[1][1]) .. "  :---------->"
+			local end_text = ": " .. string.upper(args[1][1]) .. " :---------->"
 			return fill_between(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 	}),
