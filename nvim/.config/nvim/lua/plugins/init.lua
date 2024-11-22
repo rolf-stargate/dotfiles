@@ -175,6 +175,7 @@ local plugins = {
 			vim.g.vimwiki_list = {
 				{
 					path = "~/Dropbox/wiki/",
+					name = "a",
 					links_space_char = "_",
 					syntax = "markdown",
 					ext = ".md",
