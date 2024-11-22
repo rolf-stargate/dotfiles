@@ -115,7 +115,7 @@ ls.add_snippets("all", {
 
 -- h2
 ls.add_snippets("vimwiki", {
-	s("h2", {
+	s("c2", {
 		descr = "Create H2 Heading Block",
 		func(function(args)
 			local indent_length = get_indent_length()
@@ -141,7 +141,7 @@ ls.add_snippets("vimwiki", {
 
 -- h3
 ls.add_snippets("vimwiki", {
-	s("h3", {
+	s("c3", {
 		descr = "Create H3 Heading Block",
 		func(function(args)
 			local indent_length = get_indent_length()
