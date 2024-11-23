@@ -118,13 +118,13 @@ vim.keymap.set("v", "<leader>ta", ":TaskWikiAnnotate<cr>", {
 vim.keymap.set("n", "<leader>tc", ":TaskWikiCalendar<cr>", {
 	noremap = true,
 	silent = true,
-	desc = "Annotate Task",
+	desc = "Task Calendar",
 })
 
 vim.keymap.set("n", "<leader>ta", ":TaskWikiAnnotate<cr>", {
 	noremap = true,
 	silent = true,
-	desc = "Annotate Task",
+	desc = "Task Calendar",
 })
 
 -- Tomorrow Report
