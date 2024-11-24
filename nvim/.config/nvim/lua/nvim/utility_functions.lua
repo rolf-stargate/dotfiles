@@ -135,5 +135,24 @@ function Toggle_large_split(path, height)
 	end
 end
 
+-- Helper function to determine indentation level (optional step if indentation
+-- matters)
+function Get_indent_depth()
+	local cursor = vim.api.nvim_win_get_cursor(0)
+	local line = vim.api.nvim_get_current_line()
+	return vim.fn.indent(cursor[1])
+end
+
+-- Function to compute padding between start and end text
+function Fill_between_with_char(target_length, start_text, end_text, fill_char, indent_length)
+	local total_length = target_length - indent_length
+	local start_length = vim.fn.strdisplaywidth(start_text)
+	local end_length = vim.fn.strdisplaywidth(end_text)
+	local current_length = start_length + end_length
+
+	local fill_length = total_length - current_length
+	return start_text .. string.rep(fill_char, fill_length) .. end_text
+end
+
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- <--(«|/////////////////////////////////////////|__ UTILITY FUNCTIONS __|////|

@@ -267,6 +267,9 @@ hi VimwikiList guifg=#d726c6 guibg=NONE gui=NONE
 hi VimwikiTag guifg=#d726c6 guibg=NONE gui=NONE
 hi VimwikiMarkers guifg=#6272a4 guibg=NONE gui=NONE
 
+hi VimwikiH1Folding guifg=#4263CB guibg=NONE gui=NONE
+hi VimwikiH2Folding guifg=#4263CB guibg=NONE gui=NONE
+
 " ### SPELL ######################################################################
 hi SpellBad guifg=#B2B2B2 guibg=NONE gui=NONE
 hi SpellCap guifg=#B2B2B2 guibg=NONE gui=NONE

@@ -174,12 +174,11 @@ local plugins = {
 		init = function()
 			vim.g.vimwiki_list = {
 				{
-					path = "~/Dropbox/wiki/",
+					path = "/home/rolf/Dropbox/wiki/",
 					name = "a",
 					links_space_char = "_",
 					syntax = "markdown",
 					ext = ".md",
-					auto_tags = 1,
 				},
 			}
 		end,
