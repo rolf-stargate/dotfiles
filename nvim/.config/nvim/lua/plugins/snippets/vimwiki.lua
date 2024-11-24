@@ -76,7 +76,7 @@ ls.add_snippets("vimwiki", {
 			local indent_length = Get_indent_depth()
 			local fill_char = "="
 			local start_text = "<!-- "
-			local end_text = "  " .. string.upper(args[1][1]) .. "  ======= -->"
+			local end_text = " " .. string.upper(args[1][1]) .. " ========:-->"
 			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 		t({ "", "## " }),
@@ -87,9 +87,9 @@ ls.add_snippets("vimwiki", {
 		func(function(args)
 			local indent_length = Get_indent_depth()
 			local fill_char = "="
-			local start_text = "<!-- "
-			local end_text = "» " .. string.upper(args[1][1]) .. " «======= -->"
-			return Fill_between_with_char(82, start_text, end_text, fill_char, indent_length)
+			local start_text = "<!--:"
+			local end_text = "» " .. string.upper(args[1][1]) .. " «=======:-->"
+			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 	}),
 })
@@ -102,7 +102,7 @@ ls.add_snippets("vimwiki", {
 			local indent_length = Get_indent_depth()
 			local fill_char = "-"
 			local start_text = "<!--"
-			local end_text = "  " .. string.upper(args[1][1]) .. "  ---------->"
+			local end_text = " " .. string.upper(args[1][1]) .. " --------->"
 			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 		t({ "", "## " }),
@@ -114,7 +114,7 @@ ls.add_snippets("vimwiki", {
 			local indent_length = Get_indent_depth()
 			local fill_char = "-"
 			local start_text = "<!--"
-			local end_text = "» " .. string.upper(args[1][1]) .. " «---------->"
+			local end_text = "» " .. string.upper(args[1][1]) .. " «-------->"
 			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 	}),

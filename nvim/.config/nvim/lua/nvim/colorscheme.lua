@@ -35,14 +35,23 @@ function MyFoldText()
 	if vim.fn.strdisplaywidth(first_line) > 14 then
 		first_line = first_line:sub(1, 14) .. "..."
 	end
-	local start_text = ">"
-	local end_text = string.rep(" ", indent_depth)
-		.. "(>^.^)> コード "
-		.. first_line
-		.. " ド折りたたみ <(^.^<)"
+	local end_text = "<<<<<<<<<<<<"
+	-- local start_text = string.rep(" ", indent_depth)
+	-- 	.. "(>^.^)> コード "
+	-- 	.. first_line
+	-- 	.. " ド折りたたみ <(^.^<)"
+	local banner = "(>^.^)> コード " .. first_line .. " ド折りたたみ <(^.^<)"
+	local banner_length = vim.fn.strdisplaywidth(banner)
+	if banner_length % 2 ~= 0 then
+		banner_length = banner_length + 1
+	end
+	local banner_half = banner_length / 2
+	local start_end_length = 40 - banner_half
+	local fold_line_count = vim.fn.foldclosedend(vim.v.foldstart) - vim.fn.foldclosed(vim.v.foldstart) + 1
 
-	local fold_line = Fill_between_with_char(80, start_text, end_text, fill_char, indent_depth)
-	return fold_line
+	local _start = Fill_between_with_char(start_end_length, ">", "<", "<", indent_depth)
+	local _end = Fill_between_with_char(start_end_length + 1, ">", fold_line_count .. "<", ">", 0)
+	return _start .. banner .. _end
 end
 
 vim.opt.foldtext = "v:lua.MyFoldText()"

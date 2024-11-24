@@ -18,7 +18,7 @@ hi Dash guifg=#630033 guibg=NONE gui=NONE
 hi FloatTitle guifg=#d726c6 guibg=NONE gui=NONE
 hi NormalFloat guifg=#d726c6 guibg=NONE gui=NONE
 hi Normal guifg=#B1BAD4 guibg=#0f0016 gui=NONE
-hi Comment guifg=#6272a4 guibg=NONE gui=italic
+hi Comment guifg=#392435 guibg=NONE gui=italic
 hi Constant guifg=#9372cb guibg=NONE gui=NONE
 hi Character guifg=#e644f6 guibg=NONE gui=NONE
 hi Number guifg=#d726c6 guibg=NONE gui=NONE
@@ -69,8 +69,7 @@ hi DiffDelete guifg=#ff5555 guibg=NONE gui=NONE
 hi DiffText guifg=#6272a4 guibg=NONE gui=NONE
 hi ErrorMsg guifg=#f44747 guibg=NONE gui=NONE
 hi VertSplit guifg=#181a1f guibg=NONE gui=NONE
-hi Folded guifg=#6272a4 guibg=NONE gui=NONE
-hi FoldColumn guifg=NONE guibg=NONE gui=NONE
+hi Folded guifg=#66434F guibg=NONE gui=NONE
 hi IncSearch guifg=#310049 guibg=#25DB6C gui=NONE
 hi LineNr guifg=#6272a4 guibg=NONE gui=NONE
 hi MatchParen guifg=#F9CD00 guibg=NONE gui=NONE
