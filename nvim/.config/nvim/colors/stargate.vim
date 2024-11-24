@@ -18,7 +18,7 @@ hi Dash guifg=#630033 guibg=NONE gui=NONE
 hi FloatTitle guifg=#d726c6 guibg=NONE gui=NONE
 hi NormalFloat guifg=#d726c6 guibg=NONE gui=NONE
 hi Normal guifg=#B1BAD4 guibg=#0f0016 gui=NONE
-hi Comment guifg=#392435 guibg=NONE gui=italic
+hi Comment guifg=#28263A guibg=NONE gui=italic
 hi Constant guifg=#9372cb guibg=NONE gui=NONE
 hi Character guifg=#e644f6 guibg=NONE gui=NONE
 hi Number guifg=#d726c6 guibg=NONE gui=NONE
@@ -56,7 +56,7 @@ hi @text.note.rare guifg=#62515C guibg=NONE gui=bold
 
 hi Underlined guifg=#82cfe0 gui=NONE
 hi Cursor guifg=NONE guibg=NONE gui=reverse
-hi ColorColumn guifg=NONE guibg=#231521 gui=NONE
+hi ColorColumn guifg=NONE guibg=#1C1523 gui=NONE
 hi CursorLineNr guifg=#abb2bf guibg=NONE gui=bold
 hi SignColumn guifg=NONE guibg=#0f0016 gui=NONE
 hi Conceal guifg=#6272a4 guibg=NONE gui=NONE
