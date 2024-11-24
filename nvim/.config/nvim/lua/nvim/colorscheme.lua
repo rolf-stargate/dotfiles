@@ -54,7 +54,18 @@ function MyFoldText()
 	return _start .. banner .. _end
 end
 
-vim.cmd([[syntax match Vimwikicomment "_ [A-Z]* _"]])
+vim.cmd([[
+ " Define a custom highlight group for capital letters in comments
+    highlight CommentCaps cterm=bold ctermfg=Red
+
+    " First, match all default comment styles (expand this if necessary)
+    syntax match Comment /\/\/.\*/ contains=CommentCaps
+    syntax match Comment /\/\*.\*\// contains=CommentCaps
+
+    " Define a syntax match for capital letters A-Z inside these comments
+    syntax match CommentCaps /\v[A-Z]/ contained
+
+]])
 
 vim.opt.foldtext = "v:lua.MyFoldText()"
 vim.opt.fillchars:append({ fold = " " })
