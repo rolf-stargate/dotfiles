@@ -51,8 +51,7 @@ hi @comment.todo guifg=#09a4f9 guibg=NONE gui=bold,italic
 hi @comment.note guifg=#00E27B guibg=NONE gui=bold,italic
 hi @comment.warning guifg=#c3fc8e guibg=NONE gui=bold,italic
 hi @comment.error guifg=#f44747 guibg=NONE gui=bold,italic
-" hi @text.note.rare guifg=#7E6575 guibg=NONE gui=bold,italic
-hi @text.note.rare guifg=#62515C guibg=NONE gui=bold
+hi @text.note.rare guifg=#3B3B54 guibg=NONE gui=bold
 
 hi Underlined guifg=#82cfe0 gui=NONE
 hi Cursor guifg=NONE guibg=NONE gui=reverse
