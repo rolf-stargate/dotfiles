@@ -1,7 +1,6 @@
 vim.g.vimwiki_auto_header = 1
 vim.g.vimwiki_folding = "manual"
 vim.g.vimwiki_auto_chdir = 1
-vim.cmd([[syntax match Vimwikicomment "__ [A-Z]* __"]])
 
 vim.g.vimwiki_ext2syntax = {
 	[".md"] = "markdown",

@@ -54,5 +54,7 @@ function MyFoldText()
 	return _start .. banner .. _end
 end
 
+vim.cmd([[syntax match Vimwikicomment "_ [A-Z]* _"]])
+
 vim.opt.foldtext = "v:lua.MyFoldText()"
 vim.opt.fillchars:append({ fold = " " })
