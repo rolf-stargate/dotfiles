@@ -56,12 +56,12 @@ hi @text.note.rare guifg=#62515C guibg=NONE gui=bold
 
 hi Underlined guifg=#82cfe0 gui=NONE
 hi Cursor guifg=NONE guibg=NONE gui=reverse
-hi ColorColumn guifg=NONE guibg=#1E232A gui=NONE
+hi ColorColumn guifg=NONE guibg=#231521 gui=NONE
 hi CursorLineNr guifg=#abb2bf guibg=NONE gui=bold
 hi SignColumn guifg=NONE guibg=#0f0016 gui=NONE
 hi Conceal guifg=#6272a4 guibg=NONE gui=NONE
-hi CursorColumn guifg=NONE guibg=#2c323c gui=NONE
-hi CursorLine guifg=NONE guibg=#313131 gui=NONE
+hi CursorColumn guifg=NONE guibg=#351940 gui=NONE
+hi CursorLine guifg=NONE guibg=#13001C gui=NONE
 hi Directory guifg=#82cfe0 guibg=NONE gui=NONE
 hi DiffAdd guifg=#e644f6 guibg=NONE gui=NONE
 hi DiffChange guifg=#d726c6 guibg=NONE gui=NONE
