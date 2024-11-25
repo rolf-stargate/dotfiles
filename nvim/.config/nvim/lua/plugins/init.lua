@@ -76,7 +76,20 @@ local plugins = {
 	-- Markw
 	{ "chentoast/marks.nvim" }, -- Marks preview window
 	-- <=======================================================  MOVEMENT  =======
-
+	-- <===========================================================  EXTERN  =======
+	{
+		"mikesmithgh/kitty-scrollback.nvim",
+		enabled = true,
+		lazy = true,
+		cmd = { "KittyScrollbackGenerateKittens", "KittyScrollbackCheckHealth" },
+		event = { "User KittyScrollbackLaunch" },
+		-- version = '*', -- latest stable version, may have breaking changes if major version changed
+		-- version = '^6.0.0', -- pin major version, include fixes and features that do not have breaking changes
+		config = function()
+			require("kitty-scrollback").setup()
+		end,
+	},
+	-- <==========================================================>  EXTERN  <======
 	-- =======  NAVIGATION  =====================================================>
 	-- Aerial
 	{ "stevearc/aerial.nvim" },
