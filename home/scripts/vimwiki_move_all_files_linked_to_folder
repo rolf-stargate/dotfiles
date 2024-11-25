@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+if [ $1 = "" ]; then
+  echo "Usage: $0 [file] [directory]"
+  exit
+fi
+
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+file=$1
+directory=${2%/}
+
+search_move() {
+  mapfile -t links < <(sed  -n 's/.*(wn\..\+:\(.....\)).*/\1/p' "$1")
+  echo "Searching $1"
+
+  for link in "${links[@]}"; do
+    if [ -f "${link}.md" ]; then
+      echo "Moving ${link}.md to: $directory"
+      mv "${link}.md" "${directory}"
+      search_move "${directory}/${link}.md"
+
+    elif [[ -f "${directory}/${link}.md" ]]; then
+      echo "${directory}/${link}.md exists!"
+
+    else
+      echo -e "No corresponding file for link: ${RED}${link}${NC}"
+    fi
+  done
+}
+
+search_move $file
+mv "$file" "$directory"
