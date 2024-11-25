@@ -1,0 +1,24 @@
+#!/usr/bin/env
+
+date=date +%Y_%m_%d
+
+if [ "$1" != ""]; then
+  title="$1"
+else
+  uuid=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 5 | head -n 1)
+fi
+
+if [ "$2" != ""]; then
+  spath="$2"
+  reliable_delete_trailing_slash_from_path() {
+    echo "${1%/}"
+  }
+else
+  spath="$HOME/shell_logs"
+  mkdir -p spath
+fi
+filename="$date_$title"
+
+script "/tmp/$date_$title" &&
+ansi2txt "/tmp/$date_$title" > "$spath/$date_$title
+
