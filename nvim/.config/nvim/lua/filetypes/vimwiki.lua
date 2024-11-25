@@ -93,6 +93,26 @@ vim.api.nvim_create_autocmd("FileType", {
 		)
 		-- <===============================================  MARKDOWN TABLE  =======
 
+		-- <==================================================  BOLD ITALIC  =======
+		vim.keymap.set("n", "<leader>b", "i****<esc>ji", { buffer = true, noremap = true, desc = "Start Writing Bold" })
+
+		vim.keymap.set("n", "<leader>i", "i**<esc>i", { buffer = true, noremap = true, desc = "Start Writing Italic" })
+
+		vim.keymap.set(
+			"v",
+			"<leader>b",
+			's**<c-r><c-o>"**',
+			{ buffer = true, noremap = true, desc = "Wrap Visual Selection with *" }
+		)
+
+		vim.keymap.set(
+			"v",
+			"<leader>i",
+			's*<c-r><c-o>"*',
+			{ buffer = true, noremap = true, desc = "Wrap Visual Selection with *" }
+		)
+		-- <=================================================>  BOLD ITALIC  <======
+
 		-- <=====================================  MARKDOWN TO LATEX TO PDF  =======
 		vim.keymap.set(
 			"n",
@@ -118,13 +138,13 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.keymap.set(
 			"n",
 			"<C-g>g",
-			"G?*rolf*:<cr>:nohlsearch<cr>A ",
+			"G?\\*rolf\\*:<cr>:nohlsearch<cr>A ",
 			{ buffer = true, noremap = true, desc = "ChatGpt Jump to Input" }
 		)
 		vim.keymap.set(
 			"i",
 			"<C-g>g",
-			"<esc>G?*rolf*:<cr>:nohlsearch<cr>A ",
+			"<esc>G?\\*rolf\\*:<cr>:nohlsearch<cr>A ",
 			{ buffer = true, noremap = true, desc = "ChatGpt Jump to Input" }
 		)
 		-- <==============================================  LLM CHAT BUFFER  =======
