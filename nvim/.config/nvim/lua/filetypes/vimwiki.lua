@@ -97,19 +97,19 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.keymap.set(
 			"n",
 			"<leader>ol",
-			":!pandoc % -o %.pdf --template=/home/rolf/.config/nvim/templates/letter.latex && brave %.pdf<cr>",
+			":execute 'normal ggo#[pdf](file:./out/)' . expand('%:t:r') . '.pdf'<cr>:!pandoc % -o %:h/out/%:t:r.pdf --template=/home/rolf/wiki/tasks/doc/letter_template.latex && brave %:h/out/%:t:r.pdf<cr>",
 			{ buffer = true, noremap = true, desc = "Letter" }
 		)
 		vim.keymap.set(
 			"n",
 			"<leader>oa",
-			":!pandoc % -o %.pdf --template=/home/rolf/Dropbox/wiki/template_application_2024_11_08_11:08:12.latex && brave %.pdf<cr>",
+			":execute 'normal ggo#[pdf](file:./out/)' . expand('%:t:r') . '.pdf'<cr>:!pandoc % -o %:h/out/%:t:r.pdf --template=/home/rolf/wiki/tasks/doc/application_template.latex && brave %:h/out/%:t:r.pdf<cr>",
 			{ buffer = true, noremap = true, desc = "Job Application" }
 		)
 		vim.keymap.set(
 			"n",
 			"<leader>op",
-			':%s/%%.*$//g<cr>:!pandoc % --from=markdown --output=/tmp/%:t:r.pdf --variable=geometry:"margin=3cm, a4paper" && brave /tmp/%:t:r.pdf<cr><cr>u:w<cr>:nohl<cr>',
+			':%s/%%.*$//g<cr>:!pandoc % --from=markdown --output=%:h/out/%:t:r.pdf --variable=geometry:"margin=3cm, a4paper" && brave /tmp/%:t:r.pdf<cr><cr>u:w<cr>:nohl<cr>',
 			{ buffer = true, noremap = true, desc = "Documentation" }
 		)
 		-- <=====================================  MARKDOWN TO LATEX TO PDF  =======
