@@ -117,7 +117,7 @@ require("which-key").add({
 		{ "<C-g>C", ":<C-u>'<,'>GpSpelling<cr>", desc = "Correct spelling", nowait = true, remap = false },
 		{ "<C-g>e", ":<C-u>'<,'>GpExplain<cr>", desc = "Explain selection", nowait = true, remap = false },
 		{ "<C-g>d", ":<C-u>'<,'>GpDescription<cr>", desc = "Short Description", nowait = true, remap = false },
-		{ "<C-g>d", ":<C-u>'<,'>GpName<cr>", desc = "Name selection ", nowait = true, remap = false },
+		{ "<C-g>n", ":<C-u>'<,'>GpName<cr>", desc = "Name selection ", nowait = true, remap = false },
 		{ "<C-g>g", group = "generate into new ..", nowait = true, remap = false },
 		{ "<C-g>ge", ":<C-u>'<,'>GpEnew<cr>", desc = "Visual GpEnew", nowait = true, remap = false },
 		{ "<C-g>gn", ":<C-u>'<,'>GpNew<cr>", desc = "Visual GpNew", nowait = true, remap = false },
