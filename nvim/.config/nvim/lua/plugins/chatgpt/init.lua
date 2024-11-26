@@ -70,6 +70,20 @@ require("gp").setup({
 			local agent = gp.get_command_agent()
 			gp.Prompt(params, gp.Target.rewrite, agent, template)
 		end,
+		Description = function(gp, params)
+			local template = "I have the following bullet points from {{filename}}:\n\n"
+				.. "```{{filetype}}\n{{selection}}\n```\n\n"
+				.. "Please create a short and concise description of the selected."
+			local agent = gp.get_command_agent()
+			gp.Prompt(params, gp.Target.rewrite, agent, template)
+		end,
+		Name = function(gp, params)
+			local template = "I have the following bullet points from {{filename}}:\n\n"
+				.. "```{{filetype}}\n{{selection}}\n```\n\n"
+				.. "Please create a descriptiv name for the selected function, variable, context or paragraph."
+			local agent = gp.get_command_agent()
+			gp.Prompt(params, gp.Target.rewrite, agent, template)
+		end,
 		Spelling = function(gp, params)
 			local template = "I have the following bullet points from {{filename}}:\n\n"
 				.. "```{{filetype}}\n{{selection}}\n```\n\n"
@@ -99,9 +113,11 @@ require("which-key").add({
 		{ "<C-g>c", ":<C-u>'<,'>GpAddComments<cr>", desc = "Add comments to selection", nowait = true, remap = false },
 		{ "<C-g>s", ":<C-u>'<,'>GpSummarize<cr>", desc = "Summarize selection", nowait = true, remap = false },
 		{ "<C-g>S", ":<C-u>'<,'>GpShorten<cr>", desc = "Shorten selection", nowait = true, remap = false },
-		{ "<C-g>T", ":<C-u>'<,'>GpInfoToText<cr>", desc = "Information to Text", nowait = true, remap = false },
-		{ "<C-g>C", ":<C-u>'<,'>GpSpelling<cr>", desc = "Correct Spelling", nowait = true, remap = false },
+		{ "<C-g>T", ":<C-u>'<,'>GpInfoToText<cr>", desc = "Information to text", nowait = true, remap = false },
+		{ "<C-g>C", ":<C-u>'<,'>GpSpelling<cr>", desc = "Correct spelling", nowait = true, remap = false },
 		{ "<C-g>e", ":<C-u>'<,'>GpExplain<cr>", desc = "Explain selection", nowait = true, remap = false },
+		{ "<C-g>d", ":<C-u>'<,'>GpDescription<cr>", desc = "Short Description", nowait = true, remap = false },
+		{ "<C-g>d", ":<C-u>'<,'>GpName<cr>", desc = "Name selection ", nowait = true, remap = false },
 		{ "<C-g>g", group = "generate into new ..", nowait = true, remap = false },
 		{ "<C-g>ge", ":<C-u>'<,'>GpEnew<cr>", desc = "Visual GpEnew", nowait = true, remap = false },
 		{ "<C-g>gn", ":<C-u>'<,'>GpNew<cr>", desc = "Visual GpNew", nowait = true, remap = false },
