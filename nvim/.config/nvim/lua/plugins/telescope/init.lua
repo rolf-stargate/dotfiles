@@ -24,7 +24,7 @@ wk.add({
 			remap = false,
 		},
 		{
-			"<Leader>fF",
+			"<Leader>FF",
 			"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({ previewer = false}))<cr>",
 			desc = "Find File",
 			remap = false,

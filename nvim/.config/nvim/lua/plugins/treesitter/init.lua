@@ -1,5 +1,7 @@
 local configs = require("nvim-treesitter.configs")
 
+vim.treesitter.language.register("markdown", { "vimwiki" })
+
 configs.setup({
 	ensure_installed = "all",
 	sync_install = true,
@@ -11,6 +13,7 @@ configs.setup({
 	},
 	highlight = {
 		enable = true, -- false will disable the whole extension
+		additional_vim_regex_highlighting = { "ruby", "markdown" },
 	},
 	autotag = {
 		enable = true,

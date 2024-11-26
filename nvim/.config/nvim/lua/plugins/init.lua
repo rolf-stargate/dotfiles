@@ -152,6 +152,8 @@ local plugins = {
 	-- <======================================================  DEBUGGING  =======
 
 	-- =======  SEARCH  =========================================================>
+	-- nvim-spectre
+	{ "nvim-pack/nvim-spectre" },
 	-- Telescope
 	{ "nvim-telescope/telescope.nvim" },
 	{ "nvim-telescope/telescope-media-files.nvim" },
@@ -263,6 +265,7 @@ require("plugins.hover")
 require("plugins.chatgpt")
 require("plugins.marks")
 require("plugins.aerial")
+require("plugins.spectre")
 
 -- require("plugins.tabnine")
 -- require("plugins.copilot")

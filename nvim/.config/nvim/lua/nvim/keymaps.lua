@@ -26,25 +26,6 @@ function PrintPage() -- Print Page
 	vim.cmd("! " .. cmd)
 end
 
-function Search_and_replace_project() -- Search And Replace in Project
-	-- Get the search string either from visual selection or user input
-	local search_str
-	search_str = vim.fn.input("Enter the search string: ")
-
-	-- Get the replace string from user input
-	local replace_str = vim.fn.input("Enter the replace string: ")
-
-	-- Run vimgrep to populate the quickfix list
-	vim.cmd("vimgrep /" .. search_str .. "/g **/*")
-
-	-- Open the quickfix window
-	vim.cmd("copen")
-
-	-- Perform the search and replace on each file in the quickfix list
-	-- 'gc' flag asks for confirmation for each replacement
-	vim.cmd("cfdo %s/" .. search_str .. "/" .. replace_str .. "/gc | update")
-end
-
 function SetTerminalTitle() -- Set Terminal Title
 	vim.ui.input({
 		prompt = "Title:",
@@ -514,31 +495,27 @@ vim.keymap.set("n", "<leader>cd", ":lcd %:p:h<CR>", {
 })
 
 -- Search and Replace
-vim.keymap.set("n", "<leader>rr", ":%s///gI<Left><Left><Left><Left>", {
-	noremap = true,
-	silent = true,
-	desc = "Search/Replace in File",
-})
-vim.keymap.set("n", "<leader>rw", ":%s/<C-r><C-w>//gI<Left><Left><Left>", {
-	noremap = true,
-	silent = true,
-	desc = "Search/Replace Word in File",
-})
-vim.keymap.set("n", "<leader>rp", ":lua Search_and_replace_project()<cr>", {
-	noremap = true,
-	silent = true,
-	desc = "Search/Replace Project",
-})
-vim.keymap.set("v", "<leader>rr", ":s///gI<Left><Left><Left><Left>", {
-	noremap = true,
-	silent = true,
-	desc = "Search/Replace in Selection",
-})
-vim.keymap.set("v", "<leader>rw", ":s/<C-r><C-w>//gI<Left><Left><Left>", {
-	noremap = true,
-	silent = true,
-	desc = "Search/Replace Word in Selection",
-})
+-- vim.keymap.set("n", "<leader>rr", ":%s///gI<Left><Left><Left><Left>", {
+-- 	noremap = true,
+-- 	silent = true,
+-- 	desc = "Search/Replace in File",
+-- })
+-- vim.keymap.set("n", "<leader>rw", ":%s/<C-r><C-w>//gI<Left><Left><Left>", {
+-- 	noremap = true,
+-- 	silent = true,
+-- 	desc = "Search/Replace Word in File",
+-- })
+--
+-- vim.keymap.set("v", "<leader>rr", ":s///gI<Left><Left><Left><Left>", {
+-- 	noremap = true,
+-- 	silent = true,
+-- 	desc = "Search/Replace in Selection",
+-- })
+-- vim.keymap.set("v", "<leader>rw", ":s/<C-r><C-w>//gI<Left><Left><Left>", {
+-- 	noremap = true,
+-- 	silent = true,
+-- 	desc = "Search/Replace Word in Selection",
+-- })
 
 -- Toggle
 vim.keymap.set("n", "<leader>ts", "<cmd>setlocal spell!<CR>", {

@@ -32,8 +32,11 @@
 ("text" @comment.warning @nospell
   (#any-of? @comment.warning "HACK" "WARNING" "WARN" "FIX"))
 
-("text" @text.note.rare @nospell
-  (#match? @text.note.rare "^[A-Z]+$"))
+("text" @comment.block.start @nospell
+  (#match? @comment.block.start "^[A-Z_]+$"))
+
+("text" @comment.block.end @nospell
+  (#match? @comment.block.end "^»[A-Z_]+«$"))
 
 ((tag
   (name) @comment.error @nospell
