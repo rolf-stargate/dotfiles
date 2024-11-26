@@ -18,9 +18,9 @@ local conf = require("telescope.config").values
 function markdown_link_finder(opts)
 	opts = opts or {}
 
-	local search_dir = "/home/rolf/Dropbox/wiki/"
+	local search_dir = "/home/rolf/wiki/"
 	local results = {}
-	local file_list_command = string.format("find %s -mindepth 1 -maxdepth 1 -type f -name '*.md' | cat", search_dir)
+	local file_list_command = string.format("find %s -type f -name '*.md' | cat", search_dir)
 
 	for file in io.popen(file_list_command):lines() do
 		local file_cat = string.format("cat %s", file)
