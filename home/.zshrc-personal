@@ -47,7 +47,7 @@ alias to="taskopen"
 # <========================================================  TASKWARRIOR  ======
 
 alias wiki="(cd ~/wiki/main && nvim index.md)"
-alias todo="(cd ~/wiki/todo && nvim index.md)"
+alias todo="(cd ~/wiki/tasks && nvim index.md)"
 alias sec="(cd ~/wiki/sec && nvim index.md)"
 
 # ======   MY TIMER   =========================================================>
