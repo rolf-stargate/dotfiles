@@ -46,7 +46,8 @@ alias td="task del"
 alias to="taskopen"
 # <========================================================  TASKWARRIOR  ======
 
-alias wiki="(cd ~/wiki/main && nvim index.md)"
+alias docu="(cd ~/wiki/docu && nvim index.md)"
+alias proj="(cd ~/wiki/proj && nvim index.md)"
 alias todo="(cd ~/wiki/tasks && nvim index.md)"
 alias sec="(cd ~/wiki/sec && nvim index.md)"
 

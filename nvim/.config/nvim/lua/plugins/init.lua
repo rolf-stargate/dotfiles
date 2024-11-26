@@ -187,8 +187,15 @@ local plugins = {
 		init = function()
 			vim.g.vimwiki_list = {
 				{
-					path = "/home/rolf/wiki/main",
-					name = "m",
+					path = "/home/rolf/wiki/docu",
+					name = "d",
+					links_space_char = "_",
+					syntax = "markdown",
+					ext = ".md",
+				},
+				{
+					path = "/home/rolf/wiki/proj",
+					name = "p",
 					links_space_char = "_",
 					syntax = "markdown",
 					ext = ".md",
