@@ -64,21 +64,21 @@ require("gp").setup({
 			gp.Prompt(params, gp.Target.rewrite, agent, template)
 		end,
 		InfoToText = function(gp, params)
-			local template = "I have the following bullet points from {{filename}}:\n\n"
+			local template = "I have the following text from {{filename}}:\n\n"
 				.. "```{{filetype}}\n{{selection}}\n```\n\n"
 				.. "Please create a concise and unemotional text, including all the information from the text snipped."
 			local agent = gp.get_command_agent()
 			gp.Prompt(params, gp.Target.rewrite, agent, template)
 		end,
 		Description = function(gp, params)
-			local template = "I have the following bullet points from {{filename}}:\n\n"
+			local template = "I have the following text from {{filename}}:\n\n"
 				.. "```{{filetype}}\n{{selection}}\n```\n\n"
 				.. "Please create a short and concise description of the selected."
 			local agent = gp.get_command_agent()
 			gp.Prompt(params, gp.Target.rewrite, agent, template)
 		end,
 		Name = function(gp, params)
-			local template = "I have the following bullet points from {{filename}}:\n\n"
+			local template = "I have the following function, varibale, context or paragrap {{filename}}:\n\n"
 				.. "```{{filetype}}\n{{selection}}\n```\n\n"
 				.. "Please create a descriptiv name for the selected function, variable, context or paragraph."
 			local agent = gp.get_command_agent()
@@ -97,6 +97,26 @@ require("gp").setup({
 				.. "Please respond by explaining the code above."
 			local agent = gp.get_chat_agent()
 			gp.Prompt(params, gp.Target.new("markdown"), agent, template)
+		end,
+		VimwikiTags = function(gp, params)
+			local pwd = vim.fn.getcwd()
+			local cmd = "find "
+				.. pwd
+				.. " -maxdepth 1 -type f | xargs -n 1 grep -oE ':[a-z0-9]+:' | tr -d ':' | sort | uniq | paste -d: -s"
+
+			local handle = io.popen(cmd)
+			local tags = handle:read("*a")
+			handle:close()
+			local template = "I have the following text from {{filename}}:\n\n"
+				.. "```{{filetype}}\n{{selection}}\n```\n\n"
+				.. "and the following colen-separated list of used tags in the current wiki:\n\n"
+				.. ":"
+				.. tags
+				.. ":"
+				.. "\n\n"
+				.. "Please give me an appropriate, colon-separated list of tags for the given context. You can add new ones if necessary but should prefer the one in the given list. Give me only the list!"
+			local agent = gp.get_chat_agent()
+			gp.Prompt(params, gp.Target.append, agent, template)
 		end,
 	},
 })
@@ -119,6 +139,7 @@ require("which-key").add({
 		},
 		{ "<leader>gs", ":<C-u>'<,'>GpSummarize<cr>", desc = "Summarize selection", nowait = true, remap = false },
 		{ "<leader>gS", ":<C-u>'<,'>GpShorten<cr>", desc = "Shorten selection", nowait = true, remap = false },
+		{ "<leader>gt", ":<C-u>'<,'>GpVimwikiTags<cr>", desc = "Add Tags", nowait = true, remap = false },
 		{ "<leader>gT", ":<C-u>'<,'>GpInfoToText<cr>", desc = "Information to text", nowait = true, remap = false },
 		{ "<leader>gC", ":<C-u>'<,'>GpSpelling<cr>", desc = "Correct spelling", nowait = true, remap = false },
 		{ "<leader>ge", ":<C-u>'<,'>GpExplain<cr>", desc = "Explain selection", nowait = true, remap = false },
