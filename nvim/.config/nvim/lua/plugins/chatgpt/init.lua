@@ -114,9 +114,9 @@ require("gp").setup({
 				.. tags
 				.. ":"
 				.. "\n\n"
-				.. "Please give me an appropriate, colon-separated list of tags for the given context. You can add new ones if necessary but should prefer the one in the given list. Give me only the list!"
+				.. "Please give me an appropriate, colon-separated list of tags for the given context. You can add new ones if necessary but should prefer the one in the given list. Give me the list in the following format :tag1:tag2:tag3: Give me only the list!"
 			local agent = gp.get_chat_agent()
-			gp.Prompt(params, gp.Target.append, agent, template)
+			gp.Prompt(params, gp.Target.prepend, agent, template)
 		end,
 	},
 })
