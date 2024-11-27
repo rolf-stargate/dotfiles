@@ -320,6 +320,8 @@ exec --no-startup-id rnote
 
 #not workspace related
 bindsym $mod+b exec --no-startup-id brave
+# Network
+bindsym mod1+n exec --no-startup-id ronema
 
 # terminal
 bindsym $mod+Return exec --no-startup-id kitty;focus
