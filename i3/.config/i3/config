@@ -669,7 +669,7 @@ exec --no-startup-id xinput disable "Wacom Pen and multitouch sensor Finger"
 #####################################################################################################################
 
 # Load arandr screen settings
-exec --no-startup-id ~/.screenlayout/4M.sh
+exec --no-startup-id ~/.screenlayout/5M.sh
 
 # Desktop Setup
 workspace 1 output DisplayPort-3
