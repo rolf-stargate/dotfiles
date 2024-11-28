@@ -208,6 +208,11 @@ local plugins = {
 					links_space_char = "_",
 					syntax = "markdown",
 					ext = ".md",
+					template_path = "/home/rolf/wiki/templates/",
+					template_default = "default",
+					custom_wiki2markdown = "vimwiki_markdown",
+					html_filename_parameterization = 1,
+					tmplate_ext = ".tpl",
 				},
 				{
 					path = "/home/rolf/wiki/tasks",
