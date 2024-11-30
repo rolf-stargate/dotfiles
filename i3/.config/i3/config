@@ -664,12 +664,22 @@ exec --no-startup-id unclutter
 
 # exec --no-startup-id xinput disable "Wacom Pen and multitouch sensor Finger"
 
+
+# |////|__ WACOM_BAMBOO __|///////////////////////////////////////////////|»)-->
+# ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+exec --no-startup-id xinput disable "Wacom Bamboo 16FG 6x8 Finger touch"
+exec --no-startup-id xinput map-to-output "Wacom Bamboo 16FG 6x8 Pen eraser" DisplayPort-3
+exec --no-startup-id xinput map-to-output "Wacom Bamboo 16FG 6x8 Pen stylus" DisplayPort-3
+exec --no-startup-id xinput map-to-output "Wacom Bamboo 16FG 6x8 Pad pad" DisplayPort-3   
+# ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+# <--(«|///////////////////////////////////////////////|__ WACOM_BAMBOO __|////|
+
 #####################################################################################################################
 #################                          6 Monitors Desktop Home                                  #################
 #####################################################################################################################
 
 # Load arandr screen settings
-exec --no-startup-id ~/.screenlayout/4M.sh
+exec --no-startup-id ~/.screenlayout/5M.sh
 
 # Desktop Setup
 workspace 1 output DisplayPort-3
