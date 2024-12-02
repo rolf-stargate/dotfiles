@@ -25,22 +25,6 @@ local dateDE = function()
 end
 
 -- Helper function to determine indentation level (optional step if indentation matters)
-local function get_indent_length()
-	local cursor = vim.api.nvim_win_get_cursor(0)
-	local line = vim.api.nvim_get_current_line()
-	return vim.fn.indent(cursor[1])
-end
-
--- Function to compute padding between start and end text
-local function fill_between(target_length, start_text, end_text, fill_char, indent_length)
-	local total_length = target_length - indent_length
-	local start_length = #start_text
-	local end_length = #end_text
-	local current_length = start_length + end_length
-
-	local fill_length = total_length - current_length
-	return start_text .. string.rep(fill_char, fill_length) .. end_text
-end
 
 local function split(inputstr, sep)
 	if sep == nil then
@@ -71,44 +55,44 @@ ls.add_snippets("all", {
 			local comment_strings = split(vim.bo.commentstring, "%%s")
 			local start_comment_string = comment_strings[1] or ""
 			local end_comment_string = comment_strings[2] or ""
-			local indent_length = get_indent_length() + #args[1][1] + #start_comment_string + 9
+			local indent_length = Get_indent_depth() + #args[1][1] + #start_comment_string + 9
 			local fill_char = "/"
 			local start_text = " __|"
-			local end_text = "|»)-->" .. end_comment_string
-			return fill_between(81, start_text, end_text, fill_char, indent_length)
+			local end_text = "|»)" .. end_comment_string
+			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 		t({ "", "" }),
 		func(function(args)
 			local comment_strings = split(vim.bo.commentstring, "%%s")
 			local start_comment_string = comment_strings[1] or ""
 			local end_comment_string = comment_strings[2] or ""
-			local indent_length = get_indent_length()
+			local indent_length = Get_indent_depth()
 			local fill_char = ":"
 			local start_text = start_comment_string
 			local end_text = end_comment_string
-			return fill_between(80, start_text, end_text, fill_char, indent_length)
+			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 		t({ "", "" }),
 		func(function(args)
 			local comment_strings = split(vim.bo.commentstring, "%%s")
 			local start_comment_string = comment_strings[1] or ""
 			local end_comment_string = comment_strings[2] or ""
-			local indent_length = get_indent_length()
+			local indent_length = Get_indent_depth()
 			local fill_char = ":"
 			local start_text = start_comment_string
 			local end_text = end_comment_string
-			return fill_between(80, start_text, end_text, fill_char, indent_length)
+			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 		t({ "", "" }),
 		func(function(args)
 			local comment_strings = split(vim.bo.commentstring, "%%s")
 			local start_comment_string = comment_strings[1] or ""
 			local end_comment_string = comment_strings[2] or ""
-			local indent_length = get_indent_length()
+			local indent_length = Get_indent_depth()
 			local fill_char = "/"
-			local start_text = start_comment_string .. "<--(«|"
-			local end_text = "|__ " .. string.upper(args[1][1]) .. " __|////|" .. end_comment_string
-			return fill_between(81, start_text, end_text, fill_char, indent_length)
+			local start_text = start_comment_string .. "(«|"
+			local end_text = "|__ " .. string.upper(args[1][1]):gsub("%s+", "_") .. " __|////|" .. end_comment_string
+			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 	}),
 })
