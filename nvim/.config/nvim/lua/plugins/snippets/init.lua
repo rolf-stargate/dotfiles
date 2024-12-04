@@ -1,7 +1,4 @@
 local ls = require("luasnip")
-ls.config.setup({
-	enable_autosnippets = true,
-})
 
 -- some shorthands...
 local snip = ls.snippet
@@ -11,6 +8,11 @@ local insert = ls.insert_node
 local func = ls.function_node
 local choice = ls.choice_node
 local dynamicn = ls.dynamic_node
+
+ls.config.setup({
+	enable_autosnippets = true,
+	cut_selection_keys = "<Tab>",
+})
 
 vim.keymap.set({ "i", "s" }, "<C-J>", function()
 	ls.jump(1)

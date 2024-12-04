@@ -1,11 +1,15 @@
 -- |////|__ VIMWIKI/MARKDOWN SNIPPETS __|/////////////////////////////////|»)-->
 -- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- =======  SETUP  ============================================================>
+local fmt = require("luasnip.extras.fmt").fmt
 local ls = require("luasnip")
 local s = ls.snippet
 local t = ls.text_node
+local d = ls.dynamic_node
+local sn = ls.snippet_node
 local insert = ls.insert_node
 local func = ls.function_node
+
 -- <============================================================  SETUP  =======
 
 -- =======  UTILITY FUNCTIONS  ================================================>
@@ -36,6 +40,14 @@ local function split(inputstr, sep)
 		table.insert(t, str)
 	end
 	return t
+end
+
+local function get_visual(args, parent)
+	if #parent.snippet.env.LS_SELECT_RAW > 0 then
+		return sn(nil, insert(1, parent.snippet.env.LS_SELECT_RAW))
+	else -- If LS_SELECT_RAW is empty, return a blank insert node
+		return sn(nil, insert(1))
+	end
 end
 
 -- <================================================  UTILITY FUNCTIONS  =======
@@ -73,6 +85,8 @@ ls.add_snippets("all", {
 			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 		t({ "", "" }),
+		d(2, get_visual),
+		t({ "", "" }),
 		func(function(args)
 			local comment_strings = split(vim.bo.commentstring, "%%s")
 			local start_comment_string = comment_strings[1] or ""
@@ -97,124 +111,68 @@ ls.add_snippets("all", {
 	}),
 })
 
--- h2
-ls.add_snippets("vimwiki", {
+ls.add_snippets("all", {
 	s("c2", {
-		descr = "Create H2 Heading Block",
+		descr = "Medium Comment Block",
+		insert(1, "NAME"),
+		t({ "", "" }),
 		func(function(args)
-			local indent_length = get_indent_length()
+			local comment_strings = split(vim.bo.commentstring, "%%s")
+			local start_comment_string = comment_strings[1] or ""
+			local end_comment_string = comment_strings[2] or ""
+			local indent_length = Get_indent_depth()
 			local fill_char = "="
-			local start_text = "<!-- "
-			local end_text = "  " .. string.upper(args[1][1]) .. "  ======= -->"
-			return fill_between(80, start_text, end_text, fill_char, indent_length)
+			local start_text = start_comment_string
+			local end_text = "  " .. string.upper(args[1][1]):gsub("%s+", "_") .. "  =======" .. end_comment_string
+			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
-		t({ "", "## " }),
-		insert(1, "INSERT1"),
-		insert(2),
 		t({ "", "" }),
+		d(2, get_visual),
 		t({ "", "" }),
 		func(function(args)
-			local indent_length = get_indent_length()
+			local comment_strings = split(vim.bo.commentstring, "%%s")
+			local start_comment_string = comment_strings[1] or ""
+			local end_comment_string = comment_strings[2] or ""
+			local indent_length = Get_indent_depth()
 			local fill_char = "="
-			local start_text = "<!-- "
-			local end_text = ">  " .. string.upper(args[1][1]) .. "  <======= -->"
-			return fill_between(80, start_text, end_text, fill_char, indent_length)
+			local start_text = start_comment_string
+			local end_text = " »" .. string.upper(args[1][1]):gsub("%s+", "_") .. "« =======" .. end_comment_string
+			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 	}),
 })
 
--- h3
-ls.add_snippets("vimwiki", {
+ls.add_snippets("all", {
 	s("c3", {
-		descr = "Create H3 Heading Block",
-		func(function(args)
-			local indent_length = get_indent_length()
-			local fill_char = "-"
-			local start_text = "<!--"
-			local end_text = "  " .. string.upper(args[1][1]) .. "  ---------->"
-			return fill_between(80, start_text, end_text, fill_char, indent_length)
-		end, { 1 }),
-		t({ "", "## " }),
-		insert(1, "INSERT1"),
-		insert(2),
-		t({ "", "" }),
+		descr = "Small Comment Block",
+		insert(1, "NAME"),
 		t({ "", "" }),
 		func(function(args)
-			local indent_length = get_indent_length()
+			local comment_strings = split(vim.bo.commentstring, "%%s")
+			local start_comment_string = comment_strings[1] or ""
+			local end_comment_string = comment_strings[2] or ""
+			local indent_length = Get_indent_depth()
 			local fill_char = "-"
-			local start_text = "<!--"
-			local end_text = ":  " .. string.upper(args[1][1]) .. "  :---------->"
-			return fill_between(80, start_text, end_text, fill_char, indent_length)
+			local start_text = start_comment_string
+			local end_text = "  " .. string.upper(args[1][1]):gsub("%s+", "_") .. "  -------" .. end_comment_string
+			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
+		end, { 1 }),
+		t({ "", "" }),
+		d(2, get_visual),
+		t({ "", "" }),
+		func(function(args)
+			local comment_strings = split(vim.bo.commentstring, "%%s")
+			local start_comment_string = comment_strings[1] or ""
+			local end_comment_string = comment_strings[2] or ""
+			local indent_length = Get_indent_depth()
+			local fill_char = "-"
+			local start_text = start_comment_string
+			local end_text = " »" .. string.upper(args[1][1]):gsub("%s+", "_") .. "« -------" .. end_comment_string
+			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 	}),
 })
 
--- Codeblock
-ls.add_snippets("vimwiki", {
-	s("vwcodeblock", {
-		dscr = "Code block in markdown",
-		t("```"),
-		insert(1),
-		t({ "", "" }),
-		t("```"),
-	}),
-})
-
--- Codeblock
-ls.add_snippets("vimwiki", {
-	s("vwiletter", {
-		dscr = "Latex Letter Template",
-		t({ "---", "" }),
-		t({ "fromname: Paul Saynisch", "" }),
-		t({ "fromaddress: |", "" }),
-		t({ "  Fritz-Siemon-Str. 26\\", "" }),
-		t({ "  04347 Leipzig", "" }),
-		t({ "place: Leipzig", "" }),
-		t({ "to: |", "" }),
-		t({ "  " }),
-		insert(1),
-		t({ "", "" }),
-		t({ "date: " }),
-		func(dateDE),
-		t({ "", "" }),
-		t({ "subject: " }),
-		insert(2),
-		t({ "", "" }),
-		t({ "signature: Paul Saynisch", "" }),
-		t({ "---", "" }),
-	}),
-})
-
--- Configuration Logging Template
-ls.add_snippets("vimwiki", {
-	s("vwilogconf", {
-		dscr = "Configuration Logging Template",
-		t({ "*Date:* " }),
-		func(date),
-		t({ "", "" }),
-		t({ "", "" }),
-		t({ "**Environment Details:** " }),
-		insert(1),
-		t({ "", "" }),
-		t({ "*Platform:* ", "" }),
-		t({ "*User:* ", "" }),
-		t({ "*Hostname:* ", "" }),
-		t({ "*Port:* ", "" }),
-		t({ "", "" }),
-		t({ "**Service Details:** ", "" }),
-		t({ "", "" }),
-		t({ "*Service Name:* ", "" }),
-		t({ "*Command:* ", "" }),
-		t({ "*Management Tool:* ", "" }),
-		t({ "", "" }),
-		t({ "**Configuration Files:** ", "" }),
-		t({ "", "" }),
-		t({ "*Configuration File:*", "" }),
-		t({ "", "" }),
-		t({ "**Setup Notes:** ", "" }),
-		t({ "", "" }),
-	}),
-})
 -- <=========================================================  SNIPPETS  =======
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- <--(«|/////////////////////////////////|__ VIMWIKI/MARKDOWN SNIPPETS __|////|
