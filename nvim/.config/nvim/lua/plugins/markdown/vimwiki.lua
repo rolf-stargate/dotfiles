@@ -80,16 +80,35 @@ vim.keymap.set(
 -- paste image from clipboard
 function Paste_Image_From_Clipboard()
 	local buffer_path = vim.fn.expand("%:p:h")
-	local file_name = vim.fn.input("Enter file name: "):gsub(" ", "-")
-	local file_name_uuid = vim.fn.system("uuidgen"):gsub("\n", "")
+	local file_name_uuid = Gen_uuid(5)
+	print(file_name_uuid)
 
-	os.execute(
-		"xclip -selection clipboard -t image/png -o > '" .. buffer_path .. "/" .. file_name .. file_name_uuid .. ".png'"
-	)
+	os.execute("xclip -selection clipboard -t image/png -o > '" .. buffer_path .. "/img/" .. file_name_uuid .. ".png'")
 
-	local link = "![file_name](" .. file_name .. file_name_uuid .. ".png)"
-
+	local link = "![Image](./img/" .. file_name_uuid .. ".png)"
 	vim.api.nvim_set_current_line(link)
+end
+
+-- function delete image under cursor
+function Delete_image_from_link()
+	local line = vim.api.nvim_get_current_line()
+	local buffer_path = vim.fn.expand("%:p:h")
+
+	local pattern = "!%[.*%]%((%.?/img/[^)]+)%)"
+	print(line)
+	local path = buffer_path .. line:match(pattern):gsub("^%./", "/")
+
+	if path then
+		local confirmation = vim.fn.input("Are you sure you want to delete the file at:\n" .. path .. "? (y/n) ")
+		if confirmation == "y" then
+			os.remove(path)
+			print("File deleted.")
+		else
+			print("File deletion canceled.")
+		end
+	else
+		print("No path provided.")
+	end
 end
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -110,6 +129,12 @@ vim.api.nvim_create_autocmd("FileType", {
 			"n",
 			"<Leader>wP",
 			":lua Paste_Image_From_Clipboard()<CR>",
+			{ noremap = true, desc = "Paste image from clipboard" }
+		)
+		vim.keymap.set(
+			"n",
+			"<Leader>wD",
+			":lua Delete_image_from_link()<CR>",
 			{ noremap = true, desc = "Paste image from clipboard" }
 		)
 
