@@ -123,7 +123,7 @@ ls.add_snippets("all", {
 			local indent_length = Get_indent_depth()
 			local fill_char = "="
 			local start_text = start_comment_string
-			local end_text = "  " .. string.upper(args[1][1]):gsub("%s+", "_") .. "  =======" .. end_comment_string
+			local end_text = " " .. string.upper(args[1][1]):gsub("%s+", "_") .. " ========" .. end_comment_string
 			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 		t({ "", "" }),
@@ -168,6 +168,37 @@ ls.add_snippets("all", {
 			local fill_char = "-"
 			local start_text = start_comment_string
 			local end_text = " »" .. string.upper(args[1][1]):gsub("%s+", "_") .. "« -------" .. end_comment_string
+			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
+		end, { 1 }),
+	}),
+})
+
+ls.add_snippets("all", {
+	s("c4", {
+		descr = "Tiny Comment Block",
+		insert(1, "NAME"),
+		t({ "", "" }),
+		func(function(args)
+			local comment_strings = split(vim.bo.commentstring, "%%s")
+			local start_comment_string = comment_strings[1] or ""
+			local end_comment_string = comment_strings[2] or ""
+			local indent_length = Get_indent_depth()
+			local fill_char = "."
+			local start_text = start_comment_string
+			local end_text = "  " .. string.upper(args[1][1]):gsub("%s+", "_") .. "  ......." .. end_comment_string
+			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
+		end, { 1 }),
+		t({ "", "" }),
+		d(2, get_visual),
+		t({ "", "" }),
+		func(function(args)
+			local comment_strings = split(vim.bo.commentstring, "%%s")
+			local start_comment_string = comment_strings[1] or ""
+			local end_comment_string = comment_strings[2] or ""
+			local indent_length = Get_indent_depth()
+			local fill_char = "."
+			local start_text = start_comment_string
+			local end_text = " »" .. string.upper(args[1][1]):gsub("%s+", "_") .. "« ......." .. end_comment_string
 			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 	}),

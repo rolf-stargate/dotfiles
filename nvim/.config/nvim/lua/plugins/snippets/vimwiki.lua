@@ -76,7 +76,7 @@ ls.add_snippets("vimwiki", {
 			local indent_length = Get_indent_depth()
 			local fill_char = "="
 			local start_text = "<!-- "
-			local end_text = " " .. string.upper(args[1][1]):gsub("%s+", "_") .. " ======== -->"
+			local end_text = "  " .. string.upper(args[1][1]):gsub("%s+", "_") .. "  ======= -->"
 			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 		t({ "", "## " }),
@@ -102,7 +102,7 @@ ls.add_snippets("vimwiki", {
 			local indent_length = Get_indent_depth()
 			local fill_char = "-"
 			local start_text = "<!-- "
-			local end_text = " " .. string.upper(args[1][1]):gsub("%s+", "_") .. " ------ -->"
+			local end_text = "  " .. string.upper(args[1][1]):gsub("%s+", "_") .. "  ----- -->"
 			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 		t({ "", "## " }),
@@ -115,6 +115,32 @@ ls.add_snippets("vimwiki", {
 			local fill_char = "-"
 			local start_text = "<!-- "
 			local end_text = " »" .. string.upper(args[1][1]):gsub("%s+", "_") .. "« ----- -->"
+			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
+		end, { 1 }),
+	}),
+})
+
+-- h4
+ls.add_snippets("vimwiki", {
+	s("####", {
+		descr = "Create H4 Heading Block",
+		func(function(args)
+			local indent_length = Get_indent_depth()
+			local fill_char = "."
+			local start_text = "<!-- "
+			local end_text = "  " .. string.upper(args[1][1]):gsub("%s+", "_") .. "  .... -->"
+			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
+		end, { 1 }),
+		t({ "", "## " }),
+		insert(1, "INSERT1"),
+		insert(2),
+		t({ "", "" }),
+		t({ "", "" }),
+		func(function(args)
+			local indent_length = Get_indent_depth()
+			local fill_char = "."
+			local start_text = "<!-- "
+			local end_text = " »" .. string.upper(args[1][1]):gsub("%s+", "_") .. "« .... -->"
 			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 	}),
