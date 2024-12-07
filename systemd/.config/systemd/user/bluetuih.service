@@ -3,6 +3,7 @@ Description=Starts bluetuith in the backgound
 
 [Service]
 ExecStart=/sbin/kitty -e bluetuith
+ExecStartPre=/bin/sleep 5
 Restart=always
 
 [Install]

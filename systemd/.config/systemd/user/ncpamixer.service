@@ -3,6 +3,7 @@ Description=Starts ncpamixer in the backgound
 
 [Service]
 ExecStart=/sbin/kitty -e ncpamixer
+ExecStartPre=/bin/sleep 5
 Restart=always
 
 [Install]

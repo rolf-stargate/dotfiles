@@ -3,6 +3,7 @@ Description=Starts htop in the backgound
 
 [Service]
 ExecStart=/sbin/kitty -e htop
+ExecStartPre=/bin/sleep 5
 Restart=always
 
 [Install]

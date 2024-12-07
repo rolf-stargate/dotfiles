@@ -3,6 +3,7 @@ Description=Starts advanced connection manager
 
 [Service]
 ExecStart=/sbin/nm-connection-editor
+ExecStartPre=/bin/sleep 5
 Restart=always
 
 [Install]

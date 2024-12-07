@@ -3,7 +3,8 @@ Description=Starts chatgpt-desktop in the backgound
 
 [Service]
 ExecStart=/sbin/kitty --name "GpChat" -e nvim -c "GpChatNew"
+ExecStartPre=/bin/sleep 5
 Restart=always
 
 [Install]
-WantedBy=default.target
+WantedBy=graphical.target

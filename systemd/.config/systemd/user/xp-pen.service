@@ -3,6 +3,7 @@ Description=Starts xppentable in the backgound
 
 [Service]
 ExecStart=/usr/lib/pentablet/PenTablet.sh
+ExecStartPre=/bin/sleep 5
 Restart=always
 
 [Install]
