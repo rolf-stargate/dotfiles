@@ -79,6 +79,19 @@ vim.keymap.set("v", "<Leader>J", "<Esc>", {
 	desc = "Esc",
 })
 
+-- Keep Indent Hack when pressing ESC
+vim.keymap.set("n", "o", "ox<bs>", {
+	noremap = true,
+	silent = true,
+	desc = "New Line Below",
+})
+
+vim.keymap.set("n", "O", "Ox<bs>", {
+	noremap = true,
+	silent = true,
+	desc = "New Line Above",
+})
+
 -- Save & Quit
 vim.keymap.set("n", "Q", ":wq<CR>", {
 	noremap = true,
