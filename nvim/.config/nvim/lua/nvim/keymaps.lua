@@ -357,6 +357,9 @@ vim.keymap.set("n", "<leader>st", "<cmd>lua SetTerminalTitle()<cr>", {
 })
 
 -- Comments
+
+-- Duplicate a line and comment out the first line
+vim.keymap.set("n", "yc", "yygccp")
 -- Change Text
 vim.keymap.set("n", "<leader>cj", "<cmd>normal gcc<cr>", {
 	noremap = true,

@@ -20,7 +20,9 @@ filename="${date}_${title}"
 
 mkdir -p "${HOME}/tmp"
 
-script -q -c "${SHELL}" "${HOME}/tmp/${filename}" &&
-ansi2txt "${HOME}/tmp/${filename}" | tr -d '\r' | sed 's/^.*\x08/$ /' > "${spath}/${filename}" &&
+script -q --timing="${HOME}/tmp/${filename}.timing" -c "${SHELL}" "${HOME}/tmp/${filename}" &&
+  
+ansi2txt "${HOME}/tmp/${filename}" | sed 's/^.*echo ##\(.*\)$/################################################################################\n#### \1\n################################################################################/'| tr -d "\r" |  sed 's/^.*\x08/$ /' | sed 's/^% *\[rolf/[rolf/'  > "${spath}/${filename}" &&
 
 echo "Created ${spath}/${filename}"
+
