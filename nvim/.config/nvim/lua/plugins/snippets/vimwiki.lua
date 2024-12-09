@@ -36,7 +36,7 @@ ls.add_snippets("vimwiki", {
 			local fill_char = "/"
 			local start_text = "<!-- |////|__ " .. string.upper(args[1][1]):gsub("%s+", "_") .. " __|"
 			local end_text = "|») -->"
-			return Fill_between_with_char(81, start_text, end_text, fill_char, indent_length)
+			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 		t({ "", "" }),
 		func(function(args)
@@ -63,7 +63,7 @@ ls.add_snippets("vimwiki", {
 			local fill_char = "/"
 			local start_text = "<!-- («|"
 			local end_text = "|__ " .. string.upper(args[1][1]):gsub("%s+", "_") .. " __|////| -->"
-			return Fill_between_with_char(81, start_text, end_text, fill_char, indent_length)
+			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
 	}),
 })
@@ -105,7 +105,7 @@ ls.add_snippets("vimwiki", {
 			local end_text = "  " .. string.upper(args[1][1]):gsub("%s+", "_") .. "  ----- -->"
 			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
-		t({ "", "## " }),
+		t({ "", "### " }),
 		insert(1, "INSERT1"),
 		insert(2),
 		t({ "", "" }),
@@ -131,7 +131,7 @@ ls.add_snippets("vimwiki", {
 			local end_text = "  " .. string.upper(args[1][1]):gsub("%s+", "_") .. "  ... -->"
 			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
 		end, { 1 }),
-		t({ "", "## " }),
+		t({ "", "#### " }),
 		insert(1, "INSERT1"),
 		insert(2),
 		t({ "", "" }),
