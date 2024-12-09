@@ -1,40 +1,42 @@
 # |////|__ ALIASES __|////////////////////////////////////////////////////|»)-->
 # ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-# =======  PACKAGE MANAGER  ===================================================>
+# =======  PACKAGE MANAGER  ====================================================
 alias y="yay -Slq | fzf -m --preview-window=top --preview 'yay -Si {1}' | xargs -ro yay -S"
 alias t="yay -Slq | fzf -m --preview-window=top --preview 'yay -Si {1}' | xargs -ro yay -S --asdeps"
 alias c="sudo pacman -Qdtq | pacman -Rns -"
-# <===================================================  PACKAGE MANAGER  =======
+# ====================================================  PACKAGE MANAGER  =======
 
-# =======  ESSENTIALS  =========================================================>
+
+
+# =======  ESSENTIALS  ==========================================================
 alias dropboxignore="di" # Dropbox ignore npm i dropbox-recursive-ignore-node_modules -g
 alias rgif="byzanz-record -c -x 0 -y 1960 -w 1920 -h 1080 " # Record gif
 alias ls="ls --color=auto --group-directories-first"
-# <========================================================  ESSENTIALS  =======
+# =========================================================  ESSENTIALS  =======
 
-# =======  REMAPS  ============================================================>
+# =======  REMAPS  =============================================================
 alias v="nvim"
 alias vim="nvim"
 alias cat="bat"
 alias less="moar"
-# <============================================================  REMAPS  =======
+# =============================================================  REMAPS  =======
 
-# ======   BATTERY CAPACITY   =================================================>
+# ======   BATTERY CAPACITY   ==================================================
 alias b="cat /sys/class/power_supply/BAT0/capacity"
-# <==================================================   BATTERY CAPACITY   =====
+# ===================================================   BATTERY CAPACITY   =====
 
-# ======   HISTORY FZF SEARCH   ===============================================>
+# ======   HISTORY FZF SEARCH   ================================================
 alias h='xdotool type $(cat $HISTFILE | cut -d";" -f2- | fzf)'
-# <================================================   HISTORY FZF SEARCH   =====
+# =================================================   HISTORY FZF SEARCH   =====
 
-# ======   GREP SED AWK TRAINER   =============================================>
+# ======   GREP SED AWK TRAINER   ==============================================
 # pip3 install grepexercises,sedexercises,awkexercises
 alias traingrep="grepexercises"
 alias trainsed="sedexercises"
 alias trainawk="awkexercises"
-# <==============================================   GREP SED AWK TRAINER   =====
+# ===============================================   GREP SED AWK TRAINER   =====
 
-# ======   TASKWARRIOR   ======================================================>
+# ======   TASKWARRIOR   =======================================================
 alias tt="taskwarrior-tui"
 # alias tt="task context none; sleep 0.1; task due:today or until:today or scheduled:today or due:tomorrow or until:tomorrow or scheduled:tomorrow list or priority:H or +office"
 alias tl="task list"
@@ -44,31 +46,39 @@ alias te="task edit"
 alias tA="task annotate"
 alias td="task del"
 alias to="taskopen"
-# <========================================================  TASKWARRIOR  ======
+# =========================================================  TASKWARRIOR  ======
 
+# ===============================================================  WIKI  =======
 alias docu="(cd ~/wiki/docu && nvim index.md)"
 alias proj="(cd ~/wiki/proj && nvim index.md)"
 alias todo="(cd ~/wiki/tasks && nvim index.md)"
 alias sec="(cd ~/wiki/sec && nvim index.md)"
+# =============================================================== »WIKI« =======
 
-# ======   MY TIMER   =========================================================>
+# ===========================================================  TERMINAL  =======
+
+alias ssh="TERM='xterm-256color' ssh"
+
+# =========================================================== »TERMINAL« =======
+
+# ======   MY TIMER   ==========================================================
 alias mt="start_my_timer"
 alias tmt="toggle_my_timer"
-# <===========================================================  MY TIMER  ======
+# ============================================================  MY TIMER  ======
 
-# ======   QMK KYRIA   ========================================================>
+# ======   QMK KYRIA   =========================================================
 # QMK edit --> compile --> flash
 alias qmk="nvim ~/Dropbox/work/opt/qmk_firmware/keyboards/splitkb/kyria/keymaps/rolfstargate && /bin/qmk compile -kb kyria -e AVR_CFLAGS='-Wno-array-bounds' && /bin/qmk flash -kb kyria -e AVR_CFLAGS='-Wno-array-bounds'"
-# <==========================================================  QMK KYRIA   =====
+# ===========================================================  QMK KYRIA   =====
 
-# =======  VM  ================================================================>
+# =======  VM  =================================================================
 alias win11="sudo virsh start win11 && ~/opt/looking-glass-B6/client/build/looking-glass-client -m KEY_F10"
-# <================================================================  VM  =======
+# =================================================================  VM  =======
 
-# =======  YOUTUBE  ===========================================================>
+# =======  YOUTUBE  ============================================================
 alias yt="ytfzf -tsl --pages=5"
 alias ytc="ytfzf -tsl --pages=5 --multi-search --type=channel --thumbnails"
-# <===========================================================  YOUTUBE  =======
+# ============================================================  YOUTUBE  =======
 # ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 # <--(«|////////////////////////////////////////////////////|__ ALIASES __|////|
 
@@ -87,29 +97,29 @@ function fm() {
 
 # |////|__ CONFIGURATION __|//////////////////////////////////////////////|»)-->
 # ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-# =======  PATH  ==============================================================>
+# =======  PATH  ===============================================================
 export PATH="/home/rolf/scripts:/home/rolf/.cargo/bin:$PATH"
-# <==============================================================  PATH  =======
+# ===============================================================  PATH  =======
 
-# =======  ENVIRONMENT  =======================================================>
+# =======  ENVIRONMENT  ========================================================
 export FZF_BASE=/path/to/fzf/install/dir
 export HARSHPATH="$HOME/.config/harsh"
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#00ccff,bg:#130018,hl:#ff66e0 --color=fg+:#fabbfc,bg+:#130018,hl+:#c9ff00 --color=info:#ad8484,prompt:#0f8bff,pointer:#af5fff --color=marker:#87ff00,spinner:#997db5,header:#4e5975'
-# <=======================================================  ENVIRONMENT  =======
+# ========================================================  ENVIRONMENT  =======
 
-# =======  ZSH THEME  =========================================================>
+# =======  ZSH THEME  ==========================================================
 typeset -A ZSH_HIGHLIGHT_STYLES
 
 ZSH_HIGHLIGHT_STYLES[path]='fg=#89F8A9'
 ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=#EE8FEB,italic'
 ZSH_HIGHLIGHT_STYLES[globbing]='fg=#C08FEE,bold'
 ZSH_HIGHLIGHT_STYLES[alias]='fg=#C08FEE,bold'
-# <=========================================================  ZSH THEME  =======
+# ==========================================================  ZSH THEME  =======
 
-# =======  ??  ================================================================>
+# =======  ??  =================================================================
 # load completion stuff ??
 autoload -Uz compinit && compinit
-# <================================================================  ??  =======
+# =================================================================  ??  =======
 # ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 # <--(«|//////////////////////////////////////////////|__ CONFIGURATION __|////|
