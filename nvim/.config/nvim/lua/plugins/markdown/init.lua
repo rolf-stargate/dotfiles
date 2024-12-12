@@ -1,5 +1,5 @@
 require("plugins.markdown.mdeval")
--- require("plugins.markdown.image")
+require("plugins.markdown.image")
 require("plugins.markdown.vimwiki")
 require("plugins.markdown.taskopen")
 require("plugins.markdown.taskwiki")

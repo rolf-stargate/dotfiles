@@ -9,12 +9,13 @@ require("nvim.options")
 require("nvim.keymaps")
 
 -- filetypes
-require("filetypes.lazygit")
-require("filetypes.text")
 require("filetypes.c")
-require("filetypes.vimwiki")
-require("filetypes.r")
+require("filetypes.lazygit")
 require("filetypes.ledger")
+require("filetypes.r")
+require("filetypes.text")
+require("filetypes.vimwiki")
+require("filetypes.vue")
 
 -- plugins
 require("plugins.init")

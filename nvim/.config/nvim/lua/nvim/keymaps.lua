@@ -79,6 +79,19 @@ vim.keymap.set("v", "<Leader>J", "<Esc>", {
 	desc = "Esc",
 })
 
+-- Keep Indent Hack when pressing ESC
+vim.keymap.set("n", "o", "ox<bs>", {
+	noremap = true,
+	silent = true,
+	desc = "New Line Below",
+})
+
+vim.keymap.set("n", "O", "Ox<bs>", {
+	noremap = true,
+	silent = true,
+	desc = "New Line Above",
+})
+
 -- Save & Quit
 vim.keymap.set("n", "Q", ":wq<CR>", {
 	noremap = true,
@@ -344,6 +357,9 @@ vim.keymap.set("n", "<leader>st", "<cmd>lua SetTerminalTitle()<cr>", {
 })
 
 -- Comments
+
+-- Duplicate a line and comment out the first line
+vim.keymap.set("n", "yc", "yygccp")
 -- Change Text
 vim.keymap.set("n", "<leader>cj", "<cmd>normal gcc<cr>", {
 	noremap = true,
@@ -495,27 +511,27 @@ vim.keymap.set("n", "<leader>cd", ":lcd %:p:h<CR>", {
 })
 
 -- Search and Replace
--- vim.keymap.set("n", "<leader>rr", ":%s///gI<Left><Left><Left><Left>", {
--- 	noremap = true,
--- 	silent = true,
--- 	desc = "Search/Replace in File",
--- })
--- vim.keymap.set("n", "<leader>rw", ":%s/<C-r><C-w>//gI<Left><Left><Left>", {
--- 	noremap = true,
--- 	silent = true,
--- 	desc = "Search/Replace Word in File",
--- })
+vim.keymap.set("n", "<leader>rr", ":%s///gI<Left><Left><Left><Left>", {
+	noremap = true,
+	silent = true,
+	desc = "Search/Replace in File",
+})
+vim.keymap.set("n", "<leader>rw", ":%s/<C-r><C-w>//gI<Left><Left><Left>", {
+	noremap = true,
+	silent = true,
+	desc = "Search/Replace Word in File",
+})
 --
--- vim.keymap.set("v", "<leader>rr", ":s///gI<Left><Left><Left><Left>", {
--- 	noremap = true,
--- 	silent = true,
--- 	desc = "Search/Replace in Selection",
--- })
--- vim.keymap.set("v", "<leader>rw", ":s/<C-r><C-w>//gI<Left><Left><Left>", {
--- 	noremap = true,
--- 	silent = true,
--- 	desc = "Search/Replace Word in Selection",
--- })
+vim.keymap.set("v", "<leader>rr", ":s///gI<Left><Left><Left><Left>", {
+	noremap = true,
+	silent = true,
+	desc = "Search/Replace in Selection",
+})
+vim.keymap.set("v", "<leader>rw", ":s/<C-r><C-w>//gI<Left><Left><Left>", {
+	noremap = true,
+	silent = true,
+	desc = "Search/Replace Word in Selection",
+})
 
 -- Toggle
 vim.keymap.set("n", "<leader>ts", "<cmd>setlocal spell!<CR>", {

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+base_dir="/home/rolf/wiki/"
+
+echo "################################################################################"
+echo "## Starting: ${base_dir}docu"
+echo "################################################################################"
+(cd "${base_dir}docu"; git pull;  git add -A; git commit -m "AutoUpdate"; git push) 
+
+echo ""
+echo "################################################################################"
+echo "## Starting: ${base_dir}sec"
+echo "################################################################################"
+(cd "${base_dir}sec"; git pull;  git add -A; git commit -m "AutoUpdate"; git push) 
+
+echo ""
+echo "################################################################################"
+echo "## Starting: ${base_dir}tasks"
+echo "################################################################################"
+(cd "${base_dir}tasks"; git pull;  git add -A; git commit -m "AutoUpdate"; git push) 

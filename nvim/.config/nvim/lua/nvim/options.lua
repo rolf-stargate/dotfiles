@@ -9,7 +9,7 @@ local options = {
 	mouse = "a", -- mouse use is allowed in every mode
 	pumheight = 10, -- popup menu height
 	showmode = false, -- don't show current mode
-	smartindent = true, -- smartindent
+	smartindent = false, -- smartindent
 	splitbelow = true, -- force all horizontal splits to be below
 	splitright = true, -- force all vertical splits to be to the right
 	swapfile = false, -- no swap files
@@ -37,8 +37,61 @@ local options = {
 	spellsuggest = "fast",
 	spelllang = "en,de",
 	colorcolumn = "81",
-	statuscolumn = "%=%l%s%C", -- Status column order
 }
+
+-- ======================================================  STATUSCOLUMN  =======
+function my_relative_statuscolumn()
+	-- Get the current line number in the buffer
+	local current_lnum = vim.fn.line(".")
+	-- Get the line number of the current status line being evaluated
+	local lnum = vim.v.lnum
+
+	-- Calculate the relative line number
+	local rnum = lnum - current_lnum
+	if rnum == 0 then
+		return tostring(lnum)
+	end -- Use the absolute line number at the current line
+
+	-- Handle wrapped lines
+	if vim.v.wrap then
+		local num_spaces = math.floor(math.log10(math.abs(rnum)) + 1)
+		return string.rep(" ", num_spaces) .. "↳"
+	else
+		return tostring(math.abs(rnum))
+	end
+end
+
+function my_statuscolumn()
+	local wrap = vim.v.wrap
+	local lnum = vim.v.lnum
+
+	if wrap then
+		local num_digits = math.floor(math.log10(lnum) + 1)
+		local spaces = string.rep(" ", num_digits)
+		return spaces .. "↳"
+	else
+		return tostring(lnum)
+	end
+end
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+	pattern = { "*" },
+	callback = function()
+		if not vim.bo.filetype == "NvimTree" then
+			vim.o.statuscolumn = "%!v:lua.my_relative_statuscolumn()"
+		else
+			vim.o.statuscolumn = ""
+		end
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "BufLeave" }, {
+	pattern = { "*.*" },
+	callback = function()
+		vim.o.statuscolumn = "%!v:lua.my_statuscolumn()"
+	end,
+})
+-- ====================================================== »STATUSCOLUMN« =======
 
 function MyFoldText()
 	local indent_depth = Get_indent_depth()
@@ -77,22 +130,6 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 	desc = "load view (folds), when opening file",
 	command = "silent! loadview",
 })
-
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-	pattern = { "*.*" },
-	callback = function()
-		vim.wo.relativenumber = true
-	end,
-})
-
-vim.api.nvim_create_autocmd({ "BufLeave" }, {
-	pattern = { "*.*" },
-	callback = function()
-		vim.wo.relativenumber = false
-	end,
-})
-
-vim.g.nvimgdb_disable_start_keymaps = true
 
 vim.cmd("let g:markdown_folding = 0")
 

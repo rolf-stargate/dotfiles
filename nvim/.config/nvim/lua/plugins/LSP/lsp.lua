@@ -60,9 +60,17 @@ require("lspconfig").ts_ls.setup({
 	},
 })
 
+-- require("lspconfig").volar.setup({
+-- 	cmd = { "vue-language-server", "--stdio" },
+-- 	filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+--
+-- })
 require("lspconfig").volar.setup({
-	cmd = { "vue-language-server", "--stdio" },
-	filetypes = { "vue" },
+	init_options = {
+		vue = {
+			hybridMode = false,
+		},
+	},
 })
 
 require("lspconfig").bashls.setup({

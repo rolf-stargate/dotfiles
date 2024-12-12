@@ -33,10 +33,10 @@
   (#any-of? @comment.warning "HACK" "WARNING" "WARN" "FIX"))
 
 ("text" @comment.block.start @nospell
-  (#match? @comment.block.start "^[A-Z_]+$"))
+  (#match? @comment.block.start "^[A-Z_\(\)-]+$"))
 
 ("text" @comment.block.end @nospell
-  (#match? @comment.block.end "^»[A-Z_]+«$"))
+  (#match? @comment.block.end "^»[A-Z_\(\)-]+«$"))
 
 ((tag
   (name) @comment.error @nospell

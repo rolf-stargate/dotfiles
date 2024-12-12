@@ -18,7 +18,7 @@ hi Dash guifg=#630033 guibg=NONE gui=NONE
 hi FloatTitle guifg=#d726c6 guibg=NONE gui=NONE
 hi NormalFloat guifg=#d726c6 guibg=NONE gui=NONE
 hi Normal guifg=#B1BAD4 guibg=#0f0016 gui=NONE
-hi Comment guifg=#34324C guibg=NONE gui=italic
+hi Comment guifg=#4E5076 guibg=NONE gui=NONE
 " hi Comment guifg=#28263A guibg=NONE gui=italic
 hi Constant guifg=#9372cb guibg=NONE gui=NONE
 hi Character guifg=#e644f6 guibg=NONE gui=NONE

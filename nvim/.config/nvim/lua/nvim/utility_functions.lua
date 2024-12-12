@@ -1,5 +1,27 @@
 -- |////|__ UTILITY FUNCTIONS __|/////////////////////////////////////////|»)-->
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+-- Generate UUID
+function Gen_uuid(len)
+	local char_set = {}
+	for c = 48, 57 do
+		table.insert(char_set, string.char(c))
+	end -- 0-9
+	for c = 65, 90 do
+		table.insert(char_set, string.char(c))
+	end -- A-Z
+	for c = 97, 122 do
+		table.insert(char_set, string.char(c))
+	end -- a-z
+
+	local uuid = {}
+	for i = 1, len do
+		local rand_index = math.random(#char_set)
+		table.insert(uuid, char_set[rand_index])
+	end
+	return table.concat(uuid)
+end
+
 -- Get Window Width
 Get_window_width = function()
 	local width = vim.fn.winwidth(0)

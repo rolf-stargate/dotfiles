@@ -158,6 +158,7 @@ local plugins = {
 	{ "nvim-telescope/telescope.nvim" },
 	{ "nvim-telescope/telescope-media-files.nvim" },
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	{ "ghassan0/telescope-glyph.nvim" },
 	{
 		"dhruvmanila/browser-bookmarks.nvim",
 		version = "*",
@@ -212,7 +213,7 @@ local plugins = {
 					template_default = "default",
 					custom_wiki2markdown = "vimwiki_markdown",
 					html_filename_parameterization = 1,
-					tmplate_ext = ".tpl",
+					template_ext = ".tpl",
 				},
 				{
 					path = "/home/rolf/wiki/tasks",

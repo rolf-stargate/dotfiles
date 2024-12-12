@@ -3,6 +3,7 @@ Description=Starts speedcrunch in the backgound
 
 [Service]
 ExecStart=/sbin/speedcrunch
+ExecStartPre=/bin/sleep 5
 Restart=always
 
 [Install]

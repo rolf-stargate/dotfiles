@@ -49,6 +49,7 @@ local kind_icons = {
 cmp.setup({
 	snippet = {
 		expand = function(args)
+			print("penis")
 			luasnip.lsp_expand(args.body) -- For `luasnip` users.
 		end,
 	},
