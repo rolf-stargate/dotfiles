@@ -35,6 +35,7 @@ wk.add({
 		{ "<Leader>fq", "<cmd>lua require'telescope.builtin'.quickfix{}<cr>", desc = "Quickfix", remap = false },
 		{ "<Leader>fv", "<cmd>lua require'telescope.builtin'.vim_options{}<cr>", desc = "Vim Options", remap = false },
 		{ "<Leader>fw", "<cmd>lua require'telescope.builtin'.grep_string{}<cr>", desc = "Grep String", remap = false },
+		{ "<Leader>fu", "<cmd>Telescope glyph<cr>", desc = "Grep String", remap = false },
 	},
 })
 
@@ -145,6 +146,7 @@ telescope.setup({
 telescope.load_extension("media_files")
 telescope.load_extension("fzf")
 require("telescope").load_extension("bookmarks")
+require("telescope").load_extension("glyph")
 
 -- This is your opts table
 require("telescope").setup({

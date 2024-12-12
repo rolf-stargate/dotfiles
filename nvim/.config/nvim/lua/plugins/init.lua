@@ -158,6 +158,7 @@ local plugins = {
 	{ "nvim-telescope/telescope.nvim" },
 	{ "nvim-telescope/telescope-media-files.nvim" },
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	{ "ghassan0/telescope-glyph.nvim" },
 	{
 		"dhruvmanila/browser-bookmarks.nvim",
 		version = "*",
