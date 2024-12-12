@@ -1,0 +1,7 @@
+pushd ~/dotfiles/ > /dev/null
+git pull
+$EDITOR ~/dotfiles/kitty/.config/kitty/kitty.conf &&
+git add -A &&
+git commit -m "Update" &&
+git push
+popd > /dev/null
