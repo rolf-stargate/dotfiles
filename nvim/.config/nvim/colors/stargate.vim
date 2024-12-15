@@ -62,7 +62,7 @@ hi CursorLineNr guifg=#abb2bf guibg=NONE gui=bold
 hi SignColumn guifg=NONE guibg=#0f0016 gui=NONE
 hi Conceal guifg=#6272a4 guibg=NONE gui=NONE
 hi CursorColumn guifg=NONE guibg=#351940 gui=NONE
-hi CursorLine guifg=NONE guibg=#13001C gui=NONE
+hi CursorLine guifg=NONE guibg=#563858 gui=NONE
 hi Directory guifg=#82cfe0 guibg=NONE gui=NONE
 hi DiffAdd guifg=#e644f6 guibg=NONE gui=NONE
 hi DiffChange guifg=#d726c6 guibg=NONE gui=NONE
