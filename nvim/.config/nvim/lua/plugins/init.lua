@@ -45,7 +45,7 @@ local plugins = {
 	-- { "zbirenbaum/copilot-cmp", after = { "copilot.lua", "nvim-cmp" }},
 	-- { "zbirenbaum/copilot.lua" },
 	-- Tabnine
-	-- { "codota/tabnine-nvim", build = "./dl_binaries.sh" },
+	{ "codota/tabnine-nvim", build = "./dl_binaries.sh" },
 	-- <===========================================================  LLMS  =======
 
 	-- =======  APPEARANCE  =====================================================>
@@ -273,7 +273,7 @@ require("plugins.marks")
 require("plugins.aerial")
 require("plugins.spectre")
 
--- require("plugins.tabnine")
+require("plugins.tabnine")
 -- require("plugins.copilot")
 -- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- <--(«|///////////////////////////////////////|__ LOAD PLUGIN CONFIGS __|////|
