@@ -158,7 +158,6 @@ require("which-key").add({
 
 -- NORMAL mode mappings
 require("which-key").add({
-
 	{
 		{ "<leader>gN", "<cmd>GpNextAgent<cr>", desc = "Next Agent", nowait = true, remap = false },
 		{ "<leader>gS", "<cmd>GpStop<cr>", desc = "GpStop", nowait = true, remap = false },
