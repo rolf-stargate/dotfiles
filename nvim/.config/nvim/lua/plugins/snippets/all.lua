@@ -116,7 +116,7 @@ ls.add_snippets("all", {
 })
 
 ls.add_snippets("all", {
-	s({ trig = "c111", snippetType = "autosnippet" }, {
+	s({ trig = "cc1", snippetType = "autosnippet" }, {
 		t({ "" }),
 		d(3, function(args)
 			-- the returned snippetNode doesn't need a position; it's inserted
@@ -160,7 +160,7 @@ ls.add_snippets("all", {
 })
 
 ls.add_snippets("all", {
-	s({ trig = "c222", snippetType = "autosnippet" }, {
+	s({ trig = "cc2", snippetType = "autosnippet" }, {
 		t({ "" }),
 		d(3, function(args)
 			-- the returned snippetNode doesn't need a position; it's inserted
@@ -206,7 +206,7 @@ ls.add_snippets("all", {
 })
 
 ls.add_snippets("all", {
-	s({ trig = "c333", snippetType = "autosnippet" }, {
+	s({ trig = "cc3", snippetType = "autosnippet" }, {
 		t({ "" }),
 		d(3, function(args)
 			-- the returned snippetNode doesn't need a position; it's inserted
