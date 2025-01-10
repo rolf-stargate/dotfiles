@@ -662,7 +662,7 @@ exec --no-startup-id unclutter
 #################                          Laptop
 #####################################################################################################################
 
-# exec --no-startup-id xinput disable "Wacom Pen and multitouch sensor Finger"
+exec --no-startup-id xinput disable "Wacom Pen and multitouch sensor Finger"
 
 
 # |////|__ WACOM_BAMBOO __|///////////////////////////////////////////////|»)-->
