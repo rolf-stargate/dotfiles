@@ -3,6 +3,11 @@
 -- =======  SETUP  ============================================================>
 local fmt = require("luasnip.extras.fmt").fmt
 local ls = require("luasnip")
+local k = require("luasnip.nodes.key_indexer").new_key
+local l = require("luasnip.extras").lambda
+local dl = require("luasnip.extras").dynamic_lambda
+local events = require("luasnip.util.events")
+
 local s = ls.snippet
 local t = ls.text_node
 local d = ls.dynamic_node
@@ -36,7 +41,6 @@ local function split(inputstr, sep)
 	end
 	local t = {}
 	for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
-		print(str)
 		table.insert(t, str)
 	end
 	return t
@@ -112,95 +116,138 @@ ls.add_snippets("all", {
 })
 
 ls.add_snippets("all", {
-	s("c2", {
-		descr = "Medium Comment Block",
-		insert(1, "NAME"),
-		t({ "", "" }),
-		func(function(args)
-			local comment_strings = split(vim.bo.commentstring, "%%s")
-			local start_comment_string = comment_strings[1] or ""
-			local end_comment_string = comment_strings[2] or ""
-			local indent_length = Get_indent_depth()
-			local fill_char = "="
-			local start_text = start_comment_string
-			local end_text = "  " .. string.upper(args[1][1]):gsub("%s+", "_") .. "  =======" .. end_comment_string
-			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
-		end, { 1 }),
-		t({ "", "" }),
-		d(2, get_visual),
-		t({ "", "" }),
-		func(function(args)
-			local comment_strings = split(vim.bo.commentstring, "%%s")
-			local start_comment_string = comment_strings[1] or ""
-			local end_comment_string = comment_strings[2] or ""
-			local indent_length = Get_indent_depth()
-			local fill_char = "="
-			local start_text = start_comment_string
-			local end_text = " »" .. string.upper(args[1][1]):gsub("%s+", "_") .. "« =======" .. end_comment_string
-			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
-		end, { 1 }),
+	s({ trig = "cc1", snippetType = "autosnippet" }, {
+		t({ "" }),
+		d(3, function(args)
+			-- the returned snippetNode doesn't need a position; it's inserted
+			-- "inside" the dynamicNode.
+			return sn(nil, {
+				t({ "" }),
+				func(function(args)
+					local comment_strings = split(vim.bo.commentstring, "%%s")
+					local start_comment_string = comment_strings[1] or ""
+					local indent_length = Get_indent_depth()
+					local fill_char = "/"
+
+					local length = #args[1][1] + #args[2][1]
+
+					return Fill_between_with_char(
+						80 - length,
+						start_comment_string .. " ",
+						"  ",
+						fill_char,
+						indent_length
+					)
+				end, { k("end"), k("name") }),
+			})
+		end, { 2 }),
+		insert(1, "", { key = "name" }),
+		d(2, function(args)
+			return sn(nil, {
+				t({ "" }),
+				func(function(args)
+					local comment_strings = split(vim.bo.commentstring, "%%s")
+					local end_string = "  ///////"
+					if comment_strings[2] then
+						end_string = end_string .. " " .. comment_strings[2]
+					end
+					return end_string
+				end, { k("name") }),
+			})
+		end, { 1 }, { key = "end" }),
+		t({ "" }),
 	}),
 })
 
 ls.add_snippets("all", {
-	s("c3", {
-		descr = "Small Comment Block",
-		insert(1, "NAME"),
-		t({ "", "" }),
-		func(function(args)
-			local comment_strings = split(vim.bo.commentstring, "%%s")
-			local start_comment_string = comment_strings[1] or ""
-			local end_comment_string = comment_strings[2] or ""
-			local indent_length = Get_indent_depth()
-			local fill_char = "-"
-			local start_text = start_comment_string
-			local end_text = "  " .. string.upper(args[1][1]):gsub("%s+", "_") .. "  -----" .. end_comment_string
-			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
-		end, { 1 }),
-		t({ "", "" }),
-		d(2, get_visual),
-		t({ "", "" }),
-		func(function(args)
-			local comment_strings = split(vim.bo.commentstring, "%%s")
-			local start_comment_string = comment_strings[1] or ""
-			local end_comment_string = comment_strings[2] or ""
-			local indent_length = Get_indent_depth()
-			local fill_char = "-"
-			local start_text = start_comment_string
-			local end_text = " »" .. string.upper(args[1][1]):gsub("%s+", "_") .. "« -----" .. end_comment_string
-			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
-		end, { 1 }),
+	s({ trig = "cc2", snippetType = "autosnippet" }, {
+		t({ "" }),
+		d(3, function(args)
+			-- the returned snippetNode doesn't need a position; it's inserted
+			-- "inside" the dynamicNode.
+			return sn(nil, {
+				t({ "" }),
+				func(function(args)
+					local comment_strings = split(vim.bo.commentstring, "%%s")
+					local start_comment_string = comment_strings[1] or ""
+					local indent_length = Get_indent_depth()
+					local fill_char = "="
+
+					local length = #args[1][1] + #args[2][1]
+
+					return Fill_between_with_char(
+						80 - length,
+						start_comment_string .. " ",
+						"  ",
+						fill_char,
+						indent_length
+					)
+				end, { k("end"), k("name") }),
+			})
+		end, { 2 }),
+		insert(1, "", { key = "name" }),
+		d(2, function(args)
+			-- the returned snippetNode doesn't need a position; it's inserted
+			-- "inside" the dynamicNode.
+			return sn(nil, {
+				t({ "" }),
+				func(function(args)
+					local comment_strings = split(vim.bo.commentstring, "%%s")
+					local end_string = "  ======="
+					if comment_strings[2] then
+						end_string = end_string .. " " .. comment_strings[2]
+					end
+					return end_string
+				end, { k("name") }),
+			})
+		end, { 1 }, { key = "end" }),
+		t({ "" }),
 	}),
 })
 
 ls.add_snippets("all", {
-	s("c4", {
-		descr = "Tiny Comment Block",
-		insert(1, "NAME"),
-		t({ "", "" }),
-		func(function(args)
-			local comment_strings = split(vim.bo.commentstring, "%%s")
-			local start_comment_string = comment_strings[1] or ""
-			local end_comment_string = comment_strings[2] or ""
-			local indent_length = Get_indent_depth()
-			local fill_char = "."
-			local start_text = start_comment_string
-			local end_text = "  " .. string.upper(args[1][1]):gsub("%s+", "_") .. "  ..." .. end_comment_string
-			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
-		end, { 1 }),
-		t({ "", "" }),
-		d(2, get_visual),
-		t({ "", "" }),
-		func(function(args)
-			local comment_strings = split(vim.bo.commentstring, "%%s")
-			local start_comment_string = comment_strings[1] or ""
-			local end_comment_string = comment_strings[2] or ""
-			local indent_length = Get_indent_depth()
-			local fill_char = "."
-			local start_text = start_comment_string
-			local end_text = " »" .. string.upper(args[1][1]):gsub("%s+", "_") .. "« ..." .. end_comment_string
-			return Fill_between_with_char(80, start_text, end_text, fill_char, indent_length)
-		end, { 1 }),
+	s({ trig = "cc3", snippetType = "autosnippet" }, {
+		t({ "" }),
+		d(3, function(args)
+			-- the returned snippetNode doesn't need a position; it's inserted
+			-- "inside" the dynamicNode.
+			return sn(nil, {
+				t({ "" }),
+				func(function(args)
+					local comment_strings = split(vim.bo.commentstring, "%%s")
+					local start_comment_string = comment_strings[1] or ""
+					local indent_length = Get_indent_depth()
+					local fill_char = "-"
+
+					local length = #args[1][1] + #args[2][1]
+
+					return Fill_between_with_char(
+						80 - length,
+						start_comment_string .. " ",
+						"  ",
+						fill_char,
+						indent_length
+					)
+				end, { k("end"), k("name") }),
+			})
+		end, { 2 }),
+		insert(1, "", { key = "name" }),
+		d(2, function(args)
+			-- the returned snippetNode doesn't need a position; it's inserted
+			-- "inside" the dynamicNode.
+			return sn(nil, {
+				t({ "" }),
+				func(function(args)
+					local comment_strings = split(vim.bo.commentstring, "%%s")
+					local end_string = "  -------"
+					if comment_strings[2] then
+						end_string = end_string .. " " .. comment_strings[2]
+					end
+					return end_string
+				end, { k("name") }),
+			})
+		end, { 1 }, { key = "end" }),
+		t({ "" }),
 	}),
 })
 

@@ -91,8 +91,6 @@ local plugins = {
 	},
 	-- <==========================================================>  EXTERN  <======
 	-- =======  NAVIGATION  =====================================================>
-	-- Aerial
-	{ "stevearc/aerial.nvim" },
 	-- Neotree
 	{ "nvim-tree/nvim-web-devicons" },
 	{
@@ -270,7 +268,6 @@ require("plugins.minimove")
 require("plugins.hover")
 require("plugins.chatgpt")
 require("plugins.marks")
-require("plugins.aerial")
 require("plugins.spectre")
 
 -- require("plugins.tabnine")
