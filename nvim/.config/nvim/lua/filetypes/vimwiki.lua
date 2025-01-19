@@ -3,7 +3,7 @@
 vim.api.nvim_create_autocmd("BufWritePost", {
 	pattern = "*.md",
 	callback = function()
-		local cmd = "task sync > /dev/null"
+		local cmd = "task sync > /dev/null &"
 		local output = vim.fn.system(cmd)
 
 		local exit_code = vim.v.shell_error
