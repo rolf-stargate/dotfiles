@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+$(cd ~/wiki/sec && git pull && git commit -m "UPDATE" && git push)
+$(cd ~/wiki/docu && git pull && git commit -m "UPDATE" && git push)
+$(cd ~/wiki/tasks && git pull && git commit -m "UPDATE" && git push)

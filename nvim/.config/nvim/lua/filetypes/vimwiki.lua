@@ -87,7 +87,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		-- <===============================================  MARKDOWN TABLE  =======
 		vim.keymap.set(
 			"n",
-			"<leader>dd",
+			"<leader>cd",
 			":VimwikiTable ",
 			{ buffer = true, noremap = true, desc = "Create 3x3 table" }
 		)
