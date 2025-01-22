@@ -280,6 +280,9 @@ assign [class="looking-glass-client"]		  → VM
 assign [class="asprite"] 						      → Paint
 assign [class="rnote"] 			   			      → Paint
 
+# GAMEDEV Window
+assign [title=".*GAME$"]						        → 9
+
 
 #####################################################################################################################
 #################           autostart   -    execute applications at boot time                      #################

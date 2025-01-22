@@ -214,7 +214,7 @@ alias fix-key="[ -d ~/.gnupg ] || mkdir ~/.gnupg ; cp /etc/pacman.d/gnupg/gpg.co
 
 # reporting tools - install when not installed
 # install neofetch
-neofetch
+# neofetch
 # install screenfetch
 #screenfetch
 # install ufetch-git
