@@ -443,7 +443,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease
 
 
 #new_window pixel 1
-default_border none
+default_border pixel
 #new_window none
 
 #new_float pixel 1
@@ -470,8 +470,11 @@ popup_during_fullscreen smart
 
 
 for_window [class="^.*"] border pixel 2
-gaps outer 1
-#smart_gaps on
+gaps inner 2
+gaps outer 2
+gaps horizontal 5
+# hide_edge_borders both
+smart_gaps on
 #smart_borders on
 
 
@@ -603,9 +606,9 @@ bar {
     # Window color settings
     # class                 border  backgr. text    indicator
     client.focused          #9500FF #9500FF #FF00Bc #004050
-    client.unfocused        #14001E #14001E #cccccc #004050
-    client.focused_inactive #14001E #14001E #cccccc #004050
-    client.placeholder      #14001E #14001E #cccccc #004050
+    client.unfocused        #3D376F #3D3767 #cccccc #004050
+    client.focused_inactive #3D3767 #3D3767 #cccccc #004050
+    client.placeholder      #3D3767 #3D3767 #cccccc #004050
     client.urgent           #900000 #900000 #ffffff #900000
 
     client.background       #242424
