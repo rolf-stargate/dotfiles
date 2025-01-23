@@ -474,7 +474,7 @@ gaps inner 2
 gaps outer 2
 gaps horizontal 5
 # hide_edge_borders both
-smart_gaps on
+# smart_gaps on
 #smart_borders on
 
 
