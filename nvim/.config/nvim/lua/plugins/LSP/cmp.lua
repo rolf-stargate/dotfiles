@@ -120,6 +120,7 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
+		{ name = "minuet" },
 		{ name = "omni", option = {
 			disable_omnifuncs = {},
 		} },
