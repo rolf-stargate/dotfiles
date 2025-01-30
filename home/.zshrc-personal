@@ -102,7 +102,6 @@ export PATH="/home/rolf/scripts:/home/rolf/.cargo/bin:$PATH"
 # ===============================================================  PATH  =======
 
 # =======  ENVIRONMENT  ========================================================
-export FZF_BASE=/path/to/fzf/install/dir
 export HARSHPATH="$HOME/.config/harsh"
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#00ccff,bg:#130018,hl:#ff66e0 --color=fg+:#fabbfc,bg+:#130018,hl+:#c9ff00 --color=info:#ad8484,prompt:#0f8bff,pointer:#af5fff --color=marker:#87ff00,spinner:#997db5,header:#4e5975'

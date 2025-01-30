@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
+Purple='\033[0;35m' 
+Red='\033[0;31m'
+Nc='\033[0m' # No Color
 
-$(cd ~/wiki/sec && git pull && git commit -m "UPDATE" && git push)
-$(cd ~/wiki/docu && git pull && git commit -m "UPDATE" && git push)
-$(cd ~/wiki/tasks && git pull && git commit -m "UPDATE" && git push)
+(cd ~/wiki/sec \
+  && echo -e "${Purple}Syncing Sec Wiki:${Nc}\n" \
+  && git pull && git add -A && git commit -m "UPDATE" && git push origin main)
+
+(cd ~/wiki/docu \
+  && echo -e "$\n${Purple}Syncing Docu Wiki${Nc}\n" \
+  && git pull && git add -A && git commit -m "UPDATE" && git push origin main)
+
+(cd ~/wiki/tasks \
+  && echo -e "\n${Purple}Syncing Tasks Wiki${Nc}\n" \
+  && git pull && git add -A && git commit -m "UPDATE" && git push origin main)
+

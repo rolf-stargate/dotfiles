@@ -78,7 +78,7 @@ ZSH_THEME="kphoen"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git enhancd dirhistory fzf)
+plugins=(git enhancd dirhistory)
 # enhancd simply clone git and move to .oh-my-zsh/plugins
 
 # zsh-fzf-history-search
