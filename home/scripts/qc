@@ -1,0 +1,9 @@
+pushd ~/dotfiles/ > /dev/null
+git pull &&
+$EDITOR ~/dotfiles/qutebrowser/config.py &&
+git add -A &&
+git commit -m "Update" &&
+git push
+popd > /dev/null
+
+
