@@ -41,6 +41,11 @@ local plugins = {
 	-- =======  LLMS  ===========================================================>
 	-- ChatGpt
 	{ "robitx/gp.nvim" }, -- LLM integration
+	{
+		"frankroeder/parrot.nvim",
+		dependencies = { "ibhagwan/fzf-lua", "nvim-lua/plenary.nvim" },
+		opts = {},
+	},
 	-- Copilot
 	-- { "zbirenbaum/copilot-cmp", after = { "copilot.lua", "nvim-cmp" }},
 	-- { "zbirenbaum/copilot.lua" },

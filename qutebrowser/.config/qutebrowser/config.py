@@ -330,7 +330,7 @@ c.colors.statusbar.caret.selection.bg = '#a12dff'
 
 ## Background color of the statusbar in insert mode.
 ## Type: QssColor
-# c.colors.statusbar.insert.bg = 'darkgreen'
+c.colors.statusbar.insert.bg = '#A47AD6'
 
 ## Foreground color of the statusbar in insert mode.
 ## Type: QssColor

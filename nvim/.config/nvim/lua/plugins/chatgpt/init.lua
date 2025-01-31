@@ -6,13 +6,13 @@ require("gp").setup({
 	command_prompt_prefix_template = "KI {{agent}} ~ ",
 	providers = {
 		deepseek = {
-			endpoint = "https://api.deepseek.com/v1",
+			endpoint = "https://api.deepseek.com/v1/chat/completions",
 			secret = os.getenv("DEEPSEEK_API_KEY"),
 		},
 	},
 	agents = {
 		{
-			name = "ChatGPT-4o",
+			name = "DeepSeek",
 			provider = "deepseek",
 			chat = true,
 			command = false,
@@ -28,17 +28,6 @@ require("gp").setup({
 				.. "- Use Socratic method to improve your thinking and coding skills.\n"
 				.. "- Don't elide any code from your output if the answer requires coding.\n"
 				.. "- Take a deep breath; You've got this!\n",
-		},
-		{
-			name = "CodeGPT-4o-Code",
-			chat = false,
-			command = true,
-			-- string with model name or table with model name and parameters
-			model = { model = "gpt-4o", temperature = 0.8, top_p = 1 },
-			-- system prompt (use this to specify the persona/role of the AI)
-			system_prompt = "You are an AI working as a code editor.\n\n"
-				.. "Please AVOID COMMENTARY OUTSIDE OF THE SNIPPET RESPONSE.\n"
-				.. "START AND END YOUR ANSWER WITH:\n\n```",
 		},
 	},
 	hooks = {
@@ -92,7 +81,7 @@ require("gp").setup({
 			gp.Prompt(params, gp.Target.rewrite, agent, template)
 		end,
 		Spelling = function(gp, params)
-			local template = "I have the following bullet points from {{filename}}:\n\n"
+			local template = "I have the following text from {{filename}}:\n\n"
 				.. "```{{filetype}}\n{{selection}}\n```\n\n"
 				.. "Please correct the spelling and punctuation."
 			local agent = gp.get_command_agent()
@@ -116,12 +105,12 @@ require("gp").setup({
 			handle:close()
 			local template = "I have the following text from {{filename}}:\n\n"
 				.. "```{{filetype}}\n{{selection}}\n```\n\n"
-				.. "and the following colen-separated list of used tags in the current wiki:\n\n"
+				.. "and the following colon-separated list of used tags in the current wiki:\n\n"
 				.. ":"
 				.. tags
 				.. ":"
 				.. "\n\n"
-				.. "Please give me an appropriate, colon-separated list of tags for the given context. You can add new ones if necessary but should prefer the one in the given list. Give me the list in the following format :tag1:tag2:tag3: Give me only the list!"
+				.. "Please give me an appropriate, colon-separated list of tags for the given context. You can add new ones if necessary but should strongly prefer to pick fitting ones from the given list. Give me the list in the following format :tag1:tag2:tag3: Give me only the list!"
 			local agent = gp.get_chat_agent()
 			gp.Prompt(params, gp.Target.prepend, agent, template)
 		end,
