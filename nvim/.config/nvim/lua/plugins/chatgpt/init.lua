@@ -4,13 +4,20 @@ require("gp").setup({
 	chat_user_prefix = "*Rolf*:",
 	chat_assistant_prefix = { "KI:", "[{{agent}}]" },
 	command_prompt_prefix_template = "KI {{agent}} ~ ",
+	providers = {
+		deepseek = {
+			endpoint = "https://api.deepseek.com/v1",
+			secret = os.getenv("DEEPSEEK_API_KEY"),
+		},
+	},
 	agents = {
 		{
 			name = "ChatGPT-4o",
+			provider = "deepseek",
 			chat = true,
 			command = false,
 			-- string with model name or table with model name and parameters
-			model = { model = "gpt-4o", temperature = 1.1, top_p = 1 },
+			model = { model = "deepseek-chat" },
 			-- system prompt (use this to specify the persona/role of the AI)
 			system_prompt = "You are a general AI assistant.\n\n"
 				.. "The user provided the additional info about how they would like you to respond:\n\n"

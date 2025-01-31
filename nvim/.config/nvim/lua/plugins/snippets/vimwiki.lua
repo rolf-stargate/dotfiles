@@ -212,6 +212,27 @@ ls.add_snippets("vimwiki", {
 		t({ "", "" }),
 	}),
 })
+
+-- **insert1**: insert2
+ls.add_snippets("vimwiki", {
+	s({ trig = "b::", snippetType = "autosnippet" }, {
+		dscr = "**[1]**: [2]",
+		t({ "**" }),
+		insert(1),
+		t({ "**: " }),
+		insert(2),
+	}),
+})
+
+ls.add_snippets("vimwiki", {
+	s({ trig = "i::", snippetType = "autosnippet" }, {
+		dscr = "*[1]*: [2]",
+		t({ "*" }),
+		insert(1),
+		t({ "*: " }),
+		insert(2),
+	}),
+})
 -- <=========================================================  SNIPPETS  =======
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- <--(«|/////////////////////////////////|__ VIMWIKI/MARKDOWN SNIPPETS __|////|

@@ -326,8 +326,8 @@ exec --no-startup-id rnote
 #####################################################################################################################
 
 #not workspace related
-bindsym $mod+B exec --no-startup-id brave
 bindsym $mod+b exec --no-startup-id qutebrowser
+bindsym $mod+Shift+b exec --no-startup-id brave
 
 # Network
 bindsym mod1+n exec --no-startup-id ronema

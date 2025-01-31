@@ -515,7 +515,8 @@ nnoremap b :bmarks<cr>
 nnoremap B :bmark
 
 " Quit
-nnoremap q :!echo %d > ~/.config/vifm/lastdir<cr> :q<cr>
+nnoremap q :q<cr>
+nnoremap cq :!echo %d > ~/.config/vifm/lastdir<cr> :q<cr>
 
 " Rotate Image
 command! RotateJpegCounterClockwise :if count(selectedfiles(), '') > 0 | execute '!' 'for f in %f; do jpegtran -copy all -rotate 270 -outfile "$f" "$f"; done' | else |silent execute '!' 'jpegtran -copy all -rotate 270 -outfile %:p %:p' | endif | redraw
