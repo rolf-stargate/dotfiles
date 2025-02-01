@@ -1,11 +1,15 @@
 require("parrot").setup({
 	providers = {
+		openai = {
+			api_key = os.getenv("OPENAI_API_KEY"),
+		},
 		deepseek = {
 			style = "openai",
 			api_key = os.getenv("DEEPSEEK_API_KEY"),
-			endpoint = "https://api.deepseek.com/v1/chat/completions",
+			endpoint = "https://api.deepseek.com",
 			models = {
 				"deepseek-chat",
+				"deepseek-reasoner",
 			},
 			-- parameters to summarize chat
 			topic = {

@@ -39,18 +39,11 @@ local plugins = {
 	-- <======================================================  UTILITIES  =======
 
 	-- =======  LLMS  ===========================================================>
-	-- ChatGpt
-	{ "robitx/gp.nvim" }, -- LLM integration
-	{
+--  ---------------------------------------------------------------    -------	{
 		"frankroeder/parrot.nvim",
+		event = "VeryLazy",
 		dependencies = { "ibhagwan/fzf-lua", "nvim-lua/plenary.nvim" },
-		opts = {},
 	},
-	-- Copilot
-	-- { "zbirenbaum/copilot-cmp", after = { "copilot.lua", "nvim-cmp" }},
-	-- { "zbirenbaum/copilot.lua" },
-	-- Tabnine
-	-- { "codota/tabnine-nvim", build = "./dl_binaries.sh" },
 	{
 		"yetone/avante.nvim",
 		event = "VeryLazy",
@@ -110,6 +103,14 @@ local plugins = {
 			},
 		},
 	},
+  --  ---------------------------------------------------------  Unused  -------
+	-- { "robitx/gp.nvim" }, -- LLM integration
+	-- Copilot
+	-- { "zbirenbaum/copilot-cmp", after = { "copilot.lua", "nvim-cmp" }},
+	-- { "zbirenbaum/copilot.lua" },
+	-- Tabnine
+	-- { "codota/tabnine-nvim", build = "./dl_binaries.sh" },
+  --  ---------------------------------------------------------  Unused  -------
 	-- <===========================================================  LLMS  =======
 
 	-- =======  APPEARANCE  =====================================================>

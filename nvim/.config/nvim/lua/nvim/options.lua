@@ -94,7 +94,8 @@ vim.api.nvim_create_autocmd({ "BufLeave" }, {
 -- ====================================================== »STATUSCOLUMN« =======
 
 function MyFoldText()
-	local indent_depth = Get_indent_depth()
+	-- local indent_depth = Get_indent_depth()
+	local indent_depth = 0
 	local fill_char = "<"
 	local first_line = vim.fn.getline(vim.v.foldstart)
 	if vim.fn.strdisplaywidth(first_line) > 15 then
