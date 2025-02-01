@@ -47,31 +47,6 @@ local plugins = {
 	-- Tabnine
 	-- { "codota/tabnine-nvim", build = "./dl_binaries.sh" },
 	{
-		"milanglacier/minuet-ai.nvim",
-		config = function()
-			require("minuet").setup({
-				provider = "openai_compatible",
-				provider_options = {
-					openai_fim_compatible = {
-						model = "deepseek-chat",
-						end_point = "https://api.deepseek.com/beta/completions",
-						api_key = "DEEPSEEK_API_KEY",
-						name = "Deepseek",
-						stream = true,
-						-- template = {
-						-- 	prompt = "See [Prompt Section for default value]",
-						-- 	suffix = "See [Prompt Section for default value]",
-						-- },
-						optional = {
-							stop = 256,
-							top_p = 0.9,
-						},
-					},
-				},
-			})
-		end,
-	},
-	{
 		"yetone/avante.nvim",
 		event = "VeryLazy",
 		lazy = false,
@@ -87,6 +62,9 @@ local plugins = {
 				max_tokens = 4096,
 				-- optional
 				api_key_name = "DEEPSEEK_API_KEY", -- default OPENAI_API_KEY if not set
+			},
+			windows = {
+				position = "bottom",
 			},
 		},
 		-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
