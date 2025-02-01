@@ -335,7 +335,7 @@ require("plugins.snippets")
 require("plugins.markdown")
 require("plugins.minimove")
 require("plugins.hover")
-require("plugins.chatgpt")
+require("plugins.LLM")
 require("plugins.marks")
 require("plugins.spectre")
 

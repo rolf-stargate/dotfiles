@@ -8,6 +8,7 @@ config_version: 2
 settings:
   content.javascript.clipboard:
     https://academy.hackthebox.com: access-paste
+    https://github.com: access-paste
   content.notifications.enabled:
     https://www.autoscout24.de: false
     https://www.youtube.com: false
