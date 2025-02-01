@@ -22,6 +22,16 @@ function Gen_uuid(len)
 	return table.concat(uuid)
 end
 
+-- Add Leading Zeros
+function Add_leading_zeros(num, length)
+	local num_str = tostring(num)
+	local zeros_needed = length - #num_str
+	if zeros_needed > 0 then
+		return string.rep("0", zeros_needed) .. num_str
+	end
+	return num_str
+end
+
 -- Get Window Width
 Get_window_width = function()
 	local width = vim.fn.winwidth(0)

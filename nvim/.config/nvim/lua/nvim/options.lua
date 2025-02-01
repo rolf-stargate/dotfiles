@@ -112,6 +112,7 @@ function MyFoldText()
 	local banner_half = banner_length / 2
 	local start_end_length = 40 - banner_half
 	local fold_line_count = vim.fn.foldclosedend(vim.v.foldstart) - vim.fn.foldclosed(vim.v.foldstart) + 1
+	fold_line_count = Add_leading_zeros(fold_line_count, 5)
 
 	local _start = Fill_between_with_char(start_end_length, ">", "<", "<", indent_depth)
 	local _end = Fill_between_with_char(start_end_length, ">", fold_line_count .. "<", ">", 0)
