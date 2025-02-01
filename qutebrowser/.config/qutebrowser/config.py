@@ -2201,7 +2201,7 @@ c.prompt.filebrowser = True
 # c.zoom.text_only = False
 
 ## Bindings for normal mode
-config.bind("gv", 'hint links spawn mpv {hint-url}')
+config.bind("av", 'hint links spawn ~/.config/mpv/scripts/umpv {hint-url}')
 config.bind('e', 'edit-url')
 # config.bind("'", 'mode-enter jump_mark')
 # config.bind('+', 'zoom-in')
