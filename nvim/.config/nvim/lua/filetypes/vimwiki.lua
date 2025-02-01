@@ -128,8 +128,8 @@ vim.api.nvim_create_autocmd("FileType", {
 		)
 		vim.keymap.set(
 			"n",
-			"<leader>op",
-			':!pandoc % --from=markdown --output=%:h/out/%:t:r.pdf --variable=geometry:"margin=3cm, a4paper" && brave %:h/out/%:t:r.pdf<cr><cr>u:w<cr>:nohl<cr>',
+			"<leader>od",
+			':!pandoc % --from=markdown --output=%:h/out/%:t:r.pdf --variable=geometry:"margin=3cm, a4paper" && brave %:h/out/%:t:r.pdf<cr>',
 			{ buffer = true, noremap = true, desc = "Documentation" }
 		)
 		-- <=====================================  MARKDOWN TO LATEX TO PDF  =======

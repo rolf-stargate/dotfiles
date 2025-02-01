@@ -121,6 +121,7 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "minuet" },
+		{ name = "render-markdown" },
 		{ name = "omni", option = {
 			disable_omnifuncs = {},
 		} },

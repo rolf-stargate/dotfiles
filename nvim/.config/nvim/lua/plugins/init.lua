@@ -41,6 +41,11 @@ local plugins = {
 	-- =======  LLMS  ===========================================================>
 	-- ChatGpt
 	{ "robitx/gp.nvim" }, -- LLM integration
+	{
+		"frankroeder/parrot.nvim",
+		dependencies = { "ibhagwan/fzf-lua", "nvim-lua/plenary.nvim" },
+		opts = {},
+	},
 	-- Copilot
 	-- { "zbirenbaum/copilot-cmp", after = { "copilot.lua", "nvim-cmp" }},
 	-- { "zbirenbaum/copilot.lua" },
@@ -99,9 +104,9 @@ local plugins = {
 				-- Make sure to set this up properly if you have lazy=true
 				"MeanderingProgrammer/render-markdown.nvim",
 				opts = {
-					file_types = { "markdown", "Avante" },
+					file_types = { "markdown", "Avante", "vimwiki" },
 				},
-				ft = { "markdown", "Avante" },
+				ft = { "markdown", "Avante", "vimwiki" },
 			},
 		},
 	},

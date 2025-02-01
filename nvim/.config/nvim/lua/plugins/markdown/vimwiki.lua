@@ -83,6 +83,11 @@ function Paste_Image_From_Clipboard()
 	local file_name_uuid = Gen_uuid(5)
 	print(file_name_uuid)
 
+	local img_dir = buffer_path .. "/img"
+	if vim.fn.isdirectory(img_dir) == 0 then
+		os.execute("mkdir -p " .. img_dir)
+	end
+
 	os.execute("xclip -selection clipboard -t image/png -o > '" .. buffer_path .. "/img/" .. file_name_uuid .. ".png'")
 
 	local link = "![Image](./img/" .. file_name_uuid .. ".png)"
@@ -90,7 +95,7 @@ function Paste_Image_From_Clipboard()
 end
 
 -- function delete image under cursor
-function Delete_image_from_link()
+function Delete_Image_From_Link()
 	local line = vim.api.nvim_get_current_line()
 	local buffer_path = vim.fn.expand("%:p:h")
 
@@ -129,13 +134,13 @@ vim.api.nvim_create_autocmd("FileType", {
 			"n",
 			"<Leader>wP",
 			":lua Paste_Image_From_Clipboard()<CR>",
-			{ noremap = true, desc = "Paste image from clipboard" }
+			{ noremap = true, desc = "Paste Image From Clipboard" }
 		)
 		vim.keymap.set(
 			"n",
 			"<Leader>wD",
-			":lua Delete_image_from_link()<CR>",
-			{ noremap = true, desc = "Paste image from clipboard" }
+			":lua Delete_Image_From_Link()<CR>",
+			{ noremap = true, desc = "Delete Image From Link" }
 		)
 
 		vim.keymap.set(
