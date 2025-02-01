@@ -68,6 +68,9 @@ local plugins = {
 				-- optional
 				api_key_name = "DEEPSEEK_API_KEY", -- default OPENAI_API_KEY if not set
 			},
+			windows = {
+				position = "bottom",
+			},
 		},
 		-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
 		build = "make",
