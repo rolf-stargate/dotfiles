@@ -228,7 +228,7 @@ require("render-markdown").setup({
 	},
 	dash = {
 		-- Turn on / off thematic break rendering
-		enabled = true,
+		enabled = false,
 		-- Additional modes to render dash
 		render_modes = false,
 		-- Replaces '---'|'***'|'___'|'* * *' of 'thematic_break'
@@ -247,7 +247,7 @@ require("render-markdown").setup({
 	},
 	bullet = {
 		-- Turn on / off list bullet rendering
-		enabled = false,
+		enabled = true,
 		-- Additional modes to render list bullets
 		render_modes = false,
 		-- Replaces '-'|'+'|'*' of 'list_item'

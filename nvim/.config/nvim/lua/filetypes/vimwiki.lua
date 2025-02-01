@@ -94,10 +94,6 @@ vim.api.nvim_create_autocmd("FileType", {
 		-- <===============================================  MARKDOWN TABLE  =======
 
 		-- <==================================================  BOLD ITALIC  =======
-		vim.keymap.set("n", "<leader>b", "i****<esc>ji", { buffer = true, noremap = true, desc = "Start Writing Bold" })
-
-		vim.keymap.set("n", "<leader>i", "i**<esc>i", { buffer = true, noremap = true, desc = "Start Writing Italic" })
-
 		vim.keymap.set(
 			"v",
 			"<leader>b",
