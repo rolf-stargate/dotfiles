@@ -39,14 +39,14 @@ local plugins = {
 	-- <======================================================  UTILITIES  =======
 
 	-- =======  LLMS  ===========================================================>
-  --  ---------------------------------------------------------  Unused  -------
+	--  ---------------------------------------------------------  Unused  -------
 	-- { "robitx/gp.nvim" }, -- LLM integration
 	-- Copilot
 	-- { "zbirenbaum/copilot-cmp", after = { "copilot.lua", "nvim-cmp" }},
 	-- { "zbirenbaum/copilot.lua" },
 	-- Tabnine
 	-- { "codota/tabnine-nvim", build = "./dl_binaries.sh" },
-  --  ---------------------------------------------------------  Unused  -------
+	--  ---------------------------------------------------------  Unused  -------
 	{
 		"frankroeder/parrot.nvim",
 		event = "VeryLazy",

@@ -21,5 +21,25 @@ require("parrot").setup({
 				command = { temperature = 1.1, top_p = 1 },
 			},
 		},
-	}, -- Providers must be explicitly added to make them available.
+	},
+	chat_user_prefix = "**Rolf**:",
+	llm_prefix = "*Computer*:",
+	toggle_target = "split",
+	command_prompt_prefix_template = "{{llm}} ~ ",
+	hooks = {
+		SpellCheck = function(prt, params)
+			local chat_prompt = [[
+        Your task is to take the text provided and rewrite it into a clear,
+        grammatically correct version while preserving the original meaning
+        as closely as possible. Correct any spelling mistakes, punctuation
+        errors, verb tense issues, word choice problems, and other
+        grammatical mistakes.
+
+        Provided text:
+        ```{{selection}}`
+      ]]
+			local model_obj = prt.get_model("command")
+			prt.Prompt(params, prt.ui.Target.append, model_obj, nil, template)
+		end,
+	},
 })
