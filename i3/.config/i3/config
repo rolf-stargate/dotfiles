@@ -32,10 +32,10 @@
 # Mod4 = Windows or Super key on keyboard
 # Mod1 = Alt key on keyboard
 
-#Set Alt key
-#set $mod Mod1
+# Set Alt key
+# Set $mod Mod1
 
-#set Super key
+# Set Super key
 set $mod Mod4
 
 
@@ -45,7 +45,7 @@ set $mod Mod4
 #####################################################################################################################
 
 
-#This is setup for qwerty
+# This is setup for qwerty
 set $up k
 set $down j
 set $left h
@@ -103,8 +103,8 @@ bindsym $mod+d exec --no-startup-id rofi -show drun -font "Noto Sans 13"
 #################                          how to exit, logoff, suspend, ...                        #################
 #####################################################################################################################
 
-#Backup exit
-#Press ctrl+alt+x - check toolbar for next choices
+# Backup exit
+# Press ctrl+alt+x - check toolbar for next choices
 bindsym $mod+Shift+e mode "$mode_system"
 
 set $mode_system System (k) lock, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
@@ -213,7 +213,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+# Bindsym $mod+d focus child
 
 #####################################################################################################################
 #################                          resize                                                   #################
@@ -247,8 +247,8 @@ bindsym $mod+Right exec --no-startup-id /home/rolf/.cargo/bin/easy-i3-neovim-nav
 # is used in the bar {} block below.
 # choose your font
 font pango:Fira Code Bold 10
-#font pango:IBM 3161 bitmap Regular 13
-#font pango:Anonymous Pro Regular 13
+# Font pango:IBM 3161 bitmap Regular 13
+# Font pango:Anonymous Pro Regular 13
 
 
 #####################################################################################################################
@@ -294,17 +294,17 @@ assign [title=".*GAME$"]						        → 9
 exec --no-startup-id ~/.config/i3/scripts/i3-alternating-layout/alternating_layouts.py
 
 
-#Discord
+# Discord
 # exec --no-startup-id discord
 
-#Brave
-exec --no-startup-id sleep 1 && i3-msg 'workspace 9; exec brave'
-exec --no-startup-id sleep 2 && i3-msg 'workspace 7; exec brave'
+# Browser
+exec --no-startup-id sleep 1 && i3-msg 'workspace 9; exec qutebrowser'
+exec --no-startup-id sleep 2 && i3-msg 'workspace 7; exec qutebrowser'
 
-#Mail
+# Mail
 exec --no-startup-id sleep 3 && i3-msg 'workspace Com; exec evolution'
 
-#feh sets wallpaper
+# Feh sets wallpaper
 exec --no-startup-id feh --bg-fill ~/black.jpg
 
 # TRAY APPLICATIONS
@@ -325,7 +325,7 @@ exec --no-startup-id rnote
 #################                          applications keyboard shortcuts                          #################
 #####################################################################################################################
 
-#not workspace related
+# Not workspace related
 bindsym $mod+b exec --no-startup-id qutebrowser
 bindsym $mod+Shift+b exec --no-startup-id brave
 
@@ -345,7 +345,7 @@ bindsym $mod+KP_Enter exec --no-startup-id kitty;focus
 #################                          screenshots                                              #################
 #####################################################################################################################
 
-#screenshots
+# Screenshots
 bindsym mod1+s exec --no-startup-id flameshot gui 
 
 #####################################################################################################################
@@ -359,7 +359,7 @@ for_window [instance="^GpChat$"] move position center
 for_window [instance="^GpChat$"] move scratchpad
   bindsym mod1+a [instance="^GpChat$"] scratchpad show 
 
-#Password Manager
+# Password Manager
 for_window [class="keepassxc"] floating enable
 for_window [class="keepassxc"] resize set 1000 1150
 for_window [class="keepassxc"] move position center
@@ -367,35 +367,35 @@ for_window [class="keepassxc"] move scratchpad
 bindsym mod1+p [class="keepassxc"] scratchpad show 
 
 
-#Calculator
+# Calculator
 for_window [class="SpeedCrunch"] floating enable
 for_window [class="SpeedCrunch"] resize set 400 800
 for_window [class="SpeedCrunch"] move position center
 for_window [class="SpeedCrunch"] move scratchpad
 bindsym mod1+c [class="SpeedCrunch"] scratchpad show 
 
-#Volume/Sound
+# Volume/Sound
 for_window [title="^pulsemixer$"] floating enable
 for_window [title="^pulsemixer$"] resize set 900 500
 for_window [title="^pulsemixer$"] move position center
 for_window [title="^pulsemixer$"] move scratchpad
 bindsym mod1+v [title="^pulsemixer$"] scratchpad show 
 
-#Task Manager
+# Task Manager
 for_window [title="^htop$"] floating enable
 for_window [title="^htop$"] resize set 1000 1000
 for_window [title="^htop$"] move position center
 for_window [title="^htop$"] move scratchpad
 bindsym mod1+t [title="^htop$"] scratchpad show 
 
-#Bluetooth
+# Bluetooth
 for_window [title="^bluetuith$"] floating enable
 for_window [title="^bluetuith$"] resize set 1000 1000
 for_window [title="^bluetuith$"] move position center
 for_window [title="^bluetuith$"] move scratchpad
 bindsym mod1+x [title="^bluetuith$"] scratchpad show 
 
-#XP-PEN
+# XP-PEN
 for_window [class="PenTablet"] floating enable
 for_window [class="PenTablet"] move position center
 for_window [class="PenTablet"] move scratchpad
@@ -461,7 +461,7 @@ default_floating_border normal
 #################                          Popups  control                                          #################
 #####################################################################################################################
 
-#Popups during fullscreen mode
+# Popups during fullscreen mode
 popup_during_fullscreen smart
 
 
@@ -531,7 +531,7 @@ mode "$mode_gaps_outer" {
 #################                          picom of i3wm                                          #################
 #####################################################################################################################
 
-#if you want transparency on non-focused windows, ...
+# If you want transparency on non-focused windows, ...
 exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
 
 bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
@@ -604,10 +604,10 @@ bar {
         }
 
     }
-    ##STOP THEMING BAR
+    ## STOP THEMING BAR
 
-    ##START THEMING WM
-    #Theme name : ArcoLinux Archive
+    ## START THEMING WM
+    # Theme name : ArcoLinux Archive
 
     # Window color settings
     # class                 border  backgr. text    indicator
@@ -619,7 +619,7 @@ bar {
 
     client.background       #242424
 
-    ##STOP THEMING WM
+    ## STOP THEMING WM
 
 #####################################################################################################################
 #####################################################################################################################

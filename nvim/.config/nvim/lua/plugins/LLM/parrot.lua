@@ -12,10 +12,10 @@ require("parrot").setup({
 				"deepseek-reasoner",
 			},
 			-- parameters to summarize chat
-			topic = {
-				model = "DeepSeekV1",
-				params = { max_completion_tokens = 64 },
-			},
+			-- topic = {
+			-- 	model = "DeepSeekV1",
+			-- 	params = { max_completion_tokens = 64 },
+			-- },
 			params = {
 				chat = { temperature = 1.1, top_p = 1 },
 				command = { temperature = 1.1, top_p = 1 },
