@@ -28,6 +28,17 @@ require("parrot").setup({
 	command_prompt_prefix_template = "{{llm}} ~ ",
 
 	hooks = {
+		ShortDescription = function(prt, params)
+			local template = [[
+        Your task is to write a short describtion of the selected text.
+        Be pecise, descriptive and concise.
+
+        Provided text:
+        ```{{selection}}`
+      ]]
+			local model_obj = prt.get_model("command")
+			prt.Prompt(params, prt.ui.Target.append, model_obj, nil, template)
+		end,
 		VimwikiTags = function(prt, params)
 			local pwd = vim.fn.getcwd()
 			local cmd = "find "
