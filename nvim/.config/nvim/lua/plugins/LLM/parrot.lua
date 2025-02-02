@@ -30,8 +30,10 @@ require("parrot").setup({
 	hooks = {
 		ShortDescription = function(prt, params)
 			local template = [[
-        Your task is to write a short describtion of the selected text.
-        Be pecise, descriptive and concise.
+        Your task is to write a short description of the selected text. Be
+        precise, descriptive, and concise. Focus on capturing the key points
+        and main ideas while maintaining clarity and brevity. Ensure the
+        description is well-structured and easy to understand.
 
         Provided text:
         ```{{selection}}`
