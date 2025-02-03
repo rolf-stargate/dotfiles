@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# change this variable to the theme you prefer
+theme="default/default"
+
+theme_dir="~/.local/share/rofi/themes/$theme"
+
+rofi \
+    -show drun \
+    -terminal $term \
+    -kb-cancel Escape \
+    -theme $theme_dir

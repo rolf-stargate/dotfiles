@@ -337,10 +337,7 @@ bindsym $mod+Return exec --no-startup-id kitty;focus
 bindsym $mod+KP_Enter exec --no-startup-id kitty;focus
 
 # Passhole
-bindsym $mod1+p exec "ph type --prog rofi"
-
-# select entry using dmenu, then send username + password to keyboard
-bindsym $mod1+Shift+p exec "ph type --tabbed --prog rofi"
+bindsym mod1+p exec  --no-startup-id "keepmenu"
 
 # Rnote
 
