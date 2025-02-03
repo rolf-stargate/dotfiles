@@ -336,8 +336,11 @@ bindsym mod1+n exec --no-startup-id ronema
 bindsym $mod+Return exec --no-startup-id kitty;focus
 bindsym $mod+KP_Enter exec --no-startup-id kitty;focus
 
-# Keepassxc
-# bindsym mod1+p exec --no-startup-id KeePassXC
+# Passhole
+bindsym $mod1+p exec "ph type --prog rofi"
+
+# select entry using dmenu, then send username + password to keyboard
+bindsym $mod1+Shift+p exec "ph type --tabbed --prog rofi"
 
 # Rnote
 
@@ -358,14 +361,6 @@ for_window [instance="^GpChat$"] resize set 1000 1050
 for_window [instance="^GpChat$"] move position center
 for_window [instance="^GpChat$"] move scratchpad
 bindsym mod1+a [instance="^GpChat$"] scratchpad show 
-
-# Password Manager
-for_window [class="KeePassXC"] floating enable
-for_window [class="KeePassXC"] resize set 1000 1150
-for_window [class="KeePassXC"] move position center
-for_window [class="KeePassXC"] move scratchpad
-bindsym mod1+p [class="KeePassXC"] scratchpad show 
-
 
 # Calculator
 for_window [class="SpeedCrunch"] floating enable
