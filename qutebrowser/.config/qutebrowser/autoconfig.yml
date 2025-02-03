@@ -12,3 +12,5 @@ settings:
   content.notifications.enabled:
     https://www.autoscout24.de: false
     https://www.youtube.com: false
+  content.register_protocol_handler:
+    https://mail.proton.me#mailto=%25s: true
