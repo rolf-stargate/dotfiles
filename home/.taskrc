@@ -11,6 +11,9 @@
 # You can also refence environment variables:
 #   variable=$HOME/task
 #   variable=$VALUE
+sync.server.url=https://rolf-stargate.com
+sync.server.client_id=$TASK_SERVER_CLIENT_ID
+sync.encryption_secret=$TASK_SERVER_SECRET
 
 # Use the command 'task show' to see all defaults and overrides
 
@@ -146,8 +149,5 @@ context.office.read=+office
 context.office.write=+office
 context.habit.read=+habit
 context.habit.write=+habit
-
 context.default.read=-fun -wiki
-sync.server.url=https://rolf-stargate.com
-sync.server.client_id=$TASK_SERVER_CLIENT_ID
-sync.server.secret=$TASK_SERVER_SECRET
+
