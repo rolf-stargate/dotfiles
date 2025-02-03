@@ -148,8 +148,6 @@ context.habit.read=+habit
 context.habit.write=+habit
 
 context.default.read=-fun -wiki
-taskd.certificate=\/home\/rolf\/Dropbox\/tasks\/rolf_stargate.cert.pem
-taskd.key=\/home\/rolf\/Dropbox\/tasks\/rolf_stargate.key.pem
-taskd.ca=\/home\/rolf\/Dropbox\/tasks\/ca.cert.pem
-taskd.server=68.183.74.127:53589
-taskd.credentials=Stargate Systems\/Rolf Stargate\/ee60491e-992c-4cd6-866f-36d55ea56613
+sync.server.url=https://rolf-stargate.com
+sync.server.client_id=$TASK_SERVER_CLIENT_ID
+sync.server.secret=$TASK_SERVER_SECRET
