@@ -1,0 +1,30 @@
+#!/usr/env bash
+
+function show_usage() {
+    echo "Usage: $0 [-h] title url"
+    echo "  Add a song to playlist under ~/wiki/web/ls9wQ.md and mpv"
+    echo
+    echo "  title   Title of the song to add"
+    echo "  url     URL of the song to add"
+    echo
+    echo "Options:"
+    echo "  -h, --help  Show this help message"
+}
+
+# Check for help flag
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    show_usage
+    exit 0
+fi
+
+# Check for required arguments
+if [ $# -lt 2 ]; then
+    show_usage
+    exit 1
+fi
+
+title="$1"
+url="$2"
+
+title="${sed 's/^([0-9]\+) \(.*\) - YouTube/\1/g' <<< $title}"
+echo "\(${title}\)\[${url}\]"
