@@ -8,45 +8,68 @@
 
 /* Comment */
 
+* {
+  font: "Iosevka-fixed 12";
+}
+
+configuration {
+    display-drun: 		              "";
+    drun-display-format:            "{icon} {name}";
+    disable-history:                false;
+    click-to-exit: 		              true;
+    location:                       0;
+}
+
 window {
     location: center;
-    height: 400;
-    border-radius: 8;
+    height: 407;
+    border-radius: 2;
+    border: 2px 2px 2px 2px;
     width: 500px;
 }
 
 inputbar {
-    border: 0 0 1px 0;
-    children: [prompt,entry];
+    orientation: vertical;
+    border: 0 0 2px 0;
+    children: [prompt, entry];
+    margin: 0px 0px -3px 0px;
 }
 
+entry  {
+    border: 2px 0 0px 0;
+    border-color: @border;
+    text-color: @color6;
+}
+
+
 prompt {
-    padding: 16px;
-    border: 0 1px 0 0;
+    width: 100%;
+    padding: 5px 5px 3px 9px;
 }
 
 textbox {
     background-color: @bg;
     border: 0 0 1px 0;
     border-color: @border;
-    padding: 8px 16px;
+    padding: 5px 8px;
 }
 
 entry {
-    padding: 16px;
+    padding: 10px;
 }
 
 listview {
     cycle: false;
-    margin: 0 0 -1px 0;
+    margin: 2px 0 0px 0;
     scrollbar: false;
 }
 
 element {
-    border: 0 0 1px 0;
-    padding: 16px;
+    margin: 1px 2px 0px 2px;
+    border: 1px 1px 1px 1px;
+    padding: 3px;
+    border-color: @border-element;
 }
-
 
 element-icon {
     background-color: inherit;

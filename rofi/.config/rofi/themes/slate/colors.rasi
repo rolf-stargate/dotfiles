@@ -18,20 +18,23 @@
     /***** [ Custom Colors ] *****/
 
     color1:  #0F0016;
-    color2:  #0F0016;
+    color2:  #9210D9;
     color3:  #D417D4;
+    color4:  #DC42A9;
+    color5:  #AE35B4;
+    color6:  #54F99A;
 
     /***** [ Elements ] *****/ 
 
     background:           @color2;
     background-alt:       @black;
-    background-selected:  @color3;
+    background-selected:  @color4;
     background-active:    @color3; 
     background-urgent:    @black; 
     
     foreground:           @color3;
     foreground-alt:       @white;
-    foreground-selected:  @color2;
+    foreground-selected:  @color1;
     foreground-active:    @color2; 
     foreground-urgent:    @white;
 
@@ -43,6 +46,7 @@
     selected:             @color2;
     active:               @white;
     urgent:               @red;
+    border-element:       @color5;
 
     /***** [ Aliases ] *****/
 
