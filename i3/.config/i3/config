@@ -325,6 +325,8 @@ exec --no-startup-id rnote
 #################                          applications keyboard shortcuts                          #################
 #####################################################################################################################
 
+bindsym mod1+u exec echo 
+
 # Not workspace related
 bindsym $mod+b exec --no-startup-id qutebrowser
 bindsym $mod+Shift+b exec --no-startup-id brave
