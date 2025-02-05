@@ -293,6 +293,13 @@ local plugins = {
 					syntax = "markdown",
 					ext = ".md",
 				},
+				{
+					path = "/home/rolf/wiki/web",
+					name = "w",
+					links_space_char = "_",
+					syntax = "markdown",
+					ext = ".md",
+				},
 			}
 		end,
 	},
