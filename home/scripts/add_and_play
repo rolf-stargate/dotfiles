@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+
+function show_usage() {
+    echo "Usage: $0 [-h] title url [path]"
+    echo
+    echo "Add a song to playlist in markdown link format and play it using mpv."
+    echo
+    echo "The script will:"
+    echo "  1. Format the title (removing YouTube numbering)"
+    echo "  2. Append the song as a markdown link to the playlist file"
+    echo "  3. Add the song to mpv's playlist using umpv"
+    echo
+    echo "Arguments:"
+    echo "  title   Title of the song to add (will be cleaned automatically)"
+    echo "  url     URL of the song to add"
+    echo "  path    (Optional) Path to playlist file (default: ~/wiki/web/ls9wQ.md)"
+    echo
+    echo "Examples:"
+    echo "  $0 'My Song' https://youtube.com/watch?v=123"
+    echo "  $0 '01 My Song - YouTube' https://youtube.com/watch?v=123 ~/playlist.md"
+    echo
+    echo "Options:"
+    echo "  -h, --help  Show this help message and exit"
+}
+
+# Check for help flag
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    show_usage
+    exit 0
+fi
+
+# Check for required arguments
+if [ $# -lt 2 ]; then
+    show_usage
+    exit 1
+fi
+
+url="$3"
+
+# Set default path if not provided
+path="${4:-$HOME/wiki/web/ls9wQ.md}"
+
+# Play using umpv
+"$HOME/.config/mpv/scripts/umpv" "${url}"
+
+# Get title
+youtube-dl --skip-download  --write-info-json -o "/tmp/" "${url}"> /dev/null 2>&1 &&
+title="$(jq -r .title /tmp/.info.json)"
+
+# Create thumbnails directory if it doesn't exist
+thumb_dir="${path%/*}/img"
+mkdir -p "thumb_dir"
+
+# Create file name
+thumb_name="$(cat /dev/random | tr -dc 'A-Za-z0-9' | fold -w 5 | head -n 1)"
+thumb_file="${thumb_dir}/${thumb_name}.jpg"
+
+# Download thumbnail
+youtube-dl --skip-download --write-thumbnail -o "${thumb_file}" "${url}" > /dev/null 2>&1
+
+# Convert to jpg if needed
+if [[ -f "${thumb_file}.webp" ]]; then
+  convert "${thumb_file}.webp" "${thumb_file}"
+  rm "${thumb_file}.webp"
+fi
+
+# Add to playlist
+echo "![Thumbnail](./img/${thumb_name}.jpg)" >> "${path}"
+echo "[${title}](${url})" >> "${path}"
+echo "---" >> "${path}"
+
