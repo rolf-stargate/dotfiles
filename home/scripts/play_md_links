@@ -2,4 +2,8 @@
 
 path="$1"
 
+titles="$(grep -E "^\[.*\]\(https.*\)" "${path}" | sed -n "s/^\[\(.*\)\].*/\1/p")"
+
+notify-send "Adding to MPV:" "${titles}"
+
 grep -E "\(http.*\)" "${path}" | sed -n "s/^.*(\(http.\+\))/\1/p" | sed -n "s/\(.*\)\($\|&t=.*\)/\1/p" | xargs ~/.config/mpv/scripts/umpv &
