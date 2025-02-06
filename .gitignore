@@ -14,3 +14,5 @@ home/scripts/bar.txt
 systemd/.config/systemd/user/chatgpt_vars.env
 home/scripts/pause.txt
 home/scripts/pause.txt
+
+mutt/.config/mutt/accounts/*

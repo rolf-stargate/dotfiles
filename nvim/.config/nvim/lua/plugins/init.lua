@@ -308,7 +308,7 @@ local plugins = {
 	{ "mattn/calendar-vim" },
 	{ "tools-life/taskwiki" },
 	{ "ledger/vim-ledger" },
-	{ "3rd/image.nvim" },
+	{ "3rd/image.nvim", branch = "feat/toggle-rendering" },
 	{ "TobinPalmer/pastify.nvim" },
 	{ "jubnzv/mdeval.nvim" },
 	{ "jbyuki/venn.nvim" },
