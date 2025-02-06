@@ -51,6 +51,7 @@ set my_aqua         = "color80"
 set my_yellow       = "color221"
 set my_orange       = "color203"
 set my_purple       = "color176"
+set my_pink         = "color200"
 set my_comment      = "color246"
 set my_selection    = "color207"
 set my_current_line = "color37"
@@ -72,6 +73,9 @@ color tilde      $my_purple $my_bg
 color underline  $my_bg $my_yellow
 color index      $my_green $my_bg ~F
 color index      $my_blue $my_bg "~N|~O"
+color index_author $my_pink $my_bg
+
+
 
 ### Highlights inside the body of a message ###
 
