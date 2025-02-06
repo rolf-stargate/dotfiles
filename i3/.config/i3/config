@@ -300,7 +300,7 @@ exec --no-startup-id ~/.config/i3/scripts/i3-alternating-layout/alternating_layo
 # exec --no-startup-id discord
 
 # Notification deamon
-exec --no-startup-id dunst &
+exec --no-startup-id dunst -conf ~/.config/dunst/dunstrc &
 
 # Browser
 exec --no-startup-id sleep 1 && i3-msg 'workspace 9; exec qutebrowser'
