@@ -8,7 +8,7 @@ require("image").setup({
 			enabled = true,
 			clear_in_insert_mode = false,
 			download_remote_images = true,
-			only_render_image_at_cursor = true,
+			only_render_image_at_cursor = false,
 			filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
 		},
 	},
@@ -22,3 +22,13 @@ require("image").setup({
 	tmux_show_only_in_active_window = true, -- auto show/hide images in the correct Tmux window (needs visual-activity off)
 	hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp" }, -- render image files as images when opened
 })
+
+vim.keymap.set("n", "<leader>wi", function()
+	local image = require("image")
+
+	if image.is_enabled() then
+		image.disable()
+	else
+		image.enable()
+	end
+end, { desc = "Toggle Images" })
