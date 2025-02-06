@@ -283,6 +283,8 @@ assign [class="rnote"] 			   			      → Paint
 # GAMEDEV Window
 assign [title=".*GAME$"]						        → 9
 
+# Mpv Player
+assign [title=".*mpv$"]						        → music
 
 #####################################################################################################################
 #################           autostart   -    execute applications at boot time                      #################
@@ -296,6 +298,9 @@ exec --no-startup-id ~/.config/i3/scripts/i3-alternating-layout/alternating_layo
 
 # Discord
 # exec --no-startup-id discord
+
+# Notification deamon
+exec --no-startup-id dunst &
 
 # Browser
 exec --no-startup-id sleep 1 && i3-msg 'workspace 9; exec qutebrowser'

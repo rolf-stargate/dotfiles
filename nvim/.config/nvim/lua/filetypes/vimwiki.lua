@@ -46,19 +46,6 @@ function Test_for_vimwiki_link_from_visual_selection(path)
 	end
 end
 
-function Add_web_links_to_mpv(path)
-	local cmd = 'grep -E "\\(http.*\\)" '
-		.. path
-		.. ' | sed -n "s/^.*(\\(http.\\+\\))/\\1/p" | sed  -ne "s/\\(.*\\)\\($\\|&t=.*\\)/\\1/p"'
-	local lines = Get_cmd_output(cmd)
-
-	for i, line in ipairs(lines) do
-		local cmd = "~/.config/mpv/scripts/umpv " .. line
-		local handle = io.popen(cmd)
-		handle:close()
-	end
-end
-
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- <--(«|/////////////////////////////////////////////////|__ FUNCTIONS __|////|
 
@@ -160,8 +147,8 @@ vim.api.nvim_create_autocmd("FileType", {
 		--  =========================================  ADD_WEB_LINKS_TO_MPV  =======
 		vim.keymap.set(
 			"n",
-			"<leader>wmpv",
-			":lua Add_web_links_to_mpv(vim.fn.expand('%:p')<cr>",
+			"<leader>wM",
+			":!play_md_links %:p<cr><cr>",
 			{ buffer = true, noremap = true, desc = "Add Web Links to MPV Player" }
 		)
 		--  =========================================  ADD_WEB_LINKS_TO_MPV  =======

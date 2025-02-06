@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+path="$1"
+
+grep -E "\(http.*\)" "${path}" | sed -n "s/^.*(\(http.\+\))/\1/p" | sed -n "s/\(.*\)\($\|&t=.*\)/\1/p" | xargs ~/.config/mpv/scripts/umpv &
