@@ -10,6 +10,7 @@ fi
 
 if [ "$bar_num" -eq "0" ]; then
  if [ "$pause" -eq "0" ]; then
+   notify-send "Timer Done" "Yep, time is up!"
    pw-play ~/promo_notification.wav&
  fi
  echo 1 > /home/rolf/scripts/pause.txt
