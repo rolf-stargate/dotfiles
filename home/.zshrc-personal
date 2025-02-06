@@ -53,6 +53,7 @@ alias docu="(cd ~/wiki/docu && nvim index.md)"
 alias proj="(cd ~/wiki/proj && nvim index.md)"
 alias todo="(cd ~/wiki/tasks && nvim index.md)"
 alias sec="(cd ~/wiki/sec && nvim index.md)"
+alias sec="(cd ~/wiki/web && nvim index.md)"
 # =============================================================== »WIKI« =======
 
 # ===========================================================  TERMINAL  =======
