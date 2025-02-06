@@ -299,6 +299,10 @@ exec --no-startup-id ~/.config/i3/scripts/i3-alternating-layout/alternating_layo
 # Discord
 # exec --no-startup-id discord
 
+# Protonmail
+exec --no-startup-id protonmail-bridge-core --noninteractive
+
+
 # Notification deamon
 exec --no-startup-id dunst -conf ~/.config/dunst/dunstrc &
 
@@ -433,6 +437,9 @@ bindsym XF86AudioMute exec --no-startup-id "pamixer -t"
 bindsym $mod+p exec --no-startup-id playerctl play-pause
 bindsym $mod+n exec --no-startup-id playerctl next
 bindsym $mod+Shift+n exec --no-startup-id playerctl previous
+
+# Combine all audio sinks
+exec --no-startup-id pactl load-module module-combine-sink
 
 #####################################################################################################################
 #################                          xbacklight                                               #################
