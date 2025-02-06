@@ -15,6 +15,14 @@ local sn = ls.snippet_node
 local insert = ls.insert_node
 local func = ls.function_node
 
+vim.api.nvim_create_augroup("CustomLuaSnip", { clear = true })
+vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave" }, {
+	group = "CustomLuaSnip",
+	callback = function()
+		require("luasnip").unlink_current_if_deleted()
+	end,
+})
+
 -- <============================================================  SETUP  =======
 
 -- =======  UTILITY FUNCTIONS  ================================================>

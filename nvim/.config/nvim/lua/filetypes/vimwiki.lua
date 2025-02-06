@@ -46,6 +46,19 @@ function Test_for_vimwiki_link_from_visual_selection(path)
 	end
 end
 
+function Add_web_links_to_mpv(path)
+	local cmd = 'grep -E "\\(http.*\\)" '
+		.. path
+		.. ' | sed -n "s/^.*(\\(http.\\+\\))/\\1/p" | sed  -ne "s/\\(.*\\)\\($\\|&t=.*\\)/\\1/p"'
+	local lines = Get_cmd_output(cmd)
+
+	for i, line in ipairs(lines) do
+		local cmd = "~/.config/mpv/scripts/umpv " .. line
+		local handle = io.popen(cmd)
+		handle:close()
+	end
+end
+
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- <--(«|/////////////////////////////////////////////////|__ FUNCTIONS __|////|
 
@@ -87,7 +100,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		-- <===============================================  MARKDOWN TABLE  =======
 		vim.keymap.set(
 			"n",
-			"<leader>cd",
+			"<leader>wtc",
 			":VimwikiTable ",
 			{ buffer = true, noremap = true, desc = "Create 3x3 table" }
 		)
@@ -96,7 +109,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		-- <==================================================  BOLD ITALIC  =======
 		vim.keymap.set(
 			"v",
-			"<leader>b",
+			"<leader>i",
 			's**<c-r><c-o>"**',
 			{ buffer = true, noremap = true, desc = "Wrap Visual Selection with *" }
 		)
@@ -144,6 +157,14 @@ vim.api.nvim_create_autocmd("FileType", {
 			{ buffer = true, noremap = true, desc = "ChatGpt Jump to Input" }
 		)
 		-- <==============================================  LLM CHAT BUFFER  =======
+		--  =========================================  ADD_WEB_LINKS_TO_MPV  =======
+		vim.keymap.set(
+			"n",
+			"<leader>wmpv",
+			":lua Add_web_links_to_mpv(vim.fn.expand('%:p')<cr>",
+			{ buffer = true, noremap = true, desc = "Add Web Links to MPV Player" }
+		)
+		--  =========================================  ADD_WEB_LINKS_TO_MPV  =======
 	end,
 })
 -- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
