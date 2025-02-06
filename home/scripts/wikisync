@@ -15,3 +15,7 @@ Nc='\033[0m' # No Color
   && echo -e "\n${Purple}Syncing Tasks Wiki${Nc}\n" \
   && git add -A && git commit -m "UPDATE" && git pull && git push origin main)
 
+(cd ~/wiki/web \
+  && echo -e "\n${Purple}Syncing Web Wiki${Nc}\n" \
+  && git add -A && git commit -m "UPDATE" && git pull && git push origin main)
+
