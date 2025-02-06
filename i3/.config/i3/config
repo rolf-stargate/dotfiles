@@ -262,7 +262,7 @@ font pango:Fira Code Bold 10
 
 # Workspace Com mail/discord
 assign [class="discord"]		  				    → Com
-assign [class="Evolution"]						    → Com
+assign [title="neomutt"]						    → Com
 assign [class="Signal"]						        → Com
 
 # Workspace 9 steam
@@ -304,10 +304,10 @@ exec --no-startup-id dunst -conf ~/.config/dunst/dunstrc &
 
 # Browser
 exec --no-startup-id sleep 1 && i3-msg 'workspace 9; exec qutebrowser'
-exec --no-startup-id sleep 2 && i3-msg 'workspace 7; exec qutebrowser'
+exec --no-startup-id sleep 3 && i3-msg 'workspace 7; exec qutebrowser'
 
 # Mail
-exec --no-startup-id sleep 3 && i3-msg 'workspace Com; exec evolution'
+exec --no-startup-id sleep 4 && i3-msg 'workspace Com; exec kitty -e neomutt'
 
 # Feh sets wallpaper
 exec --no-startup-id feh --bg-fill ~/black.jpg
