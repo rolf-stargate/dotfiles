@@ -50,7 +50,11 @@ macro index,pager Mw  "<tag-prefix><save-message>=Folders/Work<enter><enter><syn
 macro index,pager Ma  "<tag-prefix><save-message>=Archive<enter><enter><sync-mailbox><enter>"  "Save message to Archive"
 macro index,pager Ms  "<tag-prefix><save-message>=Spam<enter><enter><sync-mailbox><enter>"  "Save message to Spam"
 
-macro index,pager d  "<tag-prefix><delete-message><enter><sync-mailbox><enter>"  "mark message as Archived"
+macro index,pager d  "<tag-prefix><delete-message><enter><sync-mailbox><enter>"  "Delete message"
+
+# macro index,pager t "<enter-command>set pipe_decode<enter><tag-prefix><pipe-message>email_task<return><enter-command>unset pipe_decode<enter>" "Create task in Taskwarrior"
+
+macro index,pager T "<tag-prefix><op_attachment_pipe>email_task<return>" "Create task in Taskwarrior"
 
 # Color definitions
 set my_bg           = "color232"
@@ -141,9 +145,3 @@ color sidebar_flagged   $my_aqua $my_bg
 color sidebar_highlight $my_bg $my_yellow
 color sidebar_new       $my_green $my_bg
 color sidebar_spoolfile $my_blue $my_bg
-<<<<<<< HEAD
-source /home/rolf/.config/mutt/accounts/paul.saynisch@pm.me.muttrc
-macro index,pager i1 '<sync-mailbox><enter-command>source /home/rolf/.config/mutt/accounts/paul.saynisch@pm.me.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to paul.saynisch@pm.me"
-=======
-macro index,pager i2 '<sync-mailbox><enter-command>source /home/rolf/.config/mutt/accounts/paul.saynisch@pm.me.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to paul.saynisch@pm.me"
->>>>>>> 3a14d26a1b6c6ec8b6561c462c9ee6708a0ba84a

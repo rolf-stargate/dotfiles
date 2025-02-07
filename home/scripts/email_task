@@ -5,5 +5,5 @@ do
   if [[ -z "${line}" ]]; then
     break
   fi
-  echo "${line}"
+  echo "${line}" >> ~/foo/debug
 done

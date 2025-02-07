@@ -299,10 +299,6 @@ exec --no-startup-id ~/.config/i3/scripts/i3-alternating-layout/alternating_layo
 # Discord
 # exec --no-startup-id discord
 
-# Protonmail
-exec --no-startup-id protonmail-bridge-core --noninteractive
-
-
 # Notification deamon
 exec --no-startup-id dunst -conf ~/.config/dunst/dunstrc &
 
