@@ -245,8 +245,15 @@ local plugins = {
 	{ "nvim-treesitter/playground" },
 	{ "nvim-treesitter/nvim-treesitter-context" },
 	-- <=====================================================  TREESITTER  =======
-
 	-- =======  MARKDOWN  =======================================================>
+	{
+		"yousefakbar/notmuch.nvim",
+		config = function()
+			-- Configuration goes here
+			local opts = {}
+			require("notmuch").setup(opts)
+		end,
+	},
 	{
 		"lervag/vimtex",
 		lazy = false, -- we don't want to lazy load VimTeX
