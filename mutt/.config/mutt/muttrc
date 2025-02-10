@@ -1,7 +1,5 @@
 # vim: filetype=neomuttrc
 source /usr/share/mutt-wizard/mutt-wizard.muttrc
-source /home/rolf/.config/mutt/accounts/paul.saynisch@pm.me.muttrc
-macro index,pager i1 '<sync-mailbox><enter-command>source /home/rolf/.config/mutt/accounts/paul.saynisch@pm.me.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to paul.saynisch@pm.me"
 
 # Sort by threads
 set sort = threads
@@ -130,4 +128,5 @@ color sidebar_flagged   $my_aqua $my_bg
 color sidebar_highlight $my_bg $my_yellow
 color sidebar_new       $my_green $my_bg
 color sidebar_spoolfile $my_blue $my_bg
-macro index,pager i2 '<sync-mailbox><enter-command>source /home/rolf/.config/mutt/accounts/paul.saynisch@pm.me.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to paul.saynisch@pm.me"
+source /home/rolf/.config/mutt/accounts/paul.saynisch@pm.me.muttrc
+macro index,pager i1 '<sync-mailbox><enter-command>source /home/rolf/.config/mutt/accounts/paul.saynisch@pm.me.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to paul.saynisch@pm.me"
