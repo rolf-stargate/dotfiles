@@ -299,10 +299,6 @@ exec --no-startup-id ~/.config/i3/scripts/i3-alternating-layout/alternating_layo
 # Discord
 # exec --no-startup-id discord
 
-# Protonmail
-exec --no-startup-id protonmail-bridge-core --noninteractive
-
-
 # Notification deamon
 exec --no-startup-id dunst -conf ~/.config/dunst/dunstrc &
 
@@ -311,7 +307,7 @@ exec --no-startup-id sleep 1 && i3-msg 'workspace 9; exec qutebrowser'
 exec --no-startup-id sleep 3 && i3-msg 'workspace 7; exec qutebrowser'
 
 # Mail
-exec --no-startup-id sleep 4 && i3-msg 'workspace Com; exec kitty -e neomutt'
+exec --no-startup-id sleep 5 && i3-msg 'workspace Com; exec kitty -e neomutt'
 
 # Feh sets wallpaper
 exec --no-startup-id feh --bg-fill ~/black.jpg

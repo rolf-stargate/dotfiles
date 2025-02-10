@@ -19,18 +19,24 @@ alternative_order text/plain text/enriched text/html
 # Use nvim but don't force text width (looks terible if read on a phone)
 set editor = "nvim +':set textwidth=0'"
 
+set timeout=10
+set imap_idle=true
 
 # When looking for contacts, use this command
-set query_command= "abook --mutt-query '%s'"
+set query_command= "abook --datafile ~/Dropbox/addressbook --mutt-query '%s'"
 
 # Add current sender to address book
-macro index,pager  a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
+macro index,pager  a "<pipe-message>abook --datafile ~/Dropbox/addressbook<return>" "Add this sender to Abook"
 
 # Auto-complete email addresses by pushing tab
 bind editor <Tab> complete-query
 
 bind index,pager \Co sidebar-open
 bind index,pager \Cl sidebar-open
+bind index,pager <Right> sidebar-open
+bind index,pager <Up> sidebar-prev
+bind index,pager <Down> sidebar-next
+bind index,pager D purge-message
 bind pager,browser gg top-page
 bind pager,browser G bottom-page
 bind index,pager,browser d half-down
@@ -38,6 +44,17 @@ bind index,pager,browser u half-up
 bind pager,attach h exit
 bind attach <return> view-mailcap
 bind attach l view-mailcap
+
+macro index,pager Mp  "<tag-prefix><save-message>=Folders/Private<enter><enter><sync-mailbox><enter>"  "Save message to Private"
+macro index,pager Mw  "<tag-prefix><save-message>=Folders/Work<enter><enter><sync-mailbox><enter>"  "Save message to Work"
+macro index,pager Ma  "<tag-prefix><save-message>=Archive<enter><enter><sync-mailbox><enter>"  "Save message to Archive"
+macro index,pager Ms  "<tag-prefix><save-message>=Spam<enter><enter><sync-mailbox><enter>"  "Save message to Spam"
+
+macro index,pager d  "<tag-prefix><delete-message><enter><sync-mailbox><enter>"  "Delete message"
+
+# macro index,pager t "<enter-command>set pipe_decode<enter><tag-prefix><pipe-message>email_task<return><enter-command>unset pipe_decode<enter>" "Create task in Taskwarrior"
+
+macro index,pager T "<tag-prefix><op_attachment_pipe>email_task<return>" "Create task in Taskwarrior"
 
 # Color definitions
 set my_bg           = "color232"
