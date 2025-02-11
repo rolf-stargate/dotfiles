@@ -1,9 +1,45 @@
 #!/usr/bin/env bash
 
+regex_date='^Date: '
+regex_from='^From: '
+regex_subject='^Subject: '
+
+date="No date"
+from="No Sender"
+subject="No Subject"
+  
 while read line
 do
+  # Skip empty lines
   if [[ -z "${line}" ]]; then
-    break
+    continue
   fi
-  echo "${line}" >> ~/foo/debug
+  # Example regex: check if line contains an email address
+  
+  if [[ "${line}" =~ ${regex_date} ]]; then
+    date=$(echo "${line}" | sed -n "s/^Date: \(.*\)/\1/p")
+  fi
+  
+  if [[ "${line}" =~ ${regex_from} ]]; then
+    from=$(echo "${line}" | sed -n "s/^From: \(.*\)/\1/p")
+  fi
+  
+  if [[ "${line}" =~ ${regex_subject} ]]; then
+    subject=$(echo "${line}" | sed -n "s/^Subject: \(.*\)/\1/p")
+  fi
+  
+  
 done
+
+echo $date > ~/foo/debug
+echo $from >> ~/foo/debug
+echo $subject >> ~/foo/debug
+
+task add "${subject}" +email +neomutt
+ID=$(task +LATEST ids)
+
+task $ID annotate "Date: ${date}"
+task $ID annotate "From: ${from}"
+task $ID annotate "Subject: ${subject}"
+
+$(kitty -e task $ID edit)

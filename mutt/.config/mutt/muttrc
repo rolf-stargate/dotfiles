@@ -52,9 +52,8 @@ macro index,pager Ms  "<tag-prefix><save-message>=Spam<enter><enter><sync-mailbo
 
 macro index,pager d  "<tag-prefix><delete-message><enter><sync-mailbox><enter>"  "Delete message"
 
-# macro index,pager t "<enter-command>set pipe_decode<enter><tag-prefix><pipe-message>email_task<return><enter-command>unset pipe_decode<enter>" "Create task in Taskwarrior"
+macro index,pager T "<enter-command>set pipe_decode<enter><tag-prefix><pipe-message>~/scripts/email_task<return><enter-command>unset pipe_decode<enter><modify-labels>todo<enter>" "Create task in Taskwarrior"
 
-macro index,pager T "<tag-prefix><op_attachment_pipe>email_task<return>" "Create task in Taskwarrior"
 
 # Color definitions
 set my_bg           = "color232"
