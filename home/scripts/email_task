@@ -1,45 +1,56 @@
 #!/usr/bin/env bash
 
-regex_date='^Date: '
-regex_from='^From: '
-regex_subject='^Subject: '
-
-date="No date"
-from="No Sender"
+date="No Date"
 subject="No Subject"
-  
+to="No Recipient"
+from="No Sender"
+message_id=""
+
+echo "" > /home/rolf/foo/debug
+
 while read line
 do
-  # Skip empty lines
+  # echo "${line}" > /home/rolf/foo/debug
+  
   if [[ -z "${line}" ]]; then
     continue
   fi
-  # Example regex: check if line contains an email address
   
-  if [[ "${line}" =~ ${regex_date} ]]; then
-    date=$(echo "${line}" | sed -n "s/^Date: \(.*\)/\1/p")
+  if [[ "${line}" =~ ^Subject:\ (.*)$  ]]; then
+    subject="${BASH_REMATCH[1]}"
   fi
   
-  if [[ "${line}" =~ ${regex_from} ]]; then
-    from=$(echo "${line}" | sed -n "s/^From: \(.*\)/\1/p")
+  if [[ "${line}" =~ ^Date:\ (.*)$  ]]; then
+    date="${BASH_REMATCH[1]}"
   fi
   
-  if [[ "${line}" =~ ${regex_subject} ]]; then
-    subject=$(echo "${line}" | sed -n "s/^Subject: \(.*\)/\1/p")
+  if [[ "${line}" =~ ^To:\ (.*)$  ]]; then
+    to="${BASH_REMATCH[1]}"
   fi
   
+  if [[ "${line}" =~ ^From:\ (.*)$  ]]; then
+    from="${BASH_REMATCH[1]}"
+  fi
   
+  if [[ "${line}" =~ ^Message-Id:\ (\<.*\>)$ ]]; then
+    message_id="${BASH_REMATCH[1]}"
+  fi
 done
 
-echo $date > ~/foo/debug
-echo $from >> ~/foo/debug
-echo $subject >> ~/foo/debug
+echo "${date}" >> /home/rolf/foo/debug
+echo "${to}" >> /home/rolf/foo/debug
+echo "${from}" >> /home/rolf/foo/debug
+echo "${subject}" >> /home/rolf/foo/debug
+echo "${message_id}" >> /home/rolf/foo/debug
 
-task add "${subject}" +email +neomutt
-ID=$(task +LATEST ids)
 
-task $ID annotate "Date: ${date}"
-task $ID annotate "From: ${from}"
-task $ID annotate "Subject: ${subject}"
+task add "Message-ID: ${message_id}" +email +neomutt
+id=$(task +LATEST _uuid)
 
-$(kitty -e task $ID edit)
+task "${id}" annotate "Date: ${date}"
+task "${id}" annotate "From: ${from}"
+task "${id}" annotate "To: ${to}"
+task "${id}" annotate "Subject: ${subject}"
+task "${id}" annotate "----------------------"
+task "${id}" annotate "Message-ID: ${message_id}"
+

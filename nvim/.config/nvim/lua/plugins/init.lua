@@ -245,8 +245,8 @@ local plugins = {
 	{ "nvim-treesitter/playground" },
 	{ "nvim-treesitter/nvim-treesitter-context" },
 	-- <=====================================================  TREESITTER  =======
-
 	-- =======  MARKDOWN  =======================================================>
+	{ "rolf-stargate/notmuch.nvim" },
 	{
 		"lervag/vimtex",
 		lazy = false, -- we don't want to lazy load VimTeX
