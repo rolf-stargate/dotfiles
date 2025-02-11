@@ -331,7 +331,7 @@ require("render-markdown").setup({
 	},
 	pipe_table = {
 		-- Turn on / off pipe table rendering
-		enabled = true,
+		enabled = false,
 		-- Additional modes to render pipe tables
 		render_modes = false,
 		-- Pre configured settings largely for setting table border easier

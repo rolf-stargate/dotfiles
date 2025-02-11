@@ -2,6 +2,7 @@
 source ~/.config/mutt/accounts/paul.saynisch@pm.me
 source ~/.config/mutt/mailboxes
 source ~/.config/mutt/colors
+set resolve = no
 
 set mail_check_stats
 set mail_check = 30
@@ -20,7 +21,7 @@ bind index,pager b sidebar-toggle-visible
 
 set markers = no # Disables the `+` displayed at line wraps
 set mime_forward = yes # attachments are forwarded with mail
-# set wait_key = no # mutt won't ask "press key to continue"
+set wait_key = no # mutt won't ask "press key to continue"
 set fast_reply # skip to compose when replying
 set fcc_attach # save attachments with the body
 set forward_format = "Fwd: %s" # format of subject when forwarding
@@ -28,7 +29,7 @@ set forward_quote # include message in forwards
 set reverse_name # reply as whomever it was to
 set include # include message in replies
 
-set editor = "nvim +':set textwidth=0'"
+set editor = "nvim +':set filetype=vimwiki'"
 set timeout=10
 set imap_idle=true
 
@@ -40,6 +41,10 @@ macro index,pager         a         "<pipe-message>abook --datafile ~/Dropbox/ad
 
 bind  editor              <Tab>     complete-query
 
+bind  pager               j         next-line
+bind  pager               k         previous-line
+bind  pager               J         next-undeleted
+bind  pager               K         previous-undeleted
 bind  index               l         display-message
 bind  index,pager         \Co       sidebar-open
 bind  index,pager         \Cl       sidebar-open
@@ -51,13 +56,26 @@ bind  index,pager,browser G         bottom-page
 bind  index,pager,browser d         half-down
 bind  index,pager,browser u         half-up
 bind  pager,attach        h         exit
-bind  attach              <return>  view-mailcap
 bind  attach              l         view-mailcap
 
-macro index,pager         D        "<tag-prefix><modify-labels>+deleted -inbox\n"  "delete message"
+macro index,pager U "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose U "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+
+macro index,pager         D        "<enter-command>unset resolve<enter><tag-prefix><modify-labels>+deleted -inbox\n<tag-prefix><delete-message><enter-command>set resolve<enter>"  "delete message"
 
 bind  index,pager         Y         modify-labels
 macro index,pager         A         "<tag-prefix><modify-labels>+archive -unread -inbox\n" "archive message"
 macro index,pager         W         "<tag-prefix><modify-labels>+work -private -archive -unread -inbox\n" "work message"
 macro index,pager         P         "<tag-prefix><modify-labels>-work +private -archive -unread -inbox\n" "private message"
-macro index,pager         T         "<tag-prefix><modify-labels>!todo\n" "toggle todo message"
+macro index,pager         Y         "<tag-prefix><modify-labels>!todo\n" "toggle todo message"
+
+macro index,pager T "<enter-command>unset resolve<enter><enter-command>set pipe_decode<enter><tag-prefix><pipe-entry>email_task<return><enter-command>unset pipe_decode<enter><tag-prefix><modify-labels>todo\n<enter-command>set resolve<enter>" "Create task in Taskwarrior"
+
+bind compose l view-attach
+macro compose Y "<first-entry>\
+<pipe-entry>convert_multipart<enter>\
+<enter-command>source /tmp/neomutt-commands<enter>
+
+bind compose,index,pager,browser,editor,attach,postpone,generic <enter> noop
+bind compose,index,pager,browser,editor,attach,postpone,generic <return> noop
+
