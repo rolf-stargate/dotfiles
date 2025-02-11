@@ -1,0 +1,8 @@
+#!/bin/bash
+
+PROFILEDIR=`mktemp -p /tmp -d tmp-qb-profile.XXXXXX.d`
+mkdir $PROFILEDIR/config
+cp ~/.config/qutebrowser/* $PROFILEDIR/config/
+mkdir $PROFILEDIR/data/userscripts/
+qutebrowser --basedir $PROFILEDIR $1
+rm -rf $PROFILEDIR
