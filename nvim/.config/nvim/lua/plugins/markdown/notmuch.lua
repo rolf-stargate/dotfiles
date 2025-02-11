@@ -16,11 +16,13 @@ nme.setup({
 vim.api.nvim_set_hl(nme.ns, "EmailSubject", {
 	fg = "#1AB5E3",
 	bg = "#0F0016",
+	bold = true,
 })
 
 vim.api.nvim_set_hl(nme.ns, "EmailAuthors", {
 	fg = "#1AE3AC",
 	bg = "#0F0016",
+	bold = true,
 })
 
 vim.api.nvim_set_hl_ns(nme.ns)
