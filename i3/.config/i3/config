@@ -295,7 +295,6 @@ assign [title=".*mpv$"]						        → music
 ## Auto Tiling
 exec --no-startup-id ~/.config/i3/scripts/i3-alternating-layout/alternating_layouts.py
 
-
 # Discord
 # exec --no-startup-id discord
 
