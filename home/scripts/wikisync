@@ -5,17 +5,17 @@ Nc='\033[0m' # No Color
 
 (cd ~/wiki/sec \
   && echo -e "${Purple}Syncing Sec Wiki:${Nc}\n" \
-  && git add -A && git commit -m "UPDATE" && git pull && git push origin main)
+  && git pull && git add -A && git commit -m "UPDATE" && git pull && git push origin main)
 
 (cd ~/wiki/docu \
   && echo -e "$\n${Purple}Syncing Docu Wiki${Nc}\n" \
-  && git add -A && git commit -m "UPDATE" && git pull && git push origin main)
+  && git pull && git add -A && git commit -m "UPDATE" && git pull && git push origin main)
 
 (cd ~/wiki/tasks \
   && echo -e "\n${Purple}Syncing Tasks Wiki${Nc}\n" \
-  && git add -A && git commit -m "UPDATE" && git pull && git push origin main)
+  && git pull && git add -A && git commit -m "UPDATE" && git pull && git push origin main)
 
 (cd ~/wiki/web \
   && echo -e "\n${Purple}Syncing Web Wiki${Nc}\n" \
-  && git add -A && git commit -m "UPDATE" && git pull && git push origin main)
+  && git pull && git add -A && git commit -m "UPDATE" && git pull && git push origin main)
 

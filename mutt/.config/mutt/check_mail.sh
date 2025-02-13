@@ -1,8 +1,6 @@
 #!/bin/bash
 
-mbsync -Va
-
-notmuch new
+muchsync
 
 COUNT=$(notmuch count tag:inbox)
 notmuch tag -tofilter tag:tofilter
