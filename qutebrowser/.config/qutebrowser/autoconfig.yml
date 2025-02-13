@@ -6,6 +6,8 @@
 
 config_version: 2
 settings:
+  colors.webpage.darkmode.enabled:
+    global: true
   content.javascript.clipboard:
     https://academy.hackthebox.com: access-paste
     https://github.com: access-paste

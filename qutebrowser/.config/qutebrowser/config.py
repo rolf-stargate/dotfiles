@@ -332,6 +332,8 @@ c.colors.statusbar.caret.selection.bg = '#a12dff'
 ## Type: QssColor
 c.colors.statusbar.insert.bg = '#A47AD6'
 
+
+
 ## Foreground color of the statusbar in insert mode.
 ## Type: QssColor
 # c.colors.statusbar.insert.fg = 'white'
@@ -517,6 +519,7 @@ c.colors.tabs.selected.odd.bg = '#D024C0'
 ## image inversion": qutebrowser default settings.
 ## Type: Bool
 c.colors.webpage.darkmode.enabled = True
+config.bind('td', 'config-cycle colors.webpage.darkmode.enabled true false')
 
 ## Which images to apply dark mode to.
 ## Type: String
@@ -2516,3 +2519,5 @@ config.bind('<Ctrl-e>', 'edit-text', mode='insert')
 # config.bind('Y', 'prompt-accept --save yes', mode='yesno')
 # config.bind('n', 'prompt-accept no', mode='yesno')
 # config.bind('y', 'prompt-accept yes', mode='yesno')
+
+c.content.user_stylesheets = ['/home/rolf/.config/qutebrowser/stylesheet.css']

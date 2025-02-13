@@ -19,6 +19,7 @@ alias v="nvim"
 alias vim="nvim"
 alias cat="bat"
 alias less="moar"
+alias se="sudoedit"
 # =============================================================  REMAPS  =======
 
 # ======   BATTERY CAPACITY   ==================================================
