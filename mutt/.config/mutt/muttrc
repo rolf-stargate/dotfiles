@@ -5,7 +5,7 @@ source ~/.config/mutt/colors
 set resolve = no
 
 set mail_check_stats
-set mail_check = 30
+set mail_check = 10
 set sort = 'threads'
 set sort_aux  = reverse-last-date-sent
 
