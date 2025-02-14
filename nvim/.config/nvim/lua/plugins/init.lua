@@ -69,10 +69,27 @@ local plugins = {
 				-- optional
 				api_key_name = "DEEPSEEK_API_KEY", -- default OPENAI_API_KEY if not set
 			},
+			mappings = {
+				submit = {
+					normal = "<Leader>gg",
+					insert = "<leader>gg",
+				},
+			},
 			windows = {
 				position = "bottom",
 				sidebar_header = {
 					enabled = true,
+				},
+				edit = {
+					border = "rounded",
+					start_insert = false, -- Start insert mode when opening the edit window
+				},
+				ask = {
+					floating = true, -- Open the 'AvanteAsk' prompt in a floating window
+					start_insert = true, -- Start insert mode when opening the ask window
+					border = "rounded",
+					---@type "ours" | "theirs"
+					focus_on_apply = "ours", -- which diff to focus after applying
 				},
 			},
 		},
@@ -354,6 +371,6 @@ require("plugins.marks")
 require("plugins.spectre")
 
 -- require("plugins.tabnine")
--- require("plugins.copilot")
+require("plugins.copilot")
 -- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 -- <--(«|///////////////////////////////////////|__ LOAD PLUGIN CONFIGS __|////|
