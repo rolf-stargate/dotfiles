@@ -1,4 +1,3 @@
-require("copilot_cmp").setup()
 require("copilot").setup({
 	panel = {
 		enabled = false,
