@@ -18,7 +18,7 @@ last_count=0
 
 while true; do
     # Sync mail
-    if ! muchsync; then
+    if ! muchsync protonmail@stargate-mail; then
         echo "Error: muchsync failed" >&2
         sleep "$SLEEP_INTERVAL"
         continue
