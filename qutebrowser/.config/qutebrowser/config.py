@@ -142,32 +142,32 @@ c.colors.completion.odd.bg = '#291730'
 ## Background color of disabled items in the context menu. If set to
 ## null, the Qt default is used.
 ## Type: QssColor
-# c.colors.contextmenu.disabled.bg = None
+c.colors.contextmenu.disabled.bg = '#0F0016'
 
 ## Foreground color of disabled items in the context menu. If set to
 ## null, the Qt default is used.
 ## Type: QssColor
-# c.colors.contextmenu.disabled.fg = None
+c.colors.contextmenu.disabled.fg = '#675F86'
 
 ## Background color of the context menu. If set to null, the Qt default
 ## is used.
 ## Type: QssColor
-# c.colors.contextmenu.menu.bg = None
+c.colors.contextmenu.menu.bg = '#0F0016'
 
 ## Foreground color of the context menu. If set to null, the Qt default
 ## is used.
 ## Type: QssColor
-# c.colors.contextmenu.menu.fg = None
+c.colors.contextmenu.menu.fg = '#E99FF7'
 
 ## Background color of the context menu's selected item. If set to null,
 ## the Qt default is used.
 ## Type: QssColor
-# c.colors.contextmenu.selected.bg = None
+c.colors.contextmenu.selected.bg = '#509DCB'
 
 ## Foreground color of the context menu's selected item. If set to null,
 ## the Qt default is used.
 ## Type: QssColor
-# c.colors.contextmenu.selected.fg = None
+c.colors.contextmenu.selected.fg = '#0F0016'
 
 ## Background color for the download bar.
 ## Type: QssColor
@@ -226,7 +226,7 @@ c.colors.hints.fg = '#E7C6C6'
 
 ## Font color for the matched part of hints.
 ## Type: QtColor
-# c.colors.hints.match.fg = 'green'
+c.colors.hints.match.fg = 'green'
 
 ## Background color of the keyhint widget.
 ## Type: QssColor
@@ -242,15 +242,15 @@ c.colors.keyhint.suffix.fg = '#B15F6F'
 
 ## Background color of an error message.
 ## Type: QssColor
-# c.colors.messages.error.bg = 'red'
+c.colors.messages.error.bg = '#F32996'
 
 ## Border color of an error message.
 ## Type: QssColor
-# c.colors.messages.error.border = '#bb0000'
+c.colors.messages.error.border = '#bb0000'
 
 ## Foreground color of an error message.
 ## Type: QssColor
-# c.colors.messages.error.fg = 'white'
+c.colors.messages.error.fg = '#0F0016'
 
 ## Background color of an info message.
 ## Type: QssColor
@@ -266,15 +266,15 @@ c.colors.keyhint.suffix.fg = '#B15F6F'
 
 ## Background color of a warning message.
 ## Type: QssColor
-# c.colors.messages.warning.bg = 'darkorange'
+c.colors.messages.warning.bg = '#D5F436'
 
 ## Border color of a warning message.
 ## Type: QssColor
-# c.colors.messages.warning.border = '#d47300'
+c.colors.messages.warning.border = '#D5F436'
 
 ## Foreground color of a warning message.
 ## Type: QssColor
-# c.colors.messages.warning.fg = 'black'
+c.colors.messages.warning.fg = '#27211B'
 
 ## Background color for prompts.
 ## Type: QssColor
@@ -710,6 +710,18 @@ c.content.blocking.hosts.lists = ['https://raw.githubusercontent.com/StevenBlack
 ##   - hosts: Use hosts blocking
 ##   - both: Use both hosts blocking and Brave's ABP-style adblocker
 c.content.blocking.method = 'auto'
+
+
+config.bind('ek', 'jseval (function () { '+
+'  var i, elements = document.querySelectorAll("body *");'+
+''+
+'  for (i = 0; i < elements.length; i++) {'+
+'    var pos = getComputedStyle(elements[i]).position;'+
+'    if (pos === "fixed" || pos == "sticky") {'+
+'      elements[i].parentNode.removeChild(elements[i]);'+
+'    }'+
+'  }'+
+'})();');
 
 ## A list of patterns that should always be loaded, despite being blocked
 ## by the ad-/host-blocker. Local domains are always exempt from
