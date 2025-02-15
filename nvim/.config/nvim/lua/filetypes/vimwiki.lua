@@ -125,7 +125,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.keymap.set(
 			"n",
 			"<leader>od",
-			":!md_to_pdf_live_preview % %:h/out/%:t:r.pdf<cr>",
+			":silent !md_to_pdf_live_preview % %:h/out/%:t:r.pdf<cr>",
 			{ buffer = true, noremap = true, desc = "Documentation" }
 		)
 		-- <=====================================  MARKDOWN TO LATEX TO PDF  =======
