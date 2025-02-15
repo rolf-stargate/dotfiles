@@ -27,7 +27,7 @@ start_mupdf() {
 
 # Convert markdown to PDF
 echo "Converting $PATH_MD to $PATH_PDF..."
-if ! pandoc "${PATH_MD}" -o "$PATH_PDF" --from=markdown --template ~/.config/nvim/templates/eisvogel.latex --listings; then
+if ! pandoc "${PATH_MD}" -o "$PATH_PDF" -F mermaid-filter --from=markdown --template ~/.config/nvim/templates/eisvogel.latex --listings; then
     echo "Error: Pandoc conversion failed"
     exit 1
 fi
