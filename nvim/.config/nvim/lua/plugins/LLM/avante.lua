@@ -19,23 +19,23 @@ require("avante").setup({
 		max_tokens = 4096,
 		api_key_name = "CLAUDE_API_KEY",
 	},
-	-- openai = {
-	-- 	endpoint = "https://api.openai.com/v1",
-	-- 	model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
-	-- 	timeout = 30000, -- timeout in milliseconds
-	-- 	temperature = 0, -- adjust if needed
-	-- 	max_tokens = 4096,
-	-- 	api_key_name = "OPENAI_API_KEY",
-	-- },
 	openai = {
-		endpoint = "https://api.deepseek.com/v1",
-		model = "deepseek-chat",
-		timeout = 30000, -- Timeout in milliseconds
-		temperature = 0,
+		endpoint = "https://api.openai.com/v1",
+		model = "gpt-o1-mini", -- your desired model (or use gpt-4o, etc.)
+		timeout = 30000, -- timeout in milliseconds
+		temperature = 0, -- adjust if needed
 		max_tokens = 4096,
-		-- optional
-		api_key_name = "DEEPSEEK_API_KEY",
+		api_key_name = "OPENAI_API_KEY",
 	},
+	-- openai = {
+	-- 	endpoint = "https://api.deepseek.com/v1",
+	-- 	model = "deepseek-chat",
+	-- 	timeout = 30000, -- Timeout in milliseconds
+	-- 	temperature = 0,
+	-- 	max_tokens = 4096,
+	-- 	-- optional
+	-- 	api_key_name = "DEEPSEEK_API_KEY",
+	-- },
 	mappings = {
 		submit = {
 			normal = "<Leader>gg",
