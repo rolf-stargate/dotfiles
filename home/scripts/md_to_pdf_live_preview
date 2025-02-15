@@ -12,6 +12,19 @@ fi
 PATH_MD="$1"
 PATH_PDF="$2"
 
+# Function to start mupdf
+start_mupdf() {
+    echo "Starting new mupdf instance..."
+    DISPLAY=:0 mupdf "${PATH_PDF}" &>/dev/null &
+    MU_PID=$!
+    
+    if ! (set -o noclobber; echo "${MU_PID}" > "$LOCK_FILE") 2>/dev/null; then
+        echo "Error: Failed to create lock file"
+        exit 1
+    fi
+    echo "mupdf started with PID: $MU_PID"
+}
+
 # Convert markdown to PDF
 echo "Converting $PATH_MD to $PATH_PDF..."
 if ! pandoc "${PATH_MD}" -o "$PATH_PDF" --from=markdown --template ~/.config/nvim/templates/eisvogel.latex --listings; then
@@ -35,18 +48,6 @@ else
     start_mupdf
 fi
 
-# Function to start mupdf
-start_mupdf() {
-    echo "Starting new mupdf instance..."
-    DISPLAY=:0 mupdf "${PATH_PDF}" &>/dev/null &
-    MU_PID=$!
-    
-    if ! (set -o noclobber; echo "${MU_PID}" > "$LOCK_FILE") 2>/dev/null; then
-        echo "Error: Failed to create lock file"
-        exit 1
-    fi
-    echo "mupdf started with PID: $MU_PID"
-}
 
 
 
