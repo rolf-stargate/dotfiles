@@ -3,30 +3,50 @@
 # Configuration
 LOCK_FILE="/tmp/md_to_pdf_live_preview.lock"
 
+# Check arguments
+if [ $# -ne 2 ]; then
+    echo "Usage: $0 input.md output.pdf"
+    exit 1
+fi
 
 PATH_MD="$1"
 PATH_PDF="$2"
 
-pandoc "${PATH_MD}" -o "$PATH_PDF" --from=pdf --template ~/.config/nvim/templates/eisvogel.latex --listings &&
-
-if [[ -e "${LOCK_FILE}"]]; then
-  if [[ -z $(cat "${LOCK_FILE}" | xargs -n 1 ps | grep "mupdf ${PATH_PDF}") ]]; then
-    cat "${LOCK_FILE}" | xargs -n 1 kill -HUP
-  else
-    
-    MU_PID=$( (mupdf "${PATH_PDF}" & echo $! ) )
-    if ! (set -o noclobber; echo "${MU_PID}" > "$LOCK_FILE") 2>/dev/null; then
-        echo "Other Instance is already running" >&2
-        exit 1
-    fi
-  fi
-else
-    MU_PID=$( (mupdf "${PATH_PDF}" & echo $! ) )
-    if ! (set -o noclobber; echo "${MU_PID}" > "$LOCK_FILE") 2>/dev/null; then
-        echo "Other Instance is already running" >&2
-        exit 1
-    fi
+# Convert markdown to PDF
+echo "Converting $PATH_MD to $PATH_PDF..."
+if ! pandoc "${PATH_MD}" -o "$PATH_PDF" --from=markdown --template ~/.config/nvim/templates/eisvogel.latex --listings; then
+    echo "Error: Pandoc conversion failed"
+    exit 1
 fi
+echo "Conversion successful"
+
+# Handle mupdf instance
+if [[ -s "${LOCK_FILE}" ]]; then
+    MU_PID=$(cat "${LOCK_FILE}")
+    if  grep -q "mupdf ${PATH_PDF}" /proc/$MU_PID/cmdline 2>/dev/null; then
+        echo "Found existing mupdf instance (PID: $MU_PID), sending refresh signal"
+        kill -HUP "$MU_PID"
+    else
+        echo "Stale lock file found, removing"
+        rm "${LOCK_FILE}"
+        start_mupdf
+    fi
+else
+    start_mupdf
+fi
+
+# Function to start mupdf
+start_mupdf() {
+    echo "Starting new mupdf instance..."
+    DISPLAY=:0 mupdf "${PATH_PDF}" &>/dev/null &
+    MU_PID=$!
+    
+    if ! (set -o noclobber; echo "${MU_PID}" > "$LOCK_FILE") 2>/dev/null; then
+        echo "Error: Failed to create lock file"
+        exit 1
+    fi
+    echo "mupdf started with PID: $MU_PID"
+}
 
 
 
