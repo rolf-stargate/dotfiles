@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Configuration
+LOCK_FILE="/tmp/md_to_pdf_live_preview.lock"
+
+
+PATH_MD="$1"
+PATH_PDF="$2"
+
+pandoc "${PATH_MD}" -o "$PATH_PDF" --from=pdf --template ~/.config/nvim/templates/eisvogel.latex --listings &&
+
+if [[ -e "${LOCK_FILE}"]]; then
+  if [[ -z $(cat "${LOCK_FILE}" | xargs -n 1 ps | grep "mupdf ${PATH_PDF}") ]]; then
+    cat "${LOCK_FILE}" | xargs -n 1 kill -HUP
+  else
+    
+    MU_PID=$( (mupdf "${PATH_PDF}" & echo $! ) )
+    if ! (set -o noclobber; echo "${MU_PID}" > "$LOCK_FILE") 2>/dev/null; then
+        echo "Other Instance is already running" >&2
+        exit 1
+    fi
+  fi
+else
+    MU_PID=$( (mupdf "${PATH_PDF}" & echo $! ) )
+    if ! (set -o noclobber; echo "${MU_PID}" > "$LOCK_FILE") 2>/dev/null; then
+        echo "Other Instance is already running" >&2
+        exit 1
+    fi
+fi
+
+
+

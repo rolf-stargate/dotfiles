@@ -125,7 +125,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.keymap.set(
 			"n",
 			"<leader>od",
-			':!pandoc % --from=markdown --output=%:h/out/%:t:r.pdf --variable=geometry:"margin=3cm, a4paper" && brave %:h/out/%:t:r.pdf<cr>',
+			":!pandoc % --from=markdown --output=%:h/out/%:t:r.pdf --template ~/.config/nvim/templates/eisvogel.latex <cr>",
 			{ buffer = true, noremap = true, desc = "Documentation" }
 		)
 		-- <=====================================  MARKDOWN TO LATEX TO PDF  =======
