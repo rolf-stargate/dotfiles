@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <style>
+    $styles.html()$
+  </style>
+$for(css)$
+  <link rel="stylesheet" href="$css$" />
+$endfor$
+  <style>
+    body {
+      overflow: auto;
+      min-height: min-content;
+      height: min-content;
+      max-width: 70em;
+      background-color: #f7f7f7;
+      color: #333333;
+      border-radius: 15px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: #6654af;
+    }
+    img {
+      border-radius: 10px;
+    }
+    ::marker {
+      color: #f55c7b;
+    }
+    figcaption {
+      margin-top: -5px;
+      color: #a18bff;
+    }
+    div.sourceCode {
+      background-color: #a18bff1c;
+      padding: 1em;
+      border-radius: 5px;
+    }
+    strong {
+      color: #a18bff;
+    }
+    table {
+      border-collapse: collapse;
+    }
+    table td, table th {
+      border: 1px solid #A7A5AA;
+      padding: 4px 10px;
+    }
+    table thead {
+      background: #DCC1DD;
+    }
+    table thead th {
+      /* font-size: 15px; */
+      font-weight: bold;
+      text-align: left;
+    }
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+$for(header-includes)$
+  $header-includes$
+$endfor$
+</head>
+<body>
+  $body$
+  $for(include-after)$
+  $include-after$
+  $endfor$
+</body>
+</html>
+

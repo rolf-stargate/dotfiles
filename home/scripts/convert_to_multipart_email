@@ -28,8 +28,7 @@ if [ "$(grep -Eo '!\[[^]]*\]\([^)]+' "$markdownFile" | cut -d '(' -f 2  | grep '
 	echo -n "<attach-file>$markdownFile<enter><toggle-disposition><toggle-unlink><first-entry><detach-file>y<enter>" >> "$commandsFile"
 fi
 
-pandoc -f markdown -t html5 --standalone --template ~/.config/mutt/templates/email.html "$markdownFile" > "$htmlFile"
-
+pandoc -f markdown -F mermaid-filter -t html5 --standalone --template ~/.config/mutt/templates/email_001.html "$markdownFile" > "$htmlFile"
 
 # # Attach the html file
 echo -n "<attach-file>$htmlFile<enter>" >> "$commandsFile"

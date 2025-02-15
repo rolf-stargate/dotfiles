@@ -2,81 +2,121 @@
 source ~/.config/mutt/accounts/paul.saynisch@pm.me
 source ~/.config/mutt/mailboxes
 source ~/.config/mutt/colors
-set resolve = no
 
+# General settings
+set resolve = no
 set mail_check_stats
 set mail_check = 10
 set sort = 'threads'
 set sort_aux  = reverse-last-date-sent
+set markers = no
+set mime_forward = yes
+set wait_key = no
+set fast_reply
+set fcc_attach
+set forward_format = "Fwd: %s"
+set forward_quote
+set reverse_name
+set include
+set editor = "nvim +':set filetype=vimwiki'"
+set timeout=10
+set imap_idle=true
+set mailcap_path = ~/.config/mutt/mailcap
+set query_command= "abook --datafile ~/Dropbox/addressbook --mutt-query '%s'"
 
+# Sidebar settings
 set sidebar_visible = no
 set sidebar_width = 20
 set sidebar_short_path = yes
 set sidebar_next_new_wrap = yes
 set sidebar_format = '%D%?F? [%F]?%* %?N?%N/? %?S?%S?'
-# set index_format = '%4C %zc %zs %zt %[%b %d] | %5n%> --> %8s%> (%5c) | %g'
 set index_format="%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %-40.40s | %g"
 
-bind index,pager b sidebar-toggle-visible
-
-set markers = no # Disables the `+` displayed at line wraps
-set mime_forward = yes # attachments are forwarded with mail
-set wait_key = no # mutt won't ask "press key to continue"
-set fast_reply # skip to compose when replying
-set fcc_attach # save attachments with the body
-set forward_format = "Fwd: %s" # format of subject when forwarding
-set forward_quote # include message in forwards
-set reverse_name # reply as whomever it was to
-set include # include message in replies
-
-set editor = "nvim +':set filetype=vimwiki'"
-set timeout=10
-set imap_idle=true
-
+# View settings
+ignore *
+unignore from date subject to cc
+unignore organization organisation x-mailer: x-newsreader: x-mailing-list:
+unignore posted-to:
 auto_view text/html
-set mailcap_path = ~/.config/mutt/mailcap
+alternative_order text/plain text/html
 
-set query_command= "abook --datafile ~/Dropbox/addressbook --mutt-query '%s'"
-macro index,pager         a         "<pipe-message>abook --datafile ~/Dropbox/addressbook<return>" "add this sender to abook"
+# Key bindings - Navigation
+bind pager j next-line
+bind pager k previous-line
+bind pager J next-undeleted
+bind pager K previous-undeleted
+bind index l display-message
+bind index,browser,attach,query,pager g noop
+bind pager gg top
+bind pager G bottom
+bind index,browser,attach,query gg first-entry
+bind index,browser,attach,query G last-entry
+bind index,pager,browser d half-down
+bind index,pager,browser u half-up
+bind pager,attach,browser,query h exit
+bind attach l view-mailcap
 
-bind  editor              <Tab>     complete-query
+# Key bindings - Mailboxes
+macro index,pager gi "<change-vfolder>inbox<enter>" "go to inbox"
+macro index,pager gs "<change-folder>=Sent<enter>" "go to sent"
+macro index,pager gd "<change-folder>=Drafts<enter>" "go to drafts"
+macro index,pager gt "<change-vfolder>deleted<enter>" "go to trash"
+macro index,pager ga "<change-vfolder>all<enter>" "go to all mail"
+macro index,pager gA "<change-vfolder>archive<enter>" "go to archive"
+macro index,pager gS "<change-folder>=Spam<enter>" "go to spam"
+macro index,pager gw "<change-vfolder>work<enter>" "go to work"
+macro index,pager gp "<change-vfolder>private<enter>" "go to private"
 
-bind  pager               j         next-line
-bind  pager               k         previous-line
-bind  pager               J         next-undeleted
-bind  pager               K         previous-undeleted
-bind  index               l         display-message
-bind  index,pager         \Co       sidebar-open
-bind  index,pager         \Cl       sidebar-open
-bind  index,pager         <Right>   sidebar-open
-bind  index,pager         <Up>      sidebar-prev
-bind  index,pager         <Down>    sidebar-next
-bind  index,pager,browser gg        top-page
-bind  index,pager,browser G         bottom-page
-bind  index,pager,browser d         half-down
-bind  index,pager,browser u         half-up
-bind  pager,attach        h         exit
-bind  attach              l         view-mailcap
+macro index f "<enter-command>unset wait_key<enter><shell-escape>read -p 'Enter a search term to find with notmuch: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;s/\^id:// for@a;$,=\"|\";print@a' | perl -le '@a=<>; chomp@a; s/\\+/\\\\+/ for@a;print@a' \`\"<enter>" "show only messages matching a notmuch pattern"
 
-macro index,pager U "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
-macro attach,compose U "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+# Key bindings - Sidebar
+bind index,pager b sidebar-toggle-visible
+bind index,pager \Co sidebar-open
+bind index,pager <Right> sidebar-open
+bind index,pager <Up> sidebar-prev
+bind index,pager <Down> sidebar-next
 
-macro index,pager         D        "<enter-command>unset resolve<enter><tag-prefix><modify-labels>+deleted -inbox\n<tag-prefix><delete-message><enter-command>set resolve<enter>"  "delete message"
+# Key bindings - Message actions
+bind index,pager r reply
+bind index,pager R group-reply
+bind index,pager F forward-message
+macro index <Space> <tag-entry>j
+macro index t <tag-entry>j
+bind index T tag-thread
+bind index,pager L modify-labels
 
-bind  index,pager         I         modify-labels
-macro index,pager         A         "<tag-prefix><modify-labels>+archive -unread -inbox\n" "archive message"
-macro index,pager         W         "<tag-prefix><modify-labels>+work -private -archive -unread -inbox\n" "work message"
-macro index,pager         P         "<tag-prefix><modify-labels>-work +private -archive -unread -inbox\n" "private message"
-macro index,pager         T         "<tag-prefix><modify-labels>!todo\n" "toggle todo message"
+# Key bindings - Editor
+bind editor <Tab> complete-query
+macro index S "<shell-escape>~/.config/mutt/check-mail.sh >/dev/null 2>&1 &<enter>" "sync mail"
 
-# macro index,pager Y "<enter-command>unset resolve<enter><enter-command>set pipe_decode<enter><tag-prefix><pipe-entry>email_task<return><enter-command>unset pipe_decode<enter><tag-prefix><modify-labels>todo\n<enter-command>set resolve<enter>" "Create task in Taskwarrior"
-macro index,pager Y "<enter-command>unset resolve<enter><tag-prefix><pipe-entry>email_task<return><enter-command>unset pipe_decode<enter><tag-prefix><modify-labels>todo\n<enter-command>set resolve<enter>" "Create task in Taskwarrior"
 
+# Macros - Message actions
+macro index,pager a "<pipe-message>abook --datafile ~/Dropbox/addressbook \
+--add-email<return>"  "add this sender to abook"
+
+macro index,pager U "<pipe-message>urlscan<Enter>" "call urlscan to extract URLs out of a message"
+
+macro index,pager D "<enter-command>unset resolve<enter><tag-prefix><modify-labels>+deleted -inbox\n<tag-prefix><delete-message><enter-command>set resolve<enter>j" "delete message"
+
+# # Macros - Label management
+macro index,pager \;a "<enter-command>unset resolve<enter><tag-prefix><modify-labels>+archive -unread -inbox\n<tag-prefix><save-message>=Archive\n<sync-mailbox><enter><enter-command>set resolve<enter>" "archive message"
+
+macro index,pager \;w "<enter-command>unset resolve<enter><tag-prefix><modify-labels>+work -private -archive -unread -inbox\n<tag-prefix><save-message>=Work<enter><sync-mailbox><enter><enter-command>set resolve<enter>" "work message"
+
+macro index,pager \;p "<enter-command>unset resolve<enter><tag-prefix><modify-labels>-work +private -archive -unread -inbox\n<tag-prefix><save-message>=Private<enter><sync-mailbox><enter><enter-command>set resolve<enter>" "private message"
+
+macro index,pager \;s "<tag-prefix><modify-labels>!shopping\n<sync-mailbox><enter>" "toggle shopping message"
+macro index,pager \;i "<tag-prefix><modify-labels>!invoice\n<sync-mailbox><enter>" "toggle invoice message"
+macro index,pager \;I "<tag-prefix><modify-labels>!institution\n<sync-mailbox><enter>" "toggle institution message"
+macro index,pager \;t "<tag-prefix><modify-labels>!todo\n<sync-mailbox><enter>" "toggle todo message"
+macro index,pager \;T "<enter-command>unset resolve<enter><tag-prefix><pipe-entry>email_task<return><enter-command>unset pipe_decode<enter><tag-prefix><modify-labels>todo\n<enter-command>set resolve<enter>" "Create task in Taskwarrior"
+
+# Compose settings
 bind compose l view-attach
 macro compose Y "<first-entry>\
-<pipe-entry>convert_multipart<enter>\
+<pipe-entry>convert_to_multipart_email<enter>\
 <enter-command>source /tmp/neomutt-commands<enter>
 
+# Disable enter/return
 bind compose,index,pager,browser,editor,attach,postpone,generic <enter> noop
 bind compose,index,pager,browser,editor,attach,postpone,generic <return> noop
-

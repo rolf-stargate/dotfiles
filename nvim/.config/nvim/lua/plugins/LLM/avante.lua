@@ -1,6 +1,16 @@
 require("avante").setup({
-	provider = "openai",
+	-- provider = "openai",
 	auto_suggestions_provider = "copilot",
+
+	provider = "deepseek",
+	vendors = {
+		deepseek = {
+			__inherited_from = "openai",
+			api_key_name = "DEEPSEEK_API_KEY",
+			endpoint = "https://api.deepseek.com",
+			model = "deepseek-coder",
+		},
+	},
 
 	claude = {
 		endpoint = "https://api.anthropic.com",
@@ -50,3 +60,42 @@ require("avante").setup({
 		},
 	},
 })
+
+-- Tidy up prompt
+vim.api.nvim_create_autocmd("User", {
+	pattern = "Tidy_UP!",
+	callback = function()
+		require("avante.config").override({
+			system_prompt = [[
+      {% extends "planning.avanterules" %}
+      {% block user_prompt %}
+      Tidy up the code make it nice and readable but do not change the functionality!
+      Order it by fitting categories and use the comment template below to separate
+      the sections and also follow the Comment Template Instructions from below it.
+
+      Comment Template:
+      <!-- |////|__ SECTION_TITEL_A __|////////////////////////////////////////|») -->
+      <!-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+          Codeblock...
+
+      <!-- ::::::.. SECTION_TITEL_B ..:::::::::::::::::::::::::::::::::::::::::::: -->
+          Codeblock...
+
+
+      <!-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+      <!-- («|////////////////////////////////////////|__ SECTION_TITEL_A __|////| -->
+
+      Comment Template Instructions:
+      Change the comment template from HTML to the apropriate comment syntx of the current
+      file type. The comment line as a hole should always be be 80 chars long.
+      {% endblock %}
+      ]],
+		})
+	end,
+})
+
+-- Key mappings for visual mode
+vim.keymap.set("v", "<leader>at", function()
+	vim.api.nvim_exec_autocmds("User", { pattern = "Tidy_UP!" })
+	require("avante")
+end, { desc = "avante: Tidy_UP!" })
