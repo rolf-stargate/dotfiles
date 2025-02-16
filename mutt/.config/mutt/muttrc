@@ -89,14 +89,13 @@ bind index,pager L modify-labels
 bind editor <Tab> complete-query
 macro index S "<shell-escape>~/.config/mutt/check-mail.sh >/dev/null 2>&1 &<enter>" "sync mail"
 
-
 # Macros - Message actions
 macro index,pager a "<pipe-message>abook --datafile ~/Dropbox/addressbook \
 --add-email<return>"  "add this sender to abook"
 
 macro index,pager U "<pipe-message>urlscan<Enter>" "call urlscan to extract URLs out of a message"
 
-macro index,pager D "<enter-command>unset resolve<enter><tag-prefix><modify-labels>+deleted -inbox\n<tag-prefix><delete-message><enter-command>set resolve<enter>j" "delete message"
+macro index,pager D ":set confirmappend=no delete=yes resolve=no\n<tag-prefix><modify-labels>+deleted -inbox\n<clear-flag>N<tag-prefix><delete-message>:set confirmappend=yes delete=ask-yes resolve=yes\n<next-undeleted>
 
 # # Macros - Label management
 macro index,pager \;a "<enter-command>unset resolve<enter><tag-prefix><modify-labels>+archive -unread -inbox\n<tag-prefix><save-message>=Archive\n<sync-mailbox><enter><enter-command>set resolve<enter>" "archive message"
