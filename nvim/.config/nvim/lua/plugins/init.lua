@@ -324,7 +324,8 @@ local plugins = {
 		end,
 	},
 
-	{ "mipmip/vim-scimark" },
+	-- { "mipmip/vim-scimark" },
+	{ "rolf-stargate/sc-im.nvim", branch = "dev" },
 	{ "mattn/calendar-vim" },
 	{ "tools-life/taskwiki" },
 	{ "ledger/vim-ledger" },

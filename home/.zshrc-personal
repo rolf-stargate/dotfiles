@@ -20,6 +20,7 @@ alias vim="nvim"
 alias cat="bat"
 alias less="moar"
 alias se="sudoedit"
+alias abook="abook --datafile Dropbox/addressbook"
 # =============================================================  REMAPS  =======
 
 # ======   BATTERY CAPACITY   ==================================================

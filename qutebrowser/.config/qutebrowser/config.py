@@ -2217,7 +2217,7 @@ c.prompt.filebrowser = True
 
 ## Bindings for normal mode
 config.bind("av", 'hint links spawn /home/rolf/scripts/add_and_play {title} {hint-url}')
-config.bind('e', 'edit-url')
+config.bind('<Ctrl-e>', 'edit-url')
 # config.bind("'", 'mode-enter jump_mark')
 # config.bind('+', 'zoom-in')
 # config.bind('-', 'zoom-out')
@@ -2533,3 +2533,4 @@ config.bind('<Ctrl-e>', 'edit-text', mode='insert')
 # config.bind('y', 'prompt-accept yes', mode='yesno')
 
 c.content.user_stylesheets = ['/home/rolf/.config/qutebrowser/stylesheet.css']
+
