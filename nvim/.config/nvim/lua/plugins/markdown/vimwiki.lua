@@ -150,7 +150,12 @@ vim.api.nvim_create_autocmd("FileType", {
 			{ noremap = true, desc = "Print Letter" }
 		)
 
-		vim.keymap.set("n", "<Leader>wtt", ":VimwikiTable 2 2<cr>", { noremap = true, desc = "Create Table" })
+		vim.keymap.set(
+			"n",
+			"<Leader>wtt",
+			":VimwikiTable 2 2<cr>:lua require('sc-im').open_in_scim()<cr>",
+			{ noremap = true, desc = "Create Table" }
+		)
 
 		vim.keymap.set(
 			"n",
