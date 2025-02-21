@@ -61,8 +61,8 @@ macro index,pager gi "<change-vfolder>inbox<enter>" "go to inbox"
 macro index,pager gs "<change-folder>=Sent<enter>" "go to sent"
 macro index,pager gd "<change-folder>=Drafts<enter>" "go to drafts"
 macro index,pager gt "<change-vfolder>deleted<enter>" "go to trash"
-macro index,pager ga "<change-vfolder>all<enter>" "go to all mail"
 macro index,pager gA "<change-vfolder>archive<enter>" "go to archive"
+macro index,pager ga "<change-vfolder>all<enter>" "go to all mail"
 macro index,pager gS "<change-folder>=Spam<enter>" "go to spam"
 macro index,pager gw "<change-vfolder>work<enter>" "go to work"
 macro index,pager gp "<change-vfolder>private<enter>" "go to private"
@@ -80,10 +80,11 @@ bind index,pager <Down> sidebar-next
 bind index,pager r reply
 bind index,pager R group-reply
 bind index,pager F forward-message
-macro index <Space> <tag-entry>j
+macro index <Space> <tag-entry>
 macro index t <tag-entry>j
 bind index T tag-thread
-bind index,pager L modify-labels
+macro index,pager L "<tag-prefix><modify-labels>"
+macro index \;l "<tag-prefix><clear-flag>*<enter>"
 
 # Key bindings - Editor
 bind editor <Tab> complete-query

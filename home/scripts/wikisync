@@ -3,19 +3,44 @@ Purple='\033[0;35m'
 Red='\033[0;31m'
 Nc='\033[0m' # No Color
 
-(cd ~/wiki/sec \
-  && echo -e "${Purple}Syncing Sec Wiki:${Nc}\n" \
-  && git pull && git add -A && git commit -m "UPDATE" && git pull && git push origin main)
+# Function to handle git operations with error checking
+sync_wiki() {
+    local repo_name=$1
+    local repo_path=$2
+    
+    echo -e "\n${Purple}Syncing ${repo_name} Wiki:${Nc}"
+    cd "$repo_path" || return
+    
+    if ! git pull; then
+        notify-send -u critical "Wiki Sync Error" "Merge conflict in ${repo_name} wiki!"
+        return 1
+    fi
+    
+    git add -A
+    if ! git commit -m "UPDATE"; then
+        # No changes to commit is not an error
+        if [ $? -ne 0 ] && ! git diff-index --quiet HEAD --; then
+            notify-send -u critical "Wiki Sync Error" "Commit failed in ${repo_name} wiki!"
+            return 1
+        fi
+    fi
+    
+    if ! git pull; then
+        notify-send -u critical "Wiki Sync Error" "Second pull failed in ${repo_name} wiki!"
+        return 1
+    fi
+    
+    if ! git push origin main; then
+        notify-send -u critical "Wiki Sync Error" "Push failed in ${repo_name} wiki!"
+        return 1
+    fi
+    
+    return 0
+}
 
-(cd ~/wiki/docu \
-  && echo -e "$\n${Purple}Syncing Docu Wiki${Nc}\n" \
-  && git pull && git add -A && git commit -m "UPDATE" && git pull && git push origin main)
-
-(cd ~/wiki/tasks \
-  && echo -e "\n${Purple}Syncing Tasks Wiki${Nc}\n" \
-  && git pull && git add -A && git commit -m "UPDATE" && git pull && git push origin main)
-
-(cd ~/wiki/web \
-  && echo -e "\n${Purple}Syncing Web Wiki${Nc}\n" \
-  && git pull && git add -A && git commit -m "UPDATE" && git pull && git push origin main)
+# Sync all wikis
+sync_wiki "Sec" ~/wiki/sec
+sync_wiki "Docu" ~/wiki/docu
+sync_wiki "Tasks" ~/wiki/tasks
+sync_wiki "Web" ~/wiki/web
 

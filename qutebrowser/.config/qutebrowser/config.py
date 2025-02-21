@@ -1241,7 +1241,7 @@ c.editor.command = ['kitty', '-e', 'nvim' ,'{file}', '-c', 'normal {line}G{colum
 ## Filename of the file to be written to. If not contained in any
 ## argument, the   standard output of the command is read instead.
 ## Type: ShellCommand
-c.fileselect.folder.command = ['kitty', '-e', 'vifm', '--choose-dir', '{}']
+c.fileselect.folder.command = ['/sbin/xterm', '-e', 'vifm', '--choose-dir', '{}']
 
 ## Handler for selecting file(s) in forms. If `external`, then the
 ## commands specified by `fileselect.single_file.command`,
@@ -1252,7 +1252,7 @@ c.fileselect.folder.command = ['kitty', '-e', 'vifm', '--choose-dir', '{}']
 ## Valid values:
 ##   - default: Use the default file selector.
 ##   - external: Use an external command.
-c.fileselect.handler = 'external'
+c.fileselect.handler = 'default'
 
 ## Command (and arguments) to use for selecting multiple files in forms.
 ## The command should write the selected file paths to the specified file
@@ -1262,7 +1262,7 @@ c.fileselect.handler = 'external'
 ## read instead.
 ## Type: ShellCommand
 # c.fileselect.multiple_files.command = ['xterm', '-e', 'ranger', '--choosefiles={}']
-c.fileselect.multiple_files.command = ['kitty ', '-e', 'vifm', '--choose-files', '{}']
+c.fileselect.multiple_files.command = ['/sbin/xterm', '-e', 'vifm', '--choose-files', '{}']
 
 ## Command (and arguments) to use for selecting a single file in forms.
 ## The command should write the selected file path to the specified file
@@ -1270,7 +1270,7 @@ c.fileselect.multiple_files.command = ['kitty ', '-e', 'vifm', '--choose-files',
 ## the file to be written to. If not contained in any argument, the
 ## standard output of the command is read instead.
 ## Type: ShellCommand
-c.fileselect.single_file.command = ['kitty', '-e', 'vifm', '--choose-files', '|', 'head -n 1', '{}']
+c.fileselect.single_file.command = ['/sbin/xterm', '-e', 'vifm', '--choose-files', '|', 'head -n 1', '{}']
 
 ## Font used in the completion categories.
 ## Type: Font
