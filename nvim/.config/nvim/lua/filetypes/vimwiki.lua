@@ -128,6 +128,12 @@ vim.api.nvim_create_autocmd("FileType", {
 			":!md_to_pdf_live_preview % %:h/out/%:t:r.pdf<cr>",
 			{ buffer = true, noremap = true, desc = "Documentation" }
 		)
+		vim.keymap.set(
+			"n",
+			"<leader>op",
+			":!pandoc -F mermaid-filter --from markdown --to beamer % --template ~/.config/nvim/templates/eisvogel.latex -o %:h/out/%:t:r.pdf",
+			{ buffer = true, noremap = true, desc = "Presentation" }
+		)
 		-- <=====================================  MARKDOWN TO LATEX TO PDF  =======
 
 		-- <==============================================  LLM CHAT BUFFER  =======
