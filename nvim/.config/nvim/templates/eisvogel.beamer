@@ -573,10 +573,11 @@ $endif$
 $if(verbatim-in-note)$
 \VerbatimFootnotes % allow verbatim text in footnotes
 $endif$
-\definecolor{default-linkcolor}{HTML}{A50000}
-\definecolor{default-filecolor}{HTML}{A50000}
+\definecolor{default-linkcolor}{HTML}{7900A5}
+\definecolor{default-filecolor}{HTML}{7900A5}
 \definecolor{default-citecolor}{HTML}{4077C0}
 \definecolor{default-urlcolor}{HTML}{4077C0}
+
 
 \hypersetup{
 $if(title-meta)$

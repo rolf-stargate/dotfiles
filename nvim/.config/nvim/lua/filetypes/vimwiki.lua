@@ -131,7 +131,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.keymap.set(
 			"n",
 			"<leader>op",
-			":!pandoc -F mermaid-filter --from markdown --to beamer % --template ~/.config/nvim/templates/eisvogel.latex -o %:h/out/%:t:r.pdf",
+			":!pandoc -F mermaid-filter --from markdown --to beamer % --template ~/.config/nvim/templates/eisvogel -o %:h/out/%:t:r.pdf && pdfpc %:h/out/%:t:r.pdf<cr>",
 			{ buffer = true, noremap = true, desc = "Presentation" }
 		)
 		-- <=====================================  MARKDOWN TO LATEX TO PDF  =======
