@@ -1,0 +1,20 @@
+[database]
+path=/home/rolf/.mail/paul.saynisch@pm.me
+
+[user]
+name="Paul Saynisch"
+primary_email=paul.saynisch@pm.me
+
+[new]
+tags=inbox;
+ignore=.msyncstate;.uidvalidity
+
+[search]
+exclude_tags=deleted;spam;
+
+[maildir]
+synchronize_flags=true
+
+[crypto]
+gpg_path=gpg
+

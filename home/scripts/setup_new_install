@@ -1,0 +1,296 @@
+#!/bin/bash
+
+# Install packages
+
+echo "Installing packages..."
+packages=(
+7zip
+abook
+anki
+antiword
+arandr
+aseprite
+at
+base
+base-devel
+bash-language-server
+bat
+bear
+betterlockscreen
+bind
+bluetuith
+bluez
+brave-bin
+btrfs-progs
+chrony
+cmake
+cozy-audiobooks
+cronie
+cups
+deno
+dhcpcd
+dmenu
+dnsmasq
+docker
+docx2tex
+docx2txt
+dunst
+efibootmgr
+enscript
+feh
+flameshot
+fzf
+gcolor3
+gdb
+git
+gnome-keyring
+google-chrome
+gparted
+gst-plugin-pipewire
+hexyl
+html2md
+htop
+i3-wm
+i3blocks
+i3status
+imagemagick
+intel-ucode
+iwd
+kanata
+keepassxc
+keepmenu
+kitty
+latex-enumitem
+lazygit
+libpulse
+libvirt
+linux
+linux-firmware
+logiops
+lshw
+lua51
+luarocks
+ly
+lynx
+man-db
+man-pages
+mariadb
+mermaid-cli
+mermaid-filter
+moar
+mpv
+muchsync
+mupdf-git
+mycli
+ncspot
+neovim
+neomutt
+net-tools
+networkmanager
+networkmanager-dmenu-git
+nim
+nmap
+nmap-netcat
+noto-fonts
+noto-fonts-cjk
+npm
+ntp
+nvm
+openssh
+openvpn
+paclog
+pandoc-bin
+pdfjs
+pdfpc
+perl-libwww
+pipewire
+pipewire-alsa
+pipewire-jack
+pipewire-pulse
+plocate
+powertop
+pulsemixer
+pygtk
+python-adblock
+python-i3ipc
+python-ibis
+python-mysqlclient
+python-pip
+python-pyarrow
+python-pylint
+python-pynvim
+python-pyqt5
+python-setuptools-scm
+python-virtualenv
+qemu-desktop
+qemu-hw-usb-redirect
+qemu-system-x86
+qrencode
+qutebrowser
+r
+raylib
+rclone
+ripgrep
+rnote
+rofi
+rsync
+rust-src
+rustup
+rxvt-unicode
+sc-im
+screen
+signal-desktop
+simple-scan
+sioyek
+sof-firmware
+speedcrunch
+sqls
+steam
+stow
+stylua
+sxiv
+sysstat
+task
+taskwarrior-tui
+tcpdump
+tcpflow
+texlive-binextra
+texlive-fontsextra
+texlive-fontsrecommended
+texlive-fontutils
+texlive-latex
+texlive-latexextra
+texlive-latexrecommended
+timew
+tmux
+traceroute
+tree
+ttf-anonymous-pro
+ttf-dejavu
+ttf-fira-code
+ttf-font-awesome
+ttf-inconsolata
+ttf-iosevka
+ttf-iosevka-fixed
+ttf-iosevka-nerd
+ttf-nerd-fonts-symbols
+ttf-ubuntu-mono-nerd
+udiskie
+ueberzug
+ufw
+unrar
+unzip
+urlscan
+urxvt-perls
+urxvt-resize-font-git
+userspace-tablet-driver-daemon
+vi
+vifm
+vim
+virt-manager
+virt-viewer
+visidata
+vnstat
+wasm-pack
+wget
+whois
+wireless_tools
+wireplumber
+wpa_supplicant
+x11vnc
+xampp
+xautoclick
+xboxdrv
+xcape
+xclip
+xd
+xdg-utils
+xdotool
+xf86-input-synaptics
+xorg-xcalc
+xorg-xclock
+xorg-xinit
+xorg-xwayland
+xournalpp
+xp-pen-tablet
+xpadneo-dkms
+xterm
+yay
+yay-debug
+youtube-dl
+yt-dlp
+ytfzf
+zathura
+zathura-pdf-poppler
+zip
+zram-generator
+zsh
+zsh-completions
+)
+
+for pkg in "${packages[@]}"; do
+  if ! sudo pacman -S --noconfirm "$pkg"; then
+    echo "$pkg" >> "$HOME/packages_manual_intervention_needed.txt"
+    echo "Failed to install $pkg. Please resolve manually and press Enter to continue..."
+    read
+  fi
+done
+
+# Clone dotfiles
+echo "Cloning dotfiles..."
+mkdir -p $HOME/dotfiles
+git clone git@github.com:rolf-stargate/dotfiles.git $HOME/dotfiles
+cd $HOME/dotfiles
+for dir in *; do
+  if [ -d "$dir" ]; then
+    echo "Stowing $dir..."
+    if ! stow -S "$dir"; then
+      echo "Failed to stow $dir - manual intervention required"
+      echo "$dir" >> "$HOME/dotfiles_manual_intervention_needed.txt"
+      read
+    fi
+  fi
+done
+
+# Setup crontab entries
+echo "Setting up crontab..."
+(crontab -l 2>/dev/null; echo "@reboot rm -rf $HOME/tmp/*") | crontab -
+(crontab -l 2>/dev/null; echo "@reboot $HOME/.config/mutt/check_mail.sh &") | crontab -
+(crontab -l 2>/dev/null; echo "*/10 * * * * task sync") | crontab -
+(crontab -l 2>/dev/null; echo "*/30 * * * * $HOME/scripts/wikisync") | crontab -
+
+# Create directories and symlinks
+echo "Create directories and symlinks"
+mkdir $HOME/tmp
+mkdir $HOME/Dropbox
+mkdir -p $HOME/.mail/paul.saynisch@pm.me/
+
+# Setup environment variables
+echo "Setting up environment variables..."
+sudo tee /etc/environment <<EOL
+DEEPSEEK_API_KEY=keepass
+OPENAI_API_KEY=keepass
+CLAUDE_API_KEY=keepass
+TASK_SERVER_SECRET=keepass
+TASK_SERVER_CLIENT_ID=keepass
+BROWSER="$HOME/scripts/browser.sh"
+EOL
+
+# Setup hosts file
+echo "Setting up hosts file..."
+sudo tee -a /etc/hosts <<EOL
+81.28.6.195 stargate-mail
+185.139.230.165 stargate-task
+EOL
+
+
+# Clone wiki repositories
+echo "Cloning wiki repositories..."
+mkdir -p $HOME/wiki
+cd $HOME/wiki
+git clone git@github.com:rolf-stargate/sec.git
+git clone git@github.com:rolf-stargate/docu.git
+git clone git@github.com:rolf-stargate/tasks.git
+git clone git@github.com:rolf-stargate/web.git
+
+echo "Setup complete!"
