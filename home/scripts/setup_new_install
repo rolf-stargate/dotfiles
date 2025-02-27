@@ -13,9 +13,11 @@ if ! sudo pacman -S --needed git; then
 fi
 
 yay_git_url="https://aur.archlinux.org/yay.git"
+
 if ! git clone "${yay_git_url}"; then
       echo "Faild to git clone ${yay_git_url}. Please resolve manually and press Enter to continue..."
       read
+fi
   
 if ! makepkg -si; then
       cd yay
