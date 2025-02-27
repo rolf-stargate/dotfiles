@@ -127,6 +127,7 @@ openssh
 openvpn
 paclog
 pandoc-bin
+pass
 pdfjs
 pdfpc
 perl-libwww
@@ -148,6 +149,7 @@ python-pylint
 python-pynvim
 python-pyqt5
 python-setuptools-scm
+python-tasklib
 python-virtualenv
 qemu-desktop
 qemu-hw-usb-redirect
@@ -295,14 +297,22 @@ mkdir $HOME/tmp
 mkdir $HOME/Dropbox
 mkdir -p $HOME/.mail/paul.saynisch@pm.me/
 
+# Setting up pass
+echo "Setting up pass..."
+git clone git@github.com/rolf-stargate/pass
+mv pass .password-store
+read "Export your pass gpg key, save it to /home/rolf/pass.pgp and press enter..."
+gpg --import pass.pgp
+shred -u pass.pgp
+
 # Setup environment variables
 echo "Setting up environment variables..."
 sudo tee /etc/environment <<EOL
-DEEPSEEK_API_KEY=keepass
-OPENAI_API_KEY=keepass
-CLAUDE_API_KEY=keepass
-TASK_SERVER_SECRET=keepass
-TASK_SERVER_CLIENT_ID=keepass
+DEEPSEEK_API_KEY=$(pass p/api_keys/deepseek)
+OPENAI_API_KEY=$(pass p/api_keys/openai)
+CLAUDE_API_KEY=$(pass p/api_keys/cloude)
+TASK_SERVER_SECRET=$(pass p/serv/task_server_secret)
+TASK_SERVER_CLIENT_ID=$(pass p/serv/task_server_client_id)
 BROWSER="$HOME/scripts/browser.sh"
 EDITOR="nvim"
 EOL
@@ -327,6 +337,26 @@ echo "Setting zsh as shell.."
 sudo usermod -s /bin/zsh rolf
 
 echo "Setting up ly..."
-sudo systemctl enable ly --now
+# Check if config file exists
+if [ -f /etc/ly/config.ini ]; then
+  # Create backup
+  backup_file="/etc/ly/config.ini.bak-$(date +%Y%m%d%H%M%S)"
+  if ! sudo cp /etc/ly/config.ini "$backup_file"; then
+      echo "Error: Failed to create backup of config.ini"
+      break
+  fi
+
+  # Make the change
+  sudo sed -i "s/^vi_mode = false$/vi_mode = true/" /etc/ly/config.ini
+  sudo sed -i "s/^fg = 8$/fg = 6/" /etc/ly/config.ini
+  sudo sed -i "s/^border_fg = 8$/border_fg = 6/" /etc/ly/config.ini
+  sudo systemctl enable ly --now
+else
+  echo "Error: Could not find /etc/ly/config.ini! Skipping ly setup..."
+fi
+
+echo "Enable bluetooth.service..."
+sudo systemctl enable bluetooth --now
+
 
 echo "Setup complete!"

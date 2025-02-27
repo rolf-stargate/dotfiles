@@ -1,5 +1,7 @@
 [Unit]
 Description=Starts bluetuith in the backgound
+After=bluetooth.service
+Requires=bluetooth.service
 
 [Service]
 ExecStart=/sbin/kitty -e bluetuith
