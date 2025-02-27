@@ -292,6 +292,9 @@ assign [title=".*mpv$"]						        → music
 
 # USER APPLICATIONS TO START AT BOOT
 
+# Polkit
+exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit
+
 ## Auto Tiling
 exec --no-startup-id ~/.config/i3/scripts/i3-alternating-layout/alternating_layouts.py
 
