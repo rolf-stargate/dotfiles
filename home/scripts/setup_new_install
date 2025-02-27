@@ -17,8 +17,8 @@ if ! git clone "${yay_git_url}"; then
       echo "Faild to git clone ${yay_git_url}. Please resolve manually and press Enter to continue..."
       read
   
-cd yay
-if ! makepkg -si;then
+if ! makepkg -si; then
+      cd yay
       echo "Faild to install yay. Please resolve manually and press Enter to continue..."
       read
 fi
