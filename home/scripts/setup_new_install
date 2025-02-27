@@ -1,6 +1,27 @@
 #!/bin/bash
 
 # Install packages
+echo "Installing yay..."
+if ! sudo pacman -S --needed base-devel; then
+      echo "Failed to install base-devel. Please resolve manually and press Enter to continue..."
+      read
+fi
+
+if ! sudo pacman -S --needed git; then
+      echo "Failed to install git. Please resolve manually and press Enter to continue..."
+      read
+fi
+
+yay_git_url="https://aur.archlinux.org/yay.git"
+if ! git clone "${yay_git_url}"; then
+      echo "Faild to git clone ${yay_git_url}. Please resolve manually and press Enter to continue..."
+      read
+  
+cd yay
+if ! makepkg -si;then
+      echo "Faild to install yay. Please resolve manually and press Enter to continue..."
+      read
+fi
 
 echo "Installing packages..."
 packages=(
@@ -42,7 +63,6 @@ flameshot
 fzf
 gcolor3
 gdb
-git
 gnome-keyring
 google-chrome
 gparted
@@ -229,10 +249,12 @@ zsh-completions
 )
 
 for pkg in "${packages[@]}"; do
-  if ! sudo pacman -S --noconfirm "$pkg"; then
-    echo "$pkg" >> "$HOME/packages_manual_intervention_needed.txt"
-    echo "Failed to install $pkg. Please resolve manually and press Enter to continue..."
-    read
+  if ! sudo pacman -S --needed --noconfirm "$pkg"; then
+    if ! yay -S --needed --noconfirm "$pkg"; then
+      echo "$pkg" >> "$HOME/packages_manual_intervention_needed.txt"
+      echo "Failed to install $pkg. Please resolve manually and press Enter to continue..."
+      read
+    fi
   fi
 done
 

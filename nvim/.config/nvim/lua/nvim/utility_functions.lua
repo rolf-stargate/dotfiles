@@ -2,7 +2,7 @@
 -- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 -- Generate UUID
-function Gen_uuid(len)
+function Gen_uuid(len) --> random string with length len
 	local char_set = {}
 	for c = 48, 57 do
 		table.insert(char_set, string.char(c))
@@ -23,7 +23,7 @@ function Gen_uuid(len)
 end
 
 -- Add Leading Zeros
-function Add_leading_zeros(num, length)
+function Add_leading_zeros(num, length) --> "00034" --> if no 0 needed -->  num as str
 	local num_str = tostring(num)
 	local zeros_needed = length - #num_str
 	if zeros_needed > 0 then
@@ -33,7 +33,7 @@ function Add_leading_zeros(num, length)
 end
 
 -- Get Window Width
-Get_window_width = function()
+Get_window_width = function() --> num
 	local width = vim.fn.winwidth(0)
 	return width
 end
@@ -44,37 +44,70 @@ Get_window_height = function()
 end
 
 -- Function to get the base name of the current buffer file
-function Get_buffer_base_name()
+function Get_buffer_base_name() --> num
 	local file_path = vim.api.nvim_buf_get_name(0)
 	local base_name = vim.fn.fnamemodify(file_path, ":r")
 	return base_name
 end
 
--- Get the current visual selection
--- Multiline not supported at the moment
-function Get_visual_selection()
-	local bufnr = vim.api.nvim_get_current_buf()
+function Get_visual_selection() --> continous string with \n
 	local start_pos = vim.fn.getpos("'<")
 	local end_pos = vim.fn.getpos("'>")
-	local start_row = start_pos[2] - 1
-	local start_col = start_pos[3] - 1
-	local end_row = end_pos[2] - 1
-	local end_col = end_pos[3] - 1
+	local lines = vim.fn.getline(start_pos[2], end_pos[2])
+	print("penis")
+	print(lines)
 
-	if start_row == end_row then
-		return vim.api.nvim_buf_get_text(bufnr, start_row, start_col, end_row, end_col + 1, {})[1]
-	else
-		print("Multiline Selection Not Yet Implemented!")
-		error("Multiline Selection Not Yet Implemented!")
-		return 1
+	if #lines == 0 then
+		return ""
 	end
+
+	-- Handle multi-line selection
+	if #lines > 1 then
+		lines[#lines] = string.sub(lines[#lines], 1, end_pos[3])
+		lines[1] = string.sub(lines[1], start_pos[3])
+	else
+		lines[1] = string.sub(lines[1], start_pos[3], end_pos[3])
+	end
+
+	return table.concat(lines, "\n")
+end
+
+function Save_table_as_lines_to_tmp_file(tabl, filename) --> absolute path
+	local path = "/tmp/" .. filename
+	local file = io.open(path, "w")
+	if not file then
+		print("Error: Could not open file " .. path)
+		return
+	end
+
+	for _, line in ipairs(tabl) do
+		file:write(line .. "\n")
+	end
+	file:close()
+	print("Saved matches to " .. path)
+	return path
+end
+
+function Save_string_to_tmp_file(str, filename) --> absolute path
+	local path = "/tmp/" .. filename
+	local file = io.open(path, "w")
+	if not file then
+		print("Error: Could not open file " .. path)
+		return
+	end
+
+	file:write(str)
+	file:close()
+
+	print("Saved matches to " .. path)
+	return path
 end
 
 -- Run shell command and return output as a table
-function Get_cmd_output(cmd)
+function Get_cmd_output(cmd) --> table[#lines] or empty table
 	local handle = io.popen(cmd)
-	local result = handle:read("*a")
 	handle:close()
+	local result = handle:read("*a")
 
 	local lines = {}
 	for line in result:gmatch("([^\n]*)\n?") do
@@ -86,7 +119,7 @@ function Get_cmd_output(cmd)
 end
 
 -- Append Line below current cursor
-function Append_line_below(text)
+function Append_line_below(text) --> void
 	local buf = vim.api.nvim_get_current_buf()
 	local cursor_pos = vim.api.nvim_win_get_cursor(0)
 	local current_line = cursor_pos[1]
@@ -95,7 +128,7 @@ end
 
 -- Change to the directory of the buffer
 -- Run a cmd and change back
-function Change_to_buffer_dir_and_back(cmd)
+function Change_to_buffer_dir_and_back(cmd) --> void
 	-- Get the full path of the current buffer
 	local buffer_path = vim.fn.expand("%:p")
 	-- Get the directory of the current buffer
@@ -111,7 +144,7 @@ function Change_to_buffer_dir_and_back(cmd)
 end
 
 -- Create auto closing buffer
-function Create_temporay_horizontal_split(height, path, keymap_close)
+function Create_temporay_horizontal_split(height, path, keymap_close) --> void
 	keymap_close = keymap_close or "<leader>qq"
 	-- Create and move to a new split if corrected height is required
 	vim.cmd("botright " .. height .. "split " .. path)
@@ -136,7 +169,7 @@ function Create_temporay_horizontal_split(height, path, keymap_close)
 end
 
 -- Toggle horizontal split with height between 0 and 1
-function Toggle_large_split(path, height)
+function Toggle_large_split(path, height) --> void
 	-- Get all windows in the current tab page
 	local windows = vim.api.nvim_tabpage_list_wins(0)
 	local window_count = #windows
@@ -169,13 +202,13 @@ end
 
 -- Helper function to determine indentation level (optional step if indentation
 -- matters)
-function Get_indent_depth()
+function Get_indent_depth() --> number
 	local cursor = vim.api.nvim_win_get_cursor(0)
 	local line = vim.api.nvim_get_current_line()
 	return vim.fn.indent(cursor[1])
 end
 
--- Function to compute padding between start and end text
+-- Function to compute padding length between start and end text
 function Fill_between_with_char(target_length, start_text, end_text, fill_char, indent_length)
 	local total_length = target_length - indent_length
 	local start_length = vim.fn.strdisplaywidth(start_text)
