@@ -27,7 +27,7 @@ if ! which yay; then
         read
   fi
   cd ..
-  rm -r yay
+  rm -rf yay
 fi
 
 echo "Installing packages..."
