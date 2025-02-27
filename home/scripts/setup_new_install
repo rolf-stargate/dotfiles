@@ -12,17 +12,22 @@ if ! sudo pacman -S --needed git; then
       read
 fi
 
-yay_git_url="https://aur.archlinux.org/yay.git"
 
-if ! git clone "${yay_git_url}"; then
-      echo "Faild to git clone ${yay_git_url}. Please resolve manually and press Enter to continue..."
-      read
-fi
+if ! which yay; then
+  yay_git_url="https://aur.archlinux.org/yay.git"
+  if ! git clone "${yay_git_url}"; then
+        echo "Faild to git clone ${yay_git_url}. Please resolve manually and press Enter to continue..."
+        read
+  fi
+    
+  cd yay
   
-if ! makepkg -si; then
-      cd yay
-      echo "Faild to install yay. Please resolve manually and press Enter to continue..."
-      read
+  if ! makepkg -si; then
+        echo "Faild to install yay. Please resolve manually and press Enter to continue..."
+        read
+  fi
+  cd ..
+  rm -r yay
 fi
 
 echo "Installing packages..."
