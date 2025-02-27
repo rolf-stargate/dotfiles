@@ -329,6 +329,9 @@ local plugins = {
 	{ "mattn/calendar-vim" },
 	{ "tools-life/taskwiki" },
 	{ "ledger/vim-ledger" },
+	{ "vhyrro/luarocks.nvim", priority = 1001, opts = {
+		rocks = { "magick" },
+	} },
 	{ "3rd/image.nvim", branch = "feat/toggle-rendering", dependencies = { "luarocks.nvim" } },
 	{ "TobinPalmer/pastify.nvim" },
 	{ "jubnzv/mdeval.nvim" },
