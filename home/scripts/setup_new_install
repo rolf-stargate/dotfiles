@@ -238,6 +238,7 @@ xorg-xcalc
 xorg-xclock
 xorg-xinit
 xorg-xwayland
+xorg-server
 xournalpp
 xp-pen-tablet
 xpadneo-dkms
@@ -303,6 +304,7 @@ CLAUDE_API_KEY=keepass
 TASK_SERVER_SECRET=keepass
 TASK_SERVER_CLIENT_ID=keepass
 BROWSER="$HOME/scripts/browser.sh"
+EDITOR="nvim"
 EOL
 
 # Setup hosts file
@@ -312,7 +314,6 @@ sudo tee -a /etc/hosts <<EOL
 185.139.230.165 stargate-task
 EOL
 
-
 # Clone wiki repositories
 echo "Cloning wiki repositories..."
 mkdir -p $HOME/wiki
@@ -321,5 +322,11 @@ git clone git@github.com:rolf-stargate/sec.git
 git clone git@github.com:rolf-stargate/docu.git
 git clone git@github.com:rolf-stargate/tasks.git
 git clone git@github.com:rolf-stargate/web.git
+
+echo "Setting zsh as shell.."
+sudo usermod -s /bin/zsh rolf
+
+echo "Setting up ly..."
+sudo systemctl enable ly --now
 
 echo "Setup complete!"
