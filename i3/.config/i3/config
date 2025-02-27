@@ -148,10 +148,10 @@ bindsym $mod+q kill
 # bindsym $mod+$right focus right
 
 # Move focus for easy-i3-neovim-nav install with: cargo install easy-i3-neovim-nav
-bindsym $mod+$left exec --no-startup-id /home/rolf/.cargo/bin/easy-i3-neovim-nav focus left
-bindsym $mod+$down exec --no-startup-id /home/rolf/.cargo/bin/easy-i3-neovim-nav focus down
-bindsym $mod+$up exec --no-startup-id /home/rolf/.cargo/bin/easy-i3-neovim-nav focus up
-bindsym $mod+$right exec --no-startup-id /home/rolf/.cargo/bin/easy-i3-neovim-nav focus right
+bindsym $mod+$left exec --no-startup-id /home/rolf/.config/i3/scripts/easy-i3-neovim-nav focus left
+bindsym $mod+$down exec --no-startup-id /home/rolf/.config/i3/scripts/easy-i3-neovim-nav focus down
+bindsym $mod+$up exec --no-startup-id /home/rolf/.config/i3/scripts/easy-i3-neovim-nav focus up
+bindsym $mod+$right exec --no-startup-id /home/rolf/.config/i3/scripts/easy-i3-neovim-nav focus right
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -554,7 +554,7 @@ bar {
     position top
 
     # https://github.com/vivien/i3blocks
-    output DisplayPort-0
+    output DP-1
     output eDP-1
 
 
@@ -582,12 +582,10 @@ bar {
 
     position top
 
-    # https://github.com/vivien/i3blocks
-    # output DisplayPort-0
-    output DisplayPort-1
-    output DisplayPort-2
-    output DisplayPort-3
-    output DisplayPort-4
+    output DP-2
+    output DP-3
+    output DP-4
+    output DP-5
 
 
 		status_command i3blocks -c ~/.config/i3/i3blocks.conf
