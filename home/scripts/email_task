@@ -10,8 +10,6 @@ echo "" > /home/rolf/foo/debug
 
 while read line
 do
-  # echo "${line}" > /home/rolf/foo/debug
-  
   if [[ -z "${line}" ]]; then
     continue
   fi
@@ -36,13 +34,6 @@ do
     message_id="${BASH_REMATCH[1]}"
   fi
 done
-
-echo "${date}" >> /home/rolf/foo/debug
-echo "${to}" >> /home/rolf/foo/debug
-echo "${from}" >> /home/rolf/foo/debug
-echo "${subject}" >> /home/rolf/foo/debug
-echo "${message_id}" >> /home/rolf/foo/debug
-
 
 task add "Message-ID: ${message_id}" +email +neomutt
 id=$(task +LATEST _uuid)

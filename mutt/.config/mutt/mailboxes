@@ -4,8 +4,9 @@ virtual-mailboxes "archive" "notmuch://?query=tag:archive not tag:deleted"
 virtual-mailboxes "sent" "notmuch://?query=tag:sent not tag:deleted"
 virtual-mailboxes "work" "notmuch://?query=tag:work not tag:deleted"
 virtual-mailboxes "private" "notmuch://?query=tag:private not tag:deleted"
-virtual-mailboxes "work todo" "notmuch://?query=tag:work and tag:todo not tag:deleted"
-virtual-mailboxes "private todo" "notmuch://?query=tag:private and tag:todo not tag:deleted"
+virtual-mailboxes "todo" "notmuch://?query=tag:todo not tag:deleted"
+virtual-mailboxes "work_todo" "notmuch://?query=tag:work and tag:todo not tag:deleted"
+virtual-mailboxes "private_todo" "notmuch://?query=tag:private and tag:todo not tag:deleted"
 virtual-mailboxes "deleted" "notmuch://?query=tag:deleted"
 
 tag-transforms  "inbox" "@" \
