@@ -64,8 +64,8 @@ hi Conceal guifg=#6272a4 guibg=NONE gui=NONE
 hi CursorColumn guifg=NONE guibg=#322437 gui=NONE
 hi CursorLine guifg=NONE guibg=#2E2E2E gui=NONE
 hi Directory guifg=#82cfe0 guibg=NONE gui=NONE
-hi DiffAdd guifg=#e644f6 guibg=NONE gui=NONE
-hi DiffChange guifg=#d726c6 guibg=NONE gui=NONE
+hi DiffAdd guifg=#44F6B2 guibg=NONE gui=NONE
+hi DiffChange guifg=#91E615 guibg=NONE gui=bold
 hi DiffDelete guifg=#ff5555 guibg=NONE gui=NONE
 hi DiffText guifg=#6272a4 guibg=NONE gui=NONE
 hi ErrorMsg guifg=#f44747 guibg=NONE gui=NONE
