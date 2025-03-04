@@ -1,0 +1,99 @@
+#!/usr/bin/env bash
+
+function print_error_and_wait() {
+  echo -e "\e[31m$1\e[0m"
+  echo -e "\e[31mPlease resolve manually, press Enter to continue...\e[0m"
+  read
+  echo -e "\n"
+}
+
+function print_error_and_exit() {
+  echo -e "\e[31m$1\e[0m"
+  echo -e "\e[31mAbort...\e[0m"
+  exit 1
+}
+
+function print_error_and_ask() {
+  echo -e "\e[31m$1\e[0m"
+  read
+  if [[ $2 != $REPLY ]]; then
+    echo -e "\e[31mAbort...\e[0m"
+    exit 1
+  fi
+  echo -e "\n"
+}
+
+function print_section() {
+  echo -e "\n"
+  echo -e "\e[32m$1\e[0m"
+  echo -e "\e[32m--------------------------------------------------------------------------------\e[0m"
+}
+
+function print_info() {
+  echo -e "\e[32m$1\e[0m"
+}
+
+dependencies=(
+libvirt
+qemu-system-x86
+edk2-ovmf
+swtpm
+)
+
+print_section "Installing dependencies..."
+for pkg in "${dependencies[@]}"; do
+  echo -e "\e[32mInstalling ${pkg}...\e[0m"
+  if ! yay -S --needed --noconfirm "$pkg"; then
+    print_error_and_wait "Could not install ${pkg}"
+    read
+  fi
+done
+
+print_info "Enable and start libvirt daemon..."
+if ! sudo systemctl enable libvirtd; then
+  print_error_and_wait "Could not enable libvirtd.service!"
+fi
+
+if ! sudo systemctl start libvirtd; then
+  print_error_and_wait "Could not start libvirtd.service!"
+fi
+
+print_info "Checking if hardware assisted virtualization is enabled..."
+if ! grep -Ec "(vmx|svm)" /proc/cpuinfo; then
+  print_error_and_exit "hardware assisted virtualization is not enabled, please enable it in the UEFI(BIOS)!"
+fi
+
+if ! groups $(whoami) | grep libvirt; then 
+  echo "Do you want to add $(whoami) to the group libvirt? (y/n) "
+  read
+  if [[ $REPLY == "y" ]]; then
+    if ! sudo usermod -aG libvirt $(whoami); then
+      print_error_and_wait "Could not add $(whoami) to the libvirt group!"
+    fi
+  else
+    echo "skipping..."
+  fi
+fi
+
+print_section "Setting up VM..."
+echo "How should the vm be named? "
+read name
+echo "How many GB should the main disk image have?"
+read qcow_size
+echo "Where should it be stored? (empty for default /var/lib/libvirt/images)"
+read qcow_path
+if [[ -z "$qcow_path" ]]; then
+  qcow_path="/var/lib/libvirt/images"
+fi
+qcow_path="${qcow_path%/}/${name}.qcow2"
+
+if ls "${qcow_path}"; then
+  print_error_and_ask "WARNING!!! ${qcow_path} already exits, override it? (y/n default: n)" "y"
+fi
+
+print_info "Creating image under ${qcow_path} with a size of ${qcow_size} G..."
+if ! sudo qemu-img create -f qcow2 "${qcow_path}" "${qcow_size}G"; then
+  print_error_and_exit "Could not create ${qcow_path}!"
+fi
+
+
