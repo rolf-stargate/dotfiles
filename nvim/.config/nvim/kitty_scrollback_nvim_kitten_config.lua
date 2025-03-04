@@ -4,7 +4,7 @@ require("nvim.options")
 require("nvim.keymaps")
 
 -- put your general Neovim configurations here
-vim.g.mapleader = " "
+vim.g.mapleader = ";"
 vim.g.maplocalleader = ","
 
 vim.keymap.set({ "n" }, "<C-e>", "5<C-e>", {})
@@ -17,6 +17,9 @@ vim.opt.runtimepath:append(vim.fn.stdpath("data") .. "/site/pack/packer/opt/kitt
 vim.opt.runtimepath:append(vim.fn.stdpath("data") .. "/site/pack/mikesmithgh/start/kitty-scrollback.nvim") -- pack
 require("kitty-scrollback").setup({
 	keymaps_enabled = false, -- put your kitty-scrollback.nvim configurations here
+	status_window = {
+		autoclose = true,
+	},
 	paste_window = {
 		yank_register_enabled = false,
 	},
