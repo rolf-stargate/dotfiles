@@ -2,7 +2,7 @@
 -- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 vim.api.nvim_create_autocmd("BufWritePost", {
-	pattern = "*.md",
+	pattern = "vimwiki",
 	callback = function()
 		local cmd = "task sync > /dev/null &"
 		local output = vim.fn.system(cmd)
@@ -16,9 +16,16 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 })
 
 vim.api.nvim_create_autocmd("CursorHold", {
-	pattern = "*.md",
+	pattern = "vimwiki",
 	callback = function()
 		vim.cmd("lua require('hover').hover()")
+	end,
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = "vimwiki",
+	callback = function()
+		vim.cmd("set nowrap")
 	end,
 })
 

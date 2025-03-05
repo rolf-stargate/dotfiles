@@ -121,16 +121,30 @@ vim.keymap.set("n", "<Leader>b", "<C-^>", {
 
 -- Capitalise Last Word
 
-vim.keymap.set("n", "<leader>u", "<esc>bgUaw", {
+vim.keymap.set("n", "<leader>U", "<esc>bg~aw", {
 	noremap = true,
 	silent = true,
-	desc = "Capitalise Last Word",
+	desc = "Capitalise/Lowercase Last Word",
 })
 
-vim.keymap.set("i", "<leader>u", "<esc>bgUawea", {
+vim.keymap.set("i", "<leader>U", "<esc>bg~awea", {
 	noremap = true,
 	silent = true,
-	desc = "Capitalise Last Word",
+	desc = "Capitalise/Lowercase Last Word",
+})
+
+-- Capitalise First Letter
+
+vim.keymap.set("n", "<leader>u", "<esc>b~e", {
+	noremap = true,
+	silent = true,
+	desc = "Capitalise/Lowercase First Letter",
+})
+
+vim.keymap.set("i", "<leader>u", "<esc>b~ea", {
+	noremap = true,
+	silent = true,
+	desc = "Capitalise/Lowercase First Letter",
 })
 
 -- Crtl Backspace
