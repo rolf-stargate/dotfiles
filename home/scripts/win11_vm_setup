@@ -77,15 +77,15 @@ fi
 
 print_section "Setting up VM..."
 echo "How should the vm be named? "
-read name
+read vm_name
 echo "How many GB should the main disk image have?"
 read qcow_size
-echo "Where should it be stored? (empty for default /var/lib/libvirt/images)"
+echo "Where should it be stored? (empty for default: /var/lib/libvirt/images)"
 read qcow_path
 if [[ -z "$qcow_path" ]]; then
   qcow_path="/var/lib/libvirt/images"
 fi
-qcow_path="${qcow_path%/}/${name}.qcow2"
+qcow_path="${qcow_path%/}/${vm_name}.qcow2"
 
 if ls "${qcow_path}"; then
   print_error_and_ask "WARNING!!! ${qcow_path} already exits, override it? (y/n default: n)" "y"
@@ -95,5 +95,6 @@ print_info "Creating image under ${qcow_path} with a size of ${qcow_size} G..."
 if ! sudo qemu-img create -f qcow2 "${qcow_path}" "${qcow_size}G"; then
   print_error_and_exit "Could not create ${qcow_path}!"
 fi
+
 
 

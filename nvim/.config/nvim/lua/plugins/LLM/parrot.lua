@@ -3,6 +3,7 @@ require("parrot").setup({
 		openai = {
 			api_key = os.getenv("OPENAI_API_KEY"),
 		},
+		ollama = {},
 		deepseek = {
 			style = "openai",
 			api_key = os.getenv("DEEPSEEK_API_KEY"),
@@ -95,6 +96,49 @@ require("parrot").setup({
 
         Provided text:
         ```{{filecontent}}`
+      ]]
+			local model_obj = prt.get_model("command")
+			prt.Prompt(params, prt.ui.Target.new, model_obj, nil, template)
+		end,
+		StructureCode = function(prt, params)
+			local template = [[
+
+I have some code from the file `{{filename}}` written in `{{filetype}}`. The snippet is as follows:
+
+```{{filetype}}
+{{filecontent}}
+```
+
+I need your help to organize this code into logical sections. Sections may be nested, and each should start and end with a unique comment line using the appropriate syntax for `{{filetype}}`. Please follow these formatting templates based on section levels:
+
+#### Template: Top Level Section
+```filetype
+{{comment_syntax}} |////|_ SECTION_NAME _|//////////////////////////////////////|
+    code...
+{{comment_syntax}} |////////////////////////////////////|_ »SECTION_NAME« _|////|
+```
+
+#### Template: Second Level Section
+```filetype
+{{comment_syntax}} ======: SECTION_NAME :========================================
+    code...
+{{comment_syntax}} ======================================: »SECTION_NAME« :======
+```
+
+#### Template: Third Level Section
+```filetype
+{{comment_syntax}} ------: SECTION_NAME :----------------------------------------
+    code...
+{{comment_syntax}} --------------------------------------: »SECTION_NAME« :------
+```
+
+### Additional Guidelines
+- Replace `{{comment_syntax}}` with the correct comment notation for the file type (e.g., `#` for Python, `//` for JavaScript).
+- For `SECTION_NAME`, use uppercase letters and underscores for spaces.
+- Ensure all comment lines extend to the 80th column.
+- Consider code indentation when determining the length of the filler characters (`/`, `=`, or `-`).
+- At the start of a section, vary the number of filler characters after `SECTION_NAME` based on the indentation level of the section.
+- At the end of a section, adjust the number of filler characters before `SECTION_NAME` to precisely align the comment line to the 80th column, accounting for the indentation.
       ]]
 			local model_obj = prt.get_model("command")
 			prt.Prompt(params, prt.ui.Target.new, model_obj, nil, template)
@@ -317,4 +361,81 @@ require("parrot").setup({
 			prt.ChatNew(params, chat_prompt)
 		end,
 	},
+})
+vim.keymap.set("n", "<leader>gg", ":PrtChatRespond<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Chat Respond",
+})
+
+vim.keymap.set("n", "<leader>gt", ":PrtChatToggle<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Chat Toggle",
+})
+
+vim.keymap.set("n", "<leader>gx", ":PrtChatStop<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Chat Stop",
+})
+
+vim.keymap.set("n", "<leader>g.", ":PrtRetry<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Chat Repeat Last Rewrite/Append/Prepend",
+})
+
+vim.keymap.set("n", "<leader>gf", ":PrtChatFinder<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Fuzzy Chat Files",
+})
+
+vim.keymap.set("n", "<leader>gd", ":PrtChatDelete<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Chat Delete",
+})
+
+vim.keymap.set("n", "<leader>gsp", ":PrtProvider<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Chat Select Provider",
+})
+
+vim.keymap.set("n", "<leader>gsm", ":PrtModel<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Chat Select Model",
+})
+
+vim.keymap.set("v", "<leader>gp", ":PrtChatPaste<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Chat Paste Visual Selection",
+})
+
+vim.keymap.set("v", "<leader>gr", ":PrtRewrite<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Chat Rewrite Visual Selection",
+})
+
+vim.keymap.set("v", "<leader>ge", ":PrtEdit<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Chat Edit Visual Selection",
+})
+
+vim.keymap.set("v", "<leader>ga", ":PrtAppend<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Chat Append Visual Selection",
+})
+
+vim.keymap.set("v", "<leader>gA", ":PrtPrepend<cr>", {
+	noremap = true,
+	silent = true,
+	desc = "Chat Prepend Visual Selection",
 })
